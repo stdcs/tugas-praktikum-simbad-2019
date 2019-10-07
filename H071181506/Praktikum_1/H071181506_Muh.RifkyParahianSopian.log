@@ -1,0 +1,231 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191006 18:21:54	     8 Query	SHOW DATABASES
+191006 18:22:35	     8 Query	CREATE DATABASE tugas1
+191006 18:22:42	     8 Query	SELECT DATABASE()
+		     8 Init DB	tugas1
+191006 18:29:21	     8 Query	CREATE TABLE table_mahasiswa(
+id_mhs int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nim_mhs VARCHAR(10) NOT NULL UNIQU
+)
+191006 18:29:47	     8 Query	CREATE TABLE table_mahasiswa(
+id_mhs int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nim_mhs VARCHAR(10) NOT NULL UNIQUE
+)
+191006 18:33:10	     8 Query	show tables
+191006 18:48:13	     8 Query	create table table_matakuliah(
+id_mk int primary key
+)
+191006 18:51:36	     8 Query	alter table table_mahasiswa add status_mhs enum('aktif','lulus')
+191006 18:57:44	     8 Query	alter table table_matakuliah add(kode_mk varchar(5) not null,
+nama_mk varchar(25) not null,
+sks_mk enum('2','3','4')
+)
+191006 18:58:13	     8 Query	DESCRIBE table table_matakuliah
+191006 18:58:20	     8 Query	DESCRIBE table_matakuliah
+191006 19:01:31	     8 Query	rename table_mahasiswa to tb_mahasiswa
+191006 19:02:19	     8 Query	alter table table_mahasiswa rename tb_mahasiswa
+191006 19:03:15	     8 Query	alter table table_matakuliah rename to tb_matakuliah
+191006 19:05:17	     8 Query	show tables
+191006 19:05:59	     8 Query	describe tb_mahasiswa
+191006 19:06:44	     8 Query	describe tb_matakuliah
+191006 19:09:31	     8 Query	alter table tb_mahasiswa change id_mhs id
+191006 19:09:37	     8 Query	alter table tb_mahasiswa change id_mhs id int
+191006 19:09:48	     8 Query	describe tb_mahasiswa
+191006 19:10:20	     8 Query	alter table tb_mahasiswa change nim_mhs nim varchar(10)
+191006 19:11:22	     8 Query	alter table tb_mahasiswa change status_mhs status enum('aktif','lulus')
+191006 19:14:38	     8 Query	desc tb_matakuliah
+191006 19:16:05	     8 Query	alter table tb_matakuliah change id_mk id int(11)
+191006 19:16:34	     8 Query	alter table tb_matakuliah change kode_mk kode varchar(5)
+191006 19:17:13	     8 Query	alter table tb_matakuliah change nama_mk nama varchar(25)
+191006 19:17:40	     8 Query	alter table tb_matakuliah change sks_mk sks enum('2','3','4')
+191006 19:17:54	     8 Query	desc tb_matakuliah
+191006 19:18:03	     8 Query	desc tb_mahasiswa
+191006 19:34:59	     9 Connect	root@localhost as anonymous on 
+		     9 Query	select @@version_comment limit 1
+191006 19:36:14	     9 Query	set global general_log_file = 'tugas1.log'
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191006 19:37:02	     9 Query	show databases
+191006 19:37:23	     9 Query	create database skripsi
+191006 19:37:28	     9 Query	show databases
+191006 19:38:13	     9 Query	SELECT DATABASE()
+		     9 Init DB	skripsi
+191006 19:58:12	     9 Query	create table tnilai
+191006 20:03:06	     9 Query	create table tnilai(
+id_nilai int(2) primary key,
+nilai_huruf varchar(2) not null,
+bobot_nilai decimal(3,2) not null unique
+)
+191006 20:04:34	     9 Query	desc tnilai
+191006 20:09:18	     9 Query	create table mahasiswa_prodi(
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+no_hp varchar(20),
+191006 20:09:26	     9 Query	nama varchar(255) NOT NULL,
+nama varchar(255) NOT NULL,
+191006 20:10:53	     9 Query	create table mahasiswa_prodi(
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+no_hp varchar(20) NOT NULL,
+status varchar(100) NOT NULL,
+nama_prodi varchar(200) NOT NULL,
+tgl_masuk date NOT NULL,
+tgl_lulus date NOT NULL
+)
+191006 20:16:50	     9 Query	desc table mahasiswa_prodi
+191006 20:16:57	     9 Query	desc mahasiswa_prodi
+191006 20:18:13	     9 Query	create table dosen_penguji(
+nama varchar(200) NOT NULL
+191006 20:19:52	     9 Query	create table dosen_penguji(
+nama varchar(200) NOT NULL,
+nip varchar(50) NOT NULL,
+kode_dosen varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+nama_prodi varchar(200) NOT NULL,
+jenis_penguji char(1) NOT NULL
+)
+191006 20:21:06	     9 Query	desc tables
+191006 20:21:12	     9 Query	desc table
+191006 20:21:16	     9 Query	desc tables
+191006 20:21:39	     9 Query	describe skripsi
+191006 20:21:52	     9 Query	show tables
+191006 20:25:03	     9 Query	create table tseminar(
+id_seminar int(5) NOT NULL PRIMARY KEY,
+tanggal date NOT NULL,
+id_nilai int(2) NOT NULL UNIQUE,
+jenis_seminar char(1) NOT NULL,
+id_mahasiswa int(255) NOT NULL UNIQUE,
+status varchar(20) NOT NULL,
+id_pembimbing int(255) NOT NULL UNIQUE,
+id_penguji int(255) NOT NULL UNIQUE
+)
+191006 20:26:00	     9 Query	create table untitled(
+nama varchar(255) NOT NULL
+)
+191006 20:29:30	     9 Query	create table tsk_pembimbing(
+id_SK int(4) NOT NULL PRIMARY KEY,
+id_skripsi int(5) NOT NULL UNIQUE,
+id_semester int(3) NOT NULL UNIQUE,
+no_sk varchar(20) NOT NULL,
+tanggal_SK date NOT NULL
+)
+191006 20:31:24	     9 Query	create table tmahasiswa(
+id_mahasiswa int(255) NOT NULL PRIMARY KEY,
+nama varchar(255) NOT NULL,
+id_mahasiswa int(255) NOT NULL PRIMARY KEY,
+191006 20:34:07	     9 Query	create table tmahasiswa(
+id_mahasiswa int(255) NOT NULL,
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+no_hp varchar(20) NOT NULL,
+alamat varchar(255) NOT NULL,
+tgl_masuk date NOT NULL,
+tgl_lulus date NOT NULL,
+status varchar(100),
+id_prodi int(5),
+PRIMARY KEY(id_mahasiswa,nim)
+)
+191006 20:35:23	     9 Query	show tables
+191006 20:37:47	     9 Query	create table tpenguji(
+id_penguji int(255) NOT NULL,
+191006 20:39:03	     9 Query	create table tpenguji(
+id_penguji int(255) NOT NULL PRIMARY KEY,
+id_dosen int(255) NOT NULL UNIQUE,
+jenis_penguji char(1) NOT NULL
+)
+191006 20:40:00	     9 Query	create table tdosen(
+id_dosen int(255) NOT NULL PRIMARY KEY,
+nama(varchar(200) NOT NULL,
+)
+191006 20:40:52	     9 Query	create table tdosen(
+id_dosen int(255) NOT NULL,
+nama(varchar(200) NOT NULL,
+NIP
+191006 20:42:29	     9 Query	create table tdosen(
+id_dosen int(255) NOT NULL,
+nama varchar(200) NOT NULL,
+nip varchar(50) NOT NULL,
+kode_dosen varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+id_prodi int(5) NOT NULL UNIQUE,
+PRIMARY KEY(id_dosen,nip,kode_dosen)
+)
+191006 22:06:28	     9 Query	create table dosen_pembimbing(
+nama varchar(200) NOT NULL,
+nip varchar(50) NOT NULL,
+kode_dosen varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+nama_prodi varchar(200) NOT NULL,
+jenis_pembimbing varchar(7) NOT NULL
+)
+191006 22:06:35	     9 Query	show tables
+191006 22:08:43	     9 Query	create table tsidang(
+id_sidang int(5) NOT NULL PRIMARY KEY,
+id_mahasiswa int(255) NOT NULL UNIQUE,
+tanggal_sidang date NOT NULL,
+id_nilai int(2) NOT NULL UNIQUE,
+status varchar(20)
+)
+191006 22:09:44	     9 Query	create table tpembimbing(
+id_pembimbing int(255) NOT NULL PRIMARY KEY,
+jenis_pembimbing varchar(7) NOT NULL,
+id_dosen int(255) NOT NULL UNIQUE
+)
+191006 22:10:10	     9 Query	show tables
+191006 22:33:42	     9 Query	create table tskripsi(
+id_skripsi int(5) NOT NULL PRIMARY KEY,
+id_mahasiswa int(255) NOT NULL UNIQUE,
+judul varchar(255) NOT NULL,
+id_pembimbing int(255) NOT NULL PRIMARY KEY,
+id_penguji int(255) NOT NULL PRIMARY KE
+191006 22:34:45	     9 Query	create table tskripsi(
+id_skripsi int(5) NOT NULL PRIMARY KEY,
+id_mahasiswa int(255) NOT NULL UNIQUE,
+judul varchar(255) NOT NULL,
+id_pembimbing int(255) NOT NULL UNIQUE,
+id_penguji int(255) NOT NULL UNIQUE
+)
+191006 22:34:52	     9 Query	show tables
+191007  0:51:35	     9 Query	create table tprodi(
+id_prodi int(5) NOT NULL,
+kode_prodi varchar(5) NOT NULL,
+nama varchar(200) NOT NULL,
+status varchar(100) NOT NULL,
+PRIMARY KEY(id_prodi,kode_prodi)
+)
+191007  0:53:21	     9 Query	create table tsemester(
+id_semester int(3) NOT NULL,
+nama varchar(20) NOT NULL,
+kode_semester varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+PRIMARY KEY(id_semester,kode_semester)
+)
+191007  0:58:20	     9 Query	create table skripsi_mahasiswa(
+nama varchar(225) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+nama_prodi varchar(200) NOT NULL,
+judul_skripsi varchar(255) NOT NULL,
+dosen_pembimbing varchar(200) NOT NULL,
+tgl_sidang date NOT NULL,
+nilai_sidang varchar(2) NOT NULL,
+nip varchar(50) NOT NULL,
+jenis_pembingbing varchar(7) NOT NULL
+)
+191007  1:02:58	     9 Query	create table seminar_mahasiswa(
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+tgl_seminar date NOT NULL,
+jenis_seminar char(01) NOT NULL,
+status varchar(20) NOT NULL,
+dosen_penguji varchar(200) NOT NULL,
+nip varchar(50) NOT NULL
+)
+191007  1:03:13	     9 Query	show tables
