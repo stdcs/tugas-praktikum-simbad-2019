@@ -229,3 +229,53 @@ dosen_penguji varchar(200) NOT NULL,
 nip varchar(50) NOT NULL
 )
 191007  1:03:13	     9 Query	show tables
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191007 11:01:17	    19 Query	show databases
+191007 11:01:24	    19 Query	SELECT DATABASE()
+		    19 Init DB	tugas1
+191007 11:01:29	    19 Query	show tables
+191007 11:01:40	    19 Query	desc tb_mahasiswa
+191007 11:03:31	    19 Query	drop column status
+191007 11:04:01	    19 Query	alter table tb_mahasiswa
+drop column status
+191007 11:04:05	    19 Query	show tables
+191007 11:04:13	    19 Query	desc tb_mahasiswa
+191007 11:05:47	    19 Query	alter table tb_mahasiswa
+add column if not exists
+nama_mhs varchar(100) not null
+191007 11:05:50	    19 Query	desc tb_mahasiswa
+191007 11:08:28	    19 Quit	
+191007 11:08:33	    20 Connect	root@localhost as anonymous on 
+		    20 Query	select @@version_comment limit 1
+191007 11:08:41	    20 Query	SELECT DATABASE()
+		    20 Init DB	tugas1
+191007 11:08:51	    20 Query	desc tb_mahasiswa
+191007 11:09:52	    20 Query	alter table tb_mahasiswa add status_mhs enum('aktif','lulus')
+191007 11:09:57	    20 Query	desc tb_mahasiswa
+
+
+
+
+maaf kak, saya lupa masukkan column nama di table tb_mahasiswa, jadi saya buat paling bawah lagi (hapus status baru bikin nama dan kembalikan column status)
+
+
+
+
+191007 11:25:18	    20 Quit	
+191007 11:25:24	    21 Connect	root@localhost as anonymous on 
+		    21 Query	select @@version_comment limit 1
+191007 11:25:47	    21 Query	set global log_output = 'FILE'
+191007 11:26:12	    21 Query	set global general_log_file = "tugas1.log"
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191007 11:26:23	    21 Query	set global general_log = 1
+191007 11:30:22	    21 Query	desc tb_mahasiswa
+191007 11:31:32	    21 Query	set global general_log = 0
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191007 11:33:33	    21 Query	alter table tb_mahasiswa change nama_mhs nama varchar(100)
+191007 11:33:48	    21 Query	alter table tb_mahasiswa change status_mhs status enum('aktif','lulus')
