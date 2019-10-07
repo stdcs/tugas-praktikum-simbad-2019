@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `tb_mahasiswa`;
 CREATE TABLE `tb_mahasiswa` (
   `id` int(11) NOT NULL,
   `nim` varchar(10) DEFAULT NULL,
+  `nama` varchar(100) DEFAULT NULL,
   `status` enum('aktif','lulus') DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nim_mhs` (`nim`)
@@ -74,4 +75,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-07 10:11:32
+-- Dump completed on 2019-10-07 11:41:16
