@@ -23,9 +23,9 @@ DROP TABLE IF EXISTS `tb_mahasiswa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_mahasiswa` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL DEFAULT '0',
   `nim` varchar(10) NOT NULL,
-  `nama` varchar(100) NOT NULL,
+  `nama` varchar(255) NOT NULL,
   `status` enum('Aktif','Lulus') NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nim_mhs` (`nim`)
@@ -49,12 +49,13 @@ DROP TABLE IF EXISTS `tb_matakuliah`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_matakuliah` (
-  `id` int(10) NOT NULL,
+  `id` int(11) NOT NULL DEFAULT '0',
   `kode` varchar(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `sks` enum('2','3','4') NOT NULL,
+  `sk` enum('2','3','4') NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `kode_mk` (`kode`)
+  UNIQUE KEY `kode_mk` (`kode`),
+  UNIQUE KEY `kode_mk_2` (`kode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -76,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-07 17:31:08
+-- Dump completed on 2019-10-10 19:18:04

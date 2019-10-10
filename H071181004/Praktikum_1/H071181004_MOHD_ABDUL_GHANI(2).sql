@@ -108,7 +108,7 @@ CREATE TABLE `seminar_mahasiswa` (
   `jk` char(1) NOT NULL,
   `tgl_seminar` date NOT NULL,
   `jenis_seminar` char(1) NOT NULL,
-  `status` varchar(20) NOT NULL,
+  `status` varchar(200) NOT NULL,
   `dosen_penguji` varchar(200) NOT NULL,
   `nip` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -134,7 +134,7 @@ CREATE TABLE `skripsi_mahasiswa` (
   `nama` varchar(255) NOT NULL,
   `nim` varchar(10) NOT NULL,
   `jk` char(1) NOT NULL,
-  `nama_prodi` varchar(200) NOT NULL,
+  `nama_prodi` varchar(255) NOT NULL,
   `judul_skripsi` varchar(255) NOT NULL,
   `dosen_pembimbing` varchar(200) NOT NULL,
   `tgl_sidang` date NOT NULL,
@@ -355,12 +355,9 @@ CREATE TABLE `tseminar` (
   `id_pembimbing` int(255) NOT NULL,
   `id_penguji` int(255) NOT NULL,
   PRIMARY KEY (`id_seminar`),
-  UNIQUE KEY `id_nilai` (`id_nilai`,`id_mahasiswa`,`id_pembimbing`,`id_penguji`),
-  UNIQUE KEY `id_nilai_2` (`id_nilai`,`id_mahasiswa`,`id_pembimbing`,`id_penguji`),
+  UNIQUE KEY `id_nilai` (`id_nilai`),
   UNIQUE KEY `id_mahasiswa` (`id_mahasiswa`),
-  UNIQUE KEY `id_nilai_3` (`id_nilai`),
   UNIQUE KEY `id_pembimbing` (`id_pembimbing`),
-  UNIQUE KEY `id_pembimbing_2` (`id_pembimbing`),
   UNIQUE KEY `id_penguji` (`id_penguji`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -414,7 +411,7 @@ CREATE TABLE `tsk_pembimbing` (
   `id_skripsi` int(5) NOT NULL,
   `id_semester` int(3) NOT NULL,
   `no_sk` varchar(20) NOT NULL,
-  `tanggal_SK` date NOT NULL
+  `tanggal_sk` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -484,4 +481,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-07 17:30:45
+-- Dump completed on 2019-10-11  2:42:39
