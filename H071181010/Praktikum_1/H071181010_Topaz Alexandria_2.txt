@@ -1,0 +1,134 @@
+CREATE DATABASE dll_assignment;
+CREATE TABLE untitled(
+	nama VARCHAR(255)
+	);
+CREATE TABLE mahasiswa_prodi(
+	nama VARCHAR(255),
+	nim VARCHAR(10),
+	jk CHAR(1),
+	no_hp VARCHAR(20),
+	status VARCHAR(100),
+	nama_prodi VARCHAR(200),
+	tgl_masuk DATE,
+	tgl_lulus DATE
+	);
+CREATE TABLE seminar_mahasiswa(
+	nama VARCHAR(255),
+	nim VARCHAR(10),
+	jk CHAR(1),
+	tgl_seminar DATE,
+	jenis_seminar CHAR(1),
+	status VARCHAR(20),
+	dosen_penguji VARCHAR(200),
+	nip VARCHAR(50)
+	);
+CREATE TABLE skripsi_mahasiswa(
+	nama VARCHAR(255),
+	nim VARCHAR(10),
+	jk CHAR(1),
+	nama_prodi VARCHAR(200),
+	judul_skripsi VARCHAR(255),
+	dosen_pembimbing VARCHAR(200),
+	tgl_sidang DATE,
+	nilai_sidang VARCHAR(2),
+	nip VARCHAR(50),
+	jenis_pembimbing VARCHAR(7)
+	);
+CREATE TABLE tnilai(
+	id_nilai INT(2) PRIMARY KEY,
+	nilai_huruf VARCHAR(2),
+	bobot_nilai DECIMAL(3.2)
+	);
+CREATE TABLE dosen_penguji(
+	nama VARCHAR(255),
+	nip VARCHAR(50),
+	kode_dosen VARCHAR(10),
+	status VARCHAR(100),
+	nama_prodi VARCHAR(200),
+	jenis_penguji CHAR(1)
+	);
+CREATE TABLE tsk_pembimbing(
+	id_SK INT(4) PRIMARY KEY,
+	id_skripsi INT(5),
+	id_semester INT(3),
+	no_sk VARCHAR(20),
+	tanggal_SK DATE
+	);
+CREATE TABLE tseminar
+	id_seminar INT(5) PRIMARY KEY,
+	tanggal DATE,
+	id_nilai INT(2),
+	jenis_seminar CHAR(1),
+	id_mahasiswa INT(255),
+	status VARCHAR(20),
+	id_pembimbing INT(255),
+	id_penguji INT(255)
+	);
+CREATE TABLE tmahasiswa(
+	id_mahasiswa INT(255),
+	nama VARCHAR(255),
+	nim VARCHAR(10),
+	jk CHAR(1),
+	no_hp VARCHAR(20),
+	alamat VARCHAR(255),
+	tgl_masuk DATE,
+	tgl_lulus DATE,
+	status VARCHAR(100),
+	id_prodi INT(5),
+	CONSTRAINT PRIMARY KEY(id_mahasiswa,nim)
+	);
+CREATE TABLE tprodi(
+	id_prodi INT(5),
+	kode_prodi VARCHAR(5),
+	nama VARCHAR(200),
+	status VARCHAR(100),
+	CONSTRAINT PRIMARY KEY(id_prodi,kode_prodi)
+	);
+CREATE TABLE tsemester
+	id_semester INT(3),
+	nama VARCHAR(20),
+	kode_semester VARCHAR(20),
+	status VARCHAR(100),
+	CONSTRAINT PRIMARY KEY(id_semester,kode_semester)
+	);
+CREATE TABLE tskripsi(
+	id_skripsi INT(5) PRIMARY KEY,
+	id_mahasiswa INT(255),
+	judul VARCHAR(255),
+	id_pembimbing INT(255),
+	id_penguji INT(255)
+	);
+CREATE TABLE tpenguji(
+	id_penguji INT(255) PRIMARY KEY,
+	id_dosen INT(255),
+	jenis_penguji CHAR(1)
+	);
+CREATE TABLE tdosen(
+	id_dosen INT(255),
+	nama VARCHAR(255),
+	nip VARCHAR(50),
+	kode_dosen VARCHAR(10),
+	status VARCHAR(100),
+	id_prodi INT(5),
+	CONSTRAINT PRIMARY KEY(id_dosen,nip,kode_dosen)
+	);
+CREATE TABLE dosen_pembimbing(
+	nama VARCHAR(255),
+	nip VARCHAR(50),
+	kode_dosen VARCHAR(10),
+	status VARCHAR(100),
+	nama_prodi VARCHAR(200),
+	jenis_pembimbing VARCHAR(7)
+	);
+CREATE TABLE tpembimbing(
+	id_pembimbing INT(255),
+	jenis_pembimbing VARCHAR(7),
+	id_dosen INT(255),
+	);
+CREATE TABLE tsidang(
+	id_sidang INT(5) PRIMARY KEY,
+	id_mahasiswa INT(255),
+	tanggal_sidang DATE,
+	id_nilai INT(2),
+	status VARCHAR(20)
+	);

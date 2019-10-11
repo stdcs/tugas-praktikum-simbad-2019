@@ -1,0 +1,26 @@
+CREATE DATABASE db_mahasiswa;
+USE db_mahasiswa;
+CREATE TABLE table_mahasiswa(
+	id_mhs INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	nim_mhs VARCHAR(10) NOT NULL UNIQUE,
+	nama_mhs VARCHAR(255) NOT NULL
+	);
+CREATE TABLE table_matakuliah(
+	id_mk INT PRIMARY KEY NOT NULL AUTO_INCREMENT
+	);
+ALTER TABLE table_matakuliah ADD(
+	kode_mk VARCHAR(11) NOT NULL UNIQUE,
+	nama_mk VARCHAR(100) NOT NULL,
+	sks_mk ENUM("2","3","4")
+	);
+ALTER TABLE table_mahasiswa RENAME tb_mahasiswa;
+ALTER TABLE table_matakuliah RENAME tb_matakuliah;
+ALTER TABLE tb_mahasiswa
+	CHANGE id_mhs id INT,
+	CHANGE nim_mhs nim VARCHAR(10),
+	CHANGE nama_mhs nama VARCHAR(255);
+ALTER TABLE tb_matakuliah
+	CHANGE id_mk id INT,
+	CHANGE kode_mk kode VARCHAR(11),
+	CHANGE nama_mk nama VARCHAR(100),
+	CHANGE sks_mk sks ENUM("2","3","4");
