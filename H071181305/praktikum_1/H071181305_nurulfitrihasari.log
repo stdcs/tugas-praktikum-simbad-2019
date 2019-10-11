@@ -1,0 +1,396 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191010 19:13:30	     9 Query	SHOW DATABASES
+191010 19:15:34	     9 Query	CREATE DATABASE simbad
+191010 19:15:40	     9 Query	SHOW DATABASES
+191010 19:15:50	     9 Query	CREATE DATABASE simbad2
+191010 19:15:56	     9 Query	SHOW DATABASES
+191010 19:16:30	     9 Query	SELECT DATABASE()
+		     9 Init DB	simbad
+191010 19:18:50	     9 Query	CREATE TABLE tb_mk (id_mk
+    ->
+191010 19:24:07	     9 Query	CREATE TABLE tb_mk (id_mk
+int(10)  AUTO_INCREMENT PRIMARY KEY)
+191010 19:24:21	     9 Query	DESCRIBE tb_MK
+191010 19:43:10	     9 Query	ALTER TABLE tb_mk ADD COLUMN
+ kode_mk INT(10) NOT NULL
+191010 19:43:46	     9 Query	ALTER TABLE tb_mk ADD COLUMN
+nama_mk VARCHAR(20) NOT NULL,
+sks_mk INT(2) NOT NULL
+191010 19:44:11	     9 Query	ALTER TABLE tb_mk ADD COLUMN(
+nama_mk VARCHAR(20) NOT NULL,
+sks_mk INT(2) NOT NULL)
+191010 19:44:21	     9 Query	SHOW TABLES
+191010 19:44:46	     9 Query	DESCRIBE tb_mk
+191010 19:46:23	     9 Query	CREATE TABLE tb_mhs (id_mhs
+191010 19:48:06	     9 Query	ALTER TABLE tb_mhs ADD COLUMN(
+nim_mhs INT(10) NOT NULL UNIQUE,
+-
+
+scdsa
+191010 19:48:21	     9 Query	SHOW TABLES
+191010 19:51:43	     9 Query	CREATE TABLE tb_mhs (id_mhs
+INT(10) NOT NULL UNIQUE,
+nim_mhs INT(10) NOT NULL UNIQUE,
+nama_mhs VARCHAR(20) NOT NULL UNIQUE)
+191010 19:51:56	     9 Query	SHOW TABLES
+191010 19:52:09	     9 Query	DESCRIBE tb_mhs
+191010 19:53:44	     9 Query	ALTER TABLE tb_mhs ADD COLUMN(
+status_mhs enum('Aktif','Lulus') NOT NULL)
+191010 19:53:50	     9 Query	DESCRIBE tb_mhs
+191010 19:55:06	     9 Query	ALTER TABLE tb_mhs ADD COLUMN(
+ kode_mk INT(10) NOT NULL,
+kjdsk
+191010 19:55:15	     9 Query	DESCRIBE tb_mk
+191010 19:55:43	     9 Quit	
+191010 19:57:57	    10 Connect	root@localhost as anonymous on 
+		    10 Query	select @@version_comment limit 1
+191010 19:58:17	    10 Query	SET global general_log =1
+191010 19:58:22	    10 Query	SET global general general_log_file ='H071181305_nurulfitrihasari.log'
+191010 19:58:28	    10 Query	SET global general_log_file ='H071181305_nurulfitrihasari.log'
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191010 19:58:55	    10 Query	SHOW DATABASES
+191010 19:59:04	    10 Query	SELECT DATABASE()
+		    10 Init DB	simbad
+191010 19:59:38	    10 Query	SHOW TABLES
+191010 19:59:55	    10 Query	DESCRIBE tb_mhs
+191010 20:00:16	    10 Query	RENAME TABLE tb_mhs TO tb_mahasiswa
+191010 20:00:33	    10 Query	RENAME TABLE tb_mk TO tb_matakuliah
+191010 20:00:44	    10 Query	SHOW DATABASES
+191010 20:00:53	    10 Query	SHOW TABELES
+191010 20:01:09	    10 Query	SHOW TABLES
+191010 20:01:33	    10 Query	DESCRIBE tb_mahasiswa
+191010 20:03:53	    10 Query	alter table tb_matakuliah change column kode_mk kode INT(10),
+dfse
+191010 20:06:26	    10 Query	alter table tb_mahasiswa change column id_mhs id INT(11),
+asja
+191010 20:08:36	    10 Query	alter table tb_mahasiswa change column( id_mhs id INT(11),
+nim_mhs nim INT(10),
+nama_mhs nama VARCHAR(20),
+status_mhs status enum('Aktif','Lulus'))
+191010 20:08:56	    10 Query	alter table tb_mahasiswa change column id_mhs id INT(11)
+191010 20:09:14	    10 Query	alter table tb_mahasiswa change column
+nim_mhs nim INT(10)
+191010 20:09:46	    10 Query	alter table tb_mahasiswa change column
+nama_mhs nama VARCHAR(20)
+191010 20:10:02	    10 Query	alter table tb_mahasiswa change column
+status_mhs status enum('Aktif','Lulus')
+191010 20:10:15	    10 Query	DESCRIBE tb_mahasiswa
+191010 20:10:29	    10 Query	DESCRIBE tb_matakuliah
+191010 20:11:20	    10 Query	alter table tb_matakuliah change column id_mk id INT(11)
+191010 20:12:44	    10 Query	alter table tb_matakuliah change column kode_mk kode INT(10)
+191010 20:12:59	    10 Query	alter table tb_matakuliah change column kode_mk kode VARCHAR(20)
+191010 20:13:53	    10 Query	alter table tb_mahasiswa change column nama_mhs nama VARCHAR(20)
+191010 20:14:33	    10 Query	alter table tb_matakuliah change column kode_mk kode VARCHAR(20)
+191010 20:15:17	    10 Query	alter table tb_matakuliah change column nama_mk nama VARCHAR(20)
+191010 20:15:58	    10 Query	alter table tb_matakuliah change column sks_mk sks INT(2)
+191010 20:16:07	    10 Query	DESCRIBE tb_matakuliah
+191010 20:25:53	    10 Query	SHOW DATABASES
+191010 20:26:11	    10 Query	SELECT DATABASE()
+		    10 Init DB	simbad2
+191010 20:27:25	    10 Query	CREATE TABLE tnilai (id_nilai INT(2) NOT NULL PRIMARY KEY)
+191010 20:30:44	    10 Query	ALTER TABLE tnilai ADD COLUMN (nilai_huruf VARCHAR(2) NOT NULL,
+bobot_nilai DECIMAL(3.0) NOT NULL)
+191010 20:30:55	    10 Query	create table tpenguji (id_penguji int(255) not null primary key, id_dosen int(255) not null, jenis_penguji char(1) not null)
+191010 20:31:02	    10 Query	SHOW TABLES
+191010 20:31:18	    10 Query	DESCRIBE tniali
+191010 20:31:32	    10 Query	DESCRIBE tnilai
+191010 20:31:43	    10 Query	DESCRIBE tpenguji
+191010 20:32:16	    10 Query	create table tseminar (id_seminar int(5) not null primary key, tanggal date not null, id_nilai int(2) not null, jenis_seminar char(1) not null, id_mahasiswa int(225) not null, status varchar(20) not null, id_pembimbing int(225) not null, id_penguji int(255) not null)
+191010 20:32:35	    10 Query	create table dosen_penguji (nama varchar(200) not null, nip varchar(50) not null, kode_dosen varchar(10) not null, status varchar(100) not null, nama_prodi varchar(200) not null, jenis_penguji char(1) not null)
+191010 20:33:04	    10 Query	create table tdosen (id_dosen int(255) not null, nama varchar(200) not null, nip varchar(50) not null, kode_dosen varchar(10) not null, status varchar(100) not null, id_prodi int(5) not null)
+191010 20:33:30	    10 Query	alter table tdosen add primary key (id_dosen,nip,kode_dosen)
+191010 20:33:39	    11 Connect	root@localhost as anonymous on test2
+		    11 Query	create table tdosen (id_dosen int(255) primary key not null, nama varchar(200) not null, nip varchar(50) primary key not null, kode_dosen varchar(10) primary key not null, status varchar(100) not null, id_prodi int(5) not null)
+		    11 Query	bobot_nilai decimal(3.0) not nullbobot_nilai decimal(3.0) not nullbobot_nilai decimal(3.0) not nullbobot_nilai decimal(3.0) not nullcreate table tpenguji (id_penguji int(255) not null primary key, id_dosen int(255) not null, jenis_penguji char(1) not null)
+		    11 Query	create table tpenguji (id_penguji int(255) not null primary key, id_dosen int(255) not null, jenis_penguji char(1) not null)
+191010 21:26:54	    10 Query	create table tprodi (id_prodi int(5) not null, kode_prodi varchar(5) not null, nama varchar(200) not null, status varchar(100) not null)
+191010 22:43:55	    10 Query	create table tskripsi (id_skripsi int(5) not null, id_mahasiswa int(255) not null, judul varchar(255) not null, id_pembimbing int(255) not null, id_penguji int(255) not null)
+191010 22:48:13	    10 Query	create table tpembimbing (id_pembimbing int(255) not null, jenis_pembimbing varchar(7) not null, id_dosen int(255) not null)
+191010 23:13:20	    10 Query	create table tsemester (id_semester int(3) not null, nama varchar(20) not null, kode_semester varchar(10) not null, status varchar(100))
+191010 23:15:27	    10 Query	create table tsidang (id_sidang int(5) not null, id_mahasiswa int(255) not null, tanggal_sidang date not null, id_nilai int(2) not null, status varchar(20) not null)
+191010 23:18:45	    10 Query	create table tsk_pembimbing (id_SK int(4) not null, id_skripsi int(5) not null, id_semester int(3) not null, no_sk varchar(20) not null, tanggal_sk date not null)
+191010 23:20:49	    10 Query	SHOW TABLES
+191010 23:21:34	    10 Query	DESCRIBE dosen_pemguji
+191010 23:21:52	    10 Query	DESCRIBE dosen_penguji
+191011  1:32:12	    10 Query	create table seminar_mahasiswa (nama varchar(255) not null, nim varchar(10) not null, jk char(1) not null, tgl_seminar date not null, jenis_seminar char(1) not null, status varchar(20) not null, dosen_penguji varchar(200)not null, nip varchar(50) not null)
+191011  1:32:39	    10 Query	SHOW TABLES
+191011  1:37:14	    10 Query	create table dosen_pembimbing (nama varchar(200) not null, nip varchar(50) not null, kode_dosen varchar(50) not null, status varchar(100) not null, nama_prodi varchar(200) not null, jenis_pembimbing varchar(7))
+191011  1:40:30	    10 Query	create table mahasiswa_prodi (nama varchar(255) not null, nim varchar(10) not null, jk char(1) not null, no_hp varchar(20) not null, status varchar(100) not null, nama_prodi varchar(200), tgl_masuk date not null, tgl lulus date not null)
+191011  1:40:55	    10 Query	create table mahasiswa_prodi (nama varchar(255) not null, nim varchar(10) not null, jk char(1) not null, no_hp varchar(20) not null, status varchar(100) not null, nama_prodi varchar(200), tgl_masuk date not null, tgl_lulus date not null)
+191011  1:41:05	    10 Query	SHOW TABLES
+191011  1:42:09	    10 Query	create table untitled (nama varchar(255) not null)
+191011  1:46:59	    10 Query	create table tmahasiswa (id_mahasiswa int(255) not null, nama varchar(255) not null, nim varchar(10) not null, jk char(1) not null, no_hp varchar(20) not null, alamat varchar(255), tgl_masuk date not null, tgl_lulus date not null, status varchar(100) not null, id_prodi int(5) not null )
+191011  1:47:05	    10 Query	SHOW TABLES
+191011  1:52:37	    10 Query	create table skripsi_mahasiswa (nama varchar(255) not null, nim varchar(10) not null, jk char(1) not null, nama_prodi varchar(200) not null, judul_skripsi varchar(255) not null, dosen_pembimbing varchar(200), tgl_sidang date not null, nilai_sidang varchar(2) not null, nip varchar(50) not null, jenis_pembimbing varchar(7) not null )
+191011  2:03:16	    10 Query	SHOW TABLES
+191011  2:13:09	    10 Query	DESCRIBE dosen_pembimbing
+191011  2:16:54	    10 Query	DESCRIBE dosen_penguji
+191011  2:17:26	    10 Query	DESCRIBE tdosen
+191011  2:17:56	    10 Query	DESCRIBE tseminar
+191011  2:18:06	    10 Query	DESCRIBE tnilai
+191011  2:18:22	    10 Query	DESCRIBE tmahasiswa
+191011  2:33:16	    10 Query	ALTER TABLE tmahasiswa ADD primary key (id_mahasiswa, nim)
+191011  2:35:02	    10 Query	ALTER TABLE tprodi ADD primary key (id_prodi, kode_prodi)
+191011  2:35:36	    10 Query	ALTER TABLE tskripsi ADD primary key (id_skripsi)
+191011  2:36:05	    10 Query	ALTER TABLE tpembimbing ADD primary key (id_pembimbing)
+191011  2:36:31	    10 Query	ALTER TABLE tsidang ADD primary key (id_sidang)
+191011  2:37:27	    10 Query	ALTER TABLE tsemester ADD primary key (id_semester, kode_semester)
+191011  2:40:26	    10 Query	ALTER TABLE tpenguji ADD primary key (id_penguji)
+191011  2:40:54	    10 Query	DESCRIBE tpenguji
+191011  2:42:27	    10 Quit	
+191011  3:01:00	    12 Connect	root@localhost as anonymous on 
+		    12 Query	/*!40100 SET @@SQL_MODE='' */
+		    12 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		    12 Query	set optimizer_switch='semijoin=off'
+		    12 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('simbad2'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+		    12 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('simbad2')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		    12 Query	set optimizer_switch=default
+		    12 Init DB	simbad2
+		    12 Query	SHOW TABLES LIKE '%'
+		    12 Query	LOCK TABLES `dosen_pembimbing` READ /*!32311 LOCAL */,`dosen_penguji` READ /*!32311 LOCAL */,`mahasiswa_prodi` READ /*!32311 LOCAL */,`seminar_mahasiswa` READ /*!32311 LOCAL */,`skripsi_mahasiswa` READ /*!32311 LOCAL */,`tdosen` READ /*!32311 LOCAL */,`tmahasiswa` READ /*!32311 LOCAL */,`tnilai` READ /*!32311 LOCAL */,`tpembimbing` READ /*!32311 LOCAL */,`tpenguji` READ /*!32311 LOCAL */,`tprodi` READ /*!32311 LOCAL */,`tsemester` READ /*!32311 LOCAL */,`tseminar` READ /*!32311 LOCAL */,`tsidang` READ /*!32311 LOCAL */,`tsk_pembimbing` READ /*!32311 LOCAL */,`tskripsi` READ /*!32311 LOCAL */,`untitled` READ /*!32311 LOCAL */
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'dosen_pembimbing'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `dosen_pembimbing`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `dosen_pembimbing`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `nama`, `nip`, `kode_dosen`, `status`, `nama_prodi`, `jenis_pembimbing` FROM `dosen_pembimbing`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'dosen_pembimbing'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'dosen_penguji'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `dosen_penguji`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `dosen_penguji`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `nama`, `nip`, `kode_dosen`, `status`, `nama_prodi`, `jenis_penguji` FROM `dosen_penguji`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'dosen_penguji'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'mahasiswa_prodi'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `mahasiswa_prodi`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `mahasiswa_prodi`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `nama`, `nim`, `jk`, `no_hp`, `status`, `nama_prodi`, `tgl_masuk`, `tgl_lulus` FROM `mahasiswa_prodi`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'mahasiswa_prodi'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'seminar_mahasiswa'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `seminar_mahasiswa`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `seminar_mahasiswa`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `nama`, `nim`, `jk`, `tgl_seminar`, `jenis_seminar`, `status`, `dosen_penguji`, `nip` FROM `seminar_mahasiswa`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'seminar_mahasiswa'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'skripsi_mahasiswa'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `skripsi_mahasiswa`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `skripsi_mahasiswa`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `nama`, `nim`, `jk`, `nama_prodi`, `judul_skripsi`, `dosen_pembimbing`, `tgl_sidang`, `nilai_sidang`, `nip`, `jenis_pembimbing` FROM `skripsi_mahasiswa`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'skripsi_mahasiswa'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tdosen'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tdosen`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tdosen`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_dosen`, `nama`, `nip`, `kode_dosen`, `status`, `id_prodi` FROM `tdosen`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tdosen'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tmahasiswa'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tmahasiswa`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tmahasiswa`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_mahasiswa`, `nama`, `nim`, `jk`, `no_hp`, `alamat`, `tgl_masuk`, `tgl_lulus`, `status`, `id_prodi` FROM `tmahasiswa`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tmahasiswa'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tnilai'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tnilai`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tnilai`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_nilai`, `nilai_huruf`, `bobot_nilai` FROM `tnilai`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tnilai'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tpembimbing'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tpembimbing`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tpembimbing`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_pembimbing`, `jenis_pembimbing`, `id_dosen` FROM `tpembimbing`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tpembimbing'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tpenguji'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tpenguji`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tpenguji`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_penguji`, `id_dosen`, `jenis_penguji` FROM `tpenguji`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tpenguji'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tprodi'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tprodi`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tprodi`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_prodi`, `kode_prodi`, `nama`, `status` FROM `tprodi`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tprodi'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tsemester'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tsemester`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tsemester`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_semester`, `nama`, `kode_semester`, `status` FROM `tsemester`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tsemester'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tseminar'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tseminar`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tseminar`
+191011  3:01:01	    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_seminar`, `tanggal`, `id_nilai`, `jenis_seminar`, `id_mahasiswa`, `status`, `id_pembimbing`, `id_penguji` FROM `tseminar`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tseminar'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tsidang'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tsidang`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tsidang`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_sidang`, `id_mahasiswa`, `tanggal_sidang`, `id_nilai`, `status` FROM `tsidang`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tsidang'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tsk_pembimbing'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tsk_pembimbing`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tsk_pembimbing`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_SK`, `id_skripsi`, `id_semester`, `no_sk`, `tanggal_sk` FROM `tsk_pembimbing`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tsk_pembimbing'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tskripsi'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `tskripsi`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `tskripsi`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_skripsi`, `id_mahasiswa`, `judul`, `id_pembimbing`, `id_penguji` FROM `tskripsi`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tskripsi'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'untitled'
+		    12 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Query	show create table `untitled`
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	show fields from `untitled`
+		    12 Query	SELECT /*!40001 SQL_NO_CACHE */ `nama` FROM `untitled`
+		    12 Query	SET SESSION character_set_results = 'binary'
+		    12 Init DB	simbad2
+		    12 Query	select @@collation_database
+		    12 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'untitled'
+		    12 Query	SET SESSION character_set_results = 'utf8mb4'
+		    12 Query	UNLOCK TABLES
+		    12 Quit	
+191011  3:02:56	    13 Connect	root@localhost as anonymous on 
+		    13 Query	/*!40100 SET @@SQL_MODE='' */
+		    13 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		    13 Query	set optimizer_switch='semijoin=off'
+		    13 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('simbad'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+		    13 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('simbad')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		    13 Query	set optimizer_switch=default
+		    13 Init DB	simbad
+		    13 Query	SHOW TABLES LIKE '%'
+		    13 Query	LOCK TABLES `tb_mahasiswa` READ /*!32311 LOCAL */,`tb_matakuliah` READ /*!32311 LOCAL */
+		    13 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_mahasiswa'
+		    13 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    13 Query	SET SESSION character_set_results = 'binary'
+		    13 Query	show create table `tb_mahasiswa`
+		    13 Query	SET SESSION character_set_results = 'utf8mb4'
+		    13 Query	show fields from `tb_mahasiswa`
+		    13 Query	SELECT /*!40001 SQL_NO_CACHE */ `id`, `nim`, `nama`, `status` FROM `tb_mahasiswa`
+		    13 Query	SET SESSION character_set_results = 'binary'
+		    13 Init DB	simbad
+		    13 Query	select @@collation_database
+		    13 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_mahasiswa'
+		    13 Query	SET SESSION character_set_results = 'utf8mb4'
+		    13 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_matakuliah'
+		    13 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    13 Query	SET SESSION character_set_results = 'binary'
+		    13 Query	show create table `tb_matakuliah`
+		    13 Query	SET SESSION character_set_results = 'utf8mb4'
+		    13 Query	show fields from `tb_matakuliah`
+		    13 Query	SELECT /*!40001 SQL_NO_CACHE */ `id`, `kode`, `nama`, `sks` FROM `tb_matakuliah`
+		    13 Query	SET SESSION character_set_results = 'binary'
+		    13 Init DB	simbad
+		    13 Query	select @@collation_database
+		    13 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_matakuliah'
+		    13 Query	SET SESSION character_set_results = 'utf8mb4'
+		    13 Query	UNLOCK TABLES
+		    13 Quit	
