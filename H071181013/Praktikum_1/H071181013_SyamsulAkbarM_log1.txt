@@ -1,0 +1,179 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191012 21:39:09	    11 Query	create database simbad_b
+191012 21:39:15	    11 Query	SELECT DATABASE()
+		    11 Init DB	simbad_b
+191012 21:40:56	    11 Query	CREATE DATABASE untitled(nama VARCHAR(255) NOT NULL)
+191012 21:41:07	    11 Query	CREATE TABLE untitled(nama VARCHAR(255) NOT NULL)
+191012 21:48:31	    11 Query	CREATE TABLE mahasiswa_prodi(
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1) NOT NULL,
+no_hp VARCHAR(20) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+tgl_masuk DATE,
+tgl_lulus DATE)
+191012 21:50:42	    11 Query	CREATE TABLE seminar_mahasiswa(
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1) NOT NULL,
+tgl_seminar DATE,
+jenis_seminar CHAR(1),
+status VARCHAR(20) NOT NULL,
+dosen_penguji VARCHAR(200) NOT NULL,
+nip VARCHAR(50))
+191012 21:56:21	    11 Query	CREATE TABLE tnilai(id_nilai INT PRIMARY KEY AUTO_INCREMENT, nilai_huruf VARCHAR(2) NOT NULL, bobot_nilai DECIMAL(3,2) UNIQUE NOT NULL)
+191012 21:58:53	    11 Query	CREATE TABLE dosen_penguji(
+nama VARCHAR(200) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+kode_dosen VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+jenis_penguji CHAR(1) NOT NULL)
+191012 22:02:53	    11 Query	CREATE TABLE tsk_pembimbing(
+id_sk INT(4) PRIMARY KEY AUTO_INCREMENT,
+id_skripsi INT(5) UNIQUE NOT NULL,
+id_semester INT(3) UNIQUE NOT NULL,
+no_sk VARCHAR(20) NOT NULL,
+tanggal_sk DATE)
+191012 22:05:55	    11 Query	CREATE TABLE skripsi_mahasiswa(
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+judul_skripsi VARCHAR(255) NOT NULL,
+dosen_pembimbing VARCHAR(200) NOT NULL,
+tgl_sidang DATE,
+nilai_sidang VARCHAR(50) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+jenis_pembimbing VARCHAR(7) NOT NULL)
+191012 22:08:48	    11 Query	CREATE TABLE tseminar(
+id_seminar INT(5) PRIMARY KEY AUTO_INCREMENT,
+tanggal DATE,
+id_nilai INT(2) UNIQUE NOT NULL,
+jenis_seminar CHAR(1) NOT NULL,
+id_mahasiswa INT(255) UNIQUE NOT NULL,
+status VARCHAR(20) NOT NULL,
+id_pembimbing INT(255) UNIQUE BOT NULL,
+id_penguji INT(255) UNIQUE NOT NULL)
+191012 22:10:30	    11 Query	CREATE TABLE tseminar(
+id_seminar INT(5) PRIMARY KEY AUTO_INCREMENT,
+tanggal DATE,
+id_nilai INT(2) UNIQUE NOT NULL,
+jenis_seminar CHAR(1) NOT NULL,
+id_mahasiswa INT(255) UNIQUE NOT NULL,
+status VARCHAR(20) NOT NULL,
+id_pembimbing INT(255) UNIQUE NOT NULL,
+id_penguji INT(255) UNIQUE NOT NULL)
+191012 22:12:53	    11 Query	CREATE TABLE tmahasiswa(
+id_mahasiswa INT(255) PRIMARY KEY AUTO_INCREMENT,
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(255) NOT NULL,
+nmn
+191012 22:13:50	    11 Query	CREATE TABLE tmahasiswa(
+id_mahasiswa INT(255) PRIMARY KEY AUTO_INCREMENT,
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+nbbm
+191012 22:16:19	    11 Query	CREATE TABLE tmahasiswa(
+id_mahasiswa INT(255) PRIMARY KEY AUTO_INCREMENT,
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) PRIMARY KEY AUTO_INCREMENT,
+jk CHAR(1) NOT NULL,
+no_hp VARCHAR(20) NOT NULL,
+alamat VARCHAR(255) NOT NULL,
+tgl_masuk DATE,
+tgl_lulus DATE,
+status VARCHAR(100) NOT NULL,
+id_prodi INT(5) UNIQUE NOT NULL)
+191012 22:17:56	    11 Query	CREATE TABLE tmahasiswa(
+id_mahasiswa INT(255) PRIMARY KEY AUTO_INCREMENT,
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) PRIMARY KEY,
+jk CHAR(1) NOT NULL,
+no_hp VARCHAR(20) NOT NULL,
+alamat VARCHAR(255) NOT NULL,
+tgl_masuk DATE,
+tgl_lulus DATE,
+status VARCHAR(100) NOT NULL,
+id_prodi INT(5) UNIQUE NOT NULL)
+191012 22:22:56	    11 Query	CREATE TABLE tmahasiswa(id_mahasiswa INT(255) PRIMARY KEY AUTO_INCREMENT,nama VARCHAR(255) NOT NULL,nim VARCHAR(10),jk CHAR(1) NOT NULL,no_hp VARCHAR(20) NOT NULL,alamat VARCHAR(255) NOT NULL,tgl_masuk DATE,tgl_lulus DATE,status VARCHAR(100) NOT NULL,id_prodi INT(5) UNIQUE NOT NULL)
+191012 22:24:30	    11 Query	ALTER TABLE tmahasiswa DROP PRIMARY KEY ADD PRIMARY KEY TO (id_mahasiswa, nim)
+191012 22:25:35	    11 Query	ALTER TABLE tmahasiswa ADD PRIMARY KEY (nim)
+191012 22:28:15	    11 Query	ALTER TABLE tmahasiswa DROP PRIMARY KEY ADD PRIMARY KEY (id_mahasiswa, nim)
+191012 22:28:36	    11 Query	ALTER TABLE tmahasiswa DROP PRIMARY KEY
+191012 22:31:27	    11 Query	ALTER TABLE tmahasiswa DROP PRIMARY KEY, ADD PRIMARY KEY ('id_mahasiswa', 'nim')
+191012 22:31:38	    11 Query	ALTER TABLE tmahasiswa DROP PRIMARY KEY, ADD PRIMARY KEY (id_mahasiswa, nim)
+191012 22:33:04	    11 Query	CREATE TABLE tprodi(id_prodi INT(5) PRIMARY KEY AUTO_INCREMENT, kode_prodi VARCHAR(5) NOT NULL, nama VARCHAR(200) NOT NULL, status VARCHAR(100) NOT NULL)
+191012 22:33:40	    11 Query	ALTER TABLE tprodi DROP PRIMARY KEY, ADD PRIMARY KEY (id_prodi, kode_prodi)
+191012 22:36:21	    11 Query	CREATE TABLE tpenguji(id_penguji INT(255) PRIMARY KEY AUTO_INCREMANET, id_dosen INT(255) UNIQUE NOT NULL, jenis_penguji CHAR(1))
+191012 22:36:43	    11 Query	CREATE TABLE tpenguji(id_penguji INT(255) PRIMARY KEY AUTO_INCREMANET, id_dosen INT(255) UNIQUE NOT NULL, jenis_penguji CHAR(1) NOT NULL)
+191012 22:38:36	    11 Query	CREATE TABLE tpenguji(
+id_penguji INT(255) PRIMARY KEY AUTO_INCREMENT,
+id_dosen INT(255) UNIQUE NOT NULL,
+jenis_penguji CHAR(1) NOT NULL)
+191012 22:40:04	    11 Query	CREATE TABLE tsemester(
+id_semester INT(3) PRIMARY KEY AUTO_INCREMENT,
+nama VARCHAR(20) NOT NULL,
+kode_semester VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL)
+191012 22:40:51	    11 Query	ALTER TABLE tsemester DROP PRIMARY KEY, ADD PRIMARY KEY (id_semeter, kode_semester)
+191012 22:41:01	    11 Query	ALTER TABLE tsemester DROP PRIMARY KEY, ADD PRIMARY KEY (id_semester, kode_semester)
+191012 22:43:11	    11 Query	CREATE TABLE tskripsi(
+id_skripsi INT(5) PRIMARY KEY AUTO_INCREMENT,
+id_mahasiswa INT(255) UNIQUE NOT NULL,
+judul VARCHAR(255) NOT NULL,
+id_pembimbing INT(255) UNIQUE NOT NULL,
+id_penguji INT(255) UNIQUE NOT NULL)
+191012 22:45:16	    11 Query	CREATE TABLE tdosen(
+id_dosen INT(255) PRIMARY KEY AUTO_INCREMENT,
+nama VARCHAR(200) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+kode_dosen VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL,
+id_prodi INT(5) UNIQUE NOT NULL)
+191012 22:45:52	    11 Query	ALTER TABLE tdosen DROP PRIMARY KEY, ADD PRIMARY KEY (id_dosen, nip, kode_dosen)
+191012 22:47:25	    11 Query	CREATE TABLE tpembimbing(
+id_pembimbing INT(255) PRIMARY KEY AUTO_INCREMENT,
+jenis_pembimbing CHAR(7) NOT NULL,
+id_dosen INT(255) UNIQUE NOT NULL,
+191012 22:48:14	    11 Query	CREATE TABLE tpembimbing(
+id_pembimbing INT(255) PRIMARY KEY AUTO_INCREMENT,
+jenis_pembimbing CHAR(7) NOT NULL,
+id_dosen INT(255) UNIQUE NOT NULL,
+191012 22:48:36	    11 Query	CREATE TABLE tpembimbing(
+id_pembimbing INT(255) PRIMARY KEY AUTO_INCREMENT,
+jenis_pembimbing CHAR(7) NOT NULL,
+id_dosen INT(255) UNIQUE NOT NULL)
+191012 22:50:31	    11 Query	CREATE DATABASE dosen_pembimbing(
+nama VARCHAR(200) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+kode_dosen VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(100) NOT NULL,
+jenis_pembimbing VARCHAR(7) NOT NULL)
+191012 22:51:25	    11 Query	CREATE TABLE dosen_pembimbing(
+nama VARCHAR(200) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+kode_dosen VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(100) NOT NULL,
+jenis_pembimbing VARCHAR(7) NOT NULL)
+191012 22:52:49	    11 Query	CREATE TABLE tsidang(
+id_sidang INT(5) PRIMARY KEY AUTO_INCREMENET,
+id_mahasiswa INT(255) UNIQUE NOT NULL,
+tanggal_sidang DATE,
+id_nilai INT(2) UNIQUE NOT NULL,
+status VARCHAR(20) NOT NULL)
+191012 22:53:14	    11 Query	CREATE TABLE tsidang(
+id_sidang INT(5) PRIMARY KEY AUTO_INCREMENET,
+,
+191012 22:53:50	    11 Query	CREATE TABLE tsidang(
+id_sidang INT(5) PRIMARY KEY AUTO_INCREMENT,
+id_mahasiswa INT(255) UNIQUE NOT NULL,
+tanggal_sidang DATE,
+id_nilai INT(2) UNIQUE NOT NULL,
+status VARCHAR(20) NOT NULL)
+191012 22:53:59	    11 Quit	
