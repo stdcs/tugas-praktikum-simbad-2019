@@ -496,3 +496,18 @@ nama varchar(255) NOT NULL
 		   26 Query	UNLOCK TABLES
 		   26 Quit	
 191011  2:44:30	   24 Quit	
+191011  2:59:21	   27 Connect	root@localhost on 
+		   27 Query	select @@version_comment limit 1
+191011  2:59:32	   27 Query	show databases
+191011  2:59:40	   27 Query	SELECT DATABASE()
+		   27 Init DB	coba_coba
+191011  3:00:01	   27 Query	create table ngentot (memek varchar(2) NOT NULL)
+191011  3:00:06	   27 Query	SHOW TABLES
+191011  3:00:17	   27 Query	DESC NGENTOTO
+191011  3:00:24	   27 Query	DESC NGENTOT
+191011  3:00:56	   27 Query	ALTER TABLE coba_coba DROP ngentot
+191011  3:01:07	   27 Query	drop table coba_coba
+191011  3:01:35	   27 Query	drop database coba_coba
+191011  3:01:36	   27 Query	SELECT DATABASE()
+191011  3:01:41	   27 Query	show databases
+191011  3:01:44	   27 Quit	
