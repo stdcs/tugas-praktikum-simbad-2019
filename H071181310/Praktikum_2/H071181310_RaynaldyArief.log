@@ -1,0 +1,13 @@
+C:\laragon\bin\mysql\mysql-5.7.24-winx64\bin\mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: /tmp/mysql.sock
+Time                 Id Command    Argument
+2019-10-15T08:43:46.105181Z	   38 Query	SELECT * FROM table_list_country ORDER BY iso_code ASC
+2019-10-15T08:47:19.086146Z	   38 Query	SELECT * FROM table_list_country ORDER BY gdp DESC LIMIT 10
+2019-10-15T08:48:33.751261Z	   38 Query	SELECT * FROM table_list_country ORDER BY area DESC LIMIT 10
+2019-10-15T08:49:23.955201Z	   38 Query	SELECT * FROM table_list_country ORDER BY population DESC LIMIT 10
+2019-10-15T08:50:14.279887Z	   38 Query	SELECT * FROM table_list_country ORDER BY pop_density ASC LIMIT 10
+2019-10-15T08:55:54.588753Z	   38 Query	SELECT name, capital, iso_code, continent, region FROM table_list_country WHERE name LIKE "%a%" AND name LIKE "%i%" AND name LIKE "%u%" AND name LIKE "%e%" AND name LIKE "%o%"
+2019-10-15T08:59:33.172142Z	   38 Query	SELECT name, area, population FROM table_list_country WHERE area > 3000000 OR population > 250000000
+2019-10-15T09:05:51.273519Z	   38 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent = "Asia"
+2019-10-15T09:06:56.146596Z	   38 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent = "Asia" AND region = "South East"
+2019-10-15T09:09:15.962200Z	   38 Query	SELECT name, population, pop_density FROM table_list_country WHERE name LIKE "I%"
