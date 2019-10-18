@@ -56,7 +56,6 @@ Time		    Id Command	Argument
 191017  0:04:10	    10 Query	SELECT DATABASE()
 		    10 Init DB	tugas2
 191017  0:46:59	     9 Query	SELECT name,capital, iso_code, continent,region FROM table_list_country WHERE
-191017  0:50:16	     6 Query	SELECT name, population, pop_density FROM table_list_country WHERE name LIKE "i%"
 c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
 TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
 Time		    Id Command	Argument
