@@ -1,0 +1,62 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191016 22:31:43	     8 Query	SELECT * FROM table_list_country
+191016 22:34:01	     8 Query	SELECT * FROM table_list_country ORDER BY iso_code
+191016 22:34:18	     8 Query	SELECT * FROM table_list_country ORDER BY iso_code ASC
+191016 22:35:27	     8 Query	SELECT iso_code FROM table_list_country ORDER BY iso_code ASC
+191016 22:37:22	     8 Query	SELECT iso_code FROM table_list_country ORDER BY iso_code DESC LIMIT 10
+191016 22:37:47	     8 Query	SELECT gdp FROM table_list_country ORDER BY gdp DESC LIMIT 10
+191016 22:38:44	     8 Query	SELECT area FROM table_list_country ORDER BY gdp area LIMIT 10
+191016 22:39:06	     8 Query	SELECT area FROM table_list_country ORDER BY area LIMIT 10
+191016 22:39:23	     8 Query	SELECT area FROM table_list_country ORDER BY area DESC LIMIT 10
+191016 22:40:03	     8 Query	SELECT area population table_list_country ORDER BY population DESC LIMIT 10
+191016 22:40:16	     8 Query	SELECT population table_list_country ORDER BY population DESC LIMIT 10
+191016 22:40:29	     8 Query	SELECT population FROM table_list_country ORDER BY population DESC LIMIT 10
+191016 22:41:39	     8 Query	SELECT pop_density FROM table_list_country ORDER BY pop_density ASC LIMIT 10
+191016 22:46:36	     8 Quit	
+191016 22:46:44	     9 Connect	root@localhost as anonymous on 
+		     9 Query	select @@version_comment limit 1
+191016 22:46:59	     9 Query	SELECT DATABASE()
+		     9 Init DB	tugas2
+191016 22:49:49	     9 Query	SELECT * FROM table_list_country WHERE name, capital, iso_code, continent, region LIKE "a%, i%, u%, e%, o%"
+191016 22:51:03	     9 Query	SELECT * FROM table_list_country WHERE name, capital, iso_code, continent, region LIKE "%a,i,u,e,o%"
+191016 22:51:30	     9 Query	SELECT * FROM table_list_country WHERE name, capital, iso_code, continent, region LIKE "%a%,%i%,%u%,%e%,%o%"
+191016 22:54:12	     9 Query	SELECT * FROM table_list_country WHERE name  LIKE "%a%"
+191016 22:54:33	     9 Query	SELECT * FROM table_list_country WHERE name  LIKE "%a%", "%i%",
+191016 22:54:41	     9 Query	SELECT * FROM table_list_country WHERE name  LIKE "%a%, %i%",
+191016 22:55:28	     9 Query	SELECT * FROM table_list_country WHERE name  LIKE "%a%, %i%"
+191016 22:56:10	     9 Query	SELECT * FROM table_list_country WHERE name  LIKE "%a%, %i%, %u%, %e%, %o%"
+191016 22:57:12	     9 Query	SELECT * FROM table_list_country WHERE name, capital, iso_code, continent, region LIKE "%a%, %i%, %u%, %e%, %o%"
+191016 22:57:28	     9 Query	SELECT * FROM table_list_country WHERE capital  LIKE "%a%, %i%, %u%, %e%, %o%"
+191016 22:57:41	     9 Query	SELECT * FROM table_list_country WHERE iso_code  LIKE "%a%, %i%, %u%, %e%, %o%"
+191016 22:58:03	     9 Query	SELECT * FROM table_list_country WHERE continent  LIKE "%a%, %i%, %u%, %e%, %o%"
+191016 22:58:14	     9 Query	SELECT * FROM table_list_country WHERE region  LIKE "%a%, %i%, %u%, %e%, %o%"
+191016 22:59:04	     9 Query	SELECT * FROM table_list_country WHERE name  LIKE "%A%, %I%, %U%, %E%, %O%"
+191016 23:04:52	     9 Query	SELECT * FROM table_list_country WHERE name   REGEXP '^[ms].*[aiueo]$'
+191016 23:05:21	     9 Query	SELECT * FROM table_list_country WHERE name   REGEXP '^[aiueo]$'
+191016 23:06:42	     9 Query	SELECT * FROM table_list_country WHERE name   REGEXP '^[AIUEO]$'
+191016 23:07:05	     9 Query	SELECT * FROM table_list_country WHERE name LIKE '^[AIUEO]$'
+191016 23:07:18	     9 Query	SELECT * FROM table_list_country WHERE name LIKE '^[aiueo]$'
+191016 23:27:15	     9 Query	SELECT name,capital, iso_code, continent,region FROM table_list_country  LIKE "%a%, %i%, %u%, %e%, %o%"
+191016 23:29:32	     9 Query	SELECT name,capital, iso_code, continent,region FROM table_list_country WHERE "%a%, %i%, %u%, %e%, %o%"
+191016 23:36:57	     9 Query	SELECT name, region, population FROM table_list_country WHERE region >= 3000000 AND population >= 250000000
+191016 23:37:39	     9 Query	SELECT name, region, population FROM table_list_country WHERE region > 3000000 AND population > 250000000
+191016 23:39:33	     9 Query	SELECT name, area, population FROM table_list_country WHERE area > 3000000 AND population > 250000000
+191016 23:45:15	     9 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent IN(asia)
+191016 23:46:32	     9 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent ='asia'
+191016 23:51:51	     9 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent ='asia' AND continent= 'South East'
+191016 23:52:58	     9 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent ="asia" AND region= "South East"
+191016 23:56:23	     9 Query	SELECT name, population, pop_density FROM table_list_country WHERE name, population, pop_density LIKE "I"
+191016 23:57:12	     9 Query	SELECT name, population, pop_density FROM table_list_country WHERE name, population, pop_density LIKE "I%"
+191016 23:58:29	     9 Query	SELECT name, population, pop_density FROM table_list_country WHERE name, population, pop_density LIKE 'I%'
+191017  0:02:45	     9 Query	SELECT name, population, pop_density FROM table_list_country WHERE name, population, pop_density LIKE '_I%'
+191017  0:03:59	    10 Connect	root@localhost as anonymous on 
+		    10 Query	select @@version_comment limit 1
+191017  0:04:10	    10 Query	SELECT DATABASE()
+		    10 Init DB	tugas2
+191017  0:46:59	     9 Query	SELECT name,capital, iso_code, continent,region FROM table_list_country WHERE
+191017  0:50:16	     6 Query	SELECT name, population, pop_density FROM table_list_country WHERE name LIKE "i%"
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
