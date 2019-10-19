@@ -1,0 +1,40 @@
+CREATE DATABASE mydb;
+
+mysql -u root -p mydb < c:/xampp/world.sql
+
+USE mydb;
+
+SELECT * FROM table_list country
+ -> ORDER BY iso_code ASC;
+
+SELECT gdp, area, population, pop_density
+ -> FROM table_list_country
+ -> ORDER BY gdp DESC
+ -> LIMIT 10;
+
+SELECT gdp, area, population, pop_density
+ -> FROM table_list_country
+ -> ORDER BY area DESC
+ -> LIMIT 10;
+
+SELECT gdp, area, population, pop_density
+ -> FROM table_list_country
+ -> ORDER BY population DESC
+ -> LIMIT 10;
+
+SELECT gdp, area, population, pop_density
+ -> FROM table_list_country
+ -> ORDER BY pop_density DESC
+ -> LIMIT 10;
+
+SELECT name, capital, iso_code, region
+ -> FROM table_list_country
+ -> WHERE name LIKE "%a%" AND name LIKE "%i%" AND name LIKE "%u%" AND name LIKE "%e%" AND name LIKE "%o%"
+
+SELECT name, area, population
+ -> FROM table_list_country
+ -> WHERE area > 3000000 OR population > 250000000;
+
+SELECT name, population, pop_density
+ -> FROM table_list_country
+ -> WHERE continent = "Asia" AND region = "South East" AND name LIKE "I%";
