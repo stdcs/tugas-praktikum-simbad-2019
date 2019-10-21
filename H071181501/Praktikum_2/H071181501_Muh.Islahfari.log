@@ -1,0 +1,14 @@
+C:\Program Files\MariaDB 10.4\bin\mysqld.exe, Version: 10.4.8-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time		    Id Command	Argument
+191016 21:25:27	    60 Query	SELECT * FROM table_list_country ORDER BY iso_code ASC
+191016 21:26:00	    60 Query	SELECT * FROM table_list_country ORDER BY gdp DESC LIMIT 10
+191016 21:26:13	    60 Query	SELECT * FROM table_list_country ORDER BY area DESC LIMIT 10
+191016 21:26:24	    60 Query	SELECT * FROM table_list_country ORDER BY population DESC LIMIT 10
+191016 21:26:36	    60 Query	SELECT * FROM table_list_country ORDER BY population LIMIT 10
+191016 21:26:47	    60 Query	SELECT * FROM table_list_country ORDER BY pop_density LIMIT 10
+191016 21:29:53	    60 Query	SELECT name,capital,iso_code,continent,region FROM table_list_country WHERE name LIKE "%a%" AND name LIKE "%i%" AND name LIKE "%u%" AND name LIKE "%e%"
+AND name LIKE "%o%"
+191016 21:32:24	    60 Query	SELECT name,area,population WHERE area >= 3000000 OR population >= 250000000
+191016 21:33:11	    60 Query	SELECT name,area,population FROM table_list_country WHERE area >= 3000000 OR population >= 250000000
+191016 21:35:28	    60 Query	SELECT name,population,pop_density FROM table_list_country WHERE continent = "Asia" AND region = "South East" AND name LIKE "I%"
