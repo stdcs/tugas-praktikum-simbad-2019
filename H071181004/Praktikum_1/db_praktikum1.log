@@ -1,0 +1,498 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 5.5.39 (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time                 Id Command    Argument
+191010 18:16:03	   24 Query	show databases
+191010 18:16:42	   24 Query	CREATE DATABASE data_ilkom
+191010 18:16:48	   24 Query	SELECT DATABASE()
+		   24 Init DB	data_ilkom
+191010 18:24:39	   24 Query	CREATE TABLE table_mahasiswa (
+id_mhs INT NOT NULL,
+nim_mhs VARCHAR(10) NOT NULL,
+nama_mhs VARCHAR(255) NOT NULL
+)
+191010 18:26:44	   24 Query	CREATE TABLE table_matakuliah (id_mk INT NOT NULL)
+191010 18:41:25	   24 Query	ALTER TABLE table_mahasiswa ADD PRIMARY KEY (`id_mhs`)
+191010 18:42:32	   24 Query	ALTER TABLE table_matakuliah ADD PRIMARY KEY (`id_mk`)
+191010 18:46:42	   24 Query	ALTER TABLE table_mahasiswa ADD status_mhs ENUM('Aktif', 'Lulus')
+191010 18:48:56	   24 Query	ALTER TABLE table_mahasiswa ADD UNIQUE(`nim_mhs`)
+191010 18:51:19	   24 Query	ALTER TABLE table_mahasiswa ADD kode_mk VARCHAR(11) UNIQUE NOT NULL
+191010 18:52:03	   24 Query	ALTER TABLE table_mahasiswa DELETE kode_mk
+191010 18:52:56	   24 Query	ALTER TABLE table_mahasiswa DROP kode_mk
+191010 18:53:09	   24 Query	ALTER TABLE table_matakuliah ADD kode_mk VARCHAR(11) UNIQUE NOT NULL
+191010 18:54:45	   24 Query	ALTER TABLE table_matakuliah ADD nama_mk VARCHAR(100) NOT NULL
+191010 18:55:28	   24 Query	ALTER TABLE table_matakuliah ADD sks_mk ENUM('2', '3', '4') NOT NULL
+191010 18:56:12	   24 Query	ALTER TABLE table_matakuliah ADD UNIQUE (`kode_mk`)
+191010 18:56:39	   24 Query	show tables
+191010 18:56:46	   24 Query	desc table_mahasiswa
+191010 18:56:58	   24 Query	desc table_matakuliah
+191010 18:58:01	   24 Query	RENAME TABLE table_mahasiswa TO tb_mahasiswa
+191010 18:58:32	   24 Query	RENAM TABLE table_matakuliah TO tb_matakuliah
+191010 18:58:36	   24 Query	RENAMe TABLE table_matakuliah TO tb_matakuliah
+191010 19:01:04	   24 Query	ALTER TABLE tb_mahasiswa RENAME id_mk id
+191010 19:01:09	   24 Query	ALTER TABLE tb_mahasiswa RENAME id_mk TO id
+191010 19:03:53	   24 Query	ALTER TABLE tb_mahasiswa CHANGE id_mk id INT
+191010 19:04:03	   24 Query	ALTER TABLE tb_mahasiswa CHANGE id_mhs id INT
+191010 19:04:52	   24 Query	ALTER TABLE tb_mahasiswa CHANGE nim_mhs nim VARCHAR(10)
+191010 19:06:00	   24 Query	ALTER TABLE tb_mahasiswa CHANGE nama_mhs nama VARCHAR(255)
+191010 19:06:47	   24 Query	ALTER TABLE tb_mahasiswa CHANGE status_mhs status ENUM('Aktif', 'Lulus')
+191010 19:07:16	   24 Query	ALTER TABLE tb_matakuliah CHANGE id_mk id INT
+191010 19:07:50	   24 Query	ALTER TABLE tb_matakuliah CHANGE kode_mk kode VARCHAR(11)
+191010 19:08:19	   24 Query	ALTER TABLE tb_matakuliah CHANGE nama_mk nama VARCHAR(100)
+191010 19:08:47	   24 Query	ALTER TABLE tb_matakuliah CHANGE sks_mk sk ENUM('2', '3', '4')
+191010 19:08:53	   24 Query	SHOW TABLES
+191010 19:09:01	   24 Query	DESC tb_mahasiswa
+191010 19:09:24	   24 Query	ALTER TABLE tb_matakuliah CHANGE sks_mk sk ENUM('2', '3', '4') NOT NULL
+191010 19:11:02	   24 Query	ALTER TABLE tb_mahasiswa MODIFY nim VARCHAR(10) NOT NULL
+191010 19:11:28	   24 Query	ALTER TABLE tb_mahasiswa MODIFY nama VARCHAR(255) NOT NULL
+191010 19:12:36	   24 Query	ALTER TABLE tb_mahasiswa MODIFY status ENUM('Aktif', 'Lulus') NOT NULL
+191010 19:13:00	   24 Query	show tables
+191010 19:13:07	   24 Query	desc tb_mahasiswa
+191010 19:13:25	   24 Query	desc tb_matakuliah
+191010 19:14:01	   24 Query	ALTER TABLE tb_matakuliah MODIFY kode VARCHAR(11) NOT NULL
+191010 19:14:27	   24 Query	ALTER TABLE tb_matakuliah MODIFY nama VARCHAR(100) NOT NULL
+191010 19:15:16	   24 Query	ALTER TABLE t_matakuliah MODIFY sk ENUM('2', '3', '4') NOT NULL
+191010 19:15:24	   24 Query	ALTER TABLE tb_matakuliah MODIFY sk ENUM('2', '3', '4') NOT NULL
+191010 19:15:33	   24 Query	desc tb_matakuliah
+191010 19:18:03	   25 Connect	root@localhost on 
+		   25 Query	/*!40100 SET @@SQL_MODE='' */
+		   25 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		   25 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('data_ilkom'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE ORDER BY LOGFILE_GROUP_NAME
+		   25 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('data_ilkom')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		   25 Init DB	data_ilkom
+		   25 Query	show tables
+		   25 Query	LOCK TABLES `tb_mahasiswa` READ /*!32311 LOCAL */,`tb_matakuliah` READ /*!32311 LOCAL */
+		   25 Query	show table status like 'tb\_mahasiswa'
+		   25 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   25 Query	SET SESSION character_set_results = 'binary'
+		   25 Query	show create table `tb_mahasiswa`
+		   25 Query	SET SESSION character_set_results = 'utf8'
+		   25 Query	show fields from `tb_mahasiswa`
+191010 19:18:04	   25 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_mahasiswa`
+		   25 Query	SET SESSION character_set_results = 'binary'
+		   25 Query	use `data_ilkom`
+		   25 Query	select @@collation_database
+		   25 Query	SHOW TRIGGERS LIKE 'tb\_mahasiswa'
+		   25 Query	SET SESSION character_set_results = 'utf8'
+		   25 Query	show table status like 'tb\_matakuliah'
+		   25 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   25 Query	SET SESSION character_set_results = 'binary'
+		   25 Query	show create table `tb_matakuliah`
+		   25 Query	SET SESSION character_set_results = 'utf8'
+		   25 Query	show fields from `tb_matakuliah`
+		   25 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_matakuliah`
+		   25 Query	SET SESSION character_set_results = 'binary'
+		   25 Query	use `data_ilkom`
+		   25 Query	select @@collation_database
+		   25 Query	SHOW TRIGGERS LIKE 'tb\_matakuliah'
+		   25 Query	SET SESSION character_set_results = 'utf8'
+		   25 Query	UNLOCK TABLES
+		   25 Quit	
+191010 19:19:13	   24 Query	show databases
+191010 19:19:34	   24 Query	CREATE DATABASE ddl_assignment
+191010 19:19:39	   24 Query	show databases
+191010 19:19:47	   24 Query	SELECT DATABASE()
+		   24 Init DB	ddl_assignment
+191010 19:21:59	   24 Query	CREATE TABLE dosen_pembimbing (nama VARCHAR(200) NOT NULL, nip VARCHAR(50) NOT NULL, kode_dosen VARCHAR(10) NOT NULL, status VARCHAR(100) NOT NULL, nama_prodi VARCHAR(200) NOT NULL, jenis_pembimbing VARCHAR(7) NOT NULL)
+191010 19:23:28	   24 Query	SHOW TABLES
+191010 19:25:38	   24 Query	CREATE TABLE dosen_penguji (
+nama VARCHAR(200) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+kode_dosen VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+jenis_penguji CHAR(1) NOT NULL
+)
+191010 19:32:13	   24 Query	SHOW TABLES
+191010 19:35:49	   24 Query	CREATE TABLE mahasiswa_prodi (
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1) NOT NULL,
+no_hp VARCHAR(20) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+tgl_masuk DATE NOT NULL,
+tgl_lulus DATE NOT NULL
+)
+191010 19:35:55	   24 Query	SHOW TABLES
+191010 19:38:55	   24 Query	CREATE TABLE seminar_mahasiswa (
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL, 
+jk CHAR(1) NOT NULL, 
+tgl)_seminar DATE NOT NULL,
+jenis_seminar char(1) NOT NULL,
+status VARCHAR(200) NOT NULL,
+nip varchar(50) NOT NULL
+)
+191011  1:29:30	   24 Query	CREATE TABLE seminar_mahasiswa (
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL, 
+jk CHAR(1) NOT NULL, 
+tgl_seminar DATE NOT NULL,
+jenis_seminar char(1) NOT NULL,
+status VARCHAR(200) NOT NULL,
+dosen_penguji varchar(200) NOT NULL, 
+nip varchar(50) NOT NULL
+)
+191011  1:29:44	   24 Query	show tables
+191011  1:57:40	   24 Query	CREATE TABLE skripsi_mahasiswa (
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+nama_prodi varchar(255) NOT NULL,
+judul_skripsi varchar(255) NOT NULL,
+dosen_pembimbing varchar(200) NOT NULL,
+tgl_sidang date NOT NULL,
+nilai_sidang varchar(2) NOT NULL,
+nip varchar(50) NOT NULL,
+jenis_pembimbing varchar(7) NOT NULL
+)
+191011  1:57:44	   24 Query	SHOW TABLES
+191011  2:00:29	   24 Query	CREATE TABLE tdosen (
+id_dosen int(255) PRIMARY KEY NOT NULL,
+nama varchar(255) NOT NULL,
+nip varchar(50) NOT NULL,
+kode_dosen varchar(10) PRIMARY KEY NOT NULL,
+status varchar(100) NOT NULL,
+id_prodi int(5) UNIQUE NOT NULL
+)
+191011  2:01:43	   24 Query	CREATE TABLE tdosen (
+id_dosen int(255) PRIMARY KEY NOT NULL,
+nama varchar(200) NOT NULL,
+nip varchar(50) NOT NULL,
+kode_dosen varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+id_prodi int(5) UNIQUE NOT NULL
+)
+191011  2:02:12	   24 Query	ALTER TABLE tdosen ADD PRIMARY KEY(`kode_dosen`)
+191011  2:03:37	   24 Query	ALTER TABLE tdosen DROP PRIMARY KEY(`id_dosen`)
+191011  2:05:01	   24 Query	ALTER TABLE tdosen DROP PRIMARY KEY
+191011  2:07:03	   24 Query	ALTER TABLE tdosen ADD PRIMARY KEY (`id_dosen`, `kode_dosen`)
+191011  2:07:09	   24 Query	show tables
+191011  2:07:17	   24 Query	desc tdosen
+191011  2:10:22	   24 Query	CREATE TABLE tmahasiswa (
+id_mahasiswa int(255) NOT NULL,
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+no_hp varchar(20) NOT NULL,
+alamat varchar(255) NOT NULL,
+tgl_masuk date NOT NULL,
+tgl_lulus date NOT NULL,
+status varchar(100) NOT NULL,
+id_prodi int(5) UNIQUE NOT NULL
+)
+191011  2:10:47	   24 Query	ALTER TABLE tmahasiswa ADD PRIMARY KEY(`id_mahasiswa`,`nim`)
+191011  2:10:54	   24 Query	desc tmahasiswa
+191011  2:12:28	   24 Query	CREATE TABLE tnilai (
+id_nilai int(2) PRIMARY KEY NOT NULL,
+nilai_huruf varchar(2) NOT NULL,
+bobot_nilai decimail(3,2) UNIQUE NOT NULL
+)
+191011  2:12:49	   24 Query	CREATE TABLE tnilai (
+id_nilai int(2) PRIMARY KEY NOT NULL,
+nilai_huruf varchar(2) NOT NULL,
+bobot_nilai decimal(3,2) UNIQUE NOT NULL
+)
+191011  2:12:56	   24 Query	SHOW TABLES
+191011  2:14:16	   24 Query	CREATE TABLE tpembimbing (
+id_pembimbing int(255) NOT NULL,
+jenis_pembimbing varchar(7) NOT NULL,
+id_dosen int(255) UNIQUE NOT NULL
+)
+191011  2:14:53	   24 Query	ALTER TABLE tpembimbing ADD PRIMARY KEY(`id_pembimbing`)
+191011  2:14:58	   24 Query	show tables
+191011  2:16:12	   24 Query	CREATE TABLE tpenguji (
+id_penguji int(255) PRIMARY KEY NOT NULL,
+id_dosen int(255) UNIQUE NOT NULL,
+jenis_penguji char(1) NOT NULL
+)
+191011  2:16:30	   24 Query	SHOW TABLES
+191011  2:17:37	   24 Query	CREATE TABLE tprodi (
+id_prodi int(5) NOT NULL,
+kode_prodi varchar(5) NOT NULL,
+nama varchar(200) NOT NULL,
+status varchar(100) NOT NULL
+)
+191011  2:18:12	   24 Query	ALTER TABLE tprodi ADD PRIMARY KEY(`id_prodi`,`kode_prodi`)
+191011  2:18:20	   24 Query	SHOW TABLES
+191011  2:19:43	   24 Query	CREATE TABLE tsemester (
+id_semester int(3) NOT NULL,
+nama VARCHAR(20) NOT NULL,
+kode_semester varchar(10) NOT NULL,
+status varchar(100) NOT NULL
+)
+191011  2:20:10	   24 Query	ALTER TABLE tsemester ADD PRIMARY KEY(`id_semester`, `kode_semester`)
+191011  2:20:14	   24 Query	SHOW TABLES
+191011  2:23:32	   24 Query	CREATE TABLE tseminar (
+id_seminar int(5) NOT NULL,
+tanggal date NOT NULL,
+id_nilai int(2) NOT NULL,
+jenis_seminar char(1) NOT NULL,
+id_mahasiswa int(255) NOT NULL,
+status varchar(20) NOT NULL,
+id_pembimbing int(255) NOT NULL,
+id_penguji int(255) NOT NULL
+)
+191011  2:25:46	   24 Query	DESC TSEMINAR
+191011  2:26:07	   24 Query	ALTER TABLE tseminar ADD PRIMARY KEY(`id_seminar`)
+191011  2:28:12	   24 Query	ALTER TABLE tseminar ADD UNIQUE KEY(`id_nilai`,`id_mahasiswa`)
+191011  2:28:18	   24 Query	desc tseminar
+191011  2:28:37	   24 Query	ALTER TABLE tseminar DROP UNIQUE KEY
+191011  2:30:46	   24 Query	ALTER TABLE tseminar DROP INDEX
+191011  2:30:57	   24 Query	ALTER TABLE tseminar DROP INDEX id_nilai
+191011  2:31:06	   24 Query	desc tseminar
+191011  2:31:40	   24 Query	ALTER TABLE tseminar DROP INDEX id_mahasiswa
+191011  2:32:34	   24 Query	ALTER TABLE tseminar ADD UNIQUE KEY id_nilai
+191011  2:32:46	   24 Query	ALTER TABLE tseminar ADD UNIQUE KEY (`id_nilai`)
+191011  2:32:54	   24 Query	ALTER TABLE tseminar ADD UNIQUE KEY (`id_mahasiswa`)
+191011  2:33:11	   24 Query	ALTER TABLE tseminar ADD UNIQUE KEY (`id_pembimbing`)
+191011  2:33:20	   24 Query	ALTER TABLE tseminar ADD UNIQUE KEY (`id_penguji`)
+191011  2:33:27	   24 Query	desc tseminar
+191011  2:35:21	   24 Query	CREATE TABLE tsidang (
+id_sidang INT(5) PRIMARY KEY NOT NULL,
+id_mahasiswa int(255) UNIQUE NOT NULL,
+tanggal_sidang date NOT NULL,
+id_nilai int(2) UNIQE NOT NULL,
+status varchar(20) NOT NULL
+)
+191011  2:35:44	   24 Query	CREATE TABLE tsidang (
+id_sidang INT(5) PRIMARY KEY NOT NULL,
+id_mahasiswa int(255) UNIQUE NOT NULL,
+tanggal_sidang date NOT NULL,
+id_nilai int(2) UNIQUE NOT NULL,
+status varchar(20) NOT NULL
+)
+191011  2:35:53	   24 Query	SHOW TABLES
+191011  2:39:37	   24 Query	CREATE TABLE tsk_pembimbing (
+id_SK INT(4) NOT NULL,
+id_skripsi int(5) NOT NULL,
+id_semester INT(3) NOT NULL,
+no_sk varchar(20) NOT NULL,
+tanggal_sk date NOT NULL
+)
+191011  2:41:12	   24 Query	CREATE TABLE tskripsi (
+id_skripsi int(5) PRIMARY KEY NOT NULL,
+id_mahasiswa int(255) UNIQUE NOT NULL,
+judul varchar(255) NOT NULL,
+id_pembimbing int(255) NOT NULL,
+id_penguji int(255) NOT NULL
+)
+191011  2:41:42	   24 Query	CREATE TABLE untitled (
+nama varchar(255) NOT NULL
+)
+191011  2:41:46	   24 Query	SHOW TABLES
+191011  2:42:38	   26 Connect	root@localhost on 
+		   26 Query	/*!40100 SET @@SQL_MODE='' */
+		   26 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		   26 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('ddl_assignment'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE ORDER BY LOGFILE_GROUP_NAME
+		   26 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('ddl_assignment')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		   26 Init DB	ddl_assignment
+		   26 Query	show tables
+		   26 Query	LOCK TABLES `dosen_pembimbing` READ /*!32311 LOCAL */,`dosen_penguji` READ /*!32311 LOCAL */,`mahasiswa_prodi` READ /*!32311 LOCAL */,`seminar_mahasiswa` READ /*!32311 LOCAL */,`skripsi_mahasiswa` READ /*!32311 LOCAL */,`tdosen` READ /*!32311 LOCAL */,`tmahasiswa` READ /*!32311 LOCAL */,`tnilai` READ /*!32311 LOCAL */,`tpembimbing` READ /*!32311 LOCAL */,`tpenguji` READ /*!32311 LOCAL */,`tprodi` READ /*!32311 LOCAL */,`tsemester` READ /*!32311 LOCAL */,`tseminar` READ /*!32311 LOCAL */,`tsidang` READ /*!32311 LOCAL */,`tsk_pembimbing` READ /*!32311 LOCAL */,`tskripsi` READ /*!32311 LOCAL */,`untitled` READ /*!32311 LOCAL */
+		   26 Query	show table status like 'dosen\_pembimbing'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+191011  2:42:39	   26 Query	show create table `dosen_pembimbing`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `dosen_pembimbing`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `dosen_pembimbing`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'dosen\_pembimbing'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'dosen\_penguji'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `dosen_penguji`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `dosen_penguji`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `dosen_penguji`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'dosen\_penguji'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'mahasiswa\_prodi'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `mahasiswa_prodi`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `mahasiswa_prodi`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `mahasiswa_prodi`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'mahasiswa\_prodi'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'seminar\_mahasiswa'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `seminar_mahasiswa`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `seminar_mahasiswa`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `seminar_mahasiswa`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'seminar\_mahasiswa'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'skripsi\_mahasiswa'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `skripsi_mahasiswa`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `skripsi_mahasiswa`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `skripsi_mahasiswa`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'skripsi\_mahasiswa'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tdosen'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tdosen`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tdosen`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tdosen`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tdosen'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tmahasiswa'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tmahasiswa`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tmahasiswa`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tmahasiswa`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tmahasiswa'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tnilai'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tnilai`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tnilai`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tnilai`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tnilai'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tpembimbing'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tpembimbing`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tpembimbing`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tpembimbing`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tpembimbing'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tpenguji'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tpenguji`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tpenguji`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tpenguji`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tpenguji'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tprodi'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tprodi`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tprodi`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tprodi`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tprodi'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tsemester'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tsemester`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tsemester`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tsemester`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tsemester'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tseminar'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tseminar`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tseminar`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tseminar`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tseminar'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tsidang'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tsidang`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tsidang`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tsidang`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tsidang'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tsk\_pembimbing'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tsk_pembimbing`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tsk_pembimbing`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tsk_pembimbing`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tsk\_pembimbing'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'tskripsi'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `tskripsi`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `tskripsi`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tskripsi`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'tskripsi'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show table status like 'untitled'
+		   26 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	show create table `untitled`
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	show fields from `untitled`
+		   26 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `untitled`
+		   26 Query	SET SESSION character_set_results = 'binary'
+		   26 Query	use `ddl_assignment`
+		   26 Query	select @@collation_database
+		   26 Query	SHOW TRIGGERS LIKE 'untitled'
+		   26 Query	SET SESSION character_set_results = 'utf8'
+		   26 Query	UNLOCK TABLES
+		   26 Quit	
+191011  2:44:30	   24 Quit	
