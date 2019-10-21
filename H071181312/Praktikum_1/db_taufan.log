@@ -1,0 +1,48 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.1.38-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time                 Id Command    Argument
+191011 15:35:57	   13 Query	SET GLOBAL general_log = 1
+191011 15:36:02	   13 Query	show tables
+191011 15:36:08	   13 Query	desc tb_mahasiswa
+191011 15:36:20	   13 Query	desc tb_matakuliah
+191011 15:37:42	   13 Query	ALTER TABLE tb_matakuliah CHANGE id_mk id int(11) NOT NULL
+191011 15:38:07	   13 Query	ALTER TABLE tb_matakuliah CHANGE kode_mk kode varchar(11) NOT NULL
+191011 15:38:26	   13 Query	ALTER TABLE tb_matakuliah CHANGE nama_mk nama varchar(100) NOT NULL
+191011 15:39:00	   13 Query	ALTER TABLE tb_matakuliah CHANGE sks_mk sks enum('2','3','4') NOT NULL
+191011 15:39:33	   13 Query	desc tb_matakuliah
+191011 15:41:37	   14 Connect	root@localhost as anonymous on 
+		   14 Query	/*!40100 SET @@SQL_MODE='' */
+		   14 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		   14 Query	set optimizer_switch='semijoin=off'
+		   14 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('db_mahasiswa'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE ORDER BY LOGFILE_GROUP_NAME
+		   14 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('db_mahasiswa')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		   14 Query	set optimizer_switch=default
+		   14 Init DB	db_mahasiswa
+		   14 Query	show tables
+		   14 Query	LOCK TABLES `tb_mahasiswa` READ /*!32311 LOCAL */,`tb_matakuliah` READ /*!32311 LOCAL */
+		   14 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_mahasiswa'
+		   14 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   14 Query	SET SESSION character_set_results = 'binary'
+		   14 Query	show create table `tb_mahasiswa`
+		   14 Query	SET SESSION character_set_results = 'utf8'
+		   14 Query	show fields from `tb_mahasiswa`
+		   14 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_mahasiswa`
+		   14 Query	SET SESSION character_set_results = 'binary'
+		   14 Init DB	db_mahasiswa
+		   14 Query	select @@collation_database
+		   14 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_mahasiswa'
+		   14 Query	SET SESSION character_set_results = 'utf8'
+		   14 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_matakuliah'
+		   14 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   14 Query	SET SESSION character_set_results = 'binary'
+		   14 Query	show create table `tb_matakuliah`
+		   14 Query	SET SESSION character_set_results = 'utf8'
+		   14 Query	show fields from `tb_matakuliah`
+		   14 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_matakuliah`
+		   14 Query	SET SESSION character_set_results = 'binary'
+		   14 Init DB	db_mahasiswa
+		   14 Query	select @@collation_database
+		   14 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_matakuliah'
+		   14 Query	SET SESSION character_set_results = 'utf8'
+		   14 Query	UNLOCK TABLES
+		   14 Quit	
