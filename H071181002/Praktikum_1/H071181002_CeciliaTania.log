@@ -1,0 +1,75 @@
+C:\xampp\mysql\bin\mysqld.exe, Version: 10.1.36-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time                 Id Command    Argument
+191011 22:48:42	    6 Query	SET GLOBAL general_log = 1
+191011 22:49:09	    6 Query	CREATE DATABASE db_mahasiswa
+191011 22:49:21	    6 Query	SELECT DATABASE()
+		    6 Init DB	db_mahasiswa
+191011 22:51:08	    6 Query	CREATE TABLE table_mahasiswa(
+id_mhs INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nim_mhs VARCHAR(10) NOT NULL UNIQUE,
+nama_mhs VARCHAR(100) NOT NULL)
+191011 22:52:33	    6 Query	CREATE TABLE table_matakuliah(
+id_mk INT NOT NULL AUTO_INCREMENT PRIMARY KEY)
+191011 22:52:57	    6 Query	DESCRIBE table_mahasiswa
+191011 22:53:06	    6 Query	DESCRIBE table_matakuliah
+191011 22:54:14	    6 Query	ALTER TABLE table_mahasiswa ADD status_mhs enum('Aktif','Lulus') NOT NULL
+191011 22:55:52	    6 Query	ALTER TABLE table_matakuliah ADD(
+kode_mk VARCHAR(11) NOT NULL UNIQUE,
+nama_mk VARCHAR(100) NOT NULL,
+sks_mk enum('2','3','4') NOT NULL)
+191011 22:58:13	    6 Query	ALTER TABLE table_mahasiswa RENAME TO tb_mahasiswa
+191011 22:58:41	    6 Query	ALTER TABLE table_matakuliah RENAME TO tb_matakuliah
+191011 22:58:58	    6 Query	SHOW TABLES
+191011 23:10:20	    6 Query	ALTER TABLE tb_mahasiswa CHANGE id_mhs id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+191011 23:10:27	    6 Query	ALTER TABLE tb_mahasiswa CHANGE id_mhs id INT NOT NULL AUTO_INCREMENT
+191011 23:11:22	    6 Query	ALTER TABLE tb_mahasiswa CHANGE nim_mhs nim VARCHAR(10) NOT NULL
+191011 23:11:54	    6 Query	ALTER TABLE tb_mahasiswa CHANGE nama_mhs nama VARCHAR(100) NOT NULL
+191011 23:13:06	    6 Query	ALTER TABLE tb_mahasiswa CHANGE status_mhs status enum('AKtif','Lulus') NOT NULL
+191011 23:15:01	    6 Query	ALTER TABLE tb_matakuliah CHANGE id_mk id INT NOT NULL AUTO_INCREMENT
+191011 23:16:16	    6 Query	ALTER TABLE tb_matakuliah CHANGE kode_mk kode VARCHAR(11) NOT NULL
+191011 23:16:44	    6 Query	ALTER TABLE tb_matakuliah CHANGE nama_mk nama VARCHAR(100) NOT NULL
+191011 23:17:27	    6 Query	ALTER TABLE tb_matakuliah CHANGE sks_mk sks enum('2','3','4') NOT NULL
+191011 23:17:50	    6 Query	DESCRIBE tb_mahasiswa
+191011 23:18:08	    6 Query	DESCRIBE tb_matakuliah
+191011 23:30:04	    6 Quit	
+191011 23:33:02	    7 Connect	root@localhost as anonymous on 
+		    7 Query	/*!40100 SET @@SQL_MODE='' */
+		    7 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		    7 Query	set optimizer_switch='semijoin=off'
+		    7 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('db_mahasiswa'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE ORDER BY LOGFILE_GROUP_NAME
+		    7 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('db_mahasiswa')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		    7 Query	set optimizer_switch=default
+		    7 Init DB	db_mahasiswa
+		    7 Query	show tables
+		    7 Query	LOCK TABLES `tb_mahasiswa` READ /*!32311 LOCAL */,`tb_matakuliah` READ /*!32311 LOCAL */
+		    7 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_mahasiswa'
+		    7 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    7 Query	SET SESSION character_set_results = 'binary'
+191011 23:33:03	    7 Query	show create table `tb_mahasiswa`
+		    7 Query	SET SESSION character_set_results = 'utf8'
+		    7 Query	show fields from `tb_mahasiswa`
+		    7 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_mahasiswa`
+		    7 Query	SET SESSION character_set_results = 'binary'
+		    7 Init DB	db_mahasiswa
+		    7 Query	select @@collation_database
+		    7 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_mahasiswa'
+		    7 Query	SET SESSION character_set_results = 'utf8'
+		    7 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_matakuliah'
+		    7 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    7 Query	SET SESSION character_set_results = 'binary'
+		    7 Query	show create table `tb_matakuliah`
+		    7 Query	SET SESSION character_set_results = 'utf8'
+		    7 Query	show fields from `tb_matakuliah`
+		    7 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_matakuliah`
+		    7 Query	SET SESSION character_set_results = 'binary'
+		    7 Init DB	db_mahasiswa
+		    7 Query	select @@collation_database
+		    7 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_matakuliah'
+		    7 Query	SET SESSION character_set_results = 'utf8'
+		    7 Query	UNLOCK TABLES
+		    7 Quit	
+191011 23:36:11	    8 Connect	root@localhost as anonymous on 
+		    8 Query	select @@version_comment limit 1
+191011 23:40:31	    8 Query	SET GLOBAL general_log = 'ON'
+191011 23:41:14	    8 Query	SET GLOBAL general_log_file = 'H071181002_CeciliaTania_2'
