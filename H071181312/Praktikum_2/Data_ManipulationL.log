@@ -1,0 +1,486 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.1.38-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time                 Id Command    Argument
+191021  7:59:28	    9 Query	show databases
+191021  7:59:40	    9 Query	SELECT DATABASE()
+		    9 Init DB	data_manipulationl
+191021  7:59:57	    9 Query	show tables
+191021  8:00:01	    9 Quit	
+191021  8:00:20	   10 Connect	root@localhost as anonymous on 
+		   10 Query	select @@version_comment limit 1
+191021  8:00:32	   10 Query	show databases
+191021  8:00:38	   10 Query	SELECT DATABASE()
+		   10 Init DB	data_manipulationl
+191021  8:00:50	   10 Query	show tables
+191021  8:03:54	   10 Query	SELECT * FROM table_list_country ORDER BY iso_code asc
+191021  8:05:35	   10 Query	SELECT * FROM table_list_country ORDER BY gdp asc LIMIt 10
+191021  8:05:59	   10 Query	SELECT * FROM table_list_country ORDER BY gdp desc LIMIt 10
+191021  8:06:35	   10 Query	SELECT * FROM table_list_country ORDER BY area desc LIMIt 10
+191021  8:06:59	   10 Query	SELECT * FROM table_list_country ORDER BY population desc LIMIt 10
+191021  8:07:25	   10 Query	SELECT * FROM table_list_country ORDER BY pop_density asc LIMIt 10
+191021  8:19:58	   10 Query	SELECT name, capital, iso_code, continent, region FROM table_list_country WHERE name LIKE "%a%" and name LIKE "%i%" and name LIKE "%u%" and name LIKE "%E%" and name LIKE "%o%"
+191021  8:23:42	   10 Query	SELECT name, area, population FROM table_list_country WHERE area > 3000000 and population > 250000000
+191021  8:23:51	   10 Query	SELECT name, area, population FROM table_list_country WHERE area > 3000000 and population > 250000000
+191021  8:24:59	   10 Query	SELECT name, area, population FROM table_list_country WHERE area > 3000000 or population > 250000000
+191021  8:28:30	   10 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent = "Asia" and region = "South East" and name LIKE "I%"
+191021  8:28:34	   10 Quit	
+191021  8:49:55	   11 Connect	root@localhost as anonymous on 
+		   11 Query	select @@version_comment limit 1
+191021  8:50:02	   11 Query	show databases
+191021  8:50:15	   11 Query	CREATE DATABASE contoh01
+191021  8:50:26	   11 Query	SELECT DATABASE()
+191021  8:50:34	   11 Query	SELECT DATABASE()
+		   11 Init DB	contoh01
+191021  8:58:32	   12 Connect	root@localhost as anonymous on contoh01
+		   12 Query	SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"
+		   12 Query	SET AUTOCOMMIT = 0
+		   12 Query	START TRANSACTION
+		   12 Query	SET time_zone = "+00:00"
+		   12 Query	/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */
+		   12 Query	/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */
+		   12 Query	/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */
+		   12 Query	/*!40101 SET NAMES utf8mb4 */
+		   12 Query	CREATE DEFINER=`root`@`localhost` PROCEDURE `Jumlah anak bimbingan dosen dengan ID dosen x` (`id` INT)  BEGIN
+	SELECT tdosen.nama AS nama_dosen, count(tseminar.id_pembimbing) AS jumlah_bimbingan FROM tdosen
+	INNER JOIN tpembimbing ON tdosen.id_dosen = tpembimbing.id_dosen
+	INNER JOIN tseminar ON tseminar.id_pembimbing=tpembimbing.id_pembimbing WHERE tdosen.id_dosen=id;
+END
+		   12 Query	CREATE DEFINER=`root`@`localhost` PROCEDURE `Pembimbing dan Penguji dari mahasiswa dengan ID x` (`id` INT)  BEGIN
+	SELECT
+	firstSet.Pembimbing, secondSet.Penguji FROM(
+		SELECT tdosen.nama AS 'Pembimbing' FROM tdosen, tmahasiswa, tseminar, tpembimbing
+		WHERE
+		tmahasiswa.id_mahasiswa = id AND
+		tmahasiswa.id_mahasiswa = tseminar.id_mahasiswa
+		AND	tseminar.id_pembimbing = tpembimbing.id_pembimbing
+		AND	tpembimbing.id_dosen = tdosen.id_dosen) AS firstSet
+		INNER JOIN(
+		SELECT tdosen.nama AS 'Penguji' FROM tdosen, tmahasiswa, tseminar, tpenguji
+		WHERE
+		tmahasiswa.id_mahasiswa = id
+		AND tmahasiswa.id_mahasiswa = tseminar.id_mahasiswa
+		AND tseminar.id_penguji = tpenguji.id_penguji
+		AND tpenguji.id_dosen = tdosen.id_dosen)
+		AS secondSet
+		on firstSet.Pembimbing != secondSet.Penguji
+		order by firstSet.Pembimbing;
+END
+		   12 Query	CREATE DEFINER=`root`@`localhost` PROCEDURE `Pembimbing mahasiswa dengan ID x` (`id` INT)  BEGIN
+	SELECT tdosen.nama AS nama_pembimbing, tmahasiswa.nama AS nama_mahasiswa FROM tdosen
+	INNER JOIN tpembimbing ON tpembimbing.id_dosen=tdosen.id_dosen
+	INNER JOIN tseminar ON tseminar.id_pembimbing=tpembimbing.id_pembimbing
+	INNER JOIN tmahasiswa ON tmahasiswa.id_mahasiswa=tseminar.id_mahasiswa WHERE tmahasiswa.id_mahasiswa=id;
+END
+		   12 Query	CREATE DEFINER=`root`@`localhost` PROCEDURE `Skripsi dari mahasiswa dengan ID x` (`id` INT)  BEGIN
+	SELECT tmahasiswa.nama AS nama_mahasiswa, tskripsi.judul AS judul_skripsi FROM tmahasiswa
+	INNER JOIN tskripsi ON tskripsi.id_mahasiswa=tmahasiswa.id_mahasiswa WHERE tmahasiswa.id_mahasiswa=id;
+END
+		   12 Query	CREATE DEFINER=`root`@`localhost` PROCEDURE `Tahun lulus dari mahasiswa dengan ID x` (`id` INT)  BEGIN
+	SELECT tmahasiswa.nama AS nama_mahasiswa, YEAR(tmahasiswa.tgl_lulus) AS tahun_lulus FROM tmahasiswa
+	WHERE tmahasiswa.id_mahasiswa=id;
+END
+		   12 Query	CREATE TABLE `dosen_pembimbing` (
+`nama` varchar(200)
+,`nip` varchar(50)
+,`kode_dosen` varchar(10)
+,`status` varchar(100)
+,`nama_prodi` varchar(200)
+,`jenis_pembimbing` varchar(7)
+)
+191021  8:58:33	   12 Query	CREATE TABLE `dosen_penguji` (
+`nama` varchar(200)
+,`nip` varchar(50)
+,`kode_dosen` varchar(10)
+,`status` varchar(100)
+,`nama_prodi` varchar(200)
+,`jenis_penguji` char(1)
+)
+		   12 Query	CREATE TABLE `mahasiswa_prodi` (
+`nama` varchar(255)
+,`nim` varchar(10)
+,`jk` char(1)
+,`no_hp` varchar(20)
+,`status` varchar(100)
+,`nama_prodi` varchar(200)
+,`tgl_masuk` date
+,`tgl_lulus` date
+)
+		   12 Query	CREATE TABLE `seminar_mahasiswa` (
+`nama` varchar(255)
+,`nim` varchar(10)
+,`jk` char(1)
+,`tgl_seminar` date
+,`jenis_seminar` char(1)
+,`status` varchar(20)
+,`dosen_penguji` varchar(200)
+,`nip` varchar(50)
+)
+		   12 Query	CREATE TABLE `skripsi_mahasiswa` (
+`nama` varchar(255)
+,`nim` varchar(10)
+,`jk` char(1)
+,`nama_prodi` varchar(200)
+,`judul_skripsi` varchar(255)
+,`dosen_pembimbing` varchar(200)
+,`tgl_sidang` date
+,`nilai_sidang` varchar(2)
+,`nip` varchar(50)
+,`jenis_pembimbing` varchar(7)
+)
+		   12 Query	CREATE TABLE `tdosen` (
+  `id_dosen` int(255) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `nip` varchar(50) NOT NULL,
+  `kode_dosen` varchar(10) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `id_prodi` int(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+191021  8:58:34	   12 Query	INSERT INTO `tdosen` (`id_dosen`, `nama`, `nip`, `kode_dosen`, `status`, `id_prodi`) VALUES
+(1, 'Nur Hilal', '9988331760', '131NH', 'Aktif', 3),
+(2, 'Diaraya', '9988331761', '131DY', 'Aktif', 3),
+(3, 'Mawardi', '9988331762', '111MI', 'Aktif', 1),
+(4, 'Zakir', '9988331763', '111ZR', 'Aktif', 1),
+(5, 'Firman', '9988331764', '111FM', 'Aktif', 1),
+(6, 'Armin Lawi', '9988331765', '131AL', 'Aktif', 3),
+(7, 'Supri Amir', '9988331766', '121SA', 'Aktif', 2),
+(8, 'Amil', '9988331767', '131AM', 'Aktif', 3),
+(9, 'Raupong', '9988331768', '121RG', 'Aktif', 2),
+(10, 'Lapauje', '9988331769', '121LP', 'Aktif', 2),
+(11, 'Nurtiti', '9988331770', '121NT', 'Aktif', 2),
+(12, 'Sri Astuti', '9988331771', '121SI', 'Aktif', 2),
+(13, 'Amir Kamal Amir', '9988331772', '111AK', 'Aktif', 1),
+(14, 'Edy Saputra', '9988331773', '131ES', 'Aktif', 3),
+(28, 'Naimah Aris', '9988331774', '111NA', 'Aktif', 1)
+		   12 Query	CREATE TABLE `tmahasiswa` (
+  `id_mahasiswa` int(255) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `nim` varchar(10) NOT NULL,
+  `jk` char(1) NOT NULL,
+  `no_hp` varchar(20) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `tgl_masuk` date NOT NULL,
+  `tgl_lulus` date NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `id_prodi` int(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+		   12 Query	INSERT INTO `tmahasiswa` (`id_mahasiswa`, `nama`, `nim`, `jk`, `no_hp`, `alamat`, `tgl_masuk`, `tgl_lulus`, `status`, `id_prodi`) VALUES
+(1, 'Zinedine Kahlil Gibran Zidane', 'H13116304', 'L', '089677818815', 'BTN Hamzi Blok V1 No.4', '2016-06-27', '2018-05-17', 'Lulus', 3),
+(2, 'Muhammad Reza Darmadi', 'H13116506', 'L', '082344317818', 'BTN ASAL MULA', '2016-06-27', '2020-03-03', 'Lulus', 3),
+(3, 'Arvina Sulviyani', 'H13116013', 'W', '082259277465', 'Jln. Politeknik', '2016-06-27', '2018-04-20', 'Lulus', 3),
+(4, 'Rio Mukhtarom', 'H13116011', 'L', '082335384582', 'BTN Asal Mula No. C15/2 Makassar', '2016-06-27', '2018-04-17', 'Lulus', 3),
+(5, 'Nur Aghni Fauzi Abdullah', 'H13116018', 'W', '082291105236', 'Jln. Andi Caco Timur Kab. Pangkep', '2016-06-27', '2018-10-23', 'Lulus', 3),
+(6, 'Andi Reski Muh. Nur ', 'H13116313', 'L', '085298138643', 'Jln. Perintis kemerdekaan 4 ', '2016-06-27', '2019-10-10', 'Lulus', 3),
+(7, 'Alvionita Tini Kadola', 'H13116307', 'W', '085341206521', 'Rappocini', '2016-06-27', '2018-04-21', 'Lulus', 3),
+(8, 'Berlian Adriani Putri', 'H13116515', 'W', '082302232963', 'Sudiang', '2016-06-27', '2019-07-17', 'Lulus', 3),
+(9, 'Suci Rahmadana Anwar', 'H13116015', 'W', '085241595097', 'Jln. Sahabat', '2016-06-27', '2019-08-18', 'Lulus', 3),
+(10, 'Rizka Syahfitri', 'H13116505', 'W', '082322127069', 'BTN Hartaco Indah, Makassar', '2016-06-27', '2019-08-17', 'Lulus', 3),
+(11, 'Marfiandhi Putra', 'H13116512', 'L', '087841305164', 'Minasa Upa', '2016-06-27', '2019-07-07', 'Lulus', 3),
+(12, 'Ainun Mardiyah Istiqamah', 'H13116507', 'W', '085299520733', 'Daya, Makassar', '2016-06-27', '2022-08-24', 'Lulus', 3),
+(13, 'Nisrina Syadza', 'H13116514', 'W', '081527105312', 'Jln. Toddopuli X Baru', '2016-06-27', '2018-08-08', 'Lulus', 3),
+(14, 'Bagas Prasetyo', 'H13116308', 'L', '08975500784', 'Jln. Cendrawasih Lr. 2 Nomor 17i', '2016-06-27', '2020-11-25', 'Lulus', 3),
+(15, 'St. Hestiana Kadir', 'H13116504', 'W', '085215979192\r\n', 'Jln. Perintis Kemerdekaan 7 Pondok Mama Ucu Belakang Indomaret', '2016-06-27', '2018-04-27', 'Lulus', 3),
+(16, 'Nurmayulina', 'H13116517', 'W', '085145062398', 'Jln. Statistik', '2016-06-27', '2018-04-19', 'Lulus', 3)
+		   12 Query	CREATE TABLE `tnilai` (
+  `id_nilai` int(2) NOT NULL,
+  `nilai_huruf` varchar(2) NOT NULL,
+  `bobot_nilai` decimal(3,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+		   12 Query	INSERT INTO `tnilai` (`id_nilai`, `nilai_huruf`, `bobot_nilai`) VALUES
+(1, 'A', '4.00'),
+(2, 'A-', '3.75'),
+(3, 'B+', '3.50'),
+(4, 'B', '3.00'),
+(5, 'B-', '2.75'),
+(6, 'C+', '2.50'),
+(7, 'C', '2.00'),
+(8, 'D', '1.00'),
+(9, 'E', '0.00')
+		   12 Query	CREATE TABLE `tpembimbing` (
+  `id_pembimbing` int(255) NOT NULL,
+  `jenis_pembimbing` varchar(7) NOT NULL,
+  `id_dosen` int(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+		   12 Query	INSERT INTO `tpembimbing` (`id_pembimbing`, `jenis_pembimbing`, `id_dosen`) VALUES
+(1, 'Pertama', 1),
+(2, 'Utama', 2),
+(3, 'Utama', 3),
+(4, 'Pertama', 4),
+(5, 'Utama', 6),
+(6, 'Utama', 13),
+(7, 'Utama', 11),
+(8, 'Pertama', 12),
+(9, 'Pertama', 8),
+(10, 'Pertama', 5)
+		   12 Query	CREATE TABLE `tpenguji` (
+  `id_penguji` int(255) NOT NULL,
+  `id_dosen` int(255) DEFAULT NULL,
+  `jenis_penguji` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+191021  8:58:35	   12 Query	INSERT INTO `tpenguji` (`id_penguji`, `id_dosen`, `jenis_penguji`) VALUES
+(1, 5, '1'),
+(2, 7, '2'),
+(3, 9, '3'),
+(4, 10, '1'),
+(5, 14, '2'),
+(6, 28, '3')
+		   12 Query	CREATE TABLE `tprodi` (
+  `id_prodi` int(5) NOT NULL,
+  `kode_prodi` varchar(5) NOT NULL,
+  `nama` varchar(200) NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+		   12 Query	INSERT INTO `tprodi` (`id_prodi`, `kode_prodi`, `nama`, `status`) VALUES
+(1, 'H11', 'Matematika', 'Aktif'),
+(2, 'H12', 'Statistika', 'Aktif'),
+(3, 'H13', 'Ilmu Komputer', 'Aktif'),
+(4, 'K11', 'Kedokteran', 'Aktif')
+		   12 Query	CREATE TABLE `tsemester` (
+  `id_semester` int(3) NOT NULL,
+  `nama` varchar(20) NOT NULL,
+  `kode_semester` varchar(10) NOT NULL,
+  `status` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+		   12 Query	INSERT INTO `tsemester` (`id_semester`, `nama`, `kode_semester`, `status`) VALUES
+(1, 'Semester Ganjil', 'SL', 'Lewat'),
+(2, 'Semester Genap', 'SP', 'Sekarang')
+		   12 Query	CREATE TABLE `tseminar` (
+  `id_seminar` int(5) NOT NULL,
+  `tanggal` date NOT NULL,
+  `id_nilai` int(2) DEFAULT NULL,
+  `jenis_seminar` char(1) NOT NULL,
+  `id_mahasiswa` int(255) DEFAULT NULL,
+  `status` varchar(20) NOT NULL,
+  `id_pembimbing` int(255) DEFAULT NULL,
+  `id_penguji` int(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+191021  8:58:36	   12 Query	INSERT INTO `tseminar` (`id_seminar`, `tanggal`, `id_nilai`, `jenis_seminar`, `id_mahasiswa`, `status`, `id_pembimbing`, `id_penguji`) VALUES
+(1, '2018-05-15', 3, '1', 1, 'Disetujui', 4, 2),
+(2, '2020-01-23', 2, '2', 2, 'Disetujui', 3, 3),
+(3, '2018-04-18', 4, '3', 3, 'Disetujui', 2, 1),
+(4, '2018-04-10', 6, '3', 4, 'Disetujui', 5, 2),
+(5, '2018-09-24', 2, '2', 5, 'Disetujui', 1, 6),
+(6, '2019-09-09', 5, '1', 6, 'Disetujui', 10, 5),
+(7, '2018-04-19', 3, '3', 7, 'Disetujui', 7, 6),
+(8, '2019-08-17', 4, '3', 8, 'Disetujui', 9, 3),
+(9, '2019-08-17', 3, '2', 9, 'Disetujui', 6, 1),
+(10, '2019-08-17', 4, '2', 10, 'Disetujui', 8, 5),
+(11, '2019-06-06', 3, '1', 11, 'Disetujui', 2, 2),
+(12, '2018-08-24', 3, '1', 12, 'Disetujui', 10, 4),
+(13, '2019-02-23', 1, '3', 13, 'Disetujui', 4, 3),
+(14, '2018-04-12', 1, '2', 14, 'Disetujui', 5, 1),
+(15, '2018-04-20', 4, '3', 15, 'Disetujui', 3, 6),
+(16, '2018-08-17', 2, '1', 16, 'Disetujui', 7, 5)
+		   12 Query	CREATE TABLE `tsidang` (
+  `id_sidang` int(5) NOT NULL,
+  `id_mahasiswa` int(255) DEFAULT NULL,
+  `tanggal_sidang` date NOT NULL,
+  `id_nilai` int(2) DEFAULT NULL,
+  `status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+		   12 Query	INSERT INTO `tsidang` (`id_sidang`, `id_mahasiswa`, `tanggal_sidang`, `id_nilai`, `status`) VALUES
+(1, 3, '2018-04-20', 1, 'Disetujui'),
+(2, 4, '2018-04-12', 2, 'Disetujui'),
+(3, 1, '2018-05-16', 3, 'Disetujui'),
+(4, 10, '2019-08-18', 4, 'Disetujui'),
+(5, 5, '2018-11-23', 5, 'Disetujui'),
+(6, 9, '2019-08-18', 6, 'Disetujui'),
+(7, 7, '2018-04-21', 1, 'Disetujui'),
+(8, 6, '2019-11-11', 2, 'Disetujui'),
+(9, 11, '2019-06-20', 3, 'Disetujui'),
+(10, 2, '2020-02-03', 4, 'Disetujui'),
+(11, 8, '2019-08-18', 5, 'Disetujui'),
+(12, 12, '2022-08-23', 4, 'Disetujui'),
+(13, 13, '2018-08-28', 3, 'Disetujui'),
+(14, 14, '2018-04-21', 2, 'Disetujui'),
+(15, 15, '2018-04-30', 4, 'Disetujui'),
+(16, 16, '2018-09-28', 1, 'Disetujui')
+		   12 Query	CREATE TABLE `tskripsi` (
+  `id_skripsi` int(5) NOT NULL,
+  `id_mahasiswa` int(255) DEFAULT NULL,
+  `judul` varchar(255) NOT NULL,
+  `id_pembimbing` int(255) DEFAULT NULL,
+  `id_penguji` int(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+		   12 Query	INSERT INTO `tskripsi` (`id_skripsi`, `id_mahasiswa`, `judul`, `id_pembimbing`, `id_penguji`) VALUES
+(1, 1, 'Pengaruh Faction terhadap gameplay pada World Of Warcraft', 4, 2),
+(2, 2, 'Terserah', 3, 3),
+(3, 3, 'Database', 2, 1),
+(4, 4, 'Perbandingan Algoritma C4.5 dan Algoritma CART dalam Hal Kualitas Klasifikasi', 5, 2),
+(5, 5, 'Detektor Pengaman Rumah', 1, 2),
+(6, 6, 'Pengembangan Sistem Basis Data Absensi Perkuliahan dengan Sistem Barcode', 10, 1),
+(7, 7, 'Pengaruh Database', 7, 1),
+(8, 8, 'Aku Ingin Wisuda', 9, 3),
+(9, 9, 'Aku Ingin Wisuda Bareng Dia', 6, 1),
+(10, 10, 'Aku Ingin Wisuda Dengan Mereka', 8, 3),
+(11, 11, 'Pengaruh Domino Berdasarkan Intensitas Cuaca', 2, 2),
+(12, 12, 'Tulis Terserah', 5, 4),
+(13, 13, 'Sistem Informasi Koperasi Simpan Pinjam pada SMA XX Makassar', 2, 5),
+(14, 14, 'Analisis Kalori yang Terbakar saat Membawa Monitor dan Laptop ke Kampus', 10, 6),
+(15, 15, 'Semoga Bahagia Selalu', 4, 5),
+(16, 16, 'Lulus Bersama', 3, 4)
+		   12 Query	CREATE TABLE `tsk_pembimbing` (
+  `id_SK` int(4) NOT NULL,
+  `id_skripsi` int(5) DEFAULT NULL,
+  `id_semester` int(3) DEFAULT NULL,
+  `no_sk` varchar(20) NOT NULL,
+  `tanggal_SK` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+191021  8:58:37	   12 Query	INSERT INTO `tsk_pembimbing` (`id_SK`, `id_skripsi`, `id_semester`, `no_sk`, `tanggal_SK`) VALUES
+(1, 1, 2, '4', '2018-03-15'),
+(2, 2, 2, '10', '2020-10-23'),
+(3, 3, 2, '2', '2018-01-18'),
+(4, 4, 2, '1', '2018-01-10'),
+(5, 5, 1, '9', '2018-06-24'),
+(6, 6, 1, '8', '2019-06-09'),
+(7, 7, 2, '3', '2018-01-19'),
+(8, 8, 1, '4', '2019-05-17'),
+(9, 9, 1, '5', '2019-05-17'),
+(10, 10, 1, '6', '2019-05-17'),
+(11, 11, 1, '7', '2019-03-06'),
+(12, 12, 1, '11', '2018-05-24'),
+(13, 13, 2, '12', '2018-12-23'),
+(14, 14, 2, '13', '2018-01-12'),
+(15, 15, 2, '14', '2018-01-20'),
+(16, 16, 1, '15', '2018-05-17')
+		   12 Query	CREATE TABLE `untitled` (
+`nama` varchar(255)
+)
+		   12 Query	DROP TABLE IF EXISTS `dosen_pembimbing`
+		   12 Query	CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dosen_pembimbing`  AS  select `tdosen`.`nama` AS `nama`,`tdosen`.`nip` AS `nip`,`tdosen`.`kode_dosen` AS `kode_dosen`,`tdosen`.`status` AS `status`,`tprodi`.`nama` AS `nama_prodi`,`tpembimbing`.`jenis_pembimbing` AS `jenis_pembimbing` from ((`tdosen` join `tprodi` on((`tdosen`.`id_prodi` = `tprodi`.`id_prodi`))) join `tpembimbing` on((`tpembimbing`.`id_dosen` = `tdosen`.`id_dosen`)))
+		   12 Query	DROP TABLE IF EXISTS `dosen_penguji`
+		   12 Query	CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dosen_penguji`  AS  select `tdosen`.`nama` AS `nama`,`tdosen`.`nip` AS `nip`,`tdosen`.`kode_dosen` AS `kode_dosen`,`tdosen`.`status` AS `status`,`tprodi`.`nama` AS `nama_prodi`,`tpenguji`.`jenis_penguji` AS `jenis_penguji` from ((`tdosen` join `tprodi` on((`tdosen`.`id_prodi` = `tprodi`.`id_prodi`))) join `tpenguji` on((`tpenguji`.`id_dosen` = `tdosen`.`id_dosen`)))
+		   12 Query	DROP TABLE IF EXISTS `mahasiswa_prodi`
+		   12 Query	CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `mahasiswa_prodi`  AS  select `tmahasiswa`.`nama` AS `nama`,`tmahasiswa`.`nim` AS `nim`,`tmahasiswa`.`jk` AS `jk`,`tmahasiswa`.`no_hp` AS `no_hp`,`tmahasiswa`.`status` AS `status`,`tprodi`.`nama` AS `nama_prodi`,`tmahasiswa`.`tgl_masuk` AS `tgl_masuk`,`tmahasiswa`.`tgl_lulus` AS `tgl_lulus` from (`tmahasiswa` join `tprodi` on((`tmahasiswa`.`id_prodi` = `tprodi`.`id_prodi`)))
+		   12 Query	DROP TABLE IF EXISTS `seminar_mahasiswa`
+191021  8:58:38	   12 Query	CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `seminar_mahasiswa`  AS  select `tmahasiswa`.`nama` AS `nama`,`tmahasiswa`.`nim` AS `nim`,`tmahasiswa`.`jk` AS `jk`,`tseminar`.`tanggal` AS `tgl_seminar`,`tseminar`.`jenis_seminar` AS `jenis_seminar`,`tseminar`.`status` AS `status`,`tdosen`.`nama` AS `dosen_penguji`,`tdosen`.`nip` AS `nip` from (((`tmahasiswa` join `tseminar` on((`tseminar`.`id_mahasiswa` = `tmahasiswa`.`id_mahasiswa`))) join `tpenguji` on((`tseminar`.`id_penguji` = `tpenguji`.`id_penguji`))) join `tdosen` on((`tpenguji`.`id_dosen` = `tdosen`.`id_dosen`)))
+		   12 Query	DROP TABLE IF EXISTS `skripsi_mahasiswa`
+		   12 Query	CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `skripsi_mahasiswa`  AS  select `tmahasiswa`.`nama` AS `nama`,`tmahasiswa`.`nim` AS `nim`,`tmahasiswa`.`jk` AS `jk`,`tprodi`.`nama` AS `nama_prodi`,`tskripsi`.`judul` AS `judul_skripsi`,`tdosen`.`nama` AS `dosen_pembimbing`,`tsidang`.`tanggal_sidang` AS `tgl_sidang`,`tnilai`.`nilai_huruf` AS `nilai_sidang`,`tdosen`.`nip` AS `nip`,`tpembimbing`.`jenis_pembimbing` AS `jenis_pembimbing` from ((((((`tmahasiswa` join `tskripsi` on((`tskripsi`.`id_mahasiswa` = `tmahasiswa`.`id_mahasiswa`))) join `tprodi` on((`tmahasiswa`.`id_prodi` = `tprodi`.`id_prodi`))) join `tsidang` on((`tsidang`.`id_mahasiswa` = `tmahasiswa`.`id_mahasiswa`))) join `tnilai` on((`tsidang`.`id_nilai` = `tnilai`.`id_nilai`))) join `tpembimbing` on((`tskripsi`.`id_pembimbing` = `tpembimbing`.`id_pembimbing`))) join `tdosen` on((`tdosen`.`id_dosen` = `tpembimbing`.`id_dosen`)))
+		   12 Query	DROP TABLE IF EXISTS `untitled`
+		   12 Query	CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `untitled`  AS  select `tmahasiswa`.`nama` AS `nama` from `tmahasiswa`
+		   12 Query	ALTER TABLE `tdosen`
+  ADD PRIMARY KEY (`id_dosen`),
+  ADD UNIQUE KEY `nip` (`nip`),
+  ADD UNIQUE KEY `kode_dosen` (`kode_dosen`),
+  ADD KEY `id_prodi` (`id_prodi`)
+191021  8:58:39	   12 Query	ALTER TABLE `tmahasiswa`
+  ADD PRIMARY KEY (`id_mahasiswa`),
+  ADD UNIQUE KEY `nim` (`nim`),
+  ADD KEY `id_prodi` (`id_prodi`)
+		   12 Query	ALTER TABLE `tnilai`
+  ADD PRIMARY KEY (`id_nilai`)
+		   12 Query	ALTER TABLE `tpembimbing`
+  ADD PRIMARY KEY (`id_pembimbing`),
+  ADD KEY `id_dosen` (`id_dosen`)
+191021  8:58:40	   12 Query	ALTER TABLE `tpenguji`
+  ADD PRIMARY KEY (`id_penguji`),
+  ADD KEY `id_dosen` (`id_dosen`)
+		   12 Query	ALTER TABLE `tprodi`
+  ADD PRIMARY KEY (`id_prodi`),
+  ADD UNIQUE KEY `kode_prodi` (`kode_prodi`)
+191021  8:58:41	   12 Query	ALTER TABLE `tsemester`
+  ADD PRIMARY KEY (`id_semester`),
+  ADD UNIQUE KEY `kode_semester` (`kode_semester`)
+		   12 Query	ALTER TABLE `tseminar`
+  ADD PRIMARY KEY (`id_seminar`),
+  ADD KEY `id_nilai` (`id_nilai`),
+  ADD KEY `id_mahasiswa` (`id_mahasiswa`),
+  ADD KEY `id_pembimbing` (`id_pembimbing`),
+  ADD KEY `id_penguji` (`id_penguji`)
+		   12 Query	ALTER TABLE `tsidang`
+  ADD PRIMARY KEY (`id_sidang`),
+  ADD KEY `id_mahasiswa` (`id_mahasiswa`),
+  ADD KEY `id_nilai` (`id_nilai`)
+191021  8:58:42	   12 Query	ALTER TABLE `tskripsi`
+  ADD PRIMARY KEY (`id_skripsi`),
+  ADD KEY `id_mahasiswa` (`id_mahasiswa`),
+  ADD KEY `id_pembimbing` (`id_pembimbing`),
+  ADD KEY `id_penguji` (`id_penguji`)
+191021  8:58:43	   12 Query	ALTER TABLE `tsk_pembimbing`
+  ADD PRIMARY KEY (`id_SK`),
+  ADD KEY `id_skripsi` (`id_skripsi`),
+  ADD KEY `id_semester` (`id_semester`)
+		   12 Query	ALTER TABLE `tdosen`
+  MODIFY `id_dosen` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29
+191021  8:58:44	   12 Query	ALTER TABLE `tmahasiswa`
+  MODIFY `id_mahasiswa` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17
+191021  8:58:45	   12 Query	ALTER TABLE `tnilai`
+  MODIFY `id_nilai` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10
+191021  8:58:46	   12 Query	ALTER TABLE `tpembimbing`
+  MODIFY `id_pembimbing` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11
+191021  8:58:47	   12 Query	ALTER TABLE `tpenguji`
+  MODIFY `id_penguji` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7
+191021  8:58:48	   12 Query	ALTER TABLE `tprodi`
+  MODIFY `id_prodi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5
+191021  8:58:49	   12 Query	ALTER TABLE `tsemester`
+  MODIFY `id_semester` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3
+191021  8:58:50	   12 Query	ALTER TABLE `tseminar`
+  MODIFY `id_seminar` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17
+191021  8:58:51	   12 Query	ALTER TABLE `tsidang`
+  MODIFY `id_sidang` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17
+191021  8:58:52	   12 Query	ALTER TABLE `tskripsi`
+  MODIFY `id_skripsi` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17
+191021  8:58:53	   12 Query	ALTER TABLE `tsk_pembimbing`
+  MODIFY `id_SK` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17
+191021  8:58:54	   12 Query	ALTER TABLE `tdosen`
+  ADD CONSTRAINT `tdosen_ibfk_1` FOREIGN KEY (`id_prodi`) REFERENCES `tprodi` (`id_prodi`)
+191021  8:58:55	   12 Query	ALTER TABLE `tmahasiswa`
+  ADD CONSTRAINT `tmahasiswa_ibfk_1` FOREIGN KEY (`id_prodi`) REFERENCES `tprodi` (`id_prodi`)
+191021  8:58:56	   12 Query	ALTER TABLE `tpembimbing`
+  ADD CONSTRAINT `tpembimbing_ibfk_1` FOREIGN KEY (`id_dosen`) REFERENCES `tdosen` (`id_dosen`)
+191021  8:58:57	   12 Query	ALTER TABLE `tpenguji`
+  ADD CONSTRAINT `tpenguji_ibfk_1` FOREIGN KEY (`id_dosen`) REFERENCES `tdosen` (`id_dosen`)
+191021  8:58:58	   12 Query	ALTER TABLE `tseminar`
+  ADD CONSTRAINT `tseminar_ibfk_1` FOREIGN KEY (`id_nilai`) REFERENCES `tnilai` (`id_nilai`),
+  ADD CONSTRAINT `tseminar_ibfk_2` FOREIGN KEY (`id_mahasiswa`) REFERENCES `tmahasiswa` (`id_mahasiswa`),
+  ADD CONSTRAINT `tseminar_ibfk_3` FOREIGN KEY (`id_pembimbing`) REFERENCES `tpembimbing` (`id_pembimbing`),
+  ADD CONSTRAINT `tseminar_ibfk_4` FOREIGN KEY (`id_penguji`) REFERENCES `tpenguji` (`id_penguji`)
+191021  8:58:59	   12 Query	ALTER TABLE `tsidang`
+  ADD CONSTRAINT `tsidang_ibfk_1` FOREIGN KEY (`id_mahasiswa`) REFERENCES `tmahasiswa` (`id_mahasiswa`),
+  ADD CONSTRAINT `tsidang_ibfk_2` FOREIGN KEY (`id_nilai`) REFERENCES `tnilai` (`id_nilai`)
+191021  8:59:00	   12 Query	ALTER TABLE `tskripsi`
+  ADD CONSTRAINT `tskripsi_ibfk_1` FOREIGN KEY (`id_mahasiswa`) REFERENCES `tmahasiswa` (`id_mahasiswa`),
+  ADD CONSTRAINT `tskripsi_ibfk_2` FOREIGN KEY (`id_pembimbing`) REFERENCES `tpembimbing` (`id_pembimbing`),
+  ADD CONSTRAINT `tskripsi_ibfk_3` FOREIGN KEY (`id_penguji`) REFERENCES `tpenguji` (`id_penguji`)
+191021  8:59:01	   12 Query	ALTER TABLE `tsk_pembimbing`
+  ADD CONSTRAINT `tsk_pembimbing_ibfk_1` FOREIGN KEY (`id_skripsi`) REFERENCES `tskripsi` (`id_skripsi`),
+  ADD CONSTRAINT `tsk_pembimbing_ibfk_2` FOREIGN KEY (`id_semester`) REFERENCES `tsemester` (`id_semester`)
+191021  8:59:02	   12 Query	COMMIT
+		   12 Query	/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
+		   12 Query	/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
+		   12 Query	/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
+		   12 Quit	
+191021  8:59:56	   13 Connect	root@localhost as anonymous on 
+		   13 Connect	Access denied for user 'root'@'localhost' (using password: YES)
+191021  8:59:59	   14 Connect	root@localhost as anonymous on 
+		   14 Query	select @@version_comment limit 1
+191021  9:00:07	   14 Query	SELECT DATABASE()
+		   14 Init DB	contoh01
+191021  9:00:15	   14 Query	show tables
+191021  9:20:12	   14 Query	SELECT jenis_pembimbing FROM dosen_pembimbing
+191021 10:15:01	   15 Connect	root@localhost as anonymous on 
+		   15 Query	select @@version_comment limit 1
+191021 10:15:06	   15 Query	show databases
+191021 10:15:50	   16 Connect	root@localhost as anonymous on 
+		   16 Query	/*!40100 SET @@SQL_MODE='' */
+		   16 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		   16 Query	set optimizer_switch='semijoin=off'
+		   16 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('data_manipulationl'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE ORDER BY LOGFILE_GROUP_NAME
+		   16 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('data_manipulationl')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		   16 Query	set optimizer_switch=default
+		   16 Init DB	data_manipulationl
+		   16 Query	show tables
+		   16 Query	LOCK TABLES `table_list_country` READ /*!32311 LOCAL */
+		   16 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'table_list_country'
+		   16 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   16 Query	SET SESSION character_set_results = 'binary'
+		   16 Query	show create table `table_list_country`
+		   16 Query	SET SESSION character_set_results = 'utf8'
+		   16 Query	show fields from `table_list_country`
+191021 10:15:51	   16 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `table_list_country`
+		   16 Query	SET SESSION character_set_results = 'binary'
+		   16 Init DB	data_manipulationl
+		   16 Query	select @@collation_database
+		   16 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'table_list_country'
+		   16 Query	SET SESSION character_set_results = 'utf8'
+		   16 Query	UNLOCK TABLES
+		   16 Quit	
