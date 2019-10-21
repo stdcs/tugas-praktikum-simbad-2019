@@ -1,0 +1,57 @@
+C:\Program Files (x86)\MariaDB 10.4\bin\mysqld.exe, Version: 10.4.8-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time		    Id Command	Argument
+191015 19:41:05	    24 Query	SELECT DATABASE()
+191015 19:41:22	    24 Query	SELECT DATABASE()
+		    24 Init DB	world
+191015 19:41:43	    24 Query	show tables
+191015 19:42:19	    24 Query	select * from table_list_country
+191015 19:43:33	    24 Query	select * table_list_country order by iso_code asc
+191015 19:44:39	    24 Query	select * from table_list_country order by iso_code asc
+191015 19:45:31	    24 Query	select * from table_list_country order by gdp desc limit 10
+191015 19:45:49	    24 Query	select * from table_list_country order by area desc limit 10
+191015 19:46:02	    24 Query	select * from table_list_country order by population desc limit 10
+191015 19:46:22	    24 Query	select * from table_list_country order by pop_density asc limit 10
+191015 19:57:55	    24 Query	SELECT * FROM table_list_country WHERE name,capital,iso_code,continent LIKE"a" AND LIKE"u" AND LIKE"i" AND LIKE"e" AND LIKE"o"
+191015 19:58:07	    24 Query	SELECT * FROM table_list_country WHERE name,capital,iso_code,continent LIKE"a"
+191015 19:58:51	    24 Query	SELECT * FROM table_list_country WHERE name,capital,iso_code,continent LIKE"%a%"
+191015 20:01:18	    24 Query	SELECT * FROM table_list_country WHERE name LIKE"%a%" AND name LIKE"%i%" AND name LIKE"%u%" AND name LIKE"%e%" AND name LIKE"%o%"
+191015 20:02:03	    24 Query	SELECT * FROM table_list_country WHERE capital LIKE"%a%" AND capital LIKE"%i%" AND capital LIKE"%u%" AND capital LIKE"%e%" AND capital LIKE"%o%"
+191015 20:02:59	    24 Query	SELECT * FROM table_list_country WHERE iso_code LIKE"%a%" AND iso_code LIKE"%i%" AND iso_code LIKE"%u%" AND iso_code LIKE"%e%" AND iso_code LIKE"%o%"
+191015 20:05:18	    24 Query	SELECT * FROM table_list_country WHERE continent LIKE"%a%" AND continent LIKE"%i%" AND continent LIKE"%u%" AND continent LIKE"%e%" AND continent LIKE"%o%"
+191015 20:16:04	    24 Query	SELECT name FROM table_list_country
+191015 20:19:31	    24 Query	SELECT * FROM table_list_country WHERE region LIKE"%a%" AND region LIKE"%i%" AND region LIKE"%u%" AND region LIKE"%e%" AND region LIKE"%o%"
+191015 20:23:51	    24 Query	SELECT name,capital,iso_code,continent,region FROM table_list_country WHERE name LIKE"%a%" AND name LIKE"%i%" AND name LIKE"%u%" AND name LIKE"%e%" AND name LIKE"%o%"
+191015 20:34:40	    24 Query	SELECT name,region,population WHERE region>3000000 AND population>250000000
+191015 20:35:01	    24 Query	SELECT name,region,population FROM table_list_country WHERE region>3000000 AND population>250000000
+191015 20:35:25	    24 Query	SELECT name,region,population FROM table_list_country WHERE region>3000000 OR population>250000000
+191015 20:36:04	    24 Query	SELECT name,area,population FROM table_list_country WHERE area>3000000 OR population>250000000
+191015 20:40:08	    24 Query	SELECT name,population,pop_density FROM table_list_country WHERE continent="Asia"
+191015 20:41:28	    24 Query	SELECT name,population,pop_density FROM table_list_country WHERE continent="Asia" AND region="South East"
+191015 20:43:35	    24 Query	SELECT name,population,pop_density FROM table_list_country WHERE name like"i%"
+191015 20:54:25	    24 Query	bye
+191015 20:54:31	    24 Quit	
+191015 20:56:34	    25 Connect	root@localhost as anonymous on 
+		    25 Query	/*!40100 SET @@SQL_MODE='' */
+		    25 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		    25 Query	set optimizer_switch='semijoin=off'
+		    25 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('world'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+		    25 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('world')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		    25 Query	set optimizer_switch=default
+		    25 Init DB	world
+		    25 Query	SHOW TABLES LIKE '%'
+		    25 Query	LOCK TABLES `table_list_country` READ /*!32311 LOCAL */
+		    25 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'table_list_country'
+		    25 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    25 Query	SET SESSION character_set_results = 'binary'
+		    25 Query	show create table `table_list_country`
+		    25 Query	SET SESSION character_set_results = 'utf8mb4'
+		    25 Query	show fields from `table_list_country`
+		    25 Query	SELECT /*!40001 SQL_NO_CACHE */ `iso_code`, `name`, `continent`, `region`, `capital`, `area`, `population`, `gdp`, `currency`, `pop_density` FROM `table_list_country`
+		    25 Query	SET SESSION character_set_results = 'binary'
+		    25 Init DB	world
+		    25 Query	select @@collation_database
+		    25 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'table_list_country'
+		    25 Query	SET SESSION character_set_results = 'utf8mb4'
+		    25 Query	UNLOCK TABLES
+		    25 Quit	
