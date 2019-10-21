@@ -1,0 +1,520 @@
+C:\laragon\bin\mysql\mysql-5.7.24-winx64\bin\mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: /tmp/mysql.sock
+Time                 Id Command    Argument
+2019-10-06T07:50:10.247619Z	    5 Quit	
+2019-10-06T07:50:19.090206Z	    6 Connect	root@localhost on  using TCP/IP
+2019-10-06T07:50:19.092816Z	    6 Query	select @@version_comment limit 1
+2019-10-06T07:50:30.492376Z	    6 Query	SHOW DATABASES
+2019-10-06T07:51:51.396275Z	    6 Query	SET global general_log = 0
+C:\laragon\bin\mysql\mysql-5.7.24-winx64\bin\mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: /tmp/mysql.sock
+Time                 Id Command    Argument
+2019-10-06T07:53:01.000914Z	    6 Query	SHOW DATABASES
+2019-10-06T08:14:25.313542Z	    6 Query	CREATE DATABASE tugas1
+2019-10-06T08:14:38.642032Z	    6 Query	SHOW DATABASES
+2019-10-06T08:15:00.456295Z	    6 Query	SELECT DATABASE()
+2019-10-06T08:15:00.457248Z	    6 Init DB	tugas1
+2019-10-06T08:18:23.660516Z	    6 Query	CREATE TABLE table_mahasiswa(
+id_mhs int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nim_mhs varchar(10) NOT NULL UNIQUE,
+nama_mhs varchar(100) NOT NULL
+)
+2019-10-06T08:19:17.804545Z	    6 Query	CREATE TABLE table_matakuliah(
+id_mk int NOT NULL AUTO_INCREMENT
+)
+2019-10-06T08:19:59.764913Z	    6 Query	CREATE TABLE table_matakuliah(
+id_mk int NOT NULL AUTO_INCREMENT PRIMARY KEY
+)
+2019-10-06T08:22:40.419420Z	    6 Query	DESC table_mahasiswa
+2019-10-06T08:22:47.791550Z	    6 Query	DESC table_matakuliah
+2019-10-06T08:24:00.812877Z	    6 Query	ALTER TABLE table_mahasiswa ADD status_mhs enum('Aktif','Lulus') NOT NULL
+2019-10-06T08:25:47.849982Z	    6 Query	ALTER TABLE table_matakuliah ADD(
+kode_mk varchar(11) NOT NULL UNIQUE,
+nama_mk varchar(100) NOT NULL,
+sks_mk enum('2','3','4') NOT NULL
+)
+2019-10-06T08:26:41.784026Z	    6 Query	ALTER TABLE table_mahasiswa RENAME TO tb_mahasiswa
+2019-10-06T08:26:56.890799Z	    6 Query	ALTER TABLE table_matakuliah RENAME TO tb_matakuliah
+2019-10-06T08:27:01.150687Z	    6 Query	SHOW TABLES
+2019-10-06T08:31:30.213110Z	    6 Query	ALTER TABLE tb_mahasiswa CHANGE id_mhs id int NOT NULL AUTO_INCREMENT
+2019-10-06T08:32:04.414151Z	    6 Query	ALTER TABLE tb_mahasiswa CHANGE nim_mhs nim varchar(10) NOT NULL
+2019-10-06T08:32:30.677431Z	    6 Query	ALTER TABLE tb_mahasiswa CHANGE nama_mhs nama varchar(100) NOT NULL
+2019-10-06T08:33:17.616021Z	    6 Query	ALTER TABLE tb_mahasiswa CHANGE status_mhs status enum('Aktif','Lulus') NOT NULL
+2019-10-06T08:33:25.243674Z	    6 Query	DESC tb_mahasiswa
+2019-10-06T08:34:47.210152Z	    6 Query	ALTER TABLE tb_matakuliah CHANGE id_mk id int NOT NULL AUTO_INCREMENT
+2019-10-06T08:35:49.355662Z	    6 Query	ALTER TABLE tb_matakuliah CHANGE kode_mk kode varchar(11) NOT NULL
+2019-10-06T08:36:15.096044Z	    6 Query	ALTER TABLE tb_matakuliah CHANGE nama_mk nama varchar(100) NOT NULL
+2019-10-06T08:36:40.736164Z	    6 Query	ALTER TABLE tb_matakuliah CHANGE sks_mk sks enum('2','3','4') NOT NULL
+2019-10-06T08:36:46.864445Z	    6 Query	DESC tb_matakuliah
+2019-10-06T08:46:25.864046Z	    6 Quit	
+C:\laragon\bin\mysql\mysql-5.7.24-winx64\bin\mysqld, Version: 5.7.24 (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: /tmp/mysql.sock
+Time                 Id Command    Argument
+2019-10-06T11:31:19.072102Z	    3 Query	SET global general_log = 1
+2019-10-06T11:31:43.925966Z	    3 Query	SHOW DATABASES
+2019-10-06T11:35:08.130246Z	    3 Query	CREATE DATABASE skripsi
+2019-10-06T11:35:14.455283Z	    3 Query	SHOW DATABASES
+2019-10-06T11:36:20.368345Z	    3 Query	SELECT DATABASE()
+2019-10-06T11:36:20.369392Z	    3 Init DB	skripsi
+2019-10-06T11:36:56.928197Z	    3 Query	CREATE TABLE untitled(
+nama varchar(255) NOT NULL
+)
+2019-10-06T11:56:46.646652Z	    3 Query	CREATE TABLE mahasiswa_prodi(
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+no_hp varchar(20) NOT NULL,
+status varchar(100) NOT NULL,
+nama_prodi varchar(200) NOT NULL,
+tgl_masuk date NOT NULL,
+tgl_lulus date NOT NULL
+)
+2019-10-06T12:01:36.636824Z	    3 Query	CREATE TABLE seminar_mahasiswa(
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+tgl_seminar date NOT NULL,
+jenis_seminar char(1) NOT NULL,
+status varchar(20) NOT NULL,
+dosen_penguji varchar(200) NOT NULL,
+nip varchar(50) NOT NULL
+)
+2019-10-06T12:01:53.692467Z	    3 Query	SHOW TABLES
+2019-10-06T12:04:03.683481Z	    3 Query	CREATE TABLE tnilai (
+id_nilai int(2) NOT NULL PRIMARY KEY,
+nilai_huruf varchar(2) NOT NULL,
+bobot_nilai decimal(3,2) NOT NULL UNIQUE
+)
+2019-10-06T12:06:19.850669Z	    3 Query	CREATE TABLE dosen_penguji (
+nama varchar(200) NOT NULL,
+nip varchar(50) NOT NULL,
+kode_dosen varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+nama_prodi varchar(200) NOT NULL,
+jenis_penguji char(1) NOT NULL
+)
+2019-10-06T12:07:40.330666Z	    3 Query	CREATE TABLE tsk_pebimbing (
+id_SK int(4) NOT NULL,
+id_skripsi int(5) NOT NULL,
+id_semester int(3) NOT NULL,
+no_sk varchar(20) NOT NULL,
+tanggal_SK date NOT NULL
+)
+2019-10-06T12:11:07.576631Z	    3 Query	CREATE TABLE skripsi_mahasiswa (
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+nama_prodi varchar(200) NOT NULL,
+judul_skripsi varchar(255) NOT NULL,
+dosen_pembimbing varchar(200) NOT NULL,
+tgl_sidang date NOT NULL,
+nilai_sidang varchar(2) NOT NULL,
+nip varchar(50) NOT NULL,
+jenis_pembimbing varchar(7) NOT NULL
+)
+2019-10-06T12:12:08.415951Z	    3 Query	SHOW TABLES
+2019-10-06T12:23:28.315901Z	    3 Query	CREATE TABLE tseminar (
+id_seminar int(5) NOT NULL PRIMARY KEY,
+tanggal date NOT NULL,
+id_nilai int(2) NOT NULL UNIQUE,
+jenis_seminar char(1) NOT NULL,
+id_mahasiswa int(255) NOT NULL UNIQUE,
+status varchar(20) NOT NULL,
+id_pembimbing int(255) NOT NULL UNIQUE,
+id_penguji int(255) NOT NULL UNIQUE
+)
+2019-10-06T12:28:48.522749Z	    3 Query	CREATE TABLE tmahasiswa (
+id_mahasiswa int(255) NOT NULL PRIMARY KEY,
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL PRIMARY KEY,
+jk char(1) NOT NULL,
+no_hp varchar(20) NOT NULL,
+alamat varchar(255) NOT NULL,
+tgl_masuk date NOT NULL,
+tgl_lulus date NOT NULL,
+status varchar(100) NOT NULL,
+id_prodi int(5) NOT NULL UNIQUE
+)
+2019-10-06T12:33:29.995065Z	    3 Query	CREATE TABLE tmahasiswa (
+id_mahasiswa int(255) NOT NULL,
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL,
+jk char(1) NOT NULL,
+no_hp varchar(20) NOT NULL,
+alamat varchar(255) NOT NULL,
+tgl_masuk date NOT NULL,
+tgl_lulus date NOT NULL,
+status varchar(100) NOT NULL,
+id_prodi int(5) NOT NULL UNIQUE,
+PRIMARY KEY(id_mahasiswa, nim)
+)
+2019-10-06T12:34:55.336372Z	    3 Query	SHOW TABLES
+2019-10-06T12:38:38.154309Z	    3 Query	CREATE TABLE tprodi (
+id_prodi int(5) NOT NULL,
+kode_prodi varchar(5) NOT NULL,
+nama varchar(200) NOT NULL,
+status varchar(100) NOT NULL,
+PRIMARY KEY(id_prodi, kode_prodi)
+)
+2019-10-06T12:41:51.264505Z	    3 Query	CREATE TABLE tpenguji (
+id_penguji int(255) NOT NULL PRIMARY KEY,
+id_dosen int(255) NOT NULL UNIQUE,
+jenis_penguji char(1) NOT NULL
+)
+2019-10-06T12:44:53.412990Z	    3 Query	CREATE TABLE tsemester (
+id_semester int(3) NOT NULL,
+nama varchar(20) NOT NULL,
+kode_semester varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+PRIMARY KEY(id_semester, kode_semester)
+)
+2019-10-06T12:48:23.787532Z	    3 Query	CREATE TABLE tskripsi (
+id_skripsi int(5) NOT NULL,
+id_mahasiswa int(255) NOT NULL UNIQUE,
+judul varchar(255) NOT NULL,
+id_pembimbing int(255) NOT NULL,
+id_penguji int(255) NOT NULL,
+PRIMARY KEY(id_skripsi)
+)
+2019-10-06T12:48:46.563163Z	    3 Query	SHOW TABLES
+2019-10-06T12:50:29.427451Z	    3 Query	CREATE TABLE tpembimbing (
+id_pembimbing int(255) NOT NULL PRIMARY KEY,
+jenis_pembimbing varchar(7) NOT NULL,
+id_dosen int(255) NOT NULL UNIQUE
+)
+2019-10-06T12:53:29.330294Z	    3 Query	CREATE TABLE tdosen (
+id_dosen int(255) NOT NULL,
+nama varchar(200) NOT NULL,
+nip varchar(50) NOT NULL,
+kode_dosen varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+id_prodi int(5) NOT NULL,
+PRIMARY KEY(id_dosen, nip, kode_dosen)
+)
+2019-10-06T12:57:14.512620Z	    3 Query	ALTER TABLE tdosen MODIFY id_prodi int(5) NOT NULL UNIQUE
+2019-10-06T12:57:24.754287Z	    3 Query	DESC tdosen
+2019-10-06T12:59:14.711407Z	    3 Query	CREATE TABLE dosen_pembimbing (
+nama varchar(200) NOT NULL,
+nip varchar(50) NOT NULL,
+kode_dosen varchar(10) NOT NULL,
+status varchar(100) NOT NULL,
+nama_prodi varchar(200) NOT NULL,
+jenis_pembimbing varchar(7) NOT NULL
+)
+2019-10-06T13:00:36.455708Z	    3 Query	CREATE TABLE tsidang (
+id_sidang int(5) NOT NULL PRIMARY KEY,
+id_mahasiswa int(255) NOT NULL UNIQUE,
+tanggal_sidang date NOT NULL,
+id_nilai int(2) NOT NULL UNIQUE,
+status varchar(20) NOT NULL
+)
+2019-10-06T13:00:40.470893Z	    3 Query	SHOW TABLES
+2019-10-06T13:14:48.822863Z	    4 Connect	root@localhost on  using TCP/IP
+2019-10-06T13:14:48.823592Z	    4 Query	/*!40100 SET @@SQL_MODE='' */
+2019-10-06T13:14:48.824605Z	    4 Query	/*!40103 SET TIME_ZONE='+00:00' */
+2019-10-06T13:14:48.828998Z	    4 Query	SHOW VARIABLES LIKE 'gtid\_mode'
+2019-10-06T13:14:48.850957Z	    4 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('tugas1'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+2019-10-06T13:14:48.911163Z	    4 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('tugas1')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+2019-10-06T13:14:48.923391Z	    4 Query	SHOW VARIABLES LIKE 'ndbinfo\_version'
+2019-10-06T13:14:48.930955Z	    4 Init DB	tugas1
+2019-10-06T13:14:48.931328Z	    4 Query	show tables
+2019-10-06T13:14:48.932750Z	    4 Query	LOCK TABLES `tb_mahasiswa` READ /*!32311 LOCAL */,`tb_matakuliah` READ /*!32311 LOCAL */
+2019-10-06T13:14:48.933353Z	    4 Query	show table status like 'tb\_mahasiswa'
+2019-10-06T13:14:48.938737Z	    4 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:14:48.939179Z	    4 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:14:48.939670Z	    4 Query	show create table `tb_mahasiswa`
+2019-10-06T13:14:48.940307Z	    4 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:14:48.940927Z	    4 Query	show fields from `tb_mahasiswa`
+2019-10-06T13:14:48.942700Z	    4 Query	show fields from `tb_mahasiswa`
+2019-10-06T13:14:48.944399Z	    4 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_mahasiswa`
+2019-10-06T13:14:48.945596Z	    4 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:14:48.946105Z	    4 Query	use `tugas1`
+2019-10-06T13:14:48.946915Z	    4 Query	select @@collation_database
+2019-10-06T13:14:48.947473Z	    4 Query	SHOW TRIGGERS LIKE 'tb\_mahasiswa'
+2019-10-06T13:14:48.949809Z	    4 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:14:48.950261Z	    4 Query	show table status like 'tb\_matakuliah'
+2019-10-06T13:14:48.955636Z	    4 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:14:48.956125Z	    4 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:14:48.956617Z	    4 Query	show create table `tb_matakuliah`
+2019-10-06T13:14:48.957207Z	    4 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:14:48.957746Z	    4 Query	show fields from `tb_matakuliah`
+2019-10-06T13:14:48.959431Z	    4 Query	show fields from `tb_matakuliah`
+2019-10-06T13:14:48.961063Z	    4 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_matakuliah`
+2019-10-06T13:14:48.961835Z	    4 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:14:48.962212Z	    4 Query	use `tugas1`
+2019-10-06T13:14:48.962962Z	    4 Query	select @@collation_database
+2019-10-06T13:14:48.963417Z	    4 Query	SHOW TRIGGERS LIKE 'tb\_matakuliah'
+2019-10-06T13:14:48.965606Z	    4 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:14:48.966109Z	    4 Query	UNLOCK TABLES
+2019-10-06T13:14:48.968923Z	    4 Quit	
+2019-10-06T13:18:15.504956Z	    5 Connect	root@localhost on  using TCP/IP
+2019-10-06T13:18:15.505458Z	    5 Query	/*!40100 SET @@SQL_MODE='' */
+2019-10-06T13:18:15.505854Z	    5 Query	/*!40103 SET TIME_ZONE='+00:00' */
+2019-10-06T13:18:15.506471Z	    5 Query	SHOW VARIABLES LIKE 'gtid\_mode'
+2019-10-06T13:18:15.514607Z	    5 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('skripsi'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+2019-10-06T13:18:15.656747Z	    5 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('skripsi')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+2019-10-06T13:18:15.784077Z	    5 Query	SHOW VARIABLES LIKE 'ndbinfo\_version'
+2019-10-06T13:18:15.792214Z	    5 Init DB	skripsi
+2019-10-06T13:18:15.792554Z	    5 Query	show tables
+2019-10-06T13:18:15.794576Z	    5 Query	LOCK TABLES `dosen_pembimbing` READ /*!32311 LOCAL */,`dosen_penguji` READ /*!32311 LOCAL */,`mahasiswa_prodi` READ /*!32311 LOCAL */,`seminar_mahasiswa` READ /*!32311 LOCAL */,`skripsi_mahasiswa` READ /*!32311 LOCAL */,`tdosen` READ /*!32311 LOCAL */,`tmahasiswa` READ /*!32311 LOCAL */,`tnilai` READ /*!32311 LOCAL */,`tpembimbing` READ /*!32311 LOCAL */,`tpenguji` READ /*!32311 LOCAL */,`tprodi` READ /*!32311 LOCAL */,`tsemester` READ /*!32311 LOCAL */,`tseminar` READ /*!32311 LOCAL */,`tsidang` READ /*!32311 LOCAL */,`tsk_pebimbing` READ /*!32311 LOCAL */,`tskripsi` READ /*!32311 LOCAL */,`untitled` READ /*!32311 LOCAL */
+2019-10-06T13:18:15.861842Z	    5 Query	show table status like 'dosen\_pembimbing'
+2019-10-06T13:18:15.877431Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:15.877838Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.878228Z	    5 Query	show create table `dosen_pembimbing`
+2019-10-06T13:18:15.878687Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.879284Z	    5 Query	show fields from `dosen_pembimbing`
+2019-10-06T13:18:15.898899Z	    5 Query	show fields from `dosen_pembimbing`
+2019-10-06T13:18:15.904998Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `dosen_pembimbing`
+2019-10-06T13:18:15.907038Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.907497Z	    5 Query	use `skripsi`
+2019-10-06T13:18:15.908201Z	    5 Query	select @@collation_database
+2019-10-06T13:18:15.908643Z	    5 Query	SHOW TRIGGERS LIKE 'dosen\_pembimbing'
+2019-10-06T13:18:15.911259Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.911695Z	    5 Query	show table status like 'dosen\_penguji'
+2019-10-06T13:18:15.921716Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:15.922048Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.922337Z	    5 Query	show create table `dosen_penguji`
+2019-10-06T13:18:15.922853Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.923380Z	    5 Query	show fields from `dosen_penguji`
+2019-10-06T13:18:15.929052Z	    5 Query	show fields from `dosen_penguji`
+2019-10-06T13:18:15.934429Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `dosen_penguji`
+2019-10-06T13:18:15.935103Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.935407Z	    5 Query	use `skripsi`
+2019-10-06T13:18:15.935977Z	    5 Query	select @@collation_database
+2019-10-06T13:18:15.936320Z	    5 Query	SHOW TRIGGERS LIKE 'dosen\_penguji'
+2019-10-06T13:18:15.938934Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.939771Z	    5 Query	show table status like 'mahasiswa\_prodi'
+2019-10-06T13:18:15.945385Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:15.945690Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.945981Z	    5 Query	show create table `mahasiswa_prodi`
+2019-10-06T13:18:15.946354Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.946684Z	    5 Query	show fields from `mahasiswa_prodi`
+2019-10-06T13:18:15.952246Z	    5 Query	show fields from `mahasiswa_prodi`
+2019-10-06T13:18:15.959910Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `mahasiswa_prodi`
+2019-10-06T13:18:15.960735Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.961123Z	    5 Query	use `skripsi`
+2019-10-06T13:18:15.961805Z	    5 Query	select @@collation_database
+2019-10-06T13:18:15.962226Z	    5 Query	SHOW TRIGGERS LIKE 'mahasiswa\_prodi'
+2019-10-06T13:18:15.965222Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.965534Z	    5 Query	show table status like 'seminar\_mahasiswa'
+2019-10-06T13:18:15.971007Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:15.971266Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.971499Z	    5 Query	show create table `seminar_mahasiswa`
+2019-10-06T13:18:15.971832Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.972166Z	    5 Query	show fields from `seminar_mahasiswa`
+2019-10-06T13:18:15.977829Z	    5 Query	show fields from `seminar_mahasiswa`
+2019-10-06T13:18:15.983178Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `seminar_mahasiswa`
+2019-10-06T13:18:15.983885Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.984261Z	    5 Query	use `skripsi`
+2019-10-06T13:18:15.984898Z	    5 Query	select @@collation_database
+2019-10-06T13:18:15.985320Z	    5 Query	SHOW TRIGGERS LIKE 'seminar\_mahasiswa'
+2019-10-06T13:18:15.987760Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.988182Z	    5 Query	show table status like 'skripsi\_mahasiswa'
+2019-10-06T13:18:15.994424Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:15.994818Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:15.995190Z	    5 Query	show create table `skripsi_mahasiswa`
+2019-10-06T13:18:15.995656Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:15.996017Z	    5 Query	show fields from `skripsi_mahasiswa`
+2019-10-06T13:18:16.001296Z	    5 Query	show fields from `skripsi_mahasiswa`
+2019-10-06T13:18:16.006827Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `skripsi_mahasiswa`
+2019-10-06T13:18:16.007802Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.008110Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.008660Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.008997Z	    5 Query	SHOW TRIGGERS LIKE 'skripsi\_mahasiswa'
+2019-10-06T13:18:16.011546Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.011884Z	    5 Query	show table status like 'tdosen'
+2019-10-06T13:18:16.017389Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.017853Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.018348Z	    5 Query	show create table `tdosen`
+2019-10-06T13:18:16.018887Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.019386Z	    5 Query	show fields from `tdosen`
+2019-10-06T13:18:16.025091Z	    5 Query	show fields from `tdosen`
+2019-10-06T13:18:16.030599Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tdosen`
+2019-10-06T13:18:16.031419Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.031885Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.032638Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.033198Z	    5 Query	SHOW TRIGGERS LIKE 'tdosen'
+2019-10-06T13:18:16.035838Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.036377Z	    5 Query	show table status like 'tmahasiswa'
+2019-10-06T13:18:16.042258Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.042840Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.043340Z	    5 Query	show create table `tmahasiswa`
+2019-10-06T13:18:16.043969Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.044476Z	    5 Query	show fields from `tmahasiswa`
+2019-10-06T13:18:16.050130Z	    5 Query	show fields from `tmahasiswa`
+2019-10-06T13:18:16.059144Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tmahasiswa`
+2019-10-06T13:18:16.059966Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.060351Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.061037Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.061450Z	    5 Query	SHOW TRIGGERS LIKE 'tmahasiswa'
+2019-10-06T13:18:16.064198Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.064641Z	    5 Query	show table status like 'tnilai'
+2019-10-06T13:18:16.071391Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.071796Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.072175Z	    5 Query	show create table `tnilai`
+2019-10-06T13:18:16.072634Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.073618Z	    5 Query	show fields from `tnilai`
+2019-10-06T13:18:16.079467Z	    5 Query	show fields from `tnilai`
+2019-10-06T13:18:16.084941Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tnilai`
+2019-10-06T13:18:16.085644Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.086031Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.086676Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.087098Z	    5 Query	SHOW TRIGGERS LIKE 'tnilai'
+2019-10-06T13:18:16.089483Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.090046Z	    5 Query	show table status like 'tpembimbing'
+2019-10-06T13:18:16.095717Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.095990Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.096232Z	    5 Query	show create table `tpembimbing`
+2019-10-06T13:18:16.096555Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.096889Z	    5 Query	show fields from `tpembimbing`
+2019-10-06T13:18:16.102138Z	    5 Query	show fields from `tpembimbing`
+2019-10-06T13:18:16.107314Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tpembimbing`
+2019-10-06T13:18:16.107977Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.108623Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.109277Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.109710Z	    5 Query	SHOW TRIGGERS LIKE 'tpembimbing'
+2019-10-06T13:18:16.112170Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.112586Z	    5 Query	show table status like 'tpenguji'
+2019-10-06T13:18:16.118014Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.118384Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.118757Z	    5 Query	show create table `tpenguji`
+2019-10-06T13:18:16.119208Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.119622Z	    5 Query	show fields from `tpenguji`
+2019-10-06T13:18:16.125083Z	    5 Query	show fields from `tpenguji`
+2019-10-06T13:18:16.130113Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tpenguji`
+2019-10-06T13:18:16.130746Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.131066Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.131622Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.131906Z	    5 Query	SHOW TRIGGERS LIKE 'tpenguji'
+2019-10-06T13:18:16.134403Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.134826Z	    5 Query	show table status like 'tprodi'
+2019-10-06T13:18:16.140352Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.140856Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.141352Z	    5 Query	show create table `tprodi`
+2019-10-06T13:18:16.141913Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.142428Z	    5 Query	show fields from `tprodi`
+2019-10-06T13:18:16.148017Z	    5 Query	show fields from `tprodi`
+2019-10-06T13:18:16.153224Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tprodi`
+2019-10-06T13:18:16.154026Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.154523Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.155335Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.155890Z	    5 Query	SHOW TRIGGERS LIKE 'tprodi'
+2019-10-06T13:18:16.158633Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.159186Z	    5 Query	show table status like 'tsemester'
+2019-10-06T13:18:16.164877Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.165376Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.165845Z	    5 Query	show create table `tsemester`
+2019-10-06T13:18:16.166455Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.167004Z	    5 Query	show fields from `tsemester`
+2019-10-06T13:18:16.172492Z	    5 Query	show fields from `tsemester`
+2019-10-06T13:18:16.178150Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tsemester`
+2019-10-06T13:18:16.178945Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.179437Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.180246Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.180795Z	    5 Query	SHOW TRIGGERS LIKE 'tsemester'
+2019-10-06T13:18:16.183423Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.183867Z	    5 Query	show table status like 'tseminar'
+2019-10-06T13:18:16.189520Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.190115Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.190618Z	    5 Query	show create table `tseminar`
+2019-10-06T13:18:16.191226Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.191787Z	    5 Query	show fields from `tseminar`
+2019-10-06T13:18:16.197288Z	    5 Query	show fields from `tseminar`
+2019-10-06T13:18:16.202927Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tseminar`
+2019-10-06T13:18:16.203745Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.204236Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.205054Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.205604Z	    5 Query	SHOW TRIGGERS LIKE 'tseminar'
+2019-10-06T13:18:16.208256Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.208773Z	    5 Query	show table status like 'tsidang'
+2019-10-06T13:18:16.214498Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.215049Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.215549Z	    5 Query	show create table `tsidang`
+2019-10-06T13:18:16.216150Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.216704Z	    5 Query	show fields from `tsidang`
+2019-10-06T13:18:16.222173Z	    5 Query	show fields from `tsidang`
+2019-10-06T13:18:16.227659Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tsidang`
+2019-10-06T13:18:16.228446Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.228953Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.229716Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.230208Z	    5 Query	SHOW TRIGGERS LIKE 'tsidang'
+2019-10-06T13:18:16.232998Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.233545Z	    5 Query	show table status like 'tsk\_pebimbing'
+2019-10-06T13:18:16.239285Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.239785Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.240277Z	    5 Query	show create table `tsk_pebimbing`
+2019-10-06T13:18:16.240788Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.241226Z	    5 Query	show fields from `tsk_pebimbing`
+2019-10-06T13:18:16.246702Z	    5 Query	show fields from `tsk_pebimbing`
+2019-10-06T13:18:16.252147Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tsk_pebimbing`
+2019-10-06T13:18:16.252988Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.253481Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.254296Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.254854Z	    5 Query	SHOW TRIGGERS LIKE 'tsk\_pebimbing'
+2019-10-06T13:18:16.257492Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.258043Z	    5 Query	show table status like 'tskripsi'
+2019-10-06T13:18:16.263976Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.264468Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.264971Z	    5 Query	show create table `tskripsi`
+2019-10-06T13:18:16.265571Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.266114Z	    5 Query	show fields from `tskripsi`
+2019-10-06T13:18:16.271596Z	    5 Query	show fields from `tskripsi`
+2019-10-06T13:18:16.277288Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tskripsi`
+2019-10-06T13:18:16.278100Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.278595Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.279398Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.279937Z	    5 Query	SHOW TRIGGERS LIKE 'tskripsi'
+2019-10-06T13:18:16.282557Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.283104Z	    5 Query	show table status like 'untitled'
+2019-10-06T13:18:16.288751Z	    5 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:16.289241Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.289743Z	    5 Query	show create table `untitled`
+2019-10-06T13:18:16.290309Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.290855Z	    5 Query	show fields from `untitled`
+2019-10-06T13:18:16.296391Z	    5 Query	show fields from `untitled`
+2019-10-06T13:18:16.301713Z	    5 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `untitled`
+2019-10-06T13:18:16.302496Z	    5 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:16.302999Z	    5 Query	use `skripsi`
+2019-10-06T13:18:16.303745Z	    5 Query	select @@collation_database
+2019-10-06T13:18:16.304236Z	    5 Query	SHOW TRIGGERS LIKE 'untitled'
+2019-10-06T13:18:16.307220Z	    5 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:16.307674Z	    5 Query	UNLOCK TABLES
+2019-10-06T13:18:16.310316Z	    5 Quit	
+2019-10-06T13:18:33.775956Z	    6 Connect	root@localhost on  using TCP/IP
+2019-10-06T13:18:33.776563Z	    6 Query	/*!40100 SET @@SQL_MODE='' */
+2019-10-06T13:18:33.776957Z	    6 Query	/*!40103 SET TIME_ZONE='+00:00' */
+2019-10-06T13:18:33.777781Z	    6 Query	SHOW VARIABLES LIKE 'gtid\_mode'
+2019-10-06T13:18:33.785617Z	    6 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('tugas1'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+2019-10-06T13:18:33.806403Z	    6 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('tugas1')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+2019-10-06T13:18:33.818145Z	    6 Query	SHOW VARIABLES LIKE 'ndbinfo\_version'
+2019-10-06T13:18:33.825588Z	    6 Init DB	tugas1
+2019-10-06T13:18:33.825938Z	    6 Query	show tables
+2019-10-06T13:18:33.827337Z	    6 Query	LOCK TABLES `tb_mahasiswa` READ /*!32311 LOCAL */,`tb_matakuliah` READ /*!32311 LOCAL */
+2019-10-06T13:18:33.827944Z	    6 Query	show table status like 'tb\_mahasiswa'
+2019-10-06T13:18:33.833534Z	    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:33.834046Z	    6 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:33.834538Z	    6 Query	show create table `tb_mahasiswa`
+2019-10-06T13:18:33.835038Z	    6 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:33.835573Z	    6 Query	show fields from `tb_mahasiswa`
+2019-10-06T13:18:33.837269Z	    6 Query	show fields from `tb_mahasiswa`
+2019-10-06T13:18:33.838928Z	    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_mahasiswa`
+2019-10-06T13:18:33.840165Z	    6 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:33.840656Z	    6 Query	use `tugas1`
+2019-10-06T13:18:33.841455Z	    6 Query	select @@collation_database
+2019-10-06T13:18:33.842014Z	    6 Query	SHOW TRIGGERS LIKE 'tb\_mahasiswa'
+2019-10-06T13:18:33.844669Z	    6 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:33.845208Z	    6 Query	show table status like 'tb\_matakuliah'
+2019-10-06T13:18:33.850554Z	    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+2019-10-06T13:18:33.851119Z	    6 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:33.851638Z	    6 Query	show create table `tb_matakuliah`
+2019-10-06T13:18:33.852214Z	    6 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:33.852748Z	    6 Query	show fields from `tb_matakuliah`
+2019-10-06T13:18:33.854453Z	    6 Query	show fields from `tb_matakuliah`
+2019-10-06T13:18:33.856145Z	    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `tb_matakuliah`
+2019-10-06T13:18:33.856930Z	    6 Query	SET SESSION character_set_results = 'binary'
+2019-10-06T13:18:33.857420Z	    6 Query	use `tugas1`
+2019-10-06T13:18:33.858242Z	    6 Query	select @@collation_database
+2019-10-06T13:18:33.858720Z	    6 Query	SHOW TRIGGERS LIKE 'tb\_matakuliah'
+2019-10-06T13:18:33.860999Z	    6 Query	SET SESSION character_set_results = 'utf8'
+2019-10-06T13:18:33.861506Z	    6 Query	UNLOCK TABLES
+2019-10-06T13:18:33.864608Z	    6 Quit	
