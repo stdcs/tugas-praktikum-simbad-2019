@@ -1,0 +1,15 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191020 21:27:21	     8 Query	SELECT * FROM table_list_country ORDER BY iso_code ASC
+191020 21:29:05	     8 Query	SELECT * FROM table_list_country ORDER BY gdp DESC LIMIT 10
+191020 21:29:32	     8 Query	SELECT * FROM table_list_country ORDER BY area DESC LIMIT 10
+191020 21:29:50	     8 Query	SELECT * FROM table_list_country ORDER BY population DESC LIMIT 10
+191020 21:30:38	     8 Query	SELECT * FROM table_list_country ORDER BY pop_density ASC LIMIT 10
+191020 21:32:06	     8 Query	SELECT name,
+191020 22:04:24	     8 Query	SELECT name,capital,iso_code,continent,region FROM table_list_country WHERE name LIKE '%a%' AND name LIKE '%i%' AND name LIKE '%u%' AND name LIKE '%e%' AND name LIKE '%o%'
+191020 22:08:27	     8 Query	SELECT name,area,population FROM table_list_country WHERE area > 3000000 OR population > 250000000
+191020 22:09:25	     8 Query	SELECT name,population,pop_density WHERE continent="Asia"
+191020 22:09:53	     8 Query	SELECT name,population,pop_density FROM table_list_country WHERE continent="Asia"
+191020 22:10:37	     8 Query	SELECT name,population,pop_density FROM table_list_country WHERE continent="Asia" AND region="south east"
+191020 22:11:07	     8 Query	SELECT name,population,pop_density FROM table_list_country WHERE name LIKE 'i%'
