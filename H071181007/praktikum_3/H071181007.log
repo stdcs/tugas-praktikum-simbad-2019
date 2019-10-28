@@ -1,0 +1,90 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191028 22:26:03	    11 Query	create table fakultas(
+kode varchar(1) primary key,
+nama varchar(200) not null)
+191028 22:26:17	    11 Query	SELECT DATABASE()
+		    11 Init DB	data_mhs
+191028 22:26:24	    11 Query	create table fakultas(
+kode varchar(1) primary key,
+nama varchar(200) not null)
+191028 22:27:44	    11 Query	create table prodi(
+kode int(2) zerofill primary key,
+nama varchar(200) not null,
+kode_fakultas varchar(1) not null)
+191028 22:29:08	    11 Query	alter table prodi add foreign key(kode_fakultas) references fakultas(kode)
+191028 22:30:27	    11 Query	create table jalur_masuk(
+kode enum('0','3','5') not null primary key, 
+nama enum('SN','SB','Mandiri')
+191028 22:30:55	    11 Query	create table jalur_masuk(
+kode enum('0','3','5') not null primary key, 
+nama enum('SN','SB','Mandiri') not null
+191028 22:31:14	    11 Query	desc jalur_masuk
+191028 22:32:19	    11 Query	create table jalur_masuk(
+kode enum('0','3','5') not null primary key, 
+nama enum('SN','SB','Mandiri') not null
+191028 22:32:36	    11 Query	create table jalur_masuk(
+kode enum('0','3','5') primary key, 
+nama enum('SN','SB','Mandiri') not null
+191028 22:33:56	    11 Query	create table jalur_masuk(
+create table jalur_masuk(
+create table jalur_masuk(
+191028 22:34:08	    11 Query	create table jalur_masuk(
+kode enum('0','3','5') primary key, 
+nama enum('SN','SB','Mandiri') not null)
+191028 22:35:23	    11 Query	create table mahasiswa(
+in int(2) zerofill primary key auto_increment,
+191028 22:37:31	    11 Query	create table mahasiswa(
+id int(2) zerofill primary key auto_increment,
+kode_fakultas varchar(1) not null,
+kode_prodi int(2) zerofill not null,
+tahun_masuk int(4) not null,
+jalur_masuk enum('0','3','5') not null,
+nama varchar(200) not null)
+191028 22:38:55	    11 Query	alter table mahasiswa add foreign key(kode_fakultas) references fakultas(kode)
+191028 22:39:17	    11 Query	alter table mahasiswa add foreign key(kode_prodi) references prodi(kode)
+191028 22:39:40	    11 Query	alter table mahasiswa add foreign key(jalur_masuk) references jalur_masuk(kode)
+191028 22:40:44	    11 Query	create table nim(
+nama varchar(200) not null,
+nim varchar(10) not null)
+191028 22:41:28	    11 Query	insert into fakultas values ('H','MIPA')
+191028 22:42:39	    11 Query	insert into prodi values (07,'Ilmu Komputer','H')
+191028 22:43:09	    11 Query	insert into jalur_masuk values ('0','SN')
+191028 22:45:04	    11 Query	insert into mahasiswa values (null,'H',07,2018,'0','Arikah Putri')
+191028 22:49:35	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun-masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode 
+join fakultas on mahasiswa.kode_fakultas = fakultas.kode
+join prodi on mahasiswa.kode_prodi = prodi.kode
+191028 22:50:45	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode 
+join fakultas on mahasiswa.kode_fakultas = fakultas.kode
+join prodi on mahasiswa.kode_prodi = prodi.kode
+191028 22:56:35	    11 Query	select mahasiswa.nama as nama,nim.nim as nim,fakultas.nama as fakultas,prodi.nama as prodi,mahasiswa.tahun_masuk as angkatan,jalur_masuk.nama as jalur_masuk from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode
+join fakultas on mahasiswa.kode_fakultas fakultas.kode
+join prodi on mahasiswa.kode_prodi = prodi.kode
+join nim on mahasiswa.nama = nim.nama
+191028 22:56:58	    11 Query	select mahasiswa.nama as nama,nim.nim as nim,fakultas.nama as fakultas,prodi.nama as prodi,mahasiswa.tahun_masuk as angkatan,jalur_masuk.nama as jalur_masuk from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode
+join fakultas on mahasiswa.kode_fakultas = fakultas.kode
+join prodi on mahasiswa.kode_prodi = prodi.kode
+join nim on mahasiswa.nama = nim.nama
+191028 22:58:26	    11 Query	insert into mahasiswa values (null,'H',07,2018,'0','Cecilia Tania Emmanuela')
+191028 23:01:26	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode join fakultas on mahasiswa.kode_fakultas = fakultas.kodejoin prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 02
+191028 23:02:19	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode join fakultas on mahasiswa.kode_fakultas = fakultas.kode join prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 02
+191028 23:02:32	    11 Query	select * from nim
+191028 23:03:03	    11 Query	insert into mahasiswa values (null,'H',07,2018,'0','Ajrana')
+191028 23:03:12	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode join fakultas on mahasiswa.kode_fakultas = fakultas.kode join prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 03
+191028 23:03:16	    11 Query	select * from nim
+191028 23:03:51	    11 Query	insert into mahasiswa values (null,'H',07,2018,'0','Mohd Abdul Gani')
+191028 23:03:57	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode join fakultas on mahasiswa.kode_fakultas = fakultas.kode join prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 04
+191028 23:04:00	    11 Query	select * from nim
+191028 23:04:20	    11 Query	insert into mahasiswa values (null,'H',07,2018,'0','Rahmayati')
+191028 23:04:28	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode join fakultas on mahasiswa.kode_fakultas = fakultas.kode join prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 05
+191028 23:04:30	    11 Query	select * from nim
+191028 23:04:49	    11 Query	insert into mahasiswa values (null,'H',07,2018,'0','Indah Nurawaliyah')
+191028 23:04:59	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode join fakultas on mahasiswa.kode_fakultas = fakultas.kode join prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 06
+191028 23:05:02	    11 Query	select * from nim
+191028 23:05:20	    11 Query	insert into mahasiswa values (null,'H',07,2018,'0','Al Waasiu')
+191028 23:05:28	    11 Query	insert into nim select mahasiswa.nama,concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk,mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode join fakultas on mahasiswa.kode_fakultas = fakultas.kode join prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 07
+191028 23:05:34	    11 Query	select * from nim
+191028 23:11:13	    11 Quit	
+191028 23:12:25	    12 Connect	root@localhost as anonymous on data_mhs
+191028 23:17:02	    13 Connect	root@localhost as anonymous on data_mhs
