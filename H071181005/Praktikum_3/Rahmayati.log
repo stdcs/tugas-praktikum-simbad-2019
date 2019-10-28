@@ -1,0 +1,159 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191028 22:50:36	    12 Query	create database data
+191028 22:50:42	    12 Query	SELECT DATABASE()
+		    12 Init DB	data
+191028 22:53:03	    12 Query	create table fakultas(
+kode varchar(1) primary key,
+nama varchar(100) not null)
+191028 22:54:56	    12 Query	create table prodi(
+kode int(2) ZEROFILL PRIMARY KEY,
+nama varchar(100) not null,
+kode_fakultas varchar(1) not null)
+191028 22:57:02	    12 Query	alter table prodi ADD FOREIGN KEY(kode_fakultas) references fakultas(kode)
+191028 23:00:19	    12 Query	create table jalur_masuk(
+kode enum('0','3','5') not null primary key,
+nama enum('SN','SB', 'Mandiri') not null)
+191028 23:01:02	    12 Query	CREATE TABLE mahasiswa (
+id int(2) ZEROFILL PRIMARY KEY AUTO_INCREMENT,
+kode_fakultas varchar(1) NOT NULL,
+kode_prodi int(2) ZEROFILL NOT NULL,
+tahun_masuk int(4) NOT NULL,
+jalur_masuk enum('0','3','5') NOT NULL,
+nama varchar(100) NOT NULL
+)
+191028 23:01:36	    12 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(kode_fakultas) REFERENCES fakultas(kode)
+191028 23:02:00	    12 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(kode_prodi) REFERENCES prodi(kode)
+191028 23:02:27	    12 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(jalur_masuk) REFERENCES jalur_masuk(kode)
+191028 23:03:09	    12 Query	CREATE TABLE nim (
+nama varchar(100) NOT NULL,
+nim varchar(10) NOT NULL
+)
+191028 23:03:25	    12 Query	INSERT INTO fakultas VALUES ('H','MIPA')
+191028 23:04:04	    12 Query	INSERT INTO prodi VALUES (07,'Ilmu Komputer','H')
+191028 23:04:34	    12 Query	INSERT INTO jalur_masuk VALUES ('0','SN')
+191028 23:05:52	    12 Query	INSERT INTO mahasiswa VALUES (NULL,'H',07,2018,'0','Arikah Putri')
+191028 23:12:00	    12 Query	INSERT INTO nim SELECT mahasiswa.nama CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa 
+JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode 
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:14:28	    12 Query	INSERT INTO nim SELECT mahasiswa.nama CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode  
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:19:37	    12 Query	INSERT INTO nim SELECT mahasiswa.nama CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode  
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:21:37	    12 Query	191025 14:41INSERT INTO nim SELECT mahasiswa.nama CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa 
+JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode 
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:22:31	    12 Query	191025 14:41INSERT INTO nim SELECT mahasiswa.nama CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa 
+JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode 
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:24:00	    12 Query	.
+INSERT INTO nim SELECT mahasiswa.nama CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode  
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:25:51	    12 Query	INSERT INTO nim SELECT mahasiswa.nama CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode  
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:37:10	    12 Query	INSERT INTO nim SELECT mahasiswa.nama CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode  
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:41:38	    12 Query	INSERT INTO nim SELECT mahasiswa.nama, CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode  
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode
+191028 23:42:40	    12 Query	SELECT mahasiswa.nama AS NAMA, nim.nim AS NIM, fakultas.nama AS FAKULTAS, prodi.nama AS PRODI, mahasiswa.tahun_masuk AS ANGKATAN,jalur_masuk.nama AS JALUR_MASUK FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode 
+JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode 
+JOIN prodi ON mahasiswa.kode_prodi = prodi.kode 
+JOIN nim ON mahasiswa.nama = nim.nama
+191028 23:44:37	    12 Query	INSERT INTO mahasiswa VALUES (NULL,'H',07,2018,'0','Cecilia Tania Emanuela')
+191028 23:45:47	    12 Query	INSERT INTO nim SELECT mahasiswa.nama, CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode JOIN prodi ON mahasiswa.kode_prodi = prodi.kode WHERE mahasiswa.id = 02
+191028 23:46:13	    12 Query	select * from nim
+191028 23:46:51	    12 Query	INSERT INTO mahasiswa VALUES (NULL,'H',07,2018,'0','Ajrana')
+191028 23:47:12	    12 Query	INSERT INTO nim SELECT mahasiswa.nama, CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode JOIN prodi ON mahasiswa.kode_prodi = prodi.kode WHERE mahasiswa.id = 03
+191028 23:47:18	    12 Query	select * from nim
+191028 23:47:49	    12 Query	INSERT INTO mahasiswa VALUES (NULL,'H',07,2018,'0','Mohd. Abdul Ghani')
+191028 23:47:57	    12 Query	INSERT INTO nim SELECT mahasiswa.nama, CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode JOIN prodi ON mahasiswa.kode_prodi = prodi.kode WHERE mahasiswa.id = 04
+191028 23:48:01	    12 Query	select * from nim
+191028 23:48:21	    12 Query	INSERT INTO mahasiswa VALUES (NULL,'H',07,2018,'0','Rahmayati')
+191028 23:48:28	    12 Query	INSERT INTO nim SELECT mahasiswa.nama, CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode JOIN prodi ON mahasiswa.kode_prodi = prodi.kode WHERE mahasiswa.id = 05
+191028 23:48:32	    12 Query	select * from nim
+191028 23:48:55	    12 Query	INSERT INTO mahasiswa VALUES (NULL,'H',07,2018,'0','Indah Nurawaliah')
+191028 23:49:05	    12 Query	INSERT INTO nim SELECT mahasiswa.nama, CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode JOIN fakultas ON mahasiswa.kode_fakultas = fakultas.kode JOIN prodi ON mahasiswa.kode_prodi = prodi.kode WHERE mahasiswa.id = 06
+191028 23:49:09	    12 Query	select * from nim
+191028 23:52:16	    12 Quit	
+191028 23:53:28	    14 Connect	root@localhost as anonymous on 
+		    14 Query	/*!40100 SET @@SQL_MODE='' */
+		    14 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		    14 Query	set optimizer_switch='semijoin=off'
+		    14 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('data'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+		    14 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('data')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		    14 Query	set optimizer_switch=default
+		    14 Init DB	data
+		    14 Query	SHOW TABLES LIKE '%'
+		    14 Query	LOCK TABLES `fakultas` READ /*!32311 LOCAL */,`jalur_masuk` READ /*!32311 LOCAL */,`mahasiswa` READ /*!32311 LOCAL */,`nim` READ /*!32311 LOCAL */,`prodi` READ /*!32311 LOCAL */
+		    14 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'fakultas'
+		    14 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Query	show create table `fakultas`
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	show fields from `fakultas`
+		    14 Query	SELECT /*!40001 SQL_NO_CACHE */ `kode`, `nama` FROM `fakultas`
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Init DB	data
+		    14 Query	select @@collation_database
+		    14 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'fakultas'
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'jalur_masuk'
+		    14 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Query	show create table `jalur_masuk`
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	show fields from `jalur_masuk`
+		    14 Query	SELECT /*!40001 SQL_NO_CACHE */ `kode`, `nama` FROM `jalur_masuk`
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Init DB	data
+		    14 Query	select @@collation_database
+		    14 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'jalur_masuk'
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'mahasiswa'
+		    14 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Query	show create table `mahasiswa`
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	show fields from `mahasiswa`
+		    14 Query	SELECT /*!40001 SQL_NO_CACHE */ `id`, `kode_fakultas`, `kode_prodi`, `tahun_masuk`, `jalur_masuk`, `nama` FROM `mahasiswa`
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Init DB	data
+		    14 Query	select @@collation_database
+		    14 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'mahasiswa'
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'nim'
+		    14 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Query	show create table `nim`
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	show fields from `nim`
+		    14 Query	SELECT /*!40001 SQL_NO_CACHE */ `nama`, `nim` FROM `nim`
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Init DB	data
+		    14 Query	select @@collation_database
+		    14 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'nim'
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'prodi'
+		    14 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Query	show create table `prodi`
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	show fields from `prodi`
+		    14 Query	SELECT /*!40001 SQL_NO_CACHE */ `kode`, `nama`, `kode_fakultas` FROM `prodi`
+		    14 Query	SET SESSION character_set_results = 'binary'
+		    14 Init DB	data
+		    14 Query	select @@collation_database
+		    14 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'prodi'
+		    14 Query	SET SESSION character_set_results = 'utf8mb4'
+		    14 Query	UNLOCK TABLES
+		    14 Quit	
