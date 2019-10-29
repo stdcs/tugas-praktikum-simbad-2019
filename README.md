@@ -22,5 +22,5 @@
  - Untuk cara sinkronisasi hasil *fork* dengan *upstream*, silahkan baca [Configure a remote for a fork](https://help.github.com/en/articles/configuring-a-remote-for-a-fork) dan [Syncing a fork](https://help.github.com/en/articles/syncing-a-fork).
 
 ## Sample Database
-[Sample Database (SQL)](mysqlsampledatabase.sql)
+[Sample Database (SQL)](mysqlsampledatabase.sql)   
 [Sample Database ERD (PDF)](MySQL-Sample-Database-Diagram-PDF-A4.pdf)
