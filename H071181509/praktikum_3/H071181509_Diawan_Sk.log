@@ -1,0 +1,509 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.1.39-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time                 Id Command    Argument
+191029 13:40:08	    3 Query	create database data
+191029 13:40:14	    3 Query	SELECT DATABASE()
+		    3 Init DB	data
+191029 13:41:18	    3 Query	create table fakultas (
+kode varchar(1) primary key,
+nama varchar(100) not null)
+191029 13:41:33	    3 Query	create table prodi
+191029 13:43:08	    3 Query	create table prodi (
+kode int(2) zerofill primary key,
+nama varchar(100) not null,
+kode_fakultas varchar(1) not null)
+191029 13:45:13	    3 Query	alter table prodi add foreign key(kode_fakultas) references fakultas(kode)
+191029 13:47:05	    3 Query	create table jalur_masuk (
+kode enum('0','3','5') not null primary key,
+nama enum('SN','SB','mandiri') not null)
+191029 13:50:07	    3 Query	create table mahasiswa (
+id int(2) zerofill primary key auto_increment,
+kode_fakultas varchar(1) not null,
+kode_prodi int(2) zerofill not null,
+tahun_masuk int(4) not null, 
+jalur_masuk enum('0','3','5') not null,
+nama varchar(100) not null)
+191029 13:51:10	    3 Query	alter table mahasiswa add foreign key(kode_fakultas) references fakultas(kode)
+191029 13:51:28	    3 Query	alter table mahasiswa add foreign key(kode_fakultas) references prodi(kode)
+191029 13:52:22	    3 Query	alter table mahasiswa add foreign key(kode_prodi) references prodi(kode)
+191029 13:53:08	    3 Query	alter table mahasiswa add foreign key(jalur_masuk) references jalur_masuk(kode)
+191029 13:54:03	    3 Query	create table nim (
+nama varchar(100) not null,
+nim varchar(10) not null)
+191029 13:55:10	    3 Query	insert into fakultas values ('H','MIPA')
+191029 13:55:55	    3 Query	insert into prodi values ('07','ilmu komputer','H')
+191029 13:56:27	    3 Query	insert into jalur_masuk values ('0','SN')
+191029 13:58:01	    3 Query	insert into mahasiswa values (null,'H','07','2018','0','awan sk')
+191029 14:04:06	    3 Query	insert into nim select mahasiswa.nama, concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode
+join fakultas on mahasiswa.kode_fakultas = fakultas_kode
+join prodi on mahasiswa.kode_prodi = prodi.kode
+191029 14:04:45	    3 Query	insert into nim select mahasiswa.nama, concat(mahasiswa.kode_fakultas,mahasiswa.kode_prodi,'1',right(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode
+join fakultas on mahasiswa.kode_fakultas = fakultas.kode
+join prodi on mahasiswa.kode_prodi = prodi.kode
+191029 14:10:27	    3 Query	select mahasiswa.nama as nama, nim.nim as nim, fakultas.nama as fakultas, prodi.nama as prodi, mahasiswa.tahun_masuk as angkatan, jalur_masuk.nama as jalur_masuk from mahasiswa join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode
+join fakultas on mahasiswa.kode_fakultas = fakultas.kode
+join prodi on mahasiswa.kode_prodi = prodi.kode
+join nim on mahasiswa.nama = nim.nama
+191029 14:15:20	    3 Query	insert into nim select mahasiswa.nama, concat(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', right(mahasiswa.tahun_masuk,2),'1', mahasiswa.jalur_masuk, mahasiswa.id) from mahasiswa 
+join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode
+join fakultas on mahasiswa.kode_fakultas = fakultas.kode 
+join prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 02
+191029 14:15:32	    3 Query	select from nim
+191029 14:15:40	    3 Query	select * from nim
+191029 14:18:08	    3 Query	insert into mahasiswa values (null,'H','07','2018','0','khoir')
+191029 14:19:01	    3 Query	select * from nim
+191029 14:20:04	    3 Query	insert into nim select mahasiswa.nama, concat(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', right(mahasiswa.tahun_masuk,2),'1', mahasiswa.jalur_masuk, mahasiswa.id) from mahasiswa 
+join jalur_masuk on mahasiswa.jalur_masuk = jalur_masuk.kode
+join fakultas on mahasiswa.kode_fakultas = fakultas.kode 
+join prodi on mahasiswa.kode_prodi = prodi.kode where mahasiswa.id = 03
+191029 14:20:19	    3 Query	select * from nim
+191029 14:22:05	    3 Quit	
+191029 14:22:39	    4 Connect	root@localhost as anonymous on data
+191029 14:31:41	    5 Connect	root@localhost as anonymous on data
+191029 14:33:04	    6 Connect	pma@localhost as anonymous on 
+		    6 Init DB	phpmyadmin
+		    6 Query	SHOW TABLES FROM `phpmyadmin`
+		    6 Query	SHOW COLUMNS FROM `phpmyadmin`.`pma__column_info` WHERE Field IN ('input_transformation', 'input_transformation_options')
+		    7 Connect	root@localhost as anonymous on 
+		    7 Query	SELECT @@version, @@version_comment
+		    7 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    7 Query	SET lc_messages = 'id_ID'
+191029 14:33:05	    6 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+191029 14:33:06	    6 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		    7 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    7 Query	SELECT CURRENT_USER()
+		    7 Query	SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''localhost''' LIKE `GRANTEE` LIMIT 1
+		    7 Query	SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''root''@''localhost''' LIKE `GRANTEE` LIMIT 1
+		    7 Query	SELECT 1 FROM mysql.user LIMIT 1
+		    7 Init DB	mysql
+		    7 Query	SELECT USER()
+191029 14:33:07	    6 Query	SELECT `tables` FROM `phpmyadmin`.`pma__favorite` WHERE `username` = 'root'
+		    7 Query	SHOW GRANTS
+		    7 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `DESCRIPTION` AS `Description` FROM `information_schema`.`CHARACTER_SETS`
+		    7 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default` FROM `information_schema`.`COLLATIONS`
+191029 14:33:09	    7 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+191029 14:33:10	    6 Query	SELECT `db_name`, COUNT(*) AS `count` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' GROUP BY `db_name`
+		    6 Query	SELECT `tables` FROM `phpmyadmin`.`pma__recent` WHERE `username` = 'root'
+		    7 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    7 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+191029 14:33:11	    7 Query	SHOW MASTER LOGS
+		    6 Query	SELECT `tab` FROM `phpmyadmin`.`pma__usergroups` WHERE `allowed` = 'N' AND `tab` LIKE 'server%' AND `usergroup` = (SELECT usergroup FROM `phpmyadmin`.`pma__users` WHERE `username` = 'root')
+		    6 Query	SELECT * FROM `phpmyadmin`.`pma__bookmark` WHERE ( `user` = '' OR `user` = 'root' ) ORDER BY label ASC
+		    6 Quit	
+		    7 Quit	
+191029 14:33:15	    8 Connect	pma@localhost as anonymous on 
+		    9 Connect	root@localhost as anonymous on 
+		    9 Query	SELECT @@version, @@version_comment
+		    9 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    9 Query	SET lc_messages = 'id_ID'
+		    8 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		    9 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    9 Quit	
+		    8 Quit	
+		   10 Connect	pma@localhost as anonymous on 
+		   11 Connect	root@localhost as anonymous on 
+		   11 Query	SELECT @@version, @@version_comment
+		   11 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   11 Query	SET lc_messages = 'id_ID'
+		   10 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   11 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   11 Quit	
+		   10 Quit	
+		   12 Connect	pma@localhost as anonymous on 
+		   13 Connect	root@localhost as anonymous on 
+		   13 Query	SELECT @@version, @@version_comment
+		   13 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   13 Query	SET lc_messages = 'id_ID'
+		   12 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   13 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   13 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		   12 Query	SELECT `db_name`, COUNT(*) AS `count` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' GROUP BY `db_name`
+		   13 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		   13 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		   13 Quit	
+		   12 Quit	
+		   14 Connect	pma@localhost as anonymous on 
+		   15 Connect	root@localhost as anonymous on 
+		   15 Query	SELECT @@version, @@version_comment
+		   15 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   15 Query	SET lc_messages = 'id_ID'
+		   14 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   15 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   14 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   14 Query	SELECT `username` FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   14 Query	UPDATE `phpmyadmin`.`pma__userconfig` SET `timevalue` = NOW(), `config_data` = '{\"lang\":\"id\",\"Console\\/Mode\":\"collapse\"}' WHERE `username` = 'root'
+191029 14:33:16	   15 Quit	
+		   14 Quit	
+		   16 Connect	pma@localhost as anonymous on 
+		   17 Connect	root@localhost as anonymous on 
+		   17 Query	SELECT @@version, @@version_comment
+		   17 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   17 Query	SET lc_messages = 'id_ID'
+		   16 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   16 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   17 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+191029 14:33:17	   17 Quit	
+		   16 Quit	
+191029 14:33:18	   18 Connect	pma@localhost as anonymous on 
+		   19 Connect	root@localhost as anonymous on 
+		   19 Query	SELECT @@version, @@version_comment
+		   19 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   19 Query	SET lc_messages = 'id_ID'
+		   18 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   19 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   19 Quit	
+		   18 Quit	
+		   20 Connect	pma@localhost as anonymous on 
+		   21 Connect	root@localhost as anonymous on 
+		   21 Query	SELECT @@version, @@version_comment
+		   21 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   21 Query	SET lc_messages = 'id_ID'
+		   20 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   21 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   21 Init DB	data
+		   21 Query	SHOW TABLES FROM `data`
+		   21 Query	SELECT @@lower_case_table_names
+		   21 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data')
+                 ORDER BY Name ASC LIMIT 250 OFFSET 0
+		   21 Query	SHOW MASTER STATUS
+		   21 Query	SHOW SLAVE STATUS
+191029 14:33:19	   21 Query	SELECT COUNT(*) FROM `data`.`fakultas`
+		   20 Query	SELECT tracking_active FROM `phpmyadmin`.`pma__tracking` WHERE db_name = 'data'  AND table_name = 'fakultas'  ORDER BY version DESC LIMIT 1
+		   20 Query	SELECT MAX(version) FROM `phpmyadmin`.`pma__tracking` WHERE `db_name` = 'data'  AND `table_name` = 'fakultas'
+		   21 Query	SELECT COUNT(*) FROM `data`.`jalur_masuk`
+		   20 Query	SELECT tracking_active FROM `phpmyadmin`.`pma__tracking` WHERE db_name = 'data'  AND table_name = 'jalur_masuk'  ORDER BY version DESC LIMIT 1
+		   20 Query	SELECT MAX(version) FROM `phpmyadmin`.`pma__tracking` WHERE `db_name` = 'data'  AND `table_name` = 'jalur_masuk'
+		   21 Query	SELECT COUNT(*) FROM `data`.`mahasiswa`
+		   20 Query	SELECT tracking_active FROM `phpmyadmin`.`pma__tracking` WHERE db_name = 'data'  AND table_name = 'mahasiswa'  ORDER BY version DESC LIMIT 1
+		   20 Query	SELECT MAX(version) FROM `phpmyadmin`.`pma__tracking` WHERE `db_name` = 'data'  AND `table_name` = 'mahasiswa'
+		   21 Query	SELECT COUNT(*) FROM `data`.`nim`
+		   20 Query	SELECT tracking_active FROM `phpmyadmin`.`pma__tracking` WHERE db_name = 'data'  AND table_name = 'nim'  ORDER BY version DESC LIMIT 1
+		   20 Query	SELECT MAX(version) FROM `phpmyadmin`.`pma__tracking` WHERE `db_name` = 'data'  AND `table_name` = 'nim'
+		   21 Query	SELECT COUNT(*) FROM `data`.`prodi`
+		   20 Query	SELECT tracking_active FROM `phpmyadmin`.`pma__tracking` WHERE db_name = 'data'  AND table_name = 'prodi'  ORDER BY version DESC LIMIT 1
+		   20 Query	SELECT MAX(version) FROM `phpmyadmin`.`pma__tracking` WHERE `db_name` = 'data'  AND `table_name` = 'prodi'
+		   21 Query	SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'data' LIMIT 1
+191029 14:33:20	   21 Query	SELECT @@storage_engine
+		   21 Query	SHOW TABLES FROM `data`
+		   21 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   21 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   20 Query	SELECT `tab` FROM `phpmyadmin`.`pma__usergroups` WHERE `allowed` = 'N' AND `tab` LIKE 'db%' AND `usergroup` = (SELECT usergroup FROM `phpmyadmin`.`pma__users` WHERE `username` = 'root')
+		   20 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'data'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   20 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'data'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   21 Query	SHOW TABLES FROM `data`
+		   21 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   21 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   21 Quit	
+		   20 Quit	
+		   22 Connect	pma@localhost as anonymous on 
+		   23 Connect	root@localhost as anonymous on 
+		   23 Query	SELECT @@version, @@version_comment
+		   23 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   23 Query	SET lc_messages = 'id_ID'
+		   22 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   23 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   23 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		   22 Query	SELECT `db_name`, COUNT(*) AS `count` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' GROUP BY `db_name`
+		   22 Query	SELECT `item_name` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' AND `item_type`='group' AND `db_name`='data'
+		   23 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data' AND `TABLE_TYPE`='BASE TABLE'
+		   23 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data' AND `TABLE_TYPE`!='BASE TABLE'
+		   23 Query	SELECT @@lower_case_table_names
+		   23 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='data' AND `ROUTINE_TYPE`='FUNCTION'
+		   23 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='data'AND `ROUTINE_TYPE`='PROCEDURE'
+		   23 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='data'
+		   23 Query	SELECT `TABLE_NAME` AS `name` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data' AND `TABLE_TYPE`='BASE TABLE' ORDER BY `TABLE_NAME` ASC LIMIT 0, 50
+		   22 Query	SELECT `item_name` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' AND `item_type`='table' AND `db_name`='data'
+		   23 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data' AND `TABLE_TYPE`='BASE TABLE'
+		   23 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data' AND `TABLE_TYPE`='BASE TABLE'
+191029 14:33:21	   23 Quit	
+		   22 Quit	
+191029 14:33:30	   24 Connect	pma@localhost as anonymous on 
+		   25 Connect	root@localhost as anonymous on 
+		   25 Query	SELECT @@version, @@version_comment
+		   25 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   25 Query	SET lc_messages = 'id_ID'
+		   24 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   25 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   25 Init DB	data
+		   25 Query	SHOW TABLES FROM `data`
+		   25 Query	SELECT @@lower_case_table_names
+		   25 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data')
+                 ORDER BY Name ASC
+191029 14:33:34	   24 Query	SELECT `id`, `template_name` FROM `phpmyadmin`.`pma__export_templates` WHERE `username` = 'root' AND `export_type` = 'database' ORDER BY `template_name`
+191029 14:33:35	   25 Query	SHOW TABLES FROM `data`
+		   25 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   25 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   24 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'data'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   24 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'data'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   25 Query	SHOW TABLES FROM `data`
+		   25 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   25 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   25 Quit	
+		   24 Quit	
+191029 14:33:41	   26 Connect	pma@localhost as anonymous on 
+		   27 Connect	root@localhost as anonymous on 
+		   27 Query	SELECT @@version, @@version_comment
+		   27 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   27 Query	SET lc_messages = 'id_ID'
+		   26 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   27 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   26 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   27 Query	SET SQL_MODE=""
+		   27 Query	SELECT @@session.time_zone
+		   27 Query	SET time_zone = "+00:00"
+		   27 Query	SHOW PROCEDURE STATUS
+		   27 Query	SHOW FUNCTION STATUS
+		   27 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data'
+                AND TABLE_NAME = 'fakultas'
+		   27 Query	SHOW TABLE STATUS FROM `data` WHERE Name = 'fakultas'
+		   27 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		   27 Query	USE `data`
+		   27 Query	SHOW CREATE TABLE `data`.`fakultas`
+		   27 Query	SHOW COLUMNS FROM `data`.`fakultas`
+		   27 Query	SELECT @@lower_case_table_names
+		   27 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data')
+                AND t.`TABLE_NAME`  = 'fakultas' ORDER BY Name ASC
+		   27 Query	SELECT `kode`, `nama` FROM `data`.`fakultas`
+191029 14:33:42	   27 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data' AND EVENT_OBJECT_TABLE  = 'fakultas'
+		   27 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data'
+                AND TABLE_NAME = 'jalur_masuk'
+		   27 Query	SHOW TABLE STATUS FROM `data` WHERE Name = 'jalur_masuk'
+		   27 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		   27 Query	USE `data`
+		   27 Query	SHOW CREATE TABLE `data`.`jalur_masuk`
+		   27 Query	SHOW COLUMNS FROM `data`.`jalur_masuk`
+		   27 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data')
+                AND t.`TABLE_NAME`  = 'jalur_masuk' ORDER BY Name ASC
+		   27 Query	SELECT `kode`, `nama` FROM `data`.`jalur_masuk`
+		   27 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data' AND EVENT_OBJECT_TABLE  = 'jalur_masuk'
+		   27 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data'
+                AND TABLE_NAME = 'mahasiswa'
+		   27 Query	SHOW TABLE STATUS FROM `data` WHERE Name = 'mahasiswa'
+		   27 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		   27 Query	USE `data`
+		   27 Query	SHOW CREATE TABLE `data`.`mahasiswa`
+		   27 Query	SHOW COLUMNS FROM `data`.`mahasiswa`
+		   27 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data')
+                AND t.`TABLE_NAME`  = 'mahasiswa' ORDER BY Name ASC
+		   27 Query	SELECT `id`, `kode_fakultas`, `kode_prodi`, `tahun_masuk`, `jalur_masuk`, `nama` FROM `data`.`mahasiswa`
+		   27 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data' AND EVENT_OBJECT_TABLE  = 'mahasiswa'
+		   27 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data'
+                AND TABLE_NAME = 'nim'
+		   27 Query	SHOW TABLE STATUS FROM `data` WHERE Name = 'nim'
+		   27 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		   27 Query	USE `data`
+		   27 Query	SHOW CREATE TABLE `data`.`nim`
+		   27 Query	SHOW COLUMNS FROM `data`.`nim`
+		   27 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data')
+                AND t.`TABLE_NAME`  = 'nim' ORDER BY Name ASC
+		   27 Query	SELECT `nama`, `nim` FROM `data`.`nim`
+		   27 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data' AND EVENT_OBJECT_TABLE  = 'nim'
+		   27 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data'
+                AND TABLE_NAME = 'prodi'
+		   27 Query	SHOW TABLE STATUS FROM `data` WHERE Name = 'prodi'
+		   27 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		   27 Query	USE `data`
+		   27 Query	SHOW CREATE TABLE `data`.`prodi`
+		   27 Query	SHOW COLUMNS FROM `data`.`prodi`
+		   27 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data')
+                AND t.`TABLE_NAME`  = 'prodi' ORDER BY Name ASC
+		   27 Query	SELECT `kode`, `nama`, `kode_fakultas` FROM `data`.`prodi`
+		   27 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data' AND EVENT_OBJECT_TABLE  = 'prodi'
+		   27 Query	SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= 'data'
+		   27 Query	SET time_zone = "SYSTEM"
+		   27 Quit	
+		   26 Quit	
