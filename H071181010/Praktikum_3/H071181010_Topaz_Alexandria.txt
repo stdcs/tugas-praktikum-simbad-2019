@@ -1,0 +1,58 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191030  7:50:57	    61 Query	set global general_log=1
+191030  7:51:10	    61 Query	create database dbmahasiswa
+191030  7:53:16	    61 Query	SELECT DATABASE()
+		    61 Init DB	dbmahasiswa
+
+191030  8:16:15	    61 Query	create table tfakultas(
+kode_fakultas varchar(1) primary key not null,
+nama_fakultas varchar(255) not null)
+191030  8:16:46	    61 Query	insert into tfakultas
+values ("H", "Matematika dan Ilmu Pengetahuan Alam")
+
+191030  8:32:08	    61 Query	create table tprodi(
+kode_prodi int(2) primary key not null,
+nama varchar(255) not null,
+kode_fakultas varchar(1) not null)
+191030  8:34:11	    61 Query	alter table tprodi
+add foreign key (kode_fakultas) references tfakultas(kode_fakultas)
+191030  8:36:53	    61 Query	alter table prodi
+modify kode_prodi int(2) zerofill
+191030  8:37:04	    61 Query	alter table tprodi
+modify kode_prodi int(2) zerofill
+191030  8:37:55	    61 Query	insert into tprodi
+values("7", "Ilmu Komputer", "H")
+
+191030  8:40:57	    61 Query	create table tjalur(
+kode_jalur enum("0", "3", "5") primary key not null,
+nama varchar(255) not null)
+191030  8:41:24	    61 Query	insert into tjalur
+values("0", "SN")
+
+191030  8:55:53	    61 Query	create table tmahasiswa(
+id_mahasiswa int(2) primary key not null,
+kode_fakultas varchar(1) not null,
+kode_prodi int(2) not null,
+tahun_masuk int(4) not null,
+kode_jalur enum('0', '3', '5') not null,
+nama varchar(255) not null)
+191030  8:56:17	    61 Query	alter table tmahasiswa
+add foreign key (kode_fakultas) references tfakultas(kode_fakultas),
+add foreign key (kode_prodi) references tprodi(kode_prodi),
+add foreign key (kode_jalur) references tjalur(kode_jalur)
+191030  9:00:41	    61 Query	insert into tmahasiswa
+values("01","H","07","2014","0","Topaz Alexandria")
+191030  9:00:51	    61 Query	select * from tmahasiswa
+191030  9:01:31	    61 Query	alter table tmahasiswa
+add id_mahasiswa int zerofill
+191030  9:01:59	    61 Query	alter table tmahasiswa
+modify id_mahasiswa int zerofill,
+modify kode_prodi int zerofill
+191030  9:02:03	    61 Query	select * from tmahasiswa
+191030  9:03:59	    61 Query	alter table tmahasiswa
+modify id_mahasiswa int(2) zerofill,
+modify kode_prodi int(2) zerofill
+191030  9:12:33	    61 Query	select concat(kode_fakultas,kode_prodi,'1',RIGHT(tahun_masuk,2),'1',kode_jalur,id_mahasiswa) AS NIM from tmahasiswa
+191030  9:17:31	    61 Query	select nama as NAMA, concat(kode_fakultas,kode_prodi,'1',RIGHT(tahun_masuk,2),'1',kode_jalur,id_mahasiswa) AS NIM from tmahasiswa
