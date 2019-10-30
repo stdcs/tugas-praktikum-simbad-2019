@@ -1,0 +1,855 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191027  1:36:43	    10 Query	create database data_mahasiswa
+191027  1:36:55	    10 Query	show databases
+191027  1:37:59	    10 Query	SELECT DATABASE()
+		    10 Init DB	data_mahasiswa
+191027  1:39:51	    10 Query	create table tfakultas(
+id int(11) primary key auto_increment,
+kode_fakultas char(1) not null,
+nama_fakultas varchar(255) not null)
+191027  1:40:40	    10 Query	desc tfakultas
+191027  1:42:18	    10 Query	alter table tfakultas modify kode_fakultas char(1) not null unique
+191027  1:42:28	    10 Query	desc tfakultas
+191027  1:45:22	    10 Query	create table tprodi(
+id int(11) primary key auto_increment,
+kode_prodi varchar(2) not null,
+nama_prodi varchar(255) not null,
+fakultas_id int(11) not null)
+191027  1:47:09	    10 Query	alter table tprodi add foreign key (fakultas_id) references tfakultas(id)
+191027  1:47:18	    10 Query	desc tprodi
+191027  1:53:34	    10 Query	create table tjalur_masuk(
+id int(11) primary key auto_increment,
+kode_jalur int(1) not null,
+nama_jalur varchar(20) not null)
+191027  1:54:42	    10 Query	alter table tjalur_masuk modify kode_jalur int(1) not null unique
+191027  1:54:57	    10 Query	desc tjalur_masuk
+191027  1:58:00	    10 Query	create table mahasiswa(
+id int(11) primary key auto_increment,
+fakultas_id int(11) not null,
+prodi_id int(11) not null,
+tahun_masuk int(4) not null, 
+jalur_id int(11) not null,
+nama varchar(255) not null
+)
+191027  1:58:09	    10 Query	desc mahasiswa
+191027  1:59:25	    10 Query	alter table mahasiswa add foreign key (fakultas_id) references tfakultas(id)
+191027  1:59:56	    10 Query	desc mahasiswa
+191027  2:00:39	    10 Query	alter table mahasiswa add foreign key (prodi_id) references tprodi(id)
+191027  2:00:42	    10 Query	desc mahasiswa
+191027  2:01:09	    10 Query	alter table mahasiswa add foreign key (jalur_id) references tjalur_masuk(id)
+191027  2:01:13	    10 Query	desc mahasiswa
+191027  2:04:52	    10 Query	create table tnim(
+id int(11) primary key auto_increment,
+mahasiswa_id int(11) not null,
+nim varchar(10) not null)
+191027  2:05:09	    10 Query	desc tnim
+191027  2:05:49	    10 Query	alter table tnim add foreign key (mahasiswa_id) references mahasiswa(id)
+191027  2:05:54	    10 Query	desc tnim
+191027  2:08:09	    10 Query	insert into tfakultas (kode_fakultas, nim_fakultas) values("H", "Matematika dan Ilmu Pengetahuan Alam")
+191027  2:08:47	    10 Query	insert into tfakultas (kode_fakultas, nama_fakultas) values("H", "Matematika dan Ilmu Pengetahuan Alam")
+191027  2:09:04	    10 Query	select * from tfakultas
+191027  2:09:48	    10 Query	desc tprodi
+191027  2:11:25	    10 Query	insert into tfakultas (kode_prodi, nama_prodi, fakultas_id) values("07", "Ilmu Komputer",1)
+191027  2:11:43	    10 Query	insert into tprodi (kode_prodi, nama_prodi, fakultas_id) values("07", "Ilmu Komputer",1)
+191027  2:11:52	    10 Query	desc tprodi
+191027  2:12:02	    10 Query	select * from tprodi
+191027  2:12:37	    10 Query	desc tjalur_masuk
+191027  2:14:01	    10 Query	insert into tjalur_masuk (kode_jalur, nama_jalur) values(5,"JNS")
+191027  2:14:14	    10 Query	select * from tjalur_masuk
+191027  2:14:27	    10 Query	desc mahasiwa
+191027  2:14:31	    10 Query	desc mahasiswa
+191027  2:17:09	    10 Query	insert into tjalur_masuk (fakultas_id, prodi_id, tahun_masuk, jalur_id, nama) values(1,1,2018,1,"Ramdan Masykuri")
+191027  2:17:38	    10 Query	insert into mahasiswa (fakultas_id, prodi_id, tahun_masuk, jalur_id, nama) values(1,1,2018,1,"Ramdan Masykuri")
+191027  2:17:50	    10 Query	select * from mahasiwa
+191027  2:17:53	    10 Query	select * from mahasiswa
+191027  2:19:05	    10 Query	desc tnim
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191030  5:00:20	    12 Query	set global general_log = 1
+191030  5:00:32	    12 Query	show databases
+191030  5:02:18	    12 Query	SELECT DATABASE()
+		    12 Init DB	data_mahasiswa
+191030  5:02:29	    12 Query	desc tnim
+191030  5:03:15	    12 Query	select * from mahasiswa
+191030  5:04:41	    12 Query	DELETE from mahasiswa WHERE id = '1'
+191030  5:04:45	    12 Query	select * from mahasiswa
+191030  5:04:50	    12 Query	DELETE from mahasiswa WHERE id = '2'
+191030  5:08:36	    12 Query	select * from mahasiswa
+191030  5:11:09	    12 Query	INSERT INTO tmahasiswa (fakultas_id,prodi_id,tahun_masuk,jalur_id,nama_mahasiswa)
+VALUES (1,1,2018,1,"Ramdan Masykuri")))
+191030  5:13:13	    12 Query	INSERT INTO mahasiswa (fakultas_id,prodi_id,tahun_masuk,jalur_id,nama) VALUES (1,1,2018,1,"Ramdan Masykuri")
+191030  5:13:19	    12 Query	select * from mahasiswa
+191030  5:14:26	    12 Query	select * from tnim
+191030  5:18:11	    12 Query	INSERT INTO tnim (mahasiswa_id, nim) SELECT mahasiswa.id , CONCAT(tfakultas.kode_fakultas, tprodi.kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",tjalur_masuk.kode_jalur,LPAD(mahasiswa.id,2,0)) AS nim FROM mahasiswa JOIN tfakultas ON fakultas_id = tfakultas.id JOIN tprodi ON prodi_id = tprodi.id JOIN tjalur_masuk ON jalur_id = tjalur_masuk.id
+191030  5:18:17	    12 Query	select * from tnim
+191030  5:20:46	    12 Query	SELECT mahasiswa.nama AS nama, tnim.nim AS nim, tfakultas.nama_fakultas AS fakultas, tprodi.nama_prodi AS prodi, mahasiswa.tahun_masuk AS angkatan, tjalur_masuk.nama_jalur FROM mahasiswa JOIN tfakultas ON fakultas_id = tfakultas.id JOIN tprodi ON prodi_id = tprodi.id JOIN tjalur_masuk ON jalur_id = tjalur_masuk.id JOIN tnim ON mahasiswa.id = tnim.mahasiswa_id
+191030  6:00:28	    13 Connect	pma@localhost as anonymous on 
+		    13 Init DB	Access denied for user 'pma'@'localhost' to database 'phpmyadmin'
+		    14 Connect	root@localhost as anonymous on 
+		    14 Query	SELECT @@version, @@version_comment
+		    14 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    14 Query	SET lc_messages = 'id_ID'
+191030  6:00:29	    14 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    14 Query	SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''''@''''' LIKE `GRANTEE` LIMIT 1
+		    14 Query	SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''''@''''' LIKE `GRANTEE` LIMIT 1
+		    14 Query	SELECT 1 FROM mysql.user LIMIT 1
+191030  6:00:30	    14 Init DB	mysql
+		    14 Query	SELECT USER()
+		    14 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `DESCRIPTION` AS `Description` FROM `information_schema`.`CHARACTER_SETS`
+		    14 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default` FROM `information_schema`.`COLLATIONS`
+191030  6:00:31	    14 Query	SHOW SESSION VARIABLES LIKE 'character_set_server'
+191030  6:00:32	    14 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    14 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    14 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+191030  6:00:33	    14 Query	SHOW MASTER LOGS
+		    14 Quit	
+		    13 Quit	
+191030  6:00:37	    15 Connect	pma@localhost as anonymous on 
+		    16 Connect	root@localhost as anonymous on 
+		    16 Query	SELECT @@version, @@version_comment
+		    16 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    16 Query	SET lc_messages = 'id_ID'
+		    16 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    16 Quit	
+		    15 Quit	
+		    17 Connect	pma@localhost as anonymous on 
+		    18 Connect	root@localhost as anonymous on 
+		    18 Query	SELECT @@version, @@version_comment
+		    18 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    18 Query	SET lc_messages = 'id_ID'
+		    18 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    18 Quit	
+		    17 Quit	
+		    19 Connect	pma@localhost as anonymous on 
+		    20 Connect	root@localhost as anonymous on 
+		    20 Query	SELECT @@version, @@version_comment
+		    20 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    20 Query	SET lc_messages = 'id_ID'
+		    20 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    20 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    20 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    20 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    20 Quit	
+		    19 Quit	
+		    21 Connect	pma@localhost as anonymous on 
+		    22 Connect	root@localhost as anonymous on 
+		    22 Query	SELECT @@version, @@version_comment
+		    22 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    22 Query	SET lc_messages = 'id_ID'
+191030  6:00:38	    22 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    22 Quit	
+		    21 Quit	
+		    23 Connect	pma@localhost as anonymous on 
+		    24 Connect	root@localhost as anonymous on 
+		    24 Query	SELECT @@version, @@version_comment
+		    24 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    24 Query	SET lc_messages = 'id_ID'
+		    24 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+191030  6:00:39	    24 Quit	
+		    23 Quit	
+		    25 Connect	pma@localhost as anonymous on 
+		    26 Connect	root@localhost as anonymous on 
+		    26 Query	SELECT @@version, @@version_comment
+		    26 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    26 Query	SET lc_messages = 'id_ID'
+		    26 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+191030  6:00:40	    26 Init DB	mysql
+191030  6:00:42	    26 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+191030  6:00:49	    26 Quit	
+		    25 Quit	
+191030  6:01:01	    27 Connect	pma@localhost as anonymous on 
+		    27 Query	SHOW TABLES FROM `data_mahasiswa`
+		    28 Connect	root@localhost as anonymous on 
+		    28 Query	SELECT @@version, @@version_comment
+		    28 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    28 Query	SET lc_messages = 'id_ID'
+		    28 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    28 Init DB	data_mahasiswa
+		    28 Query	SHOW TABLES FROM `data_mahasiswa`
+		    28 Query	SELECT @@lower_case_table_names
+		    28 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                 ORDER BY Name ASC LIMIT 250 OFFSET 0
+		    28 Query	SHOW MASTER STATUS
+		    28 Query	SHOW SLAVE STATUS
+		    28 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`mahasiswa`
+191030  6:01:02	    28 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`tfakultas`
+		    28 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`tjalur_masuk`
+		    28 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`tnim`
+		    28 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`tprodi`
+		    28 Query	SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'data_mahasiswa' LIMIT 1
+		    28 Query	SELECT @@storage_engine
+		    28 Query	SHOW TABLES FROM `data_mahasiswa`
+		    28 Query	SHOW TABLES FROM `data_mahasiswa`
+		    28 Quit	
+		    27 Quit	
+191030  6:01:03	    29 Connect	pma@localhost as anonymous on 
+		    30 Connect	root@localhost as anonymous on 
+		    30 Query	SELECT @@version, @@version_comment
+		    30 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    30 Query	SET lc_messages = 'id_ID'
+		    30 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    30 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    30 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`IN('BASE TABLE', 'SYSTEM VERSIONED')
+		    30 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`NOT IN('BASE TABLE', 'SYSTEM VERSIONED')
+		    30 Query	SELECT @@lower_case_table_names
+		    30 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='data_mahasiswa' AND `ROUTINE_TYPE`='FUNCTION'
+		    30 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='data_mahasiswa'AND `ROUTINE_TYPE`='PROCEDURE'
+		    30 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='data_mahasiswa'
+		    30 Query	SELECT `TABLE_NAME` AS `name` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`IN('BASE TABLE', 'SYSTEM VERSIONED') ORDER BY `TABLE_NAME` ASC LIMIT 0, 50
+		    30 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`IN('BASE TABLE', 'SYSTEM VERSIONED')
+		    30 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`IN('BASE TABLE', 'SYSTEM VERSIONED')
+		    30 Quit	
+		    29 Quit	
+191030  6:01:11	    31 Connect	pma@localhost as anonymous on 
+		    31 Query	SHOW TABLES FROM `data_mahasiswa`
+		    32 Connect	root@localhost as anonymous on 
+		    32 Query	SELECT @@version, @@version_comment
+		    32 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    32 Query	SET lc_messages = 'id_ID'
+		    32 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    32 Init DB	data_mahasiswa
+		    32 Query	SHOW TABLES FROM `data_mahasiswa`
+		    32 Query	SELECT @@lower_case_table_names
+		    32 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                 ORDER BY Name ASC
+191030  6:01:12	    32 Query	SHOW TABLES FROM `data_mahasiswa`
+		    32 Query	SHOW TABLES FROM `data_mahasiswa`
+		    32 Quit	
+		    31 Quit	
+191030  6:01:29	    33 Connect	pma@localhost as anonymous on 
+		    33 Query	SHOW TABLES FROM `data_mahasiswa`
+		    34 Connect	root@localhost as anonymous on 
+		    34 Query	SELECT @@version, @@version_comment
+		    34 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    34 Query	SET lc_messages = 'id_ID'
+		    34 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+191030  6:01:30	    34 Query	SET SQL_MODE=""
+		    34 Query	SELECT @@session.time_zone
+		    34 Query	SET time_zone = "+00:00"
+		    34 Query	SHOW PROCEDURE STATUS
+		    34 Query	SHOW FUNCTION STATUS
+		    34 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'mahasiswa'
+		    34 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'mahasiswa'
+		    34 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    34 Query	USE `data_mahasiswa`
+		    34 Query	SHOW CREATE TABLE `data_mahasiswa`.`mahasiswa`
+191030  6:01:31	    34 Query	SHOW COLUMNS FROM `data_mahasiswa`.`mahasiswa`
+		    34 Query	SELECT @@lower_case_table_names
+		    34 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'mahasiswa' ORDER BY Name ASC
+		    34 Query	SELECT `id`, `fakultas_id`, `prodi_id`, `tahun_masuk`, `jalur_id`, `nama` FROM `data_mahasiswa`.`mahasiswa`
+		    34 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'mahasiswa'
+		    34 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'tfakultas'
+		    34 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'tfakultas'
+		    34 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    34 Query	USE `data_mahasiswa`
+		    34 Query	SHOW CREATE TABLE `data_mahasiswa`.`tfakultas`
+		    34 Query	SHOW COLUMNS FROM `data_mahasiswa`.`tfakultas`
+		    34 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'tfakultas' ORDER BY Name ASC
+		    34 Query	SELECT `id`, `kode_fakultas`, `nama_fakultas` FROM `data_mahasiswa`.`tfakultas`
+		    34 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'tfakultas'
+		    34 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'tjalur_masuk'
+		    34 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'tjalur_masuk'
+		    34 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    34 Query	USE `data_mahasiswa`
+		    34 Query	SHOW CREATE TABLE `data_mahasiswa`.`tjalur_masuk`
+		    34 Query	SHOW COLUMNS FROM `data_mahasiswa`.`tjalur_masuk`
+		    34 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'tjalur_masuk' ORDER BY Name ASC
+		    34 Query	SELECT `id`, `kode_jalur`, `nama_jalur` FROM `data_mahasiswa`.`tjalur_masuk`
+		    34 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'tjalur_masuk'
+		    34 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'tnim'
+		    34 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'tnim'
+		    34 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    34 Query	USE `data_mahasiswa`
+		    34 Query	SHOW CREATE TABLE `data_mahasiswa`.`tnim`
+		    34 Query	SHOW COLUMNS FROM `data_mahasiswa`.`tnim`
+		    34 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'tnim' ORDER BY Name ASC
+		    34 Query	SELECT `id`, `mahasiswa_id`, `nim` FROM `data_mahasiswa`.`tnim`
+		    34 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'tnim'
+		    34 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'tprodi'
+		    34 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'tprodi'
+		    34 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    34 Query	USE `data_mahasiswa`
+		    34 Query	SHOW CREATE TABLE `data_mahasiswa`.`tprodi`
+		    34 Query	SHOW COLUMNS FROM `data_mahasiswa`.`tprodi`
+		    34 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'tprodi' ORDER BY Name ASC
+		    34 Query	SELECT `id`, `kode_prodi`, `nama_prodi`, `fakultas_id` FROM `data_mahasiswa`.`tprodi`
+		    34 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'tprodi'
+		    34 Query	SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= 'data_mahasiswa'
+		    34 Query	SET time_zone = "SYSTEM"
+		    34 Quit	
+		    33 Quit	
+191030  6:06:30	    35 Connect	pma@localhost as anonymous on 
+		    36 Connect	root@localhost as anonymous on 
+		    36 Query	SELECT @@version, @@version_comment
+		    36 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    36 Query	SET lc_messages = 'id_ID'
+		    36 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    36 Quit	
+		    35 Quit	
+191030  6:19:12	    37 Connect	pma@localhost as anonymous on 
+		    38 Connect	root@localhost as anonymous on 
+		    38 Query	SELECT @@version, @@version_comment
+		    38 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    38 Query	SET lc_messages = 'id_ID'
+		    38 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    38 Init DB	mysql
+		    38 Query	SELECT USER()
+		    38 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `DESCRIPTION` AS `Description` FROM `information_schema`.`CHARACTER_SETS`
+		    38 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default` FROM `information_schema`.`COLLATIONS`
+		    38 Query	SHOW SESSION VARIABLES LIKE 'character_set_server'
+		    38 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    38 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    38 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    38 Quit	
+		    37 Quit	
+191030  6:19:13	    39 Connect	pma@localhost as anonymous on 
+		    40 Connect	root@localhost as anonymous on 
+		    40 Query	SELECT @@version, @@version_comment
+		    40 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    40 Query	SET lc_messages = 'id_ID'
+		    40 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    40 Quit	
+		    39 Quit	
+191030  6:19:14	    41 Connect	pma@localhost as anonymous on 
+		    42 Connect	root@localhost as anonymous on 
+		    42 Query	SELECT @@version, @@version_comment
+		    42 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    42 Query	SET lc_messages = 'id_ID'
+		    42 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    42 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    42 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    42 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    42 Quit	
+		    41 Quit	
+		    43 Connect	pma@localhost as anonymous on 
+		    44 Connect	root@localhost as anonymous on 
+		    44 Query	SELECT @@version, @@version_comment
+		    44 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    44 Query	SET lc_messages = 'id_ID'
+		    44 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    44 Quit	
+		    43 Quit	
+		    45 Connect	pma@localhost as anonymous on 
+		    46 Connect	root@localhost as anonymous on 
+		    46 Query	SELECT @@version, @@version_comment
+		    46 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    46 Query	SET lc_messages = 'id_ID'
+		    46 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    46 Quit	
+		    45 Quit	
+		    47 Connect	pma@localhost as anonymous on 
+		    48 Connect	root@localhost as anonymous on 
+		    48 Query	SELECT @@version, @@version_comment
+		    48 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    48 Query	SET lc_messages = 'id_ID'
+		    48 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    48 Quit	
+		    47 Quit	
+191030  6:19:15	    49 Connect	pma@localhost as anonymous on 
+		    49 Query	SHOW TABLES FROM `data_mahasiswa`
+		    50 Connect	root@localhost as anonymous on 
+		    50 Query	SELECT @@version, @@version_comment
+		    50 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    50 Query	SET lc_messages = 'id_ID'
+		    50 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    50 Init DB	data_mahasiswa
+		    50 Query	SHOW TABLES FROM `data_mahasiswa`
+		    50 Query	SELECT @@lower_case_table_names
+		    50 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                 ORDER BY Name ASC LIMIT 250 OFFSET 0
+		    50 Query	SHOW MASTER STATUS
+		    50 Query	SHOW SLAVE STATUS
+		    50 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`mahasiswa`
+		    50 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`tfakultas`
+		    50 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`tjalur_masuk`
+		    50 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`tnim`
+		    50 Query	SELECT COUNT(*) FROM `data_mahasiswa`.`tprodi`
+		    50 Query	SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'data_mahasiswa' LIMIT 1
+		    50 Query	SELECT @@storage_engine
+		    50 Query	SHOW TABLES FROM `data_mahasiswa`
+		    50 Query	SHOW TABLES FROM `data_mahasiswa`
+		    50 Quit	
+		    49 Quit	
+		    51 Connect	pma@localhost as anonymous on 
+191030  6:19:16	    52 Connect	root@localhost as anonymous on 
+		    52 Query	SELECT @@version, @@version_comment
+		    52 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    52 Query	SET lc_messages = 'id_ID'
+		    52 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    52 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    52 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`IN('BASE TABLE', 'SYSTEM VERSIONED')
+		    52 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`NOT IN('BASE TABLE', 'SYSTEM VERSIONED')
+		    52 Query	SELECT @@lower_case_table_names
+		    52 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='data_mahasiswa' AND `ROUTINE_TYPE`='FUNCTION'
+		    52 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='data_mahasiswa'AND `ROUTINE_TYPE`='PROCEDURE'
+		    52 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='data_mahasiswa'
+		    52 Query	SELECT `TABLE_NAME` AS `name` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`IN('BASE TABLE', 'SYSTEM VERSIONED') ORDER BY `TABLE_NAME` ASC LIMIT 0, 50
+		    52 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`IN('BASE TABLE', 'SYSTEM VERSIONED')
+		    52 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='data_mahasiswa' AND `TABLE_TYPE`IN('BASE TABLE', 'SYSTEM VERSIONED')
+		    52 Quit	
+		    51 Quit	
+191030  6:19:59	    53 Connect	pma@localhost as anonymous on 
+		    53 Query	SHOW TABLES FROM `data_mahasiswa`
+		    54 Connect	root@localhost as anonymous on 
+		    54 Query	SELECT @@version, @@version_comment
+		    54 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    54 Query	SET lc_messages = 'id_ID'
+		    54 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    54 Init DB	data_mahasiswa
+		    54 Query	SHOW TABLES FROM `data_mahasiswa`
+		    54 Query	SELECT @@lower_case_table_names
+		    54 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                 ORDER BY Name ASC
+		    54 Query	SHOW TABLES FROM `data_mahasiswa`
+		    54 Query	SHOW TABLES FROM `data_mahasiswa`
+		    54 Quit	
+		    53 Quit	
+191030  6:20:02	    55 Connect	pma@localhost as anonymous on 
+		    55 Query	SHOW TABLES FROM `data_mahasiswa`
+		    56 Connect	root@localhost as anonymous on 
+		    56 Query	SELECT @@version, @@version_comment
+		    56 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    56 Query	SET lc_messages = 'id_ID'
+		    56 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    56 Query	SET SQL_MODE=""
+		    56 Query	SELECT @@session.time_zone
+		    56 Query	SET time_zone = "+00:00"
+		    56 Query	SHOW PROCEDURE STATUS
+		    56 Query	SHOW FUNCTION STATUS
+		    56 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'mahasiswa'
+		    56 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'mahasiswa'
+		    56 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    56 Query	USE `data_mahasiswa`
+		    56 Query	SHOW CREATE TABLE `data_mahasiswa`.`mahasiswa`
+		    56 Query	SHOW COLUMNS FROM `data_mahasiswa`.`mahasiswa`
+		    56 Query	SELECT @@lower_case_table_names
+		    56 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'mahasiswa' ORDER BY Name ASC
+		    56 Query	SELECT `id`, `fakultas_id`, `prodi_id`, `tahun_masuk`, `jalur_id`, `nama` FROM `data_mahasiswa`.`mahasiswa`
+		    56 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'mahasiswa'
+		    56 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'tfakultas'
+		    56 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'tfakultas'
+		    56 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    56 Query	USE `data_mahasiswa`
+		    56 Query	SHOW CREATE TABLE `data_mahasiswa`.`tfakultas`
+		    56 Query	SHOW COLUMNS FROM `data_mahasiswa`.`tfakultas`
+		    56 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'tfakultas' ORDER BY Name ASC
+		    56 Query	SELECT `id`, `kode_fakultas`, `nama_fakultas` FROM `data_mahasiswa`.`tfakultas`
+		    56 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'tfakultas'
+		    56 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'tjalur_masuk'
+		    56 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'tjalur_masuk'
+		    56 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    56 Query	USE `data_mahasiswa`
+		    56 Query	SHOW CREATE TABLE `data_mahasiswa`.`tjalur_masuk`
+		    56 Query	SHOW COLUMNS FROM `data_mahasiswa`.`tjalur_masuk`
+		    56 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'tjalur_masuk' ORDER BY Name ASC
+		    56 Query	SELECT `id`, `kode_jalur`, `nama_jalur` FROM `data_mahasiswa`.`tjalur_masuk`
+		    56 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'tjalur_masuk'
+		    56 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'tnim'
+		    56 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'tnim'
+		    56 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    56 Query	USE `data_mahasiswa`
+		    56 Query	SHOW CREATE TABLE `data_mahasiswa`.`tnim`
+		    56 Query	SHOW COLUMNS FROM `data_mahasiswa`.`tnim`
+		    56 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'tnim' ORDER BY Name ASC
+		    56 Query	SELECT `id`, `mahasiswa_id`, `nim` FROM `data_mahasiswa`.`tnim`
+		    56 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'tnim'
+		    56 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'data_mahasiswa'
+                AND TABLE_NAME = 'tprodi'
+		    56 Query	SHOW TABLE STATUS FROM `data_mahasiswa` WHERE Name = 'tprodi'
+		    56 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		    56 Query	USE `data_mahasiswa`
+		    56 Query	SHOW CREATE TABLE `data_mahasiswa`.`tprodi`
+		    56 Query	SHOW COLUMNS FROM `data_mahasiswa`.`tprodi`
+		    56 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('data_mahasiswa')
+                AND t.`TABLE_NAME`  = 'tprodi' ORDER BY Name ASC
+		    56 Query	SELECT `id`, `kode_prodi`, `nama_prodi`, `fakultas_id` FROM `data_mahasiswa`.`tprodi`
+		    56 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'data_mahasiswa' AND EVENT_OBJECT_TABLE  = 'tprodi'
+		    56 Query	SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= 'data_mahasiswa'
+		    56 Query	SET time_zone = "SYSTEM"
+		    56 Quit	
+		    55 Quit	
+191030  6:25:04	    57 Connect	pma@localhost as anonymous on 
+		    58 Connect	root@localhost as anonymous on 
+		    58 Query	SELECT @@version, @@version_comment
+		    58 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    58 Query	SET lc_messages = 'id_ID'
+		    58 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    58 Quit	
+		    57 Quit	
