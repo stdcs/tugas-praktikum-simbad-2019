@@ -1,0 +1,473 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.1.39-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time                 Id Command    Argument
+191021 19:28:45	    2 Query	create database world
+191021 19:28:58	    2 Query	show databases
+191021 19:29:21	    2 Query	create database world
+191021 19:29:39	    2 Query	create database dunia
+191021 19:29:46	    2 Quit	
+191021 19:31:01	    3 Connect	root@localhost as anonymous on dunia
+		    3 Query	/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */
+		    3 Query	/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */
+		    3 Query	/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */
+		    3 Query	/*!40101 SET NAMES utf8mb4 */
+		    3 Query	/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */
+		    3 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		    3 Query	/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */
+		    3 Query	/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */
+		    3 Query	/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */
+		    3 Query	/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */
+		    3 Query	DROP TABLE IF EXISTS `table_list_country`
+191021 19:31:02	    3 Query	/*!40101 SET @saved_cs_client     = @@character_set_client */
+		    3 Query	/*!40101 SET character_set_client = utf8 */
+		    3 Query	CREATE TABLE `table_list_country` (
+  `iso_code` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `continent` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `region` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `capital` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `area` decimal(10,0) NOT NULL,
+  `population` decimal(11,0) NOT NULL,
+  `gdp` decimal(14,0) DEFAULT NULL,
+  `currency` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pop_density` int(4) NOT NULL,
+  PRIMARY KEY (`iso_code`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+		    3 Query	/*!40101 SET character_set_client = @saved_cs_client */
+		    3 Query	LOCK TABLES `table_list_country` WRITE
+		    3 Query	/*!40000 ALTER TABLE `table_list_country` DISABLE KEYS */
+		    3 Query	INSERT INTO `table_list_country` VALUES ('AF','Afghanistan','Asia','Central','Kabul',625090,29863010,7168,'Afghan afgani',46),('AL','Albani','Europe','South East','Tirana',28748,3129678,8379,'Albanian lek',109),('AR','Argentina','South America','South East','Bueno Aires',2780400,38747150,183309,'Argentine peso',13),('AT','Austria','Europe','South Central','Vienna',83858,8189444,304527,'Euro',98),('AU','Australia','Oceana','South West','Canberra',7741220,20155130,700672,'Autralian dollar',2),('BD','Bangladesh','Asia','South Central','Dhaka',143998,141822300,59958,'Bangladeshi taka',985),('BE','Belgium','Europe','Central West','Brussels',30528,10419050,364735,'Euro',341),('BG','Bulgaria','Europe','South East','Sofia',110912,7725965,26648,'Bulgarian Lev',70),('BH','Bahrain','Asia','South West','Manama',694,726617,12995,'Bahraini dinar',1047),('BN','Brunei','Asia','South East','Bandar Seri Begawan',5765,373819,9531,'Brunei dollar',65),('BR','Brazil','South America','North East','Brasilia',8514877,186404900,794098,'Brazillian real',22),('BT','Bhutan','Asia','South Central','Thimphu',47000,2162546,840,'Indian rupee',46),('CA','Canada','North America','North Central','Ottawa',9970610,32268240,1115192,'Canadian dollar',3),('CN','China','Asia','Central East','Beijing',9596961,1315844000,2228862,'Chinese yuan',137),('CO','Colombia','South America','North West','Bogota',1138914,45600240,122309,'Colombia peso',40),('CZ','Czech Republic','Europe','Central','Prague',78866,10219600,122345,'Czech koruna',130),('DE','Germany','Europe','Central','Berlin',357022,82689210,2781900,'Euro',232),('DK','Denmark','Europe','North Central','Copenhagen',43094,5430590,254401,'Danish krone',126),('DM','Dominican Republic','North America','South East','Santo Domingo',48671,8894907,28303,'Dominican peso',183),('DZ','Algeria','Africa','North Central','Algiers',2381741,32853800,102257,'Algerian dinar',13),('EG','Egypt','North Amerika','South East','Cairo',1001449,74032880,89336,'Egyptian pound',74),('ET','Ethiopia','Africa','Central East','Addis Ababa',1104300,77430700,11174,'Ethiopian birr',70),('FI','Finland','Europe','North East','Helsinki',338145,5249060,193176,'Euro',15),('FR','France','Europe','South West','Paris',551500,60495540,2110185,'Euro',110),('GH','Ghana','Africa','North West','Accra',238533,2212810,10695,'Ghanian cedi',137),('GT','Guatemala','North America','South East','Guatemala City',108889,12599060,31683,'Guatemalan quetzal',116),('HT','Haiti','Nort America','South East','Port-au-Prince',27750,8527777,4254,'Haitian gourde',307),('HU','Hungary','Europe','South East','Budapest',93032,10097730,109154,'Hungarian forint',109),('ID','Indonesia','Asia','South East','Jakarta',1904569,222781500,287217,'Indonesian rupiah',117),('IE','Ireland','Europe','North West','Dublin',70273,4147901,196388,'Euro',59),('IL','Israel','Asia','Central West','Jerusalem',22145,6724564,123434,'Israeli new shaqei',304),('IN','India','Asia','South Central','New Delhi',3287263,1103371000,785468,'Indian rupee',336),('IQ','Iraq','Asia','Central West','Baghdad',438317,28807190,438317,'Iraqi dinar',66),('IR','Iran','Asia','Central West','Tehran',1648195,69515210,196343,'Iranian rial',42),('IS','Iceland','Europe','North West','Reykjavik',103000,294561,15036,'Iceland krona',2),('IT','Italy','Europe','South Central','Rome',301318,58092740,1732044,'Euro',193),('JP','Japan','Asia','Central East','Tokyo',377873,128084700,4505912,'Japanese yen',339),('KH','Cambodia','Asia','South East','Phnom Penh',181035,14071010,5391,'Cambodian riel',78),('KP','Korea, North','Asia','Central East','Pyongyang',120538,22487660,5997,'North Korean won',187),('KR','Korea, South','Asia','Central East','Seoul',99538,48846823,787624,'South Korean won',480),('KZ','Kazakhstan','Asia','North West','Astana',2724900,14825110,56088,'Kazakhstani tenge',5),('LA','Laos','Asia','South East','Vientiane',236800,5924145,2855,'Lao kip',25),('LB','Lebanon','Asia','Central West','Beirut',10400,3576818,22210,'Lebanese lira',344),('MM','Myanmar','Asia','South East','Naypyidaw',676578,50519490,12151,'Myanmar kyat',75),('MX','Mexico','North America','South Central','Mexico City',1958201,107029400,768438,'Mexican peso',55),('MY','Malysia','Asia','South East','Putra Jaya',329847,25347370,130143,'Malaysian ringgit',77),('NL','Netherlands','Europe','Central West','Amsterdam',41528,16299170,594755,'Euro',392),('NZ','New Zealand','Oceana','South East','Wellington',270534,4028384,109041,'New Zealan dollar',14),('RU','Rusia','Asia','North West','Moscow',17098242,143201600,2855,'Russian ruble',8),('SA','Saudi Arabia','Asia','South West','Riyadh',2149690,24573100,309778,'Saudi riyal',11)
+		    3 Query	/*!40000 ALTER TABLE `table_list_country` ENABLE KEYS */
+		    3 Query	UNLOCK TABLES
+		    3 Query	/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */
+		    3 Query	/*!40101 SET SQL_MODE=@OLD_SQL_MODE */
+		    3 Query	/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */
+		    3 Query	/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */
+		    3 Query	/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
+		    3 Query	/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
+		    3 Query	/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
+		    3 Query	/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */
+		    3 Quit	
+191021 19:31:08	    4 Connect	root@localhost as anonymous on 
+		    4 Query	select @@version_comment limit 1
+191021 19:31:14	    4 Query	SELECT DATABASE()
+		    4 Init DB	dunia
+191021 19:31:24	    4 Query	show tables
+191021 19:31:46	    4 Query	desc country
+191021 19:32:06	    4 Query	desc table_list_country
+191021 19:32:28	    4 Query	select * from table_list_country
+191021 19:38:07	    4 Query	SELECT * FROM table_list_country ORDER BY iso_code ASC
+191021 19:38:25	    4 Query	SELECT * FROM table_list_country ORDER BY gdp DESC LIMIT 10
+191021 19:38:50	    4 Query	SELECT * FROM table_list_country ORDER BY area DESC LIMIT 10
+191021 19:39:18	    4 Query	SELECT * FROM table_list_country ORDER BY population DESC LIMIT 10
+191021 19:39:42	    4 Query	SELECT * FROM table_list_country ORDER BY pop_density ASC LIMIT 10
+191021 19:40:10	    4 Query	SELECT name, capital, iso_code, continent, region FROM table_list_country WHERE name LIKE "%a%" AND name LIKE "%i%" AND name LIKE "%u%" AND name LIKE "%e%" AND name LIKE "%o%"
+191021 19:40:30	    4 Query	SELECT name, area, population FROM table_list_country WHERE area > 3000000 OR population > 250000000
+191021 19:40:51	    4 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent = "Asia"
+191021 19:41:16	    4 Query	SELECT name, population, pop_density FROM table_list_country WHERE continent = "Asia" AND region = "South East"
+191021 19:41:34	    4 Query	SELECT name, population, pop_density FROM table_list_country WHERE name LIKE "I%"
+191021 19:41:55	    4 Quit	
+191021 19:42:46	    5 Connect	root@localhost as anonymous on dunia
+191021 19:46:57	    5 Quit	
+191021 19:47:03	    6 Connect	root@localhost as anonymous on dunia
+191021 19:49:53	    7 Connect	pma@localhost as anonymous on 
+		    7 Init DB	phpmyadmin
+		    7 Query	SHOW TABLES FROM `phpmyadmin`
+		    7 Query	SHOW COLUMNS FROM `phpmyadmin`.`pma__column_info` WHERE Field IN ('input_transformation', 'input_transformation_options')
+		    8 Connect	root@localhost as anonymous on 
+		    8 Query	SELECT @@version, @@version_comment
+		    8 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    8 Query	SET lc_messages = 'en_US'
+		    7 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		    7 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		    7 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		    7 Query	SELECT `username` FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		    7 Query	UPDATE `phpmyadmin`.`pma__userconfig` SET `timevalue` = NOW(), `config_data` = '{\"Console\\/Mode\":\"collapse\"}' WHERE `username` = 'root'
+		    8 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    8 Query	SELECT CURRENT_USER()
+191021 19:49:54	    8 Query	SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''localhost''' LIKE `GRANTEE` LIMIT 1
+		    8 Query	SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''root''@''localhost''' LIKE `GRANTEE` LIMIT 1
+		    8 Query	SELECT 1 FROM mysql.user LIMIT 1
+		    8 Init DB	mysql
+		    8 Query	SELECT USER()
+		    7 Query	SELECT `tables` FROM `phpmyadmin`.`pma__favorite` WHERE `username` = 'root'
+		    8 Query	SHOW GRANTS
+		    8 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `DESCRIPTION` AS `Description` FROM `information_schema`.`CHARACTER_SETS`
+		    8 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default` FROM `information_schema`.`COLLATIONS`
+		    8 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    7 Query	SELECT `db_name`, COUNT(*) AS `count` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' GROUP BY `db_name`
+191021 19:49:55	    7 Query	SELECT `tables` FROM `phpmyadmin`.`pma__recent` WHERE `username` = 'root'
+		    8 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    8 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    8 Query	SHOW MASTER LOGS
+		    7 Query	SELECT `tab` FROM `phpmyadmin`.`pma__usergroups` WHERE `allowed` = 'N' AND `tab` LIKE 'server%' AND `usergroup` = (SELECT usergroup FROM `phpmyadmin`.`pma__users` WHERE `username` = 'root')
+		    7 Query	SELECT * FROM `phpmyadmin`.`pma__bookmark` WHERE ( `user` = '' OR `user` = 'root' ) ORDER BY label ASC
+		    7 Quit	
+		    8 Quit	
+191021 19:49:57	    9 Connect	pma@localhost as anonymous on 
+		   10 Connect	root@localhost as anonymous on 
+		   10 Query	SELECT @@version, @@version_comment
+		   10 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   10 Query	SET lc_messages = 'en_US'
+		    9 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		    9 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   10 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+191021 19:49:58	   10 Quit	
+		    9 Quit	
+		   11 Connect	pma@localhost as anonymous on 
+		   12 Connect	root@localhost as anonymous on 
+		   12 Query	SELECT @@version, @@version_comment
+		   12 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   12 Query	SET lc_messages = 'en_US'
+		   11 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   12 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   12 Quit	
+		   11 Quit	
+		   13 Connect	pma@localhost as anonymous on 
+		   14 Connect	root@localhost as anonymous on 
+		   14 Query	SELECT @@version, @@version_comment
+		   14 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   14 Query	SET lc_messages = 'en_US'
+		   13 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   14 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   14 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		   13 Query	SELECT `db_name`, COUNT(*) AS `count` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' GROUP BY `db_name`
+		   14 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		   14 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		   14 Quit	
+		   13 Quit	
+		   15 Connect	pma@localhost as anonymous on 
+		   16 Connect	root@localhost as anonymous on 
+		   16 Query	SELECT @@version, @@version_comment
+		   16 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   16 Query	SET lc_messages = 'en_US'
+		   15 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   16 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   15 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   15 Query	SELECT `username` FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   15 Query	UPDATE `phpmyadmin`.`pma__userconfig` SET `timevalue` = NOW(), `config_data` = '{\"Console\\/Mode\":\"collapse\"}' WHERE `username` = 'root'
+		   16 Quit	
+		   15 Quit	
+		   17 Connect	pma@localhost as anonymous on 
+		   18 Connect	root@localhost as anonymous on 
+		   18 Query	SELECT @@version, @@version_comment
+		   18 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   18 Query	SET lc_messages = 'en_US'
+		   17 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   17 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+191021 19:49:59	   18 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   18 Quit	
+		   17 Quit	
+		   19 Connect	pma@localhost as anonymous on 
+		   20 Connect	root@localhost as anonymous on 
+		   20 Query	SELECT @@version, @@version_comment
+		   20 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   20 Query	SET lc_messages = 'en_US'
+		   19 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   20 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+191021 19:50:04	   20 Quit	
+		   19 Quit	
+		   21 Connect	pma@localhost as anonymous on 
+		   22 Connect	root@localhost as anonymous on 
+		   22 Query	SELECT @@version, @@version_comment
+		   22 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   22 Query	SET lc_messages = 'en_US'
+		   21 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   22 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   22 Init DB	dunia
+		   22 Query	SHOW TABLES FROM `dunia`
+		   22 Query	SELECT @@lower_case_table_names
+		   22 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('dunia')
+                 ORDER BY Name ASC LIMIT 250 OFFSET 0
+		   22 Query	SHOW MASTER STATUS
+		   22 Query	SHOW SLAVE STATUS
+		   22 Query	SELECT COUNT(*) FROM `dunia`.`table_list_country`
+		   21 Query	SELECT tracking_active FROM `phpmyadmin`.`pma__tracking` WHERE db_name = 'dunia'  AND table_name = 'table_list_country'  ORDER BY version DESC LIMIT 1
+		   21 Query	SELECT MAX(version) FROM `phpmyadmin`.`pma__tracking` WHERE `db_name` = 'dunia'  AND `table_name` = 'table_list_country'
+		   22 Query	SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'dunia' LIMIT 1
+		   22 Query	SELECT @@storage_engine
+		   22 Query	SHOW TABLES FROM `dunia`
+		   22 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   22 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   21 Query	SELECT `tab` FROM `phpmyadmin`.`pma__usergroups` WHERE `allowed` = 'N' AND `tab` LIKE 'db%' AND `usergroup` = (SELECT usergroup FROM `phpmyadmin`.`pma__users` WHERE `username` = 'root')
+		   21 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+191021 19:50:05	   21 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   22 Query	SHOW TABLES FROM `dunia`
+		   22 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   22 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   22 Quit	
+		   21 Quit	
+		   23 Connect	pma@localhost as anonymous on 
+		   24 Connect	root@localhost as anonymous on 
+		   24 Query	SELECT @@version, @@version_comment
+		   24 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   24 Query	SET lc_messages = 'en_US'
+		   23 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   24 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   24 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		   23 Query	SELECT `db_name`, COUNT(*) AS `count` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' GROUP BY `db_name`
+		   23 Query	SELECT `item_name` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' AND `item_type`='group' AND `db_name`='dunia'
+		   24 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='dunia' AND `TABLE_TYPE`='BASE TABLE'
+		   24 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='dunia' AND `TABLE_TYPE`!='BASE TABLE'
+		   24 Query	SELECT @@lower_case_table_names
+		   24 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='dunia' AND `ROUTINE_TYPE`='FUNCTION'
+		   24 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='dunia'AND `ROUTINE_TYPE`='PROCEDURE'
+		   24 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='dunia'
+		   24 Query	SELECT `TABLE_NAME` AS `name` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='dunia' AND `TABLE_TYPE`='BASE TABLE' ORDER BY `TABLE_NAME` ASC LIMIT 0, 50
+		   23 Query	SELECT `item_name` FROM `phpmyadmin`.`pma__navigationhiding` WHERE `username`='root' AND `item_type`='table' AND `db_name`='dunia'
+		   24 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='dunia' AND `TABLE_TYPE`='BASE TABLE'
+		   24 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='dunia' AND `TABLE_TYPE`='BASE TABLE'
+		   24 Quit	
+		   23 Quit	
+191021 19:50:10	   25 Connect	pma@localhost as anonymous on 
+		   26 Connect	root@localhost as anonymous on 
+		   26 Query	SELECT @@version, @@version_comment
+		   26 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   26 Query	SET lc_messages = 'en_US'
+		   25 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   26 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   26 Init DB	dunia
+		   26 Query	SHOW TABLES FROM `dunia`
+		   26 Query	SELECT @@lower_case_table_names
+		   26 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('dunia')
+                 ORDER BY Name ASC
+191021 19:50:12	   25 Query	SELECT `id`, `template_name` FROM `phpmyadmin`.`pma__export_templates` WHERE `username` = 'root' AND `export_type` = 'database' ORDER BY `template_name`
+		   26 Query	SHOW TABLES FROM `dunia`
+		   26 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   26 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   25 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   25 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   26 Query	SHOW TABLES FROM `dunia`
+		   26 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   26 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   26 Quit	
+		   25 Quit	
+191021 19:50:17	   27 Connect	pma@localhost as anonymous on 
+		   28 Connect	root@localhost as anonymous on 
+		   28 Query	SELECT @@version, @@version_comment
+		   28 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   28 Query	SET lc_messages = 'en_US'
+		   27 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   28 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   27 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+191021 19:50:18	   28 Query	SET SQL_MODE=""
+		   28 Query	SELECT @@session.time_zone
+		   28 Query	SET time_zone = "+00:00"
+		   28 Query	SHOW PROCEDURE STATUS
+		   28 Query	SHOW FUNCTION STATUS
+		   28 Query	SELECT TABLE_NAME
+            FROM information_schema.VIEWS
+            WHERE TABLE_SCHEMA = 'dunia'
+                AND TABLE_NAME = 'table_list_country'
+		   28 Query	SHOW TABLE STATUS FROM `dunia` WHERE Name = 'table_list_country'
+		   28 Query	SET SQL_QUOTE_SHOW_CREATE = 1
+		   28 Query	USE `dunia`
+		   28 Query	SHOW CREATE TABLE `dunia`.`table_list_country`
+		   28 Query	SHOW COLUMNS FROM `dunia`.`table_list_country`
+		   28 Query	SELECT @@lower_case_table_names
+		   28 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('dunia')
+                AND t.`TABLE_NAME`  = 'table_list_country' ORDER BY Name ASC
+		   28 Query	SELECT `iso_code`, `name`, `continent`, `region`, `capital`, `area`, `population`, `gdp`, `currency`, `pop_density` FROM `dunia`.`table_list_country`
+		   28 Query	SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = 'dunia' AND EVENT_OBJECT_TABLE  = 'table_list_country'
+		   28 Query	SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= 'dunia'
+		   28 Query	SET time_zone = "SYSTEM"
+		   28 Quit	
+		   27 Quit	
+191021 19:55:18	   29 Connect	pma@localhost as anonymous on 
+		   30 Connect	root@localhost as anonymous on 
+		   30 Query	SELECT @@version, @@version_comment
+		   30 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   30 Query	SET lc_messages = 'en_US'
+		   29 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   30 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   30 Quit	
+		   29 Quit	
+191021 20:14:07	   31 Connect	pma@localhost as anonymous on 
+		   32 Connect	root@localhost as anonymous on 
+		   32 Query	SELECT @@version, @@version_comment
+		   32 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   32 Query	SET lc_messages = 'en_US'
+		   31 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   32 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   32 Query	SHOW TABLES FROM `dunia`
+		   32 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   32 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+191021 20:14:08	   31 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   31 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   32 Query	SHOW TABLES FROM `dunia`
+		   32 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   32 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   32 Quit	
+		   31 Quit	
+191021 20:14:33	   33 Connect	pma@localhost as anonymous on 
+		   34 Connect	root@localhost as anonymous on 
+		   34 Query	SELECT @@version, @@version_comment
+		   34 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   34 Query	SET lc_messages = 'en_US'
+		   33 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   34 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   34 Query	SHOW TABLES FROM `dunia`
+		   34 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   34 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   33 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   33 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   34 Query	SHOW TABLES FROM `dunia`
+		   34 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   34 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   34 Quit	
+		   33 Quit	
+191021 20:14:34	   35 Connect	pma@localhost as anonymous on 
+		   36 Connect	root@localhost as anonymous on 
+		   36 Query	SELECT @@version, @@version_comment
+		   36 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   36 Query	SET lc_messages = 'en_US'
+		   35 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   36 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   36 Query	SHOW TABLES FROM `dunia`
+		   36 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   36 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   35 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   35 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   36 Query	SHOW TABLES FROM `dunia`
+		   36 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   36 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   36 Quit	
+		   35 Quit	
+191021 20:14:35	   37 Connect	pma@localhost as anonymous on 
+		   38 Connect	root@localhost as anonymous on 
+		   38 Query	SELECT @@version, @@version_comment
+		   38 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   38 Query	SET lc_messages = 'en_US'
+		   37 Query	SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts FROM `phpmyadmin`.`pma__userconfig` WHERE `username` = 'root'
+		   38 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   38 Query	SHOW TABLES FROM `dunia`
+		   38 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   38 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   37 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   37 Query	SELECT `comment`
+                FROM `phpmyadmin`.`pma__column_info`
+                WHERE db_name     = 'dunia'
+                    AND table_name  = ''
+                    AND column_name = '(db_comment)'
+		   38 Query	SHOW TABLES FROM `dunia`
+		   38 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   38 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   38 Quit	
+		   37 Quit	
