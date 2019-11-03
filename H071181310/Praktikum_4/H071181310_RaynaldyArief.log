@@ -1,0 +1,8 @@
+C:\laragon\bin\mysql\mariadb-10.4.8-winx64\bin\mysqld, Version: 10.4.8-MariaDB-log (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: /tmp/mysql.sock
+Time		    Id Command	Argument
+191101 23:30:12	    19 Query	SELECT orders.customerNumber AS Id,customers.customerName AS Customer,COUNT(products.productName) AS Qty,GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Products 
+				FROM customers JOIN orders ON customers.customerNumber = orders.customerNumber 
+				JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber 
+				JOIN products ON orderdetails.productCode = products.productCode 
+				GROUP BY customers.customerName
