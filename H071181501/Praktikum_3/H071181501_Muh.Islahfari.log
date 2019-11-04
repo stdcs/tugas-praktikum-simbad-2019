@@ -1,0 +1,61 @@
+C:\Program Files\MariaDB 10.4\bin\mysqld.exe, Version: 10.4.8-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time		    Id Command	Argument
+191026 16:21:39	  3102 Query	CREATE DATABASE data_mahasiswa
+191026 16:21:49	  3102 Query	SELECT DATABASE()
+		  3102 Init DB	data_mahasiswa
+191026 16:23:31	  3102 Query	CREATE TABLE tfakultas (id INT(11) PRIMARY KEY AUTO_INCREMENT, kode_fakultas CHAR(1) NOT NULL
+, nama_fakultas VARCHAR(255) NOT NULL
+191026 16:23:36	  3102 Query	CREATE TABLE tfakultas (id INT(11) PRIMARY KEY AUTO_INCREMENT, kode_fakultas CHAR(1) NOT NULL
+, nama_fakultas VARCHAR(255) NOT NULL)
+191026 16:24:20	  3102 Query	ALTER TABLE tfakultas MODIFY kode_fakultas CHAR(1) NOT NULL UNIQUE
+191026 16:24:28	  3102 Query	DESC tfakultas
+191026 16:26:24	  3102 Query	CREATE TABLE tprodi (id INT(11) PRIMARY KEY AUTO_INCREMENT, kode_prodi VARCHAR(2) NOT NULL,
+nama_prodi VARCHAR(255) NOT NULL, fakultas_id INT(11) NOT NULL)
+191026 16:26:31	  3102 Query	DESC tprodi
+191026 16:27:09	  3102 Query	ALTER TABLE tprodi ADD FOREIGN KEY (fakultas_id) REFERENCES tfakultas(id)
+191026 16:27:11	  3102 Query	DESC tprodi
+191026 16:29:10	  3102 Query	CREATE TABLE tjalur_masuk(id INT(11) PRIMARY KEY AUTO_INCREMENT,
+kode_jalur INT(1) UNIQUE, nama_jalur VARCHAR(20) NOT NULL)
+191026 16:29:18	  3102 Query	DESC tjalur_masuk
+191026 16:29:45	  3102 Query	ALTER TABLE tjalur_masuk MODIFY kode_jalur INT(1) NOT NULL UNIQUE
+191026 16:29:49	  3102 Query	DESC tjalur_masuk
+191026 16:31:54	  3102 Query	CREATE TABLE tmahasiswa (id INT(11) PRIMARY KEY AUTO_INCREMENT, fakultas_id INT(11) NOT NULL,
+prodi_id INT(11) NOT NULL, tahun_masuk INT(4) NOT NULL, jalur_id INT(11) NOT NULL, nama_mahasiswa VARCHAR(255) NOT NULL)
+191026 16:32:01	  3102 Query	DESC tmahasiswa
+191026 16:33:06	  3102 Query	ALTER TABLE tmahasiswa ADD FOREIGN KEY (fakultas_id) REFERENCES tfakultas(id)
+191026 16:33:14	  3102 Query	DESC tprodi
+191026 16:33:39	  3102 Query	ALTER TABLE tmahasiswa ADD FOREIGN KEY (prodi_id) REFERENCES tprodi(id)
+191026 16:33:55	  3102 Query	ALTER TABLE tmahasiswa ADD FOREIGN KEY (jalur_id) REFERENCES tjalur_masuk(id)
+191026 16:34:00	  3102 Query	DESC tprodi
+191026 16:34:02	  3102 Query	DESC tmahasiswa
+191026 16:35:07	  3102 Query	CREATE TABLE tnim (id INT(11) PRIMARY KEY AUTO_INCREMENT,mahasiswa_id INT(11) NOT NULL, 
+nim VARCHAR(10) NOT NULL)
+191026 16:35:26	  3102 Query	ALTER TABLE tnim ADD FOREIGN KEY (mahasiswa_id) REFERENCES tnim(id)
+191026 16:35:32	  3102 Query	DESC tnim
+191026 16:36:55	  3102 Query	INSERT INTO tfakultas (kode_fakultas,nama_fakultas) VALUES("H", "Matematika dan Ilmu Pengetahuan Alam")
+191026 16:38:21	  3102 Query	INSERT INTO tprodi (kode_prodi, nama_prodi, fakultas_id) VALUES("07","Ilmu Komputer",1)
+191026 16:39:18	  3102 Query	INSERT INTO tjalur_masuk (kode_jalur, nama_jalur) VALUES (5,"JNS")
+191026 16:41:31	  3102 Query	INSERT INTO tmahasiswa (fakultas_id,prodi_id,tahun_masuk,jalur_id,nama_mahasiswa)
+VALUES (1,1,2018,1,"Muhammad Islahfari Wahid"), (1,1,2018,1,"Muh. Ainun Luthfi")
+191026 16:41:45	  3102 Query	SELECT * FRO tfakultas
+191026 16:41:50	  3102 Query	SELECT * FROM tfakultas
+191026 16:41:56	  3102 Query	SELECT * FROM tprodi
+191026 16:42:06	  3102 Query	SELECT * FROM tjalur_masuk
+191026 16:42:54	  3102 Query	INSERT INTO tjalur_masuk (kode_jalur, nama_jalur) VALUES (3,"SBMPTN")
+191026 16:42:57	  3102 Query	SELECT * FROM tjalur_masuk
+191026 16:43:14	  3102 Query	SELECT * FROM tmahasiswa
+191026 16:45:10	  3102 Query	UPDATE tmahasiswa SET jalur_id = 2 WHERE nama_mahasiswa = "Muh. Ainun Luthfi"
+191026 16:45:13	  3102 Query	SELECT * FROM tmahasiswa
+191026 16:45:28	  3102 Query	DESC tmahasiswa
+191026 16:45:32	  3102 Query	DESC tnim
+191026 16:54:18	  3102 Query	INSERT INTO tnim (mahasiswa_id, nim) SELECT tmahasiswa.id , CONCAT(tfakultas.kode_fakultas
+,tprodi.kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",tjalur_masuk.kode_jalur,LPAD(tmahasiswa.id,2,0)) AS nim
+FROM tmahasiswa JOIN tfakultas ON fakultas_id = tfakultas.id JOIN tprodi ON prodi_id = tprodi.id
+JOIN tjalur_masuk ON jalur_id = tjalur_masuk.id
+191026 16:54:30	  3102 Query	SELECT * FROM tnim
+191026 17:00:44	  3102 Query	SELECT tmahasiswa.nama_mahasiswa AS nama, tnim.nim AS nim, tfakultas.nama_fakultas AS fakultas,
+tprodi.nama_prodi AS prodi, tmahasiswa.tahun_masuk AS angkatan, tjalur_masuk.nama_jalur AS jalur_masuk FROM
+tmahasiswa JOIN tfakultas ON fakultas_id = tfakultas.id JOIN tprodi ON prodi_id = tprodi.id
+JOIN tjalur_masuk ON jalur_id = tjalur_masuk.id JOIN tnim ON tmahasiswa.id = tnim.mahasiswa_id
+
