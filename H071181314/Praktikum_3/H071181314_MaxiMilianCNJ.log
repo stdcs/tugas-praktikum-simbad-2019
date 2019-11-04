@@ -1,0 +1,106 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191026 11:34:24	     9 Query	CREATE TABLE tb_fakultas (
+kode VARCHAR(1) PRIMARY KEY,
+nama VARCHAR(200) NOT NULL
+)
+191026 11:34:32	     9 Query	DESC tb_fakultas
+191026 11:37:39	     9 Query	CREATE TABLE tb_prodi (
+kode INT(2) PRIMARY KEY ZEROFILL,
+nama VARCHAR(200) NOT NULL,
+kode_fakultas VARCHAR(1) FOREIGN KEY REFERENCES tb_fakultas(kode) NOT NULL
+)
+191026 11:38:32	     9 Query	CREATE TABLE tb_prodi (
+kode INT(2) PRIMARY KEY ZEROFILL,
+kode_fakultas VARCHAR(1) FOREIGN KEY REFERENCES tb_fakultas(kode)
+)
+191026 11:39:39	     9 Query	CREATE TABLE tb_prodi (
+kode INT(2) PRIMARY KEY ZEROFILL,
+nama VARCHAR(200) NOT NULL,
+kode_fakultas VARCHAR(1) NOT NULL,
+FOREIGN KEY (kode_fakultas) REFERENCES tb_fakultas(kode)
+)
+191026 11:43:07	     9 Query	CREATE TABLE tb_prodi (
+kode INT(2) ZEROFILL PRIMARY KEY,
+nama VARCHAR(200) NOT NULL,
+kode_fakultas VARCHAR(1) NOT NULL,
+FOREIGN KEY (kode_fakultas) REFERENCES tb_fakultas(kode)
+)
+191026 11:43:17	     9 Query	DESC tb_prodi
+191026 11:44:15	     9 Query	CREATE TABLE jalur_masuk (
+kode ENUM('0','3','5') PRIMARY KEY,
+nama VARCHAR(200) NOT NULL
+)
+191026 11:44:22	     9 Query	DESC jalur_masuk
+191026 11:47:57	     9 Query	CREATE TABLE tb_mahasiswa (
+id INT(2) ZEROFILL PRIMARY KEY,
+kode_fakultas VARCHAR(1) NOT NULL,
+kode_prodi INT(2) ZEROFILL NOT NULL,
+tahun_masuk INT(4) NOT NULL,
+jalur_masuk ENUM('0','3','5') NOT NULL,
+nama VARCHAR(200) NOT NULL,
+FOREIGN KEY (kode_fakultas) REFERENCES tb_fakultas(kode),
+FOREIGN KEY (kode_prodi) REFERENCES tb_prodi(kode),
+FOREIGN KEY (jalur_masuk) REFERENCES jalur_masuk(kode)
+)
+191026 11:48:03	     9 Query	DESC tb_mahasiswa
+191026 11:48:43	     9 Query	CREATE TABLE tb_nim (
+nama VARCHAR(200) NOT NULL,
+nim VARCHAR(10) NOT NULL
+)
+191026 11:48:48	     9 Query	DESC tb_nim
+191026 11:49:35	     9 Query	INSERT INTO tb_fakultas 
+VALUES ('H','MIPA')
+191026 11:49:45	     9 Query	SELECT * FROM tb_fakultas
+191026 11:50:23	     9 Query	INSERT INTO tb_prodi 
+VALUES ('7','Ilkom','H')
+191026 11:50:32	     9 Query	SELECT * FROM tb_prodi
+191026 11:50:57	     9 Query	INSERT INTO jalur_masuk
+VALUES ('3','SB')
+191026 11:51:06	     9 Query	SELECT * FROM jalur_masuk
+191026 11:52:12	     9 Query	INSERT INTO tb_mahasiswa (kode_fakultas,kode_prodi,tahun_masuk,jalur_masuk,nama)
+VALUES ('H','7','2018','3',)
+191026 11:52:38	     9 Query	INSERT INTO tb_mahasiswa (kode_fakultas,kode_prodi,tahun_masuk,jalur_masuk,nama)
+VALUES ('H','7','2018','3','Maxi Milian CNJ')
+191026 11:52:48	     9 Query	SELECT * FROM tb_mahasiswa
+191026 11:53:38	     9 Query	DELETE FROM tb_mahasiswa WHERE jalur_masuk = 3
+191026 11:53:46	     9 Query	SELECT * FROM tb_mahasiswa
+191026 11:54:30	     9 Query	DELETE FROM tb_mahasiswa WHERE kode_fakultas='H'
+191026 11:54:32	     9 Query	SELECT * FROM tb_mahasiswa
+191026 11:54:44	     9 Query	INSERT INTO tb_mahasiswa (kode_fakultas,kode_prodi,tahun_masuk,jalur_masuk,nama)
+VALUES ('H','7','2018','3','Maxi Milian CNJ')
+191026 11:54:47	     9 Query	SELECT * FROM tb_mahasiswa
+191026 11:55:06	     9 Query	DELETE FROM tb_mahasiswa WHERE kode_fakultas='H'
+191026 11:55:38	     9 Query	ALTER TABLE tb_mahasiswa MODIFY id INT(2) ZEROFILL AUTO_INCREMENT
+191026 11:55:59	     9 Query	DESC tb_mahasiswa
+191026 11:56:09	     9 Query	SELECT * FROM tb_mahasiswa
+191026 11:56:18	     9 Query	INSERT INTO tb_mahasiswa (kode_fakultas,kode_prodi,tahun_masuk,jalur_masuk,nama)
+VALUES ('H','7','2018','3','Maxi Milian CNJ')
+191026 11:56:23	     9 Query	SELECT * FROM tb_mahasiswa
+191026 11:58:21	     9 Query	INSERT INTO tb_nim
+SELECT nama,CONCAT(kode_fakultas,kode_prodi,'1',RIGHT(tahun_masuk,3),'1',jalur_masuk,id) FROMtb_mahasiswa
+191026 11:59:00	     9 Query	DESC tb_nim
+191026 11:59:52	     9 Query	INSERT INTO tb_nim
+SELECT nama,CONCAT(kode_fakultas,kode_prodi,'1',RIGHT(tahun_masuk,2),'1',jalur_masuk,id) FROMtb_mahasiswa
+191026 12:02:02	     9 Query	INSERT INTO tb_nim (nama)
+VALUES ('Maxi Milian CNJ')
+191026 12:03:31	     9 Query	INSERT INTO tb_nim (nim)
+SELECT CONCAT(kode_fakultas,kode_prodi,'1',RIGHT(tahun_masuk,2),'1',jalur_masuk,id) FROM tb_mahasiswa
+191026 12:03:38	     9 Query	SELECT * FROM tb_nim
+191026 12:04:39	     9 Query	DELETE FROM tb_mahasiswa WHERE nama='Maxi Milian CNJ' OR nim='H071181301'
+191026 12:05:00	     9 Query	DELETE FROM tb_mahasiswa WHERE nama='Maxi Milian CNJ'
+191026 12:05:15	     9 Query	DELETE FROM tb_mahasiswa WHERE nim='H071181301'
+191026 12:05:46	     9 Query	SELECT * FROM tb_mahasiswa
+191026 12:05:59	     9 Query	SELECT * FROM tb_nim
+191026 12:06:40	     9 Query	DELETE FROM tb_nim WHERE nim='H071181314'
+191026 12:08:29	     9 Query	INSERT INTO tb_mahasiswa (kode_fakultas,kode_prodi,tahun_masuk,jalur_masuk,nama)
+VALUES ('H','7','2018','3','Maxi Milian CNJ')
+191026 12:09:39	     9 Query	DELETE FROM tb_nim WHERE nama='Maxi Milian CNJ'
+191026 12:09:43	     9 Query	SELECT * FROM tb_nim
+191026 12:10:25	     9 Query	DELETE FROM tb_nim WHERE nim='H071181301'
+191026 12:10:26	     9 Query	SELECT * FROM tb_nim
+191026 12:11:33	     9 Query	INSERT INTO tb_nim 
+SELECT nama,CONCAT(kode_fakultas,kode_prodi,'1',RIGHT(tahun_masuk,2),'1',jalur_masuk,id) FROM tb_mahasiswa
+191026 12:11:41	     9 Query	SELECT * FROM tb_nim
+191026 12:12:01	     9 Query	SET GLOBAL general_log=0
