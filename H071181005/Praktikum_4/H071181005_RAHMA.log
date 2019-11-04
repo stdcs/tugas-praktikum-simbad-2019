@@ -1,0 +1,13 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191104 21:21:42	    10 Query	shoe databases
+191104 21:21:49	    10 Query	show databases
+191104 21:22:16	    10 Query	SELECT DATABASE()
+		    10 Init DB	classicmodels
+191104 21:33:52	    10 Query	SELECT orders.customerNumber AS id, customers.customerName AS customer, COUNT(prodcts.productName) AS qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS products from costumers join orders on customers.customerNumber = orders.customerNumber join orderdetails on order.orderNumber = orderdetails.orderNumber join products on orderdetails.productCode = product.productCode GROUP BY customers.customerName
+191104 21:34:39	    10 Query	SELECT orders.customerNumber AS id, customers.customerName AS customer, COUNT(prodcts.productName) AS qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS products from customers join orders on customers.customerNumber = orders.customerNumber join orderdetails on order.orderNumber = orderdetails.orderNumber join products on orderdetails.productCode = product.productCode GROUP BY customers.customerName
+191104 21:36:00	    10 Query	SELECT orders.customerNumber AS id, customers.customerName AS customer, COUNT(products.productName) AS qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS products from customers join orders on customers.customerNumber = orders.customerNumber join orderdetails on order.orderNumber = orderdetails.orderNumber join products on orderdetails.productCode = product.productCode GROUP BY customers.customerName
+191104 21:37:02	    10 Query	SELECT orders.customerNumber AS id, customers.customerName AS customer, COUNT(products.productName) AS qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS products from customers join orders on customers.customerNumber = orders.customerNumber join orderdetails on orders.orderNumber = orderdetails.orderNumber join products on orderdetails.productCode = product.productCode GROUP BY customers.customerName
+191104 21:38:27	    10 Query	SELECT orders.customerNumber AS id, customers.customerName AS customer, COUNT(products.productName) AS qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS products from customers join orders on customers.customerNumber = orders.customerNumber join orderdetails on orders.orderNumber = orderdetails.orderNumber join products on orderdetails.productCode = products.productCode GROUP BY customers.customerName
+191104 21:38:57	    10 Quit	
