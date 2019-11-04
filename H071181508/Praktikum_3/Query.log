@@ -1,0 +1,36 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.8-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191029 22:06:21	    13 Query	show databases
+191029 22:06:27	    13 Query	SELECT DATABASE()
+		    13 Init DB	tp1
+191029 22:06:32	    13 Query	show tables
+191029 22:06:52	    13 Query	create table jalur_masuk
+191029 22:08:21	    13 Query	create table jalur_masuk(
+kode varchar(1) primary key,
+nama varchar(150) not null)
+191029 22:08:29	    13 Query	show tables
+191029 22:08:45	    13 Query	desc jalur_masuk
+191029 22:09:34	    13 Query	INSERT INTO jalur_masuk VALUES ('3','SB')
+191029 22:10:08	    13 Query	SELECT * FROM TO jalur_masuk
+191029 22:10:25	    13 Query	SELECT * FROM jalur_masuk
+191029 22:15:39	    13 Query	create table mahasiswa(
+id varchar(1) primary key,
+kode_fakultas varchar(1) not null,
+kode_prodi varchar(2) not null,
+tahun_masuk varchar(4) not null,
+jalur_masuk varchar(1) not null,
+nama varchar(150) not null)
+191029 22:15:46	    13 Query	show tables
+191029 22:15:59	    13 Query	desc mahasiswa
+191029 22:17:23	    13 Query	INSERT INTO mahasiswa VALUES('1', 'H', '07', '2018', '3', 'Aco')
+191029 22:17:40	    13 Query	SELECT * FROM mahasiwa
+191029 22:17:57	    13 Query	SELECT * FROM mahasiwa
+191029 22:18:04	    13 Query	desc mahasiswa
+191029 22:19:10	    13 Query	SELECT * FROM mahasiswa
+191029 22:25:31	    13 Query	show tables
+191029 22:26:55	    13 Query	create table nim(
+nama varchar(150) not null,
+nim varchar(10) not null)
+191029 22:31:39	    13 Query	desc fakultas
+191029 22:32:04	    13 Query	SELECT * FROM fakultas
