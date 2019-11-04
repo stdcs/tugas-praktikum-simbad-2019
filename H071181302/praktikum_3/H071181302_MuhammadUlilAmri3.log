@@ -1,0 +1,76 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191101 22:03:03	     8 Query	create table fakultas(
+kode varchar(1) PRIMARY KEY,
+nama varchar(100) NOT NULL
+191101 22:03:27	     8 Query	create table fakultas(
+kode varchar(1) PRIMARY KEY,
+nama varchar(100) NOT NULL
+191101 22:04:07	     8 Query	CREATE TABLE fakultas (
+kode varchar(1) PRIMARY KEY,
+nama varchar(100) NOT NULL
+191101 22:04:38	     8 Query	CREATE TABLE fakultas(
+kode varchar(1) PRIMARY KEY,
+nama varchar(100) NOT NULL
+)
+191101 22:04:54	     8 Query	show tables
+191101 22:06:02	     8 Query	drop table fakultas
+191101 22:06:13	     8 Query	drop table nim
+191101 22:06:20	     8 Query	drop table mahasiswa
+191101 22:06:28	     8 Query	drop table prodi
+191101 22:06:36	     8 Query	drop table jalur_masuk
+191101 22:06:44	     8 Query	drop table fakultas
+191101 22:06:50	     8 Query	show tables
+191101 22:08:46	     8 Query	kode varchar(1) PRIMARY KEY,
+191101 22:09:08	     8 Query	CREATE TABLE fakultas (
+kode varchar(1) PRIMARY KEY,
+nama varchar(100) NOT NULL
+)
+191101 22:09:28	     8 Query	CREATE TABLE prodi (
+kode int(2) ZEROFILL PRIMARY KEY,
+nama varchar(100) NOT NULL,
+kode_fakultas varchar(1) NOT NULL
+191101 22:10:09	     8 Query	CREATE TABLE prodi(
+kode int(2) ZEROFILL PRIMARY KEY,
+nama varchar(100) NOT NULL,
+kode_fakultas varchar(1) NOT NULL
+)
+191101 22:10:18	     8 Query	ALTER TABLE prodi ADD FOREIGN KEY(kode_fakultas) REFERENCES fakultas(kode)
+191101 22:10:35	     8 Query	CREATE TABLE jalur_masuk (
+kode enum('0','3','5') NOT NULL PRIMARY KEY,
+nama enum('SN','SB','Mandiri') NOT NULL
+)
+191101 22:10:44	     8 Query	CREATE TABLE mahasiswa (
+id int(2) ZEROFILL PRIMARY KEY AUTO_INCREMENT,
+kode_fakultas varchar(1) NOT NULL,
+kode_prodi int(2) ZEROFILL NOT NULL,
+tahun_masuk int(4) NOT NULL,
+jalur_masuk enum('0','3','5') NOT NULL,
+nama varchar(100) NOT NULL
+)
+191101 22:10:52	     8 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(kode_fakultas) REFERENCES fakultas(kode)
+191101 22:10:59	     8 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(kode_prodi) REFERENCES prodi(kode)
+191101 22:11:07	     8 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(jalur_masuk) REFERENCES jalur_masuk(kode)
+191101 22:11:17	     8 Query	CREATE TABLE nim (
+nama varchar(100) NOT NULL,
+nim varchar(10) NOT NULL
+)
+191101 22:11:27	     8 Query	INSERT INTO fakultas VALUES ('H','MIPA')
+191101 22:11:38	     8 Quit	
+191101 22:11:57	     9 Connect	root@localhost as anonymous on 
+		     9 Query	select @@version_comment limit 1
+191101 22:12:06	     9 Query	SELECT DATABASE()
+		     9 Init DB	univ_hasanuddin
+191101 22:12:12	     9 Query	INSERT INTO prodi VALUES (07,'Ilmu Komputer','H')
+191101 22:12:25	     9 Query	INSERT INTO jalur_masuk VALUES ('3','SB')
+191101 22:13:26	     9 Query	INSERT INTO mahasiswa VALUES (NULL,'H',07,2018,'3','Muhammad Ulil Amri')
+191101 22:13:39	     9 Query	INSERT INTO nim SELECT mahasiswa.nama, CONCAT(mahasiswa.kode_fakultas, mahasiswa.kode_prodi, '1', RIGHT(mahasiswa.tahun_masuk,2),'1',mahasiswa.jalur_masuk, mahasiswa.id) FROM mahasiswa
+191101 22:13:54	     9 Query	JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode
+191101 22:13:59	     9 Query	JOIN jalur_masuk ON mahasiswa.jalur_masuk = jalur_masuk.kode
+191101 22:15:34	     9 Query	SELECT * FROM nim
+191101 22:16:17	     9 Query	select * from fakultas
+191101 22:16:24	     9 Query	select * from prodi
+191101 22:16:32	     9 Query	select * from jalur_masuk
+191101 22:16:44	     9 Query	select * from mahasiswa
+191101 22:17:21	     9 Query	set global general_log=0
