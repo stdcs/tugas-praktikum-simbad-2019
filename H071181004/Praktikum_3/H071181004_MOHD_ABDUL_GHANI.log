@@ -1,0 +1,231 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 5.5.39 (MySQL Community Server (GPL)). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time                 Id Command    Argument
+191029 20:38:53	   88 Query	CREATE DATABASE praktikum_3
+191029 20:39:03	   88 Query	SELECT DATABASE()
+		   88 Init DB	praktikum_3
+191029 20:40:13	   88 Query	CREATE TABLE fakultas (
+kode VARCHAR(100) NOT NULL PRIMARY KEY,
+nama VARCHAR(100) NOT NULL
+)
+191029 20:41:14	   88 Query	CREATE TABLE prodi (
+kode INT(2) NOT NULL PRIMARY KEY,
+nama VARCHAR(100) NOT NULL,
+kode_fakultas VARCHAR(100) NOT NULL
+)
+191029 20:41:55	   88 Query	CREATE TABLE jalur_masuk (
+kode INT(2) NOT NULL PRIMARY KEY,
+nama VARCHAR(100) NOT NULL
+)
+191029 20:43:33	   88 Query	CREATE TABLE mahasiswa (
+id INT(2) NOT NULL PRIMARY KEY,
+kode_fakultas VARCHAR(100) NOT NULL,
+kode_prodi INT(2) NOT NULL,
+tahun_masuk INT(4) NOT NULL,
+jalur_masuk INT(2) NOT NULL,
+nama VARCHAR(100) NOT NULL
+)
+191029 20:43:45	   88 Query	DESC fakultas
+191029 20:43:50	   88 Query	DESC prodi
+191029 20:43:58	   88 Query	DESC jalur_masuk
+191029 20:44:05	   88 Query	DESC mahasiswa
+191029 20:44:37	   88 Query	CREATE TABLE nim (
+nama VARCHAR(100) NOT NULL,
+nim VARCHAR(100) NOT NULL
+)
+191029 20:45:41	   88 Query	ALTER TABLE prodi MODIFY kode INT(2) ZEROFILL
+191029 20:46:18	   88 Query	ALTER TABLE mahasiswa MODIFY id INT(2) ZEROFILL
+191029 20:46:21	   88 Query	DESC prodi
+191029 20:46:29	   88 Query	DESC mahasiswa
+191029 20:47:32	   88 Query	ALTER TABLE prodi ADD FOREIGN KEY(kode_fakultas) REFERENCES fakultas(kode)
+191029 20:48:37	   88 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(kode_fakultas) REFERENCES fakultas(kode)
+191029 20:50:41	   88 Query	DESC prodi
+191029 20:52:09	   88 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(jalur_masuk) REFERENCES jalur_masuk(kode)
+191029 20:52:21	   88 Query	DESC fakultas
+191029 20:52:29	   88 Query	DESC prodi
+191029 20:52:36	   88 Query	DESC jalur_masuk
+191029 20:52:56	   88 Query	DESC mahasiswa
+191029 20:53:39	   88 Query	INSERT INTO fakultas VALUES (
+'H', 'MIPA'
+)
+191029 20:54:23	   88 Query	INSERT INTO prodi VALUES 
+('7', 'ILMU KOMPUTER', 'H')
+191029 20:55:43	   88 Query	INSERT INTO jalur_masuk VALUES
+('0', 'SNMPTN'),
+('3', 'SBMPTN'),
+('5', 'JNS/POSK')
+191029 20:58:45	   88 Query	INSERT INTO mahasiswa VALUES
+('1', 'H', '7', '2018', '0', 'Arikah Putri'),
+('2', 'H', '7', '2018', '0', 'Cecilia tania')
+191029 20:59:02	   88 Query	SELECT * FROM fakultas
+191029 20:59:10	   88 Query	SELECT * FROM prodi
+191029 20:59:38	   88 Query	SELECT * FROM jalur_masuk
+191029 20:59:49	   88 Query	SELECT * FROM mahasiswa
+191029 21:00:07	   88 Query	DESC mahasiswa
+191029 21:01:28	   88 Query	ALTER TABLE mahasiswa MODIFY kode_prodi INT(2) ZEROFILL
+191029 21:01:34	   88 Query	DESC mahasiswa
+191029 21:01:46	   88 Query	SELECT * FROM mahasiswa
+191029 21:02:01	   88 Query	DESC nim
+191029 21:04:48	   88 Query	INSERT INTO nim SELECT mahasiswa.nama,
+CONCAT(
+mahasiswa.kode_fakultas,
+mahasiswa.kode_prodi,
+RIGHT(mahasiwa.tahun_masuk,2),
+mahasiswa.jalur_masuk,
+mahasiswa.id
+)
+FROM mahasiswa
+191029 21:05:28	   88 Query	INSERT INTO nim SELECT mahasiswa.nama,
+CONCAT(
+mahasiswa.kode_fakultas,
+mahasiswa.kode_prodi,
+RIGHT(mahasiswa.tahun_masuk,2),
+mahasiswa.jalur_masuk,
+mahasiswa.id
+)
+FROM mahasiswa
+191029 21:09:32	   88 Query	INSERT INTO nim SELECT mahasiswa.nama,
+CONCAT(
+mahasiswa.kode_fakultas,
+mahasiswa.kode_prodi,
+'1',
+RIGHT(mahasiswa.tahun_masuk,2),
+'1',
+mahasiswa.jalur_masuk,
+mahasiswa.id
+)
+FROM mahasiswa
+191029 21:09:41	   88 Query	SELECT * FROM nim
+
+191029 21:13:23	   88 Query	SELECT * FROM fakultas
+191029 21:13:39	   88 Query	SELECT * FROM prodi
+191029 21:13:51	   88 Query	SELECT * FROM jalur_masuk
+191029 21:14:16	   88 Query	SELECT * FROM mahasiswa
+191029 21:14:48	   88 Query	SELECT * FROM nim
+191029 21:18:20	   88 Query	SELECT mahasiswa.nama AS nama,
+nim.nim AS nim,
+fakultas.nama AS fakultas,
+prodi.nama AS prodi,
+mahasiswa.tahun_masuk AS angkatan,
+jalur_masuk.nama
+FROM mahasiswa
+JOIN fakultas ON mahasiswa.kode_fakultas=fakultas.kode
+191029 21:19:11	   88 Query	SELECT mahasiswa.nama AS nama,
+nim AS nim,
+fakultas.nama AS fakultas,
+prodi.nama AS prodi,
+mahasiswa.tahun_masuk AS angkatan,
+jalur_masuk.nama
+FROM mahasiswa
+JOIN fakultas ON mahasiswa.kode_fakultas=fakultas.kode
+191029 21:21:18	   88 Query	ALTER TABLE nim ADD PRIMARY KEY(nama)
+191029 21:21:54	   88 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(nama) REFERENCES nim(nama)
+191029 21:22:07	   88 Query	DESC nim
+191029 21:22:21	   88 Query	select * from nim
+191029 21:22:48	   88 Query	SELECT mahasiswa.nama AS nama,
+nim AS nim,
+fakultas.nama AS fakultas,
+prodi.nama AS prodi,
+mahasiswa.tahun_masuk AS angkatan,
+jalur_masuk.nama
+FROM mahasiswa
+JOIN fakultas ON mahasiswa.kode_fakultas=fakultas.kode
+191029 21:23:26	   88 Query	SELECT mahasiswa.nama AS nama,
+nim.nim AS nim,
+fakultas.nama AS fakultas,
+prodi.nama AS prodi,
+mahasiswa.tahun_masuk AS angkatan,
+jalur_masuk.nama
+FROM mahasiswa
+JOIN fakultas ON mahasiswa.kode_fakultas=fakultas.kode
+191029 21:28:24	   88 Query	SELECT mahasiswa.nama AS nama,
+fakultas.nama AS fakultas,
+prodi.nama AS prodi,
+mahasiswa.tahun_masuk AS angkatan,
+jalur_masuk.nama
+FROM mahasiswa
+JOIN fakultas ON mahasiswa.kode_fakultas=fakultas.kode191029 21:48:18	   88 Query	SELECT DATABASE()
+		   88 Init DB	praktikum_3
+191029 21:48:22	   88 Query	show tables
+191029 21:48:27	   88 Query	desc fakultas
+191029 21:48:32	   88 Query	desc jalur_masuk
+191029 21:48:57	   88 Query	desc mahasiswa
+191029 21:49:04	   88 Query	desc nim
+191029 21:49:08	   88 Query	desc prodi
+191029 21:50:17	   88 Query	ALTER TABLE mahasiswa ADD FOREIGN KEY(kode_prodi) REFERENCES prodi(kode)
+191029 21:50:27	   88 Query	desc mahasiswa
+191029 21:53:24	   88 Query	SELECT mahasiswa.nama, nim.nim FROM mahasiswa JOIN nim ON mahasiswa.nama=nim.nama
+191029 21:54:53	   88 Query	SELECT mahasiswa.nama AS Nama_Mahasiswa, nim.nim AS Nim_Mahasiswa FROM mahasiswa JOIN nim ON mahasiswa.nama=nim.nama
+191029 21:56:13	   88 Query	SELECT mahasiswa.nama, nim.nim, fakultas.nama FROM mahasiswa JOIN nim ON mahasiswa.nama=nim.nama JOIN fakultas ON mahasiswa.kode_fakultas=fakultas.kode
+191029 21:58:54	   88 Query	SELECT mahasiswa.nama AS NAMA, nim.nim AS NIM, fakultas.nama AS FAKULTAS, prodi.nama AS PRODI, mahasiswa.tahun_masuk AS ANGKATAN, jalur_masuk.nama AS JALUR_MASUK FROM mahasiswa JOIN nim ON mahasiswa.nama=nim.nama JOIN fakultas ON mahasiswa.kode_fakultas=fakultas.kode JOIN prodi ON mahasiswa.kode_prodi=prodi.kode JOIN jalur_masuk ON mahasiswa.jalur_masuk=jalur_masuk.kode
+191029 21:59:27	   88 Quit	
+191029 22:00:49	   89 Connect	root@localhost on 
+		   89 Query	/*!40100 SET @@SQL_MODE='' */
+		   89 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		   89 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('praktikum_3'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE ORDER BY LOGFILE_GROUP_NAME
+		   89 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('praktikum_3')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		   89 Init DB	praktikum_3
+		   89 Query	show tables
+		   89 Query	LOCK TABLES `fakultas` READ /*!32311 LOCAL */,`jalur_masuk` READ /*!32311 LOCAL */,`mahasiswa` READ /*!32311 LOCAL */,`nim` READ /*!32311 LOCAL */,`prodi` READ /*!32311 LOCAL */
+		   89 Query	show table status like 'fakultas'
+		   89 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	show create table `fakultas`
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show fields from `fakultas`
+		   89 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `fakultas`
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	use `praktikum_3`
+		   89 Query	select @@collation_database
+		   89 Query	SHOW TRIGGERS LIKE 'fakultas'
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show table status like 'jalur\_masuk'
+		   89 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	show create table `jalur_masuk`
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show fields from `jalur_masuk`
+		   89 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `jalur_masuk`
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	use `praktikum_3`
+		   89 Query	select @@collation_database
+		   89 Query	SHOW TRIGGERS LIKE 'jalur\_masuk'
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show table status like 'mahasiswa'
+		   89 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	show create table `mahasiswa`
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show fields from `mahasiswa`
+		   89 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `mahasiswa`
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	use `praktikum_3`
+		   89 Query	select @@collation_database
+		   89 Query	SHOW TRIGGERS LIKE 'mahasiswa'
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show table status like 'nim'
+		   89 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	show create table `nim`
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show fields from `nim`
+		   89 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `nim`
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	use `praktikum_3`
+		   89 Query	select @@collation_database
+		   89 Query	SHOW TRIGGERS LIKE 'nim'
+191029 22:00:50	   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show table status like 'prodi'
+		   89 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	show create table `prodi`
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	show fields from `prodi`
+		   89 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `prodi`
+		   89 Query	SET SESSION character_set_results = 'binary'
+		   89 Query	use `praktikum_3`
+		   89 Query	select @@collation_database
+		   89 Query	SHOW TRIGGERS LIKE 'prodi'
+		   89 Query	SET SESSION character_set_results = 'utf8'
+		   89 Query	UNLOCK TABLES
+		   89 Quit	
