@@ -1,0 +1,1398 @@
+C:\Program Files\MariaDB 10.4\bin\mysqld.exe, Version: 10.4.8-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time		    Id Command	Argument
+191022 16:57:30	    40 Query	INSERT INTO tb_fakultas VALUES (
+"A","Fakultas Ekonomi dan Bisnis"),
+("B","Fakultas Hukum"),
+("C","Fakultas Kedokteran"),
+("D","Fakultas Teknik"),
+("E","Fakultas Ilmu Sosial dan Ilmu Politik"),
+("F","Fakultas Ilmu Budaya"),
+("G","Fakultas Pertanian"),
+("H","Fakultas Matematika dan Ilmu Pengetahuan Alam"),
+("I","Fakultas Peternakan"),
+("J","Fakultas Kedoteran Gigi"),
+("K","Fakultas Kesehatan Masyarakat"),
+("L","Fakultas Ilmu Kelautan dan Perikanan"),
+("M","Fakultas Kehutanan"),
+("N","Fakultas Farmasi"),
+("R","Fakultas Keperawatan")
+191022 16:57:38	    40 Query	SELECT * FROM tb_fakultas
+191022 17:01:32	    40 Query	INSERT INTO tb_prodi VALUES
+("01","Ilmu Ekonomi dan Studi Pembangunan"),
+("02","Manajemen"),
+("03","Akuntansi"),
+("01","Ilmu Hukum")
+191022 17:01:49	    40 Quit	
+191022 17:01:56	    41 Connect	root@localhost as anonymous on 
+		    41 Query	select @@version_comment limit 1
+191022 17:02:01	    41 Query	SELECT DATABASE()
+		    41 Init DB	db_nim
+191022 17:02:32	    41 Query	INSERT INTO tb_prodi VALUES
+("01","Ilmu Ekonomi dan Studi Pembangunan","A"),
+("03","Akuntansi","A"),
+("01","Ilmu Hukum")
+191022 17:07:21	    41 Query	INSERT INTO tb_prodi VALUES
+("01","Ilmu Ekonomi dan Studi Pembangunan","A"),
+("02","Manajemen","A"),
+("03","Akuntansi","A"),
+("01","Ilmu Hukum","B"),
+("02","Hukum Administrasi Negara","B"),
+("01","Pendidikan Dokter","C"),
+("02","Psikologi","C"),
+("03","Kedokteran Hewan","C"),
+("01","Teknik Sipil","D"),
+("02","Teknik Mesin","D"),
+("03","Teknik Perkapalan","D"),
+("04","Teknik Elektro","D"),
+("05","Teknik Arsitektur","D"),
+("06","Teknik Geologi","D"),
+("07","Teknik Industri","D"),
+("08","Teknik Kelautan","D"),
+("09","Teknik Sistem Perkapalan","D"),
+("10","Teknik Pengembangan Wilayah Kota","D"),
+("11","Teknik Pertambangan","D"),
+("12","Teknik Informatika","D"),
+("13","Teknik Lingkungan","D")
+191022 17:08:14	    41 Query	ALTER TABLE tb_prodi ADD PRIMARY KEY (nama_prodi)
+191022 17:08:24	    41 Query	ALTER TABLE tb_prodi DROP PRIMARY KEY, ADD PRIMARY KEY (nama_prodi)
+191022 17:13:59	    41 Query	ALTER TABLE tb_mahasiswa DROP FOREIGN KEY (kode_prodi)
+191022 17:14:56	    41 Query	ALTER TABLE tb_mahasiswa DROP INDEX kode_prodi
+191022 17:15:10	    41 Query	ALTER TABLE tb_mahasiswa DROP FOREIGN KEY kode_prodi
+191022 17:15:31	    41 Query	DESC tb_mahasiswa
+191022 17:19:22	    41 Query	ALTER TABLE tb_mahasiswa DROP COLUMN kode_prodi,tahun_masuk,kode_jalur
+191022 17:19:30	    41 Query	ALTER TABLE tb_mahasiswa DROP COLUMN kode_prodi
+191022 17:20:09	    41 Query	SHOW CREATE TABLE tb_mahasiswa
+191022 17:20:50	    41 Query	ALTER TABLE tb_mahasiswa DROP FOREIGN KEY
+191022 17:21:13	    41 Query	ALTER TABLE tb_mahasiswa DROP FOREIGN KEY kode_prodi
+191022 17:21:24	    41 Query	ALTER TABLE tb_mahasiswa DROP FOREIGN KEY ('kode_prodi')
+191022 17:21:29	    41 Query	ALTER TABLE tb_mahasiswa DROP FOREIGN KEY (kode_prodi)
+191022 17:21:47	    41 Query	ALTER TABLE tb_prodi DROP FOREIGN KEY kode_prodi
+191022 17:22:25	    41 Query	ALTER TABLE tb_mahasiswa DROP INDEX kode_prodi
+191022 17:22:57	    41 Query	ALTER TABLE tb_prodi DROP CONSTRAINT kode_prodi
+191022 17:23:31	    41 Query	ALTER TABLE tb_prodi DROP CONSTRAINT tb_mahasiswa_ibfk_3
+191022 17:23:39	    41 Query	ALTER TABLE tb_prodi DROP CONSTRAINT tb_mahasiswa_ibfk_2
+191022 17:24:19	    41 Query	DROP TABLE tb_mahasiswa
+191022 17:24:25	    41 Query	DROP TABLE tb_mahasiswa
+191022 17:24:33	    41 Query	DESC tb_mahasiswa
+191022 17:25:26	    41 Query	ALTER TABLE tb_prodi ADD COLUMN id int PRIMARY KEY
+191022 17:25:31	    41 Query	ALTER TABLE tb_prodi ADD COLUMN id int
+191022 17:26:00	    41 Query	ALTER TABLE tb_prodi DROP PRIMARY KEY, ADD PRIMARY KEY (kode_prodi,id)
+191022 17:26:06	    41 Query	DESC tb_prodi
+191022 17:28:45	    41 Query	INSERT INTO tb_prodi VALUES
+("01","Ilmu Ekonomi dan Studi Pembangunan","A"),
+("02","Manajemen","A"),
+("03","Akuntansi","A"),
+("01","Ilmu Hukum","B"),
+("02","Hukum Administrasi Negara","B"),
+("01","Pendidikan Dokter","C"),
+("02","Psikologi","C"),
+("03","Kedokteran Hewan","C"),
+("01","Teknik Sipil","D"),
+("02","Teknik Mesin","D"),
+("03","Teknik Perkapalan","D"),
+("04","Teknik Elektro","D"),
+("05","Teknik Arsitektur","D"),
+("06","Teknik Geologi","D"),
+("07","Teknik Industri","D"),
+("08","Teknik Kelautan","D"),
+("09","Teknik Sistem Perkapalan","D"),
+("10","Teknik Pengembangan Wilayah Kota","D"),
+("11","Teknik Pertambangan","D"),
+("12","Teknik Informatika","D"),
+("13","Teknik Lingkungan","D")
+191022 17:29:36	    41 Query	INSERT INTO tb_prodi(kode_prodi,nama_prodi,kode_fakultas) VALUES
+("01","Ilmu Ekonomi dan Studi Pembangunan","A"),
+("02","Manajemen","A"),
+("03","Akuntansi","A"),
+("01","Ilmu Hukum","B"),
+("02","Hukum Administrasi Negara","B")
+191022 17:30:17	    41 Query	ALTER TABLE tb_prodi MODIFY COLUMN id int AUTO_INCREMENT
+191022 17:30:32	    41 Query	DESC tb_prodi
+191022 17:30:43	    41 Query	ALTER TABLE tb_prodi MODIFY COLUMN id AUTO_INCREMENT
+191022 17:30:50	    41 Query	ALTER TABLE tb_prodi MODIFY COLUMN id int AUTO_INCREMENT
+191022 17:31:09	    41 Query	ALTER TABLE tb_prodi DROP COLUMN id
+191022 17:31:12	    41 Query	ALTER TABLE tb_prodi DROP COLUMN id int
+191022 17:32:00	    41 Query	ALTER TABLE tb_prodi CHANGE COLUMN id id_prodi int AUTO_INCREMENT
+191022 17:32:38	    41 Query	ALTER TABLE tb_prodi CHANGE COLUMN id id_prodi int AUTO_INCREMENT PRIMARY KEY
+191022 17:33:06	    41 Query	ALTER TABLE tb_prodi DROP PRIMARY KEY (kode_prodi,id)
+191022 17:33:12	    41 Query	ALTER TABLE tb_prodi DROP PRIMARY KEY kode_prodi,id
+191022 17:33:15	    41 Query	ALTER TABLE tb_prodi DROP PRIMARY KEY kode_prodi
+191022 17:33:42	    41 Query	ALTER TABLE tb_prodi MODIFY COLUMN id int AUTO_INCREMENT PRIMARY KEY
+191022 17:33:58	    41 Query	DROP TABLE tb_prodi
+191022 17:34:59	    41 Query	CREATE TABLE tb_prodi (
+id_prodi int PRIMARY KEY AUTO_INCREMENT,
+kode_prodi int(2) NOT NULL,
+nama_prodi varchar(255) NOT NULL,
+kode_fakultas varchar(1) NOT NULL)
+191022 17:35:05	    41 Query	DESC tb_prodi
+191022 17:35:38	    41 Query	ALTER TABLE tb_prodi DROP PRIMARY KEY, ADD PRIMARY KEY(id_prodi,kode_prodi)
+191022 17:36:13	    41 Query	ALTER TABLE tb_prodi ADD FOREIGN KEY (kode_fakultas) REFERENCES tb_fakultas(kode_fakultas)
+191022 17:36:16	    41 Query	DESC tb_prodi
+191022 17:37:26	    41 Query	INSERT INTO tb_prodi(kode_prodi,nama_prodi,kode_fakultas) VALUES
+("01","Ilmu Ekonomi dan Studi Pembangunan","A"),
+("02","Manajemen","A"),
+("03","Akuntansi","A"),
+("01","Ilmu Hukum","B"),
+("02","Hukum Administrasi Negara","B"),
+("01","Pendidikan Dokter","C"),
+("02","Psikologi","C"),
+("03","Kedokteran Hewan","C"),
+("01","Teknik Sipil","D"),
+("02","Teknik Mesin","D"),
+("03","Teknik Perkapalan","D"),
+("08","Teknik Kelautan","D"),
+191022 17:38:16	    41 Query	INSERT INTO tb_prodi(kode_prodi,nama_prodi,kode_fakultas) VALUES
+("01","Ilmu Ekonomi dan Studi Pembangunan","A"),
+("02","Manajemen","A"),
+("03","Akuntansi","A"),
+("01","Ilmu Hukum","B"),
+("02","Hukum Administrasi Negara","B"),
+("01","Pendidikan Dokter","C"),
+("02","Psikologi","C"),
+("03","Kedokteran Hewan","C")
+191022 17:38:20	    41 Quit	
+191022 17:38:30	    42 Connect	root@localhost as anonymous on 
+		    42 Query	select @@version_comment limit 1
+191022 17:38:37	    42 Query	SELECT DATABASE()
+		    42 Init DB	db_nim
+191022 17:38:42	    42 Query	SELECT * FROM tb_prodi
+191022 17:41:11	    42 Query	ALTER TABLE tb_prodi MODIFY COLUMN kode_prodi varchar(2)
+191022 17:42:54	    42 Query	UPDATE tb_prodi SET kode_prodi = "01" WHERE id_prodi = 1
+191022 17:43:04	    42 Query	UPDATE tb_prodi SET kode_prodi = "02" WHERE id_prodi = 2
+191022 17:43:09	    42 Query	UPDATE tb_prodi SET kode_prodi = "03" WHERE id_prodi = 3
+191022 17:43:15	    42 Query	UPDATE tb_prodi SET kode_prodi = "01" WHERE id_prodi = 4
+191022 17:43:19	    42 Query	UPDATE tb_prodi SET kode_prodi = "02" WHERE id_prodi = 5
+191022 17:43:25	    42 Query	UPDATE tb_prodi SET kode_prodi = "03" WHERE id_prodi = 6
+191022 17:43:38	    42 Query	UPDATE tb_prodi SET kode_prodi = "01" WHERE id_prodi = 6
+191022 17:43:42	    42 Query	UPDATE tb_prodi SET kode_prodi = "02" WHERE id_prodi = 7
+191022 17:43:47	    42 Query	UPDATE tb_prodi SET kode_prodi = "03" WHERE id_prodi = 8
+191022 17:44:02	    42 Query	SELECT * FROM tb_prodi
+191022 17:46:51	    42 Query	INSERT INTO tb_prodi(kode_prodi,nama_prodi,kode_fakultas) VALUES
+("01","Teknik Sipil","D"),
+("02","Teknik Mesin","D"),
+("03","Teknik Perkapalan","D"),
+("04","Teknik Elektro","D"),
+("05","Teknik Arsitektur","D"),
+("06","Teknik Geologi","D"),
+("07","Teknik Industri","D"),
+("08","Teknik Kelautan","D"),
+("09","Teknik Sistem Perkapalan","D"),
+("10","Teknik Pengembangan Wilayah Kota","D"),
+("11","Teknik Pertambangan","D"),
+("12","Teknik Informatika","D"),
+("13","Teknik Lingkungan","D")
+191022 17:51:01	    42 Quit	
+191022 17:51:03	    43 Connect	root@localhost as anonymous on 
+		    43 Query	select @@version_comment limit 1
+191022 17:51:06	    43 Query	SELECT DATABASE()
+		    43 Init DB	db_nim
+191022 17:52:55	    43 Query	INSERT INTO tb_prodi(kode_prodi,nama_prodi,kode_fakultas) VALUES
+("01","Ilmu Administrasi Negara","E"),
+("02","Ilmu Komunikasi","E"),
+("03","Sosiologi","E"),
+("04","Ilmu Politik","E"),
+("05","Ilmu Pemerintahan","E"),
+("06","Hubungan Internasional","E"),
+("07","Antoropologi","E"),
+("01","Sastra Indonesia","F"),
+("02","Sastra Daerah","F"),
+("03","Sastra Arab","F"),
+("04","Sastra Inggris","F"),
+("05","Sastra Perancis","F"),
+("06","Ilmu Sejarah","F"),
+("07","Arkeologi","F"),
+("08","Sastra Jepang","F"),
+("09","Bahasa Mandarin","F")
+191022 18:00:06	    43 Query	INSERT INTO tb_prodi(kode_prodi,nama_prodi,kode_fakultas) VALUES
+("01","Agroteknologi","G"),
+("02","Agribisnis","G"),
+("03","Ilmu dan Teknologi Pangan","G"),
+("04","Keteknikan Pertanian","G"),
+("01","Matematika","H"),
+("02","Fisika","H"),
+("03","Kimia","H"),
+("04","Biologi","H"),
+("05","Statistika","H"),
+("06","Geofisika","H"),
+("07","Ilmu Komputer","H"),
+("08","Ilmu Aktuaria","H"),
+("01","Peternakan","I"),
+("01","Pendidikan Dokter Gigi","J"),
+("01","Kesehatan Masyarakat","K"),
+("02","Ilmu Gizi","K"),
+("01","Ilmu Kelautan","L"),
+("02","Manajemen Sumberdaya Perairan","L"),
+("03","Budidaya Perairan","L"),
+("04","Sosial Ekonomi Perikanan","L"),
+("05","Pemanfaatan Sumberdaya Perikanan","L"),
+("01","Kehutanan","M"),
+("01","Farmasi","N"),
+("01","Ilmu Keperawatan","R"),
+("02","Fisioterapi","R")
+191022 18:00:41	    43 Query	SELECT * FROM tb_prodi
+191022 18:02:38	    43 Query	SHOW TABLES
+191022 18:02:59	    43 Query	INSERT INTO tb_jalur_masuk
+191022 18:03:31	    43 Query	INSERT INTO tb_jalur_masuk VALUES
+(1,"SBMPTN"),
+(3)
+191022 18:04:05	    43 Query	INSERT INTO tb_jalur_masuk VALUES
+(0,"SNMPTN"),
+(3,"SBMPTN"),
+(5,"Mandiri"),
+191022 18:04:13	    43 Query	INSERT INTO tb_jalur_masuk VALUES
+(0,"SNMPTN"),
+(3,"SBMPTN"),
+(3,"SBMPTN")
+191022 18:04:26	    43 Query	INSERT INTO tb_jalur_masuk VALUES
+(0,"SNMPTN"),
+(3,"SBMPTN"),
+(5,"Mandiri")
+191022 18:04:59	    43 Query	ALTER TABLE tb_jalur_masuk MODIFY COLUMN nama_jalur varchar(7)
+191022 18:05:04	    43 Query	ALTER TABLE tb_jalur_masuk MODIFY COLUMN nama_jalur varchar(7) NOT NULL
+191022 18:05:14	    43 Query	INSERT INTO tb_jalur_masuk VALUES
+(0,"SNMPTN"),
+(3,"SBMPTN"),
+(5,"Mandiri")
+191022 18:05:22	    43 Query	SELECT * FROM tb_jalur_masuk
+191022 18:07:44	    43 Query	CREATE TABLE tb_mahasiswa (
+id int PRIMARY KEY AUTO_INCREMENT,
+nama varchar(255) NOT NULL,
+kode_fakultas varchar(1) NOT NULL,
+kode_prodi varchar(2) NOT NULL,
+kode_jalur int(1) NOT NULL,
+tahun_masuk int(4) NOT NULL)
+191022 18:08:21	    43 Query	ALTER TABLE tb_mahasiswa ADD FOREIGN KEY (kode_fakultas) REFERENCES tb_fakultas(kode_fakultas)
+191022 18:08:46	    43 Query	ALTER TABLE tb_mahasiswa ADD FOREIGN KEY (kode_prodi) REFERENCES tb_prodi(kode_prodi)
+191022 18:10:59	    43 Query	ALTER TABLE tb_mahasiswa ADD FOREIGN KEY (kode_prodi) REFERENCES tb_prodi(kode_prodi)
+191022 18:11:30	    43 Query	ALTER TABLE tb_mahasiswa ADD FOREIGN KEY (kode_jalur) REFERENCES tb_jalur_masuk(kode_jalur)
+191022 18:12:07	    43 Query	ALTER TABLE tb_mahasiswa ADD FOREIGN KEY (id) REFERENCES tb_prodi(id_prodi)
+191022 18:12:20	    43 Query	DESC tb_mahasiswa
+191022 18:15:19	    44 Connect	pma@localhost as anonymous on 
+		    44 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+191022 18:15:20	    45 Connect	root@localhost as anonymous on 
+		    45 Query	SELECT @@version, @@version_comment
+		    45 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    45 Query	SET lc_messages = 'id_ID'
+		    46 Connect	root@localhost as anonymous on 
+		    45 Query	SELECT CURRENT_USER()
+		    45 Query	SHOW GRANTS
+		    45 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+191022 18:15:22	    45 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    45 Query	SELECT 1 FROM (SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`COLUMN_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`TABLE_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`SCHEMA_PRIVILEGES` UNION SELECT `GRANTEE`, `IS_GRANTABLE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t WHERE `IS_GRANTABLE` = 'YES' AND '''root''@''localhost''' LIKE `GRANTEE` LIMIT 1
+191022 18:15:23	    45 Query	SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE `PRIVILEGE_TYPE` = 'CREATE USER' AND '''root''@''localhost''' LIKE `GRANTEE` LIMIT 1
+		    45 Query	SELECT 1 FROM mysql.user LIMIT 1
+		    45 Init DB	mysql
+191022 18:15:24	    45 Query	SELECT USER()
+		    45 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `DESCRIPTION` AS `Description` FROM `information_schema`.`CHARACTER_SETS`
+		    45 Query	SELECT `CHARACTER_SET_NAME` AS `Charset`, `COLLATION_NAME` AS `Collation`, `IS_DEFAULT` AS `Default` FROM `information_schema`.`COLLATIONS`
+191022 18:15:26	    45 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+191022 18:15:27	    45 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    45 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+191022 18:15:28	    45 Query	SHOW MASTER LOGS
+		    45 Quit	
+		    46 Quit	
+191022 18:15:39	    47 Connect	pma@localhost as anonymous on 
+		    47 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    48 Connect	root@localhost as anonymous on 
+		    48 Query	SELECT @@version, @@version_comment
+		    48 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    48 Query	SET lc_messages = 'id_ID'
+		    49 Connect	root@localhost as anonymous on 
+		    48 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    48 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    48 Quit	
+		    49 Quit	
+191022 18:15:40	    50 Connect	pma@localhost as anonymous on 
+		    50 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    51 Connect	root@localhost as anonymous on 
+		    51 Query	SELECT @@version, @@version_comment
+		    51 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    51 Query	SET lc_messages = 'id_ID'
+		    52 Connect	root@localhost as anonymous on 
+		    51 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    51 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    51 Quit	
+		    52 Quit	
+		    53 Connect	pma@localhost as anonymous on 
+		    53 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    54 Connect	root@localhost as anonymous on 
+		    54 Query	SELECT @@version, @@version_comment
+		    54 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    54 Query	SET lc_messages = 'id_ID'
+		    55 Connect	root@localhost as anonymous on 
+		    54 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    54 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    54 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    54 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    54 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    54 Quit	
+		    55 Quit	
+		    56 Connect	pma@localhost as anonymous on 
+		    56 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    57 Connect	root@localhost as anonymous on 
+		    57 Query	SELECT @@version, @@version_comment
+		    57 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    57 Query	SET lc_messages = 'id_ID'
+		    58 Connect	root@localhost as anonymous on 
+		    57 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    57 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    57 Quit	
+		    58 Quit	
+		    59 Connect	pma@localhost as anonymous on 
+		    59 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    60 Connect	root@localhost as anonymous on 
+		    60 Query	SELECT @@version, @@version_comment
+		    60 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    60 Query	SET lc_messages = 'id_ID'
+		    61 Connect	root@localhost as anonymous on 
+		    60 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    60 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+191022 18:15:41	    60 Quit	
+		    61 Quit	
+191022 18:15:47	    62 Connect	pma@localhost as anonymous on 
+		    62 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    63 Connect	root@localhost as anonymous on 
+		    63 Query	SELECT @@version, @@version_comment
+		    63 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    63 Query	SET lc_messages = 'id_ID'
+		    64 Connect	root@localhost as anonymous on 
+		    64 Query	SHOW TABLES FROM `db_nim`
+		    63 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    63 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    63 Init DB	db_nim
+191022 18:15:48	    63 Query	SHOW TABLES FROM `db_nim`
+		    63 Query	SELECT @@lower_case_table_names
+		    63 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('db_nim')
+                 ORDER BY Name ASC LIMIT 250 OFFSET 0
+		    63 Query	SHOW MASTER STATUS
+		    63 Query	SHOW SLAVE STATUS
+		    63 Query	SELECT COUNT(*) FROM `db_nim`.`tb_fakultas`
+191022 18:15:49	    63 Query	SELECT COUNT(*) FROM `db_nim`.`tb_jalur_masuk`
+		    63 Query	SELECT COUNT(*) FROM `db_nim`.`tb_mahasiswa`
+		    63 Query	SELECT COUNT(*) FROM `db_nim`.`tb_prodi`
+		    63 Query	SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = 'db_nim' LIMIT 1
+		    63 Query	SELECT @@storage_engine
+		    63 Query	SHOW TABLES FROM `db_nim`
+		    63 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		    63 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		    63 Query	SHOW TABLES FROM `db_nim`
+		    63 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		    63 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		    63 Quit	
+		    64 Quit	
+191022 18:15:50	    65 Connect	pma@localhost as anonymous on 
+		    65 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    66 Connect	root@localhost as anonymous on 
+		    66 Query	SELECT @@version, @@version_comment
+		    66 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    66 Query	SET lc_messages = 'id_ID'
+		    67 Connect	root@localhost as anonymous on 
+		    66 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    66 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    66 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    66 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`='BASE TABLE'
+		    66 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`!='BASE TABLE'
+		    66 Query	SELECT @@lower_case_table_names
+		    66 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='db_nim' AND `ROUTINE_TYPE`='FUNCTION'
+191022 18:15:51	    66 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='db_nim'AND `ROUTINE_TYPE`='PROCEDURE'
+		    66 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='db_nim'
+		    66 Query	SELECT `TABLE_NAME` AS `name` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`='BASE TABLE' ORDER BY `TABLE_NAME` ASC LIMIT 0, 50
+		    66 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`='BASE TABLE'
+		    66 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`='BASE TABLE'
+		    66 Quit	
+		    67 Quit	
+191022 18:15:53	    68 Connect	pma@localhost as anonymous on 
+		    68 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    69 Connect	root@localhost as anonymous on 
+		    69 Query	SELECT @@version, @@version_comment
+		    69 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    69 Query	SET lc_messages = 'id_ID'
+		    70 Connect	root@localhost as anonymous on 
+		    70 Query	SHOW TABLES FROM `db_nim`
+		    69 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    69 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    69 Init DB	db_nim
+		    69 Query	SELECT @@lower_case_table_names
+		    69 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('db_nim')
+                 ORDER BY Name ASC
+		    69 Init DB	db_nim
+		    69 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_fakultas'
+		    69 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_jalur_masuk'
+		    69 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_mahasiswa'
+		    69 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_prodi'
+		    69 Init DB	db_nim
+		    69 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_fakultas`
+		    69 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_jalur_masuk`
+		    69 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_mahasiswa`
+		    69 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_prodi`
+		    69 Query	SHOW INDEXES FROM `db_nim`.`tb_fakultas`
+		    69 Query	SHOW INDEXES FROM `db_nim`.`tb_jalur_masuk`
+		    69 Query	SHOW INDEXES FROM `db_nim`.`tb_mahasiswa`
+		    69 Query	SHOW INDEXES FROM `db_nim`.`tb_prodi`
+		    69 Init DB	db_nim
+		    69 Query	SHOW TABLES FROM `db_nim`
+		    69 Query	SHOW CREATE TABLE `db_nim`.`tb_fakultas`
+191022 18:15:54	    69 Query	SHOW CREATE TABLE `db_nim`.`tb_jalur_masuk`
+		    69 Query	SHOW CREATE TABLE `db_nim`.`tb_mahasiswa`
+		    69 Query	SHOW CREATE TABLE `db_nim`.`tb_prodi`
+		    69 Query	SHOW TABLES FROM `db_nim`
+		    69 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('db_nim')
+                 ORDER BY Name ASC LIMIT 250 OFFSET 0
+191022 18:15:57	    69 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_fakultas'
+		    69 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_jalur_masuk'
+		    69 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_mahasiswa'
+		    69 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_prodi'
+191022 18:15:58	    69 Query	SHOW TABLES FROM `db_nim`
+		    69 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		    69 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		    69 Query	SHOW TABLES FROM `db_nim`
+		    69 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		    69 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		    69 Quit	
+		    70 Quit	
+191022 18:15:59	    71 Connect	pma@localhost as anonymous on 
+		    71 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    72 Connect	root@localhost as anonymous on 
+		    72 Query	SELECT @@version, @@version_comment
+		    72 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    72 Query	SET lc_messages = 'id_ID'
+		    73 Connect	root@localhost as anonymous on 
+		    72 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    72 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    72 Quit	
+		    73 Quit	
+		    74 Connect	pma@localhost as anonymous on 
+		    74 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    75 Connect	root@localhost as anonymous on 
+		    75 Query	SELECT @@version, @@version_comment
+		    75 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    75 Query	SET lc_messages = 'id_ID'
+		    76 Connect	root@localhost as anonymous on 
+		    75 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    75 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    75 Quit	
+		    76 Quit	
+		    77 Connect	pma@localhost as anonymous on 
+		    77 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    78 Connect	root@localhost as anonymous on 
+		    78 Query	SELECT @@version, @@version_comment
+		    78 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    78 Query	SET lc_messages = 'id_ID'
+		    79 Connect	root@localhost as anonymous on 
+		    78 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    78 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    78 Quit	
+		    79 Quit	
+191022 18:32:09	    43 Query	CREATE TABLE tb_nim (
+nama varchar(255) NOT NULL,
+nim varchar(10) PRIMARY KEY )
+191022 18:32:55	    43 Query	ALTER TABLE tb_nim ADD FOREIGN KEY (nama) REFERENCES tb_mahasiswa(nama)
+191022 18:33:50	    43 Query	DROP TABLE tb_nim
+191022 18:34:24	    43 Query	CREATE TABLE tb_nim (
+id int PRIMARY KEY AUTO INCREMENT,
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL)
+191022 18:34:36	    43 Query	CREATE TABLE tb_nim (
+id int PRIMARY KEY AUTO_INCREMENT,
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL)
+191022 18:34:46	    43 Query	ALTER TABLE tb_nim ADD FOREIGN KEY (id) REFERENCES tb_mahasiswa(id)
+191022 18:34:53	    43 Query	DESC tb_nim
+191022 18:35:07	    80 Connect	pma@localhost as anonymous on 
+		    80 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    81 Connect	root@localhost as anonymous on 
+		    81 Query	SELECT @@version, @@version_comment
+		    81 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    81 Query	SET lc_messages = 'id_ID'
+191022 18:35:08	    82 Connect	root@localhost as anonymous on 
+		    82 Query	SHOW TABLES FROM `db_nim`
+		    81 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    81 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    81 Init DB	db_nim
+		    81 Query	SELECT @@lower_case_table_names
+		    81 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('db_nim')
+                 ORDER BY Name ASC
+		    81 Init DB	db_nim
+		    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_fakultas'
+		    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_jalur_masuk'
+191022 18:35:09	    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_mahasiswa'
+		    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_nim'
+		    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_prodi'
+		    81 Init DB	db_nim
+		    81 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_fakultas`
+		    81 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_jalur_masuk`
+		    81 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_mahasiswa`
+		    81 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_nim`
+		    81 Query	SHOW FULL COLUMNS FROM `db_nim`.`tb_prodi`
+		    81 Query	SHOW INDEXES FROM `db_nim`.`tb_fakultas`
+		    81 Query	SHOW INDEXES FROM `db_nim`.`tb_jalur_masuk`
+		    81 Query	SHOW INDEXES FROM `db_nim`.`tb_mahasiswa`
+		    81 Query	SHOW INDEXES FROM `db_nim`.`tb_nim`
+		    81 Query	SHOW INDEXES FROM `db_nim`.`tb_prodi`
+		    81 Init DB	db_nim
+		    81 Query	SHOW TABLES FROM `db_nim`
+		    81 Query	SHOW CREATE TABLE `db_nim`.`tb_fakultas`
+		    81 Query	SHOW CREATE TABLE `db_nim`.`tb_jalur_masuk`
+		    81 Query	SHOW CREATE TABLE `db_nim`.`tb_mahasiswa`
+		    81 Query	SHOW CREATE TABLE `db_nim`.`tb_nim`
+		    81 Query	SHOW CREATE TABLE `db_nim`.`tb_prodi`
+		    81 Query	SHOW TABLES FROM `db_nim`
+		    81 Query	SELECT *,
+                `TABLE_SCHEMA`       AS `Db`,
+                `TABLE_NAME`         AS `Name`,
+                `TABLE_TYPE`         AS `TABLE_TYPE`,
+                `ENGINE`             AS `Engine`,
+                `ENGINE`             AS `Type`,
+                `VERSION`            AS `Version`,
+                `ROW_FORMAT`         AS `Row_format`,
+                `TABLE_ROWS`         AS `Rows`,
+                `AVG_ROW_LENGTH`     AS `Avg_row_length`,
+                `DATA_LENGTH`        AS `Data_length`,
+                `MAX_DATA_LENGTH`    AS `Max_data_length`,
+                `INDEX_LENGTH`       AS `Index_length`,
+                `DATA_FREE`          AS `Data_free`,
+                `AUTO_INCREMENT`     AS `Auto_increment`,
+                `CREATE_TIME`        AS `Create_time`,
+                `UPDATE_TIME`        AS `Update_time`,
+                `CHECK_TIME`         AS `Check_time`,
+                `TABLE_COLLATION`    AS `Collation`,
+                `CHECKSUM`           AS `Checksum`,
+                `CREATE_OPTIONS`     AS `Create_options`,
+                `TABLE_COMMENT`      AS `Comment`
+            FROM `information_schema`.`TABLES` t
+            WHERE `TABLE_SCHEMA` 
+                IN ('db_nim')
+                 ORDER BY Name ASC LIMIT 250 OFFSET 0
+191022 18:35:11	    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_fakultas'
+		    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_jalur_masuk'
+		    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_mahasiswa'
+		    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_nim'
+		    81 Query	SELECT *,
+                        `COLUMN_NAME`       AS `Field`,
+                        `COLUMN_TYPE`       AS `Type`,
+                        `COLLATION_NAME`    AS `Collation`,
+                        `IS_NULLABLE`       AS `Null`,
+                        `COLUMN_KEY`        AS `Key`,
+                        `COLUMN_DEFAULT`    AS `Default`,
+                        `EXTRA`             AS `Extra`,
+                        `PRIVILEGES`        AS `Privileges`,
+                        `COLUMN_COMMENT`    AS `Comment`
+                   FROM `information_schema`.`COLUMNS`
+ WHERE `TABLE_SCHEMA` = 'db_nim'  AND `TABLE_NAME` = 'tb_prodi'
+191022 18:35:12	    81 Query	SELECT (COUNT(DB_first_level) DIV 100) * 100 from (  SELECT distinct SUBSTRING_INDEX(SCHEMA_NAME,  '_', 1)  DB_first_level  FROM INFORMATION_SCHEMA.SCHEMATA  WHERE `SCHEMA_NAME` < 'db_nim' ) t
+		    81 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    81 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    81 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+191022 18:35:13	    81 Query	SHOW TABLES FROM `db_nim`
+		    81 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		    81 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		    81 Quit	
+		    82 Quit	
+191022 18:35:15	    83 Connect	pma@localhost as anonymous on 
+		    83 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    84 Connect	root@localhost as anonymous on 
+		    84 Query	SELECT @@version, @@version_comment
+		    84 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    84 Query	SET lc_messages = 'id_ID'
+		    85 Connect	root@localhost as anonymous on 
+		    84 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    84 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    84 Quit	
+		    85 Quit	
+		    86 Connect	pma@localhost as anonymous on 
+		    86 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    87 Connect	root@localhost as anonymous on 
+		    87 Query	SELECT @@version, @@version_comment
+		    87 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    87 Query	SET lc_messages = 'id_ID'
+		    88 Connect	root@localhost as anonymous on 
+		    87 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+191022 18:35:16	    87 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    87 Quit	
+		    88 Quit	
+		    89 Connect	pma@localhost as anonymous on 
+		    89 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    90 Connect	root@localhost as anonymous on 
+		    90 Query	SELECT @@version, @@version_comment
+		    90 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    90 Query	SET lc_messages = 'id_ID'
+		    91 Connect	root@localhost as anonymous on 
+		    90 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    90 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    90 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`, (SELECT DB_first_level FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t ORDER BY DB_first_level ASC LIMIT 0, 100) t2 WHERE TRUE AND 1 = LOCATE(CONCAT(DB_first_level, '_'), CONCAT(SCHEMA_NAME, '_')) ORDER BY SCHEMA_NAME ASC
+		    90 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`='BASE TABLE'
+		    90 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`!='BASE TABLE'
+		    90 Query	SELECT @@lower_case_table_names
+		    90 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='db_nim' AND `ROUTINE_TYPE`='FUNCTION'
+		    90 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE `ROUTINE_SCHEMA` ='db_nim'AND `ROUTINE_TYPE`='PROCEDURE'
+		    90 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE `EVENT_SCHEMA` ='db_nim'
+		    90 Query	SELECT `TABLE_NAME` AS `name` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`='BASE TABLE' ORDER BY `TABLE_NAME` ASC LIMIT 0, 50
+		    90 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    90 Query	SELECT COUNT(*) FROM ( SELECT DISTINCT SUBSTRING_INDEX(SCHEMA_NAME, '_', 1) DB_first_level FROM INFORMATION_SCHEMA.SCHEMATA WHERE TRUE ) t
+		    90 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`='BASE TABLE'
+		    90 Query	SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA`='db_nim' AND `TABLE_TYPE`='BASE TABLE'
+		    90 Quit	
+		    91 Quit	
+		    92 Connect	pma@localhost as anonymous on 
+		    92 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    93 Connect	root@localhost as anonymous on 
+		    93 Query	SELECT @@version, @@version_comment
+		    93 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    93 Query	SET lc_messages = 'id_ID'
+		    94 Connect	root@localhost as anonymous on 
+		    93 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    93 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    93 Quit	
+		    94 Quit	
+		    95 Connect	pma@localhost as anonymous on 
+		    95 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    96 Connect	root@localhost as anonymous on 
+		    96 Query	SELECT @@version, @@version_comment
+		    96 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    96 Query	SET lc_messages = 'id_ID'
+		    97 Connect	root@localhost as anonymous on 
+		    96 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    96 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		    96 Quit	
+		    97 Quit	
+		    98 Connect	pma@localhost as anonymous on 
+		    98 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		    99 Connect	root@localhost as anonymous on 
+		    99 Query	SELECT @@version, @@version_comment
+		    99 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		    99 Query	SET lc_messages = 'id_ID'
+		   100 Connect	root@localhost as anonymous on 
+		    99 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    99 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+191022 18:35:17	    99 Quit	
+		   100 Quit	
+		   101 Connect	pma@localhost as anonymous on 
+		   101 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		   102 Connect	root@localhost as anonymous on 
+		   102 Query	SELECT @@version, @@version_comment
+		   102 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   102 Query	SET lc_messages = 'id_ID'
+		   103 Connect	root@localhost as anonymous on 
+		   102 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		   102 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   102 Quit	
+		   103 Quit	
+191022 18:39:08	    43 Query	SELECT * FROM tb_fakultas
+191022 18:39:16	    43 Query	SELECT * FROM tb_prodi
+191022 18:39:29	    43 Query	SELECT * FROM tb_jalur
+191022 18:39:33	    43 Query	SELECT * FROM tb_jalur_masuk
+191022 18:39:39	    43 Query	SELECT * FROM tb_mahasiswa
+191022 18:44:11	    43 Query	INSERT INTO tb_mahasiswa(nama,kode_fakultas,kode_prodi,kode_jalur,tahun_masuk) VALUES
+("Moch. Djihad Akbar Syah","H","07",0,2018),
+("La Ode Ahmad Khoir Asyidiqi","H","07",0,2018)
+191022 18:44:21	    43 Query	SELECT * FROM tb_mahasiswa
+191022 18:50:41	    43 Query	INSERT INTO tb_nim(nim)
+SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,2),CONCAT("1",tb_jalur_masuk.kode_jalur),LPD(id,2,0)
+191022 18:51:23	    43 Query	SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,2),CONCAT("1",tb_jalur_masuk.kode_jalur),LPD(id,2,0) FROM tb_mahasiswa JOIN tb_nim USING(id)
+191022 18:51:49	    43 Query	INSERT INTO tb_nim(nim) VALUES
+191022 18:52:44	    43 Query	INSERT INTO tb_nim(nama,nim) VALUES
+("Moch. Djihad Akbar Syah", SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,2),CONCAT("1",tb_jalur_masuk.kode_jalur),LPD(id,2,0) FROM tb_mahasiswa JOIN tb_nim USING(id))
+191022 18:53:19	    43 Query	INSERT INTO tb_nim(nim)
+SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,2),CONCAT("1",tb_jalur_masuk.kode_jalur),LPD(id,2,0) FROM tb_mahasiswa
+191022 18:54:06	    43 Query	SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,2),CONCAT("1",tb_jalur_masuk.kode_jalur),LPD(id,2,0) FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id
+191022 18:54:55	    43 Query	SELECT CONCAT(tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,2),CONCAT("1",tb_jalur_masuk.kode_jalur),LPD(id,2,0) FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id
+191022 18:55:54	    43 Query	INSERT INTO tb_nim(nim)
+VALUES (
+SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,2),CONCAT("1",tb_jalur_masuk.kode_jalur),LPD(id,2,0) FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id
+)
+191022 18:56:18	    43 Query	INSERT INTO tb_nim(nim)
+SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,2),CONCAT("1",tb_jalur_masuk.kode_jalur),LPD(id,2,0) FROM tb_mahasiswa)
+191022 18:57:05	    43 Query	INSERT INTO tb_nim(nim)
+SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,"1",tb_jalur_masuk.kode_jalur),LPD(id,2,0)) FROM tb_mahasiswa)
+191022 18:57:13	    43 Query	SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,"1",tb_jalur_masuk.kode_jalur),LPD(id,2,0)) FROM tb_mahasiswa
+191022 18:57:17	    43 Query	SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,"1",tb_jalur_masuk.kode_jalur),LPD(id,2,0)) FROM tb_mahasiswa))
+191022 18:57:28	    43 Query	SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1"),SUBSTRING(tb_mahasiswa.tahun_masuk,"1",tb_jalur_masuk.kode_jalur),LPD(id,2,0)) FROM tb_mahasiswa JOIN tb_nim
+191022 18:58:00	    43 Query	INSERT INTO tb_nim(nim)
+VALUES (
+SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1",SUBSTRING(tb_mahasiswa.tahun_masuk,"1",tb_jalur_masuk.kode_jalur),LPD(id,2,0)) FROM tb_mahasiswa
+191022 18:58:12	    43 Query	INSERT INTO tb_nim(nim)
+SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1",SUBSTRING(tb_mahasiswa.tahun_masuk,"1",tb_jalur_masuk.kode_jalur),LPD(id,2,0)) FROM tb_mahasiswa
+191022 18:59:11	   104 Connect	pma@localhost as anonymous on 
+		   104 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		   105 Connect	root@localhost as anonymous on 
+		   105 Query	SELECT @@version, @@version_comment
+		   105 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   105 Query	SET lc_messages = 'id_ID'
+		   106 Connect	root@localhost as anonymous on 
+		   106 Query	SHOW TABLES FROM `db_nim`
+		   105 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		   105 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   105 Query	SHOW TABLES FROM `db_nim`
+		   105 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   105 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   105 Query	SHOW TABLES FROM `db_nim`
+		   105 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   105 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   105 Quit	
+		   106 Quit	
+191022 19:17:01	   107 Connect	pma@localhost as anonymous on 
+		   107 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		   108 Connect	root@localhost as anonymous on 
+		   108 Query	SELECT @@version, @@version_comment
+		   108 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   108 Query	SET lc_messages = 'id_ID'
+		   109 Connect	root@localhost as anonymous on 
+		   109 Query	SHOW TABLES FROM `db_nim`
+		   108 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		    43 Query	INSERT INTO tb_nim(nim)
+SELECT CONCAT(tb_fakultas.kode_fakultas,tb_prodi.kode_prodi,"1",SUBSTRING(tb_mahasiswa.tahun_masuk,2),"1",tb_jalur_masuk.kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+WHERE nama = "Moch. Djihad Akbar Syah"
+191022 19:17:02	   108 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   108 Query	SHOW TABLES FROM `db_nim`
+		   108 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   108 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+191022 19:17:03	   108 Query	SHOW TABLES FROM `db_nim`
+		   108 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   108 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   108 Quit	
+		   109 Quit	
+191022 19:17:33	    43 Query	SELECT CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,2),"1",kode_jalur,LPAD(id,2,0)) AS nim
+191022 19:17:52	    43 Query	INSERT INTO tb_nim(nim)
+SELECT CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,2),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+WHERE nama = "Moch. Djihad Akbar Syah"
+191022 19:18:16	    43 Query	INSERT INTO tb_nim(nim)
+SELECT CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,2),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 19:18:46	    43 Query	INSERT INTO tb_nim(nim)
+nama,
+SELECT CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,2),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 19:20:02	    43 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,2),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 19:21:06	    43 Query	ALTER TABLE tb_nim MODIFY COLUMN nim nim varchar(255)
+191022 19:21:10	    43 Query	ALTER TABLE tb_nim MODIFY COLUMN nim varchar(255)
+191022 19:21:26	    43 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,2),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 19:21:34	    43 Query	SELECT * FROM tb_nim
+191022 19:26:52	    43 Query	DELETE FROM tb_nim
+191022 19:27:10	    43 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 19:29:15	    43 Query	DESC TABLE tb_nim
+191022 19:29:19	    43 Query	DESC tb_nim
+191022 19:29:40	    43 Query	DROP tb_nim
+191022 19:29:45	    43 Query	DROP TABLE tb_nim
+191022 19:31:01	    43 Query	CREATE TABLE tb_nim (
+nama varchar(10) NOT NULL,
+nim l
+191022 19:31:30	    43 Query	CREATE TABLE tb_nim (
+nama varchar(255) NOT NULL,
+nim varchar(10) NOT NULL )
+191022 19:31:52	    43 Query	INSERT INTO tb_nim
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 19:32:07	    43 Query	SELECT * FROM tb_nim
+191022 19:32:48	    43 Query	SELECT * FROM tb_mahasiswa
+191022 19:36:50	    43 Query	INSERT INTO tb_mahasiswa(nama,kode_fakultas,kode_prodi,kode_jalur,tahun_masuk) VALUES
+("Muh. Ikhsan Ilma","H","07",0,2018),
+("Nur Rahmasari","A","01",0,2019),
+("Alifah Ummu Zakiyah","R","01",0,2018),
+("A. Khairunnisa Muhisal","L","03",0,2018),
+("Julika Fajrika Nur","N","01",0,2018)
+191022 19:36:53	    43 Query	SELECT * FROM tb_mahasiswa
+191022 19:37:17	    43 Query	INSERT INTO tb_nim
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 19:37:26	    43 Query	SELECT * FROM tb_nim
+191022 19:52:51	    43 Query	DELETE FROM tb_nim WHERE nama LIKE "%001%"
+191022 19:52:53	    43 Query	DELETE FROM tb_nim WHERE nama LIKE "%002%"
+191022 19:52:55	    43 Query	SELECT * FROM tb_nim
+191022 19:53:06	    43 Query	DELETE FROM tb_nim WHERE nim LIKE "%002%"
+191022 19:53:11	    43 Query	DELETE FROM tb_nim WHERE nim LIKE "%001%"
+191022 19:53:14	    43 Query	SELECT * FROM tb_nim
+191022 19:53:31	    43 Query	INSERT INTO tb_nim IF NOT EXISTS
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 20:01:10	    43 Query	INSERT IGNORE INTO tb_nim
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 20:01:16	    43 Query	SELECT * FROM tb_nim
+191022 20:03:10	    43 Query	DELETE FROM tb_nim
+191022 20:05:08	    43 Query	INSERT INTO tb_nim
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) AS nim
+FROM tb_mahasiswa
+191022 20:05:14	    43 Query	SELECT * FROM tb_nim
+191022 20:05:36	    43 Query	DELETE FROM tb_nim
+191022 20:06:08	    43 Query	DELETE FROM tb_mahasiswa
+191022 20:06:20	    43 Query	SELECT * FROM tb_mahasiswa
+191022 20:06:22	    43 Quit	
+191022 20:06:43	   110 Connect	root@localhost as anonymous on 
+		   110 Query	/*!40100 SET @@SQL_MODE='' */
+191022 20:06:44	   110 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		   110 Query	set optimizer_switch='semijoin=off'
+		   110 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('db_nim'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+		   110 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('db_nim')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		   110 Query	set optimizer_switch=default
+		   110 Init DB	db_nim
+		   110 Query	SHOW TABLES LIKE '%'
+		   110 Query	LOCK TABLES `tb_fakultas` READ /*!32311 LOCAL */,`tb_jalur_masuk` READ /*!32311 LOCAL */,`tb_mahasiswa` READ /*!32311 LOCAL */,`tb_nim` READ /*!32311 LOCAL */,`tb_prodi` READ /*!32311 LOCAL */
+		   110 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_fakultas'
+		   110 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Query	show create table `tb_fakultas`
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	show fields from `tb_fakultas`
+		   110 Query	SELECT /*!40001 SQL_NO_CACHE */ `kode_fakultas`, `nama_fakultas` FROM `tb_fakultas`
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Init DB	db_nim
+		   110 Query	select @@collation_database
+		   110 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_fakultas'
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_jalur_masuk'
+		   110 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Query	show create table `tb_jalur_masuk`
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	show fields from `tb_jalur_masuk`
+		   110 Query	SELECT /*!40001 SQL_NO_CACHE */ `kode_jalur`, `nama_jalur` FROM `tb_jalur_masuk`
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Init DB	db_nim
+		   110 Query	select @@collation_database
+		   110 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_jalur_masuk'
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_mahasiswa'
+		   110 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Query	show create table `tb_mahasiswa`
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	show fields from `tb_mahasiswa`
+		   110 Query	SELECT /*!40001 SQL_NO_CACHE */ `id`, `nama`, `kode_fakultas`, `kode_prodi`, `kode_jalur`, `tahun_masuk` FROM `tb_mahasiswa`
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Init DB	db_nim
+		   110 Query	select @@collation_database
+		   110 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_mahasiswa'
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_nim'
+		   110 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Query	show create table `tb_nim`
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	show fields from `tb_nim`
+		   110 Query	SELECT /*!40001 SQL_NO_CACHE */ `nama`, `nim` FROM `tb_nim`
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Init DB	db_nim
+		   110 Query	select @@collation_database
+		   110 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_nim'
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'tb_prodi'
+		   110 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Query	show create table `tb_prodi`
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	show fields from `tb_prodi`
+		   110 Query	SELECT /*!40001 SQL_NO_CACHE */ `id_prodi`, `kode_prodi`, `nama_prodi`, `kode_fakultas` FROM `tb_prodi`
+		   110 Query	SET SESSION character_set_results = 'binary'
+		   110 Init DB	db_nim
+		   110 Query	select @@collation_database
+		   110 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'tb_prodi'
+		   110 Query	SET SESSION character_set_results = 'utf8mb4'
+		   110 Query	UNLOCK TABLES
+		   110 Quit	
+191022 20:09:00	   111 Connect	root@localhost as anonymous on 
+		   111 Query	select @@version_comment limit 1
+191022 20:09:13	   111 Query	SET GLOBAL general_log = 'on'
+191024 10:52:05	   112 Connect	root@localhost as anonymous on 
+		   112 Query	select @@version_comment limit 1
+191024 10:52:13	   112 Query	SELECT DATABASE()
+		   112 Init DB	db_ilkom
+191024 10:52:24	   112 Query	SHOW TABLES:
+191024 10:52:26	   112 Query	SHOW TABLES
+191024 10:52:50	   112 Query	SELECT * FROM tmahasiswa
+191024 10:53:09	   112 Query	SELECT * FROM tskrpsi
+191024 10:53:12	   112 Query	SELECT * FROM tskripsi
+191024 10:54:16	   112 Query	SELECT * FROM tpenguji
+191024 10:54:34	   112 Query	SELECT * FROM dosen_penguji
+191024 10:54:49	   112 Query	SELECT * FROM tdosen
+191024 10:55:59	   112 Query	DESC tmahasiswa
+191024 10:56:31	   112 Query	SELECT * FROM tprodi
+191024 10:56:45	   112 Query	SELECT DATABASE()
+		   112 Init DB	db_nim
+191024 10:56:56	   112 Query	SELECT * FROM tb_fakultas
+191024 10:57:03	   112 Query	SELECT * FROM tb_prodi
+191024 10:57:32	   112 Query	SELECT * FROM tmahasiswa
+191024 10:57:37	   112 Query	SELECT * FROM tb_mahasiswa
+191024 10:59:58	   112 Query	INSERT INTO tb_mahasiswa(nama,kode_fakultas,kode_prodi,kode_jalur,tahun_masuk) VALUES
+("Arikah","H","07",0,2018),
+("Cecilia Tania Emanuela","H","07",0,2018),
+("Ajrana","H","07",0,2018),
+("Mohd. Abdul Ghani","H","07",0,2018)
+191024 11:00:01	   112 Query	SELECT * FROM tb_mahasiswa
+191024 11:02:03	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)
+FROM tb_mahasiswa
+191024 11:02:32	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+FROM tb_mahasiswa
+191024 11:02:38	   112 Query	SELECT * FROM tb_nim
+191024 11:47:51	   112 Query	DESC tb_nim
+191024 11:48:30	   112 Query	ALTER TABLE tb_nim ADD PRIMARY KEY nim
+191024 11:48:33	   112 Query	ALTER TABLE tb_nim ADD PRIMARY KEY (nim)
+191024 11:48:37	   112 Query	SELECT * FROM tb_nim
+191024 11:48:52	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)
+FROM tb_mahasiswa
+191024 11:49:02	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+FROM tb_mahasiswa
+191024 11:49:36	   112 Query	ALTER TABLE tb_nim DROP PRIMARY KEY (nim)
+191024 11:49:38	   112 Query	ALTER TABLE tb_nim DROP PRIMARY KEY nim
+191024 11:49:42	   112 Query	ALTER TABLE tb_nim DROP PRIMARY KEY
+191024 11:49:54	   112 Query	DESC tb_nim
+191024 11:50:19	   112 Query	ALTER TABLE tb_nim MODIFY COLUMN nim varchar(10) NOT NULL UNIQUE
+191024 11:50:30	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+FROM tb_mahasiswa
+191024 11:51:46	   112 Query	INSERT INTO tb_nim(nama,nim) IF NOT EXISTS
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+FROM tb_mahasiswa
+191024 11:52:26	   112 Query	INSERT INTO tb_nim(nama,nim) WHERE NOT EXISTS
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+FROM tb_mahasiswa
+191024 11:52:36	   112 Query	INSERT INTO tb_nim(nama,nim) WHERE NOT EXISTS (
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+)
+FROM tb_mahasiswa
+191024 11:55:54	   112 Query	INSERT IF NOT EXISTS INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+FROM tb_mahasiswa
+191024 11:57:58	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+WHERE NOT EXISTS (
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0))
+) from tb_mahasiswa
+191024 11:58:27	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) FROM tb_mahasiswa
+WHERE NOT EXISTS (
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) )
+191024 12:00:02	   112 Query	INSERT INTO tb_mahasiswa(nama,kode_fakultas,kode_prodi,kode_jalur,tahun_masuk) VALUES
+("Rahmayati","H","07",0,2018)
+191024 12:00:23	   112 Query	SELECT * FROM tb_mahasiswal
+SELECT * FROM tb_mahasiswal
+191024 12:00:25	   112 Query	SELECT * FROM tb_mahasiswa
+191024 12:00:38	   112 Query	SELECT * FROM tb_niml
+191024 12:00:40	   112 Query	SELECT * FROM tb_nim
+191024 12:01:07	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) FROM tb_mahasiswa
+WHERE NOT EXISTS (
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) )
+191024 12:01:33	   112 Query	DESC tb_nim
+191024 12:01:53	   112 Query	ALTER TABLE tb_nim DROP PRIMARY KEY
+191024 12:03:03	   112 Query	ALTER TABLE tb_nim ADD COLUMN id int PRIMARY KEY AUTO_INCREMENT
+191024 12:03:09	   112 Query	DESC tb_nim
+191024 12:03:13	   112 Query	DESC tb_nim
+191024 12:03:16	   112 Query	SELECT * FROM tb_nim
+191024 12:03:35	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) FROM tb_mahasiswa
+WHERE NOT EXISTS (
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) )
+191024 12:03:46	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,LPAD(id,2,0)) FROM tb_mahasiswa
+191024 12:05:01	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,RPAD(id,2,0)) FROM tb_mahasiswa
+191024 12:05:51	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,RPAD(id,2,0)) FROM tb_mahasiswa
+WHERE nama NOT EXISTS
+191024 12:06:00	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,RPAD(id,2,0)) FROM tb_mahasiswa
+WHERE nama NOT EXIST
+191024 12:09:56	   112 Query	INSERT INTO tb_nim(nama,nim)
+SELECT nama, CONCAT(kode_fakultas,kode_prodi,"1",SUBSTRING(tahun_masuk,3),"1",kode_jalur,RPAD(id,2,0)) FROM tb_mahasiswa
+191024 12:11:36	   112 Query	ALTER TABLE tb_nim ADD FOREIGN KEY (id) REFERENCES tb_mahasiswa(id)
+191024 14:53:13	   112 Quit	
+191024 14:53:17	   113 Connect	root@localhost as anonymous on 
+		   113 Query	select @@version_comment limit 1
+
+C:\Program Files\MariaDB 10.4\bin\mysqld.exe, Version: 10.4.8-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time		    Id Command	Argument
+191028 21:04:14	   234 Query	SELECT * FROM tb_nim
+191028 21:10:41	   234 Query	SELECT nama_mhs,nim,nama_fakultas,nama_prodi,jalur_masuk,tahun_masuk FROM tb_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_mahasiswa ON tb_fakultas.kode_fakultas = tb_mahasiswa.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur
+191028 21:12:38	   234 Query	SELECT nama_mhs,nim,nama_fakultas,nama_prodi,jalur_masuk,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur
+191028 21:12:52	   234 Query	SELECT nama_mhs,nim,nama_fakultas,prodi.nama_prodi,jalur_masuk,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur
+191028 21:13:13	   234 Query	DESC tb_mahasiswa
+191028 21:13:24	   234 Query	DESC tb_jalur_masuk
+191028 21:13:44	   234 Query	SELECT nama_mhs,nim,nama_fakultas,prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur
+191028 21:16:02	   234 Query	SELECT nama_mhs,nim,nama_fakultas,prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur WHERE tb_prodi.kode_prodi ( SELECT nama_prodi FROM tb_fakultas JOIN tb_prodi USING (kode_fakultas))
+191028 21:16:15	   234 Query	SELECT nama_mhs,nim,nama_fakultas,prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur WHERE tb_prodi.kode_prodi IN (SELECT nama_prodi FROM tb_fakultas JOIN tb_prodi USING (kode_fakultas))
+191028 21:17:18	   234 Query	SELECT nama_mhs,nim,nama_fakultas,prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi USING (kode_fakultas)
+191028 21:17:24	   234 Query	SELECT nama_mhs,nim,nama_fakultas,prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi USING (tb_fakultas.kode_fakultas)
+191028 21:17:50	   234 Query	SELECT nama_mhs,nim,nama_fakultas,prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_prodi prodi ON prodi.id_prodi = tb_mahasiswa.id JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas
+191028 21:20:20	   286 Connect	pma@localhost as anonymous on 
+		   286 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		   287 Connect	root@localhost as anonymous on 
+		   287 Query	SELECT @@version, @@version_comment
+		   287 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   287 Query	SET lc_messages = 'id_ID'
+		   288 Connect	root@localhost as anonymous on 
+		   288 Query	SHOW TABLES FROM `db_nim`
+		   287 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		   287 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   287 Query	SHOW TABLES FROM `db_nim`
+		   287 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   287 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   287 Query	SHOW TABLES FROM `db_nim`
+		   287 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   287 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   287 Quit	
+		   288 Quit	
+191028 21:20:26	   289 Connect	pma@localhost as anonymous on 
+		   289 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		   290 Connect	root@localhost as anonymous on 
+		   290 Query	SELECT @@version, @@version_comment
+		   290 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   290 Query	SET lc_messages = 'id_ID'
+		   291 Connect	root@localhost as anonymous on 
+		   291 Query	SHOW TABLES FROM `db_nim`
+		   290 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		   290 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   290 Query	SHOW TABLES FROM `db_nim`
+		   290 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   290 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   290 Query	SHOW TABLES FROM `db_nim`
+		   290 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   290 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   290 Quit	
+		   291 Quit	
+191028 21:20:27	   292 Connect	pma@localhost as anonymous on 
+		   292 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		   293 Connect	root@localhost as anonymous on 
+		   293 Query	SELECT @@version, @@version_comment
+		   293 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   293 Query	SET lc_messages = 'id_ID'
+		   294 Connect	root@localhost as anonymous on 
+		   294 Query	SHOW TABLES FROM `db_nim`
+		   293 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		   293 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   293 Query	SHOW TABLES FROM `db_nim`
+		   293 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   293 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   293 Query	SHOW TABLES FROM `db_nim`
+		   293 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   293 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   293 Quit	
+		   294 Quit	
+191028 21:20:29	   295 Connect	pma@localhost as anonymous on 
+		   295 Connect	Access denied for user 'pma'@'localhost' (using password: NO)
+		   296 Connect	root@localhost as anonymous on 
+		   296 Query	SELECT @@version, @@version_comment
+		   296 Query	SET NAMES 'utf8mb4' COLLATE 'utf8mb4_general_ci'
+		   296 Query	SET lc_messages = 'id_ID'
+		   297 Connect	root@localhost as anonymous on 
+		   297 Query	SHOW TABLES FROM `db_nim`
+		   296 Query	SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+		   296 Query	SET collation_connection = 'utf8mb4_unicode_ci'
+		   296 Query	SHOW TABLES FROM `db_nim`
+		   296 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   296 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   296 Query	SHOW TABLES FROM `db_nim`
+		   296 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='EVENT'
+		   296 Query	SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''root''@''localhost''' AND PRIVILEGE_TYPE='TRIGGER'
+		   296 Quit	
+		   297 Quit	
+191028 21:21:04	   234 Query	SELECT nama_mhs,nim,nama_fakultas,prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas
+191028 21:21:18	   234 Query	SELECT nama_mhs,nim,nama_fakultas,tb_prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas
+191028 21:22:37	   234 Query	SELECT nama_mhs,nim,nama_fakultas,tb_prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas GROUP BY kode_prodi
+191028 21:22:42	   234 Query	SELECT nama_mhs,nim,nama_fakultas,tb_prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas GROUP BY tb_prodi.kode_prodi
+191028 21:22:55	   234 Query	SELECT nama_mhs,nim,nama_fakultas,tb_prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas GROUP BY nama_mhs
+191028 21:25:38	   234 Query	SELECT nama_mhs,nim,nama_fakultas,tb_prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas AND tb_mahasiswa.kode_prodi = namaProdi.kode_prodi
+191028 21:26:26	   234 Query	SELECT nama_mhs,nim,nama_fakultas,nama_prodi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas AND tb_mahasiswa.kode_prodi = namaProdi.kode_prodi
+191028 21:26:35	   234 Query	SELECT nama_mhs,nim,nama_fakultas,namaProdi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas AND tb_mahasiswa.kode_prodi = namaProdi.kode_prodi
+191028 21:26:52	   234 Query	SELECT nama_mhs,nim,nama_fakultas,namaProdi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas
+191028 21:27:20	   234 Query	SELECT nama_mhs,nim,nama_fakultas,namaProdi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas AND tb_mahasiswa.kode_prodi = namaProdi.kode_prodi
+191028 21:27:33	   234 Query	SELECT nama_mhs,nim,nama_fakultas,namaProdi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas AND tb_mahasiswa.kode_prodi = namaProdi.kode_prodiGROUP BY nama_mhs
+191028 21:27:42	   234 Query	SELECT nama_mhs,nim,nama_fakultas,namaProdi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas AND tb_mahasiswa.kode_prodi = namaProdi.kode_prodi GROUP BY nama_mhs
+191028 21:27:50	   234 Query	SELECT nama_mhs,nim,nama_fakultas,namaProdi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas AND tb_mahasiswa.kode_prodi = namaProdi.kode_prodi GROUP BY nama_mhs ORDER BY nim
+191028 21:29:09	   234 Query	SELECT nama_mhs,nim,nama_fakultas,namaProdi.nama_prodi,nama_jalur,tahun_masuk FROM tb_nim JOIN tb_mahasiswa ON tb_nim.id = tb_mahasiswa.id JOIN tb_fakultas ON tb_mahasiswa.kode_fakultas = tb_fakultas.kode_fakultas JOIN tb_prodi ON tb_fakultas.kode_fakultas = tb_prodi.kode_fakultas JOIN tb_jalur_masuk ON tb_mahasiswa.kode_jalur = tb_jalur_masuk.kode_jalur JOIN tb_prodi namaProdi ON tb_fakultas.kode_fakultas = namaProdi.kode_fakultas AND tb_mahasiswa.kode_prodi = namaProdi.kode_prodi GROUP BY nama_mhs ORDER BY nim
