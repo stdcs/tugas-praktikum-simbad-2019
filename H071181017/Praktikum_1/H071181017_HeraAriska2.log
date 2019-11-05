@@ -1,0 +1,375 @@
+d:\php\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: D:/PHP/mysql/mysql.sock
+Time		    Id Command	Argument
+191011 12:14:43	    13 Query	SHOW DATABASES
+191011 12:15:20	    13 Query	CREATE DATABASE tugasAsli2
+191011 12:15:30	    13 Query	SHOW DATABASES
+191011 12:16:29	    13 Query	SELECT DATABASE()
+		    13 Init DB	tugasasli2
+191011 12:18:19	    13 Query	CREATE TABLE skripsi_mahasiswa
+191011 12:28:07	    13 Query	CREATE TABLE skripsi_mahasiswa
+(nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1),
+nama_prodi VARCHAR(200) NOT NULL,
+judul_skripsi VARCHAR(255) NOT NULL,
+dosen_pembimbing VARCHAR(200) NOT NULL,
+tgl_sidang date NOT NULL,
+nilai_sidang VARCHAR(2) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+jenis_pembimbing VARCHAR(7) NOT NULL
+191011 12:29:32	    13 Query	CREATE TABLE skripsi_mahasiswa
+(nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1),
+nama_prodi VARCHAR(200) NOT NULL,
+judul_skripsi VARCHAR(255) NOT NULL,
+dosen_pembimbing VARCHAR(200) NOT NULL,
+tgl_sidang date NOT NULL,
+nilai_sidang VARCHAR(2) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+jenis_pembimbing VARCHAR(7) NOT NULL)
+191011 12:33:10	    13 Query	CREATE TABLE seminar_mahasiswa
+(nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1),
+tgl_seminar date NOT NULL,
+jenis_seminar CHAR(1) NOT NULL,
+status VARCHAR(20),
+dosen_penguji VARCHAR(50) NOT NULL,
+nip VARCHAR(50) NOT NULL)
+191011 12:33:30	    13 Query	DESC tugasAsli2
+191011 13:02:02	    13 Query	desc tugasAsli2
+191011 13:02:27	    13 Query	desc tugasasli2
+191011 13:02:43	    13 Query	descripti tugasasli2
+191011 13:12:05	    13 Query	desc tugasasli2
+191011 13:12:20	    13 Query	desc seminar_mahasiswa
+191011 13:18:31	    13 Quit	
+191011 13:20:44	    14 Connect	root@localhost as anonymous on 
+		    14 Query	select @@version_comment limit 1
+191011 13:21:09	    14 Query	SET global log_output ='FILE'
+191011 13:23:18	    14 Query	SET global general_log_file ='H071181017_HeraAriska2.log'
+d:\php\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: D:/PHP/mysql/mysql.sock
+Time		    Id Command	Argument
+191011 13:23:43	    14 Query	SHOW DATABASES
+191011 13:24:17	    14 Quit	
+191011 13:25:24	    15 Connect	root@localhost as anonymous on 
+		    15 Query	select @@version_comment limit 1
+191011 13:25:59	    15 Query	SET global log_output='FILE'
+191011 13:26:22	    15 Query	SET global general_log =1
+191011 13:26:57	    15 Query	SET global general_log_file ='H071181017_HeraAriska2.log'
+d:\php\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: D:/PHP/mysql/mysql.sock
+Time		    Id Command	Argument
+191011 13:27:19	    15 Query	SHOW DATABASES
+191011 13:27:30	    15 Query	SELECT DATABASE()
+		    15 Init DB	tugasasli2
+191011 13:27:48	    15 Query	SHOW TABLES
+191011 13:32:20	    15 Query	CREATE TABLE mahasiswa_prodi
+(nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1) NOT NULL,
+no_hp VARCHAR(20) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+tgl_masuk DATE,
+tgl_lulus DATE)
+191011 13:34:30	    15 Query	CREATE TABLE dosen_pembimbing
+(nama VARCHAR(200) NOT NULL,
+(nip VARCHAR(50) NOT NULL,
+kode_
+191011 13:37:24	    15 Query	CREATE TABLE dosen_pembimbing
+(nama VARCHAR(200) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+kode_dosen VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+jenis_pembimbing VARCHAR(7) NOT NULL
+191011 13:37:51	    15 Query	CREATE TABLE dosen_pembimbing
+(nama VARCHAR(200) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+kode_dosen VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+jenis_pembimbing VARCHAR(7) NOT NULL)
+191011 13:40:25	    15 Query	CREATE TABLE dosen_penguji
+(nama VARCHAR(200) NOT NULL,
+nip VARCHAR(50) NOT NULL,
+kode_dosen VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL,
+nama_prodi VARCHAR(200) NOT NULL,
+jenis_penguji CHAR(1) NOT NULL)
+191011 13:41:49	    15 Query	CREATE TABLE untitled
+(nama VARCHAR(255) NOT NULL)
+191011 13:43:55	    15 Query	CREATE TABLE tnilai
+(id_nilai INT(2) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+(id_nilai INT(2) AUTO_INCREMENT PRIMARY KEY NOT NULJJHB
+191011 13:45:06	    15 Query	CREATE TABLE tnilai
+(id_nilai INT(2) PRIMARY KEY NOT NULL,
+id_hururf VARCHAR(2) NOT NULL,
+bobot_nilai DECIMAL(3,2)
+191011 13:45:36	    15 Query	CREATE TABLE tnilai
+(id_nilai INT(2) PRIMARY KEY NOT NULL)
+191011 13:47:14	    15 Query	ALTER TABLE tnilai
+ADD COLUMN
+nilai_huruf VARCHAR(2) NOT NULL
+191011 13:48:04	    15 Query	ALTER TABLE tnilai
+ADD COLUMN
+bobot_nilai DECIMAL(3,2) NOT NULL
+191011 13:48:11	    15 Query	show tables
+191011 13:48:29	    15 Query	desc tnilai
+191011 13:57:00	    15 Query	CREATE TABLE tpenguji
+(id_penguji INT(255) PRIMARY KEY NOT NULL)
+191011 13:58:38	    15 Query	ALTER TABLE tpenguji
+ADD COLUMN 
+id_dosen INT(255) NOT NULL,
+jenis_penguji CHAR(1)
+191011 13:59:03	    15 Query	ALTER TABLE tpenguji
+ADD COLUMN 
+(id_dosen INT(255) NOT NULL,
+jenis_penguji CHAR(1)
+191011 13:59:29	    15 Query	ALTER TABLE tpenguji
+ADD COLUMN 
+id_dosen INT(255) UNIQUE NOT NULL
+191011 13:59:55	    15 Query	ALTER TABLE tpenguji
+ADD COLUMN 
+jenis_penguji CHAR(1) NOT NULL
+191011 14:00:07	    15 Query	DESC TPENGUJI
+191011 14:29:59	    15 Query	CREATE TABLE tseminar
+(id_seminar INT(5) PRIMARY KEY NOT NULL)
+191011 14:33:14	    15 Query	ALTER TABLE tseminar 
+ADD COLUMN
+tanggal DATE NOT NULL, 
+id_nilai INT(2) NOT NULL
+191011 14:33:46	    15 Query	ALTER TABLE tseminar 
+ADD COLUMN
+tanggal DATE NOT NULL
+191011 14:34:10	    15 Query	ALTER TABLE tseminar 
+ADD COLUMN
+id_nilai INT(2) NOT NULL
+191011 14:34:49	    15 Query	ALTER TABLE tseminar 
+ADD COLUMN
+jenis_seminar CHAR(1) NOT NULL
+191011 14:35:15	    15 Query	ALTER TABLE tseminar 
+ADD COLUMN
+id_mahasiswa INT(255) NOT NULL
+191011 14:35:53	    15 Query	ALTER TABLE tseminar 
+ADD COLUMN
+status VARCHAR(20) NOT NULL
+191011 14:38:04	    15 Query	ALTER TABLE tseminar 
+ADD COLUMN
+id_pembimbing INT(255) NOT NULL
+191011 14:38:38	    15 Query	ALTER TABLE tseminar 
+ADD COLUMN
+id_penguji INT(255) NOT NULL
+191011 14:39:00	    15 Query	desc tseminar
+191011 14:40:49	    15 Query	CREATE TABLE tdosen
+(id_dosen INT(255) PRIMARY KEY NOT NULL)
+191011 14:41:36	    15 Query	ALTER TABLE tdosen 
+nama VARCHAR(200) NOT NULL
+191011 14:42:03	    15 Query	ALTER TABLE tdosen 
+ADD COLUMN
+nama VARCHAR(200) NOT NULL
+191011 14:44:27	    15 Query	ALTER TABLE tdosen 
+ADD COLUMN
+nip VARCHAR(50) PRIMARY KEY NOT NULL
+191011 14:47:41	    15 Query	ALTER TABLE tdosen 
+nim VARCHAR(200) NOT NULL
+191011 14:50:38	    15 Query	ALTER TABLE tdosen 
+DROP PRIMARY KEY
+,ADD PRIMARY KEY(id_dosen , nip)
+191011 14:51:22	    15 Query	ALTER TABLE tdosen DROP PRIMARY KEY, ADD PRIMARY KEY(id_dosen , nip)
+191011 14:52:37	    15 Query	ALTER TABLE tdosen DROP PRIMARY KEY
+191011 14:52:54	    15 Query	DESC TDOSEN
+191011 14:53:35	    15 Query	ALTER TABLE tdosen
+191011 14:54:16	    15 Query	ALTER TABLE tdosen
+ADD COLUMN
+nip VARCHAR(50) NOT NULL
+191011 14:54:29	    15 Query	ALTER TABLE tdosen
+kode_dosen NOT NULL
+191011 14:54:43	    15 Query	ALTER TABLE tdosen
+ADD COLUMN
+kode_dosen NOT NULL
+191011 14:55:12	    15 Query	ALTER TABLE tdosen
+ADD COLUMN
+kode_dosen VARCHAR(10) NOT NULL
+191011 14:55:34	    15 Query	ALTER TABLE tdosen
+ADD COLUMN
+status VARCHAR(100) NOT NULL
+191011 14:56:00	    15 Query	ALTER TABLE tdosen
+ADD COLUMN
+id_prodi INT(5) NOT NULL
+191011 14:56:07	    15 Query	DESC TDOSEN
+191011 14:57:14	    15 Query	ALTER TABLE tdosen ADD PRIMARY KEY(id_dosen,nip)
+191011 14:57:23	    15 Query	DESC TDOSEN
+191011 14:57:50	    15 Query	ALTER TABLE tdosen ADD PRIMARY KEY(kode_dosen)
+191011 14:58:20	    15 Query	ALTER TABLE tdosen DROP PRIMARY KEY(kode_dosen)
+191011 14:59:10	    15 Query	ALTER TABLE tdosen DROP PRIMARY KEY
+191011 14:59:18	    15 Query	DESC TDOSEN
+191011 14:59:39	    15 Query	ALTER TABLE tdosen ADD PRIMARY KEY(id_dosen,nip,kode_dosen)
+191011 14:59:47	    15 Query	desc tdosen
+191011 15:02:42	    15 Query	CREATE TABLE tsidang
+(id_sidang INT(5) PRIMARY KEY NOT NULL,
+id_mahasiswa INT(255) NOT NULL,
+tanggal_sidang DATE,
+id_nilai9
+191011 15:03:48	    15 Query	CREATE TABLE tsidang
+(id_sidang INT(5) PRIMARY KEY NOT NULL,
+id_mahasiswa INT(255) NOT NULL,
+tanggal_sidang DATE NOT NULL,
+id_nilai INT(2) NOT NULL,
+status VARCHAR(20) NOT NULL)
+191011 15:04:43	    15 Query	ALTER TABLE tsidang ADD PRIMARY KEY (id_sidang)
+191011 15:05:49	    15 Query	ALTER TABLE tsidang ADD PRIMARY KEY(id_sidang)
+191011 15:07:13	    15 Query	DESC tsidang
+191011 15:10:50	    15 Query	CREATE TABLE tsemester
+(id_semseter INT(3) PRIMARY KEY NOT NULL,
+nama VARCHAR(20) NOT NULL,
+kode_semester VARCHAR(10) PRIMARY KEY NOT NULL,
+status VARCHAR(100) NOT NULL)
+191011 15:13:10	    15 Query	CREATE TABLE tsemester
+(id_semseter INT(3) NOT NULL,
+nama VARCHAR(20) NOT NULL,
+kode_semester VARCHAR(10) NOT NULL,
+status VARCHAR(100) NOT NULL)
+191011 15:14:36	    15 Query	ALTER TABLE tsemester ADD PRIMARY KEY(id_semester,kode_semester)
+191011 15:16:18	    15 Query	ALTER TABLE tsemester ADD PRIMARY KEY(id_semester,kode_semester)
+191011 15:16:47	    15 Query	desc tsemester
+191011 15:17:56	    15 Query	ALTER TABLE tsemester ADD PRIMARY KEY(id_semester,kode_semseter)
+191011 15:18:32	    15 Query	ALTER TABLE tsemester ADD PRIMARY KEY(id_semester,kode_semester)
+191011 15:20:02	    15 Query	ALTER TABLE tsemester change id_semseter semester int(3) not null
+191011 15:20:10	    15 Query	ALTER TABLE tsemester ADD PRIMARY KEY(id_semester,kode_semester)
+191011 15:20:46	    15 Query	desc tsemester
+191011 15:21:10	    15 Query	ALTER TABLE tsemester change id_semseter id_semester int(3) not null
+191011 15:21:26	    15 Query	ALTER TABLE tsemester change id_semester id_semester int(3) not null
+191011 15:21:37	    15 Query	ALTER TABLE tsemester change semester id_semester int(3) not null
+191011 15:21:49	    15 Query	ALTER TABLE tsemester ADD PRIMARY KEY(id_semester,kode_semester)
+191011 15:22:00	    15 Query	desc tsemester
+191011 15:30:29	    15 Query	CREATE TABLE tmahasiswa
+(id_mahasiswa INT(255) NOT NULL,
+nama VARCHAR(255) NOT NULL,
+nim VARCHAR(10) NOT NULL,
+jk CHAR(1) NOT NULL,
+no_hp VARCHAR(20) NOT NULL,
+alamat VARCHAR(255) NOT NULL,
+tgl_masuk DATE,
+status VARCHAR(100) NOT NULL,
+id_prodi INT(5) NOT NULL)
+191011 15:30:40	    15 Query	desc tmahasiswa
+191011 15:31:10	    15 Query	ALTER TABLE ADD PRIMARY KEY(ID_MAHASISWA,NIM)
+191011 15:31:39	    15 Query	ALTER TABLE ADD PRIMARY KEY(id_mahasiswa,nim)
+191011 15:32:44	    15 Query	ALTER TABLE tmahasiswa ADD PRIMARY KEY(id_mahasiswa,nim)
+191011 15:32:55	    15 Query	desc tmahasiswa
+191011 15:35:57	    15 Query	create table tprodi
+(idprodi int(5) not null,
+kode_prodi varchar(5) not null,
+nama varchar(200) not null,
+status varchar(100) not null)
+191011 15:36:31	    15 Query	ALTER TABLE tprodi ADD PRIMARY KEY(id_prodi,kode_prodi)
+191011 15:38:12	    15 Query	ALTER TABLE tprodi change idprodi id_prodi int(5) not null
+191011 15:38:20	    15 Query	desc tprodi
+191011 15:38:58	    15 Query	ALTER TABLE tprodi ADD PRIMARY KEY(id_prodi,kode_prodi)
+191011 15:39:08	    15 Query	desc tprodi
+191011 15:41:35	    15 Query	create table tskripsi
+(id_skripsi int(5) not null,
+id_mahasiswa int(255) not null,
+judul varchar(255) not null,
+id_pembimbing int(255) no
+191011 15:42:38	    15 Query	create table tskripsi
+(id_skripsi int(5) primary key not null,
+id_mahasiswa int(255) not null,
+judul varchar(255) not null,
+id_pembimbing int(255) no)
+191011 15:43:14	    15 Query	create table tskripsi
+(id_skripsi int(5) primary key not null,
+id_mahasiswa int(255) not null,
+judul varchar(255) not null,
+id_pembimbing int(255) not null)
+191011 15:44:41	    15 Query	desc tskripsi
+191011 15:45:43	    15 Query	ALTER TABLE tprodi
+add column
+id_penguji int(255) not null
+191011 15:45:51	    15 Query	desc tskripsi
+191011 15:46:58	    15 Query	alter table tprodi drop id_penguji
+191011 15:47:05	    15 Query	desc tprodi
+191011 15:47:57	    15 Query	alter tskripsi
+add column
+id_penguji int(255) not null
+191011 15:48:35	    15 Query	alter table tskripsi
+add column
+id_penguji int(255) not null
+191011 15:48:43	    15 Query	desc tskripsi
+191011 15:53:50	    15 Query	create table tpembimbing
+(id_pembimbing int(255) not null
+jenis_pembimbing varchar(7) not null
+191011 15:54:37	    15 Query	create table tpembimbing
+(id_pembimbing int(255) not null,
+jenis_pembimbing varchar(7) not null,
+tanggal_sidang date not null,
+191011 15:55:09	    15 Query	create table tpembimbing
+(id_pembimbing int(255) not null,
+jenis_pembimbing varchar(7) not null,
+id_dosen int(255) not null)
+191011 15:55:55	    15 Query	alter table tpembimbing add primary key(id_pembimbing)
+191011 15:56:02	    15 Query	desc tpembimbing
+191011 16:00:40	    15 Query	create table tsk_pembimbing
+(id_SK INT(4) primary key not null,
+id_skripsi int(5) not null,
+id_semester int(3) not null,
+no_sk varchar(20) not null,
+tanggal_SK date not null)
+191011 16:00:50	    15 Query	desc tsk_pembimbing
+191011 19:18:57	    15 Quit	
+191011 19:38:26	    16 Connect	root@localhost as anonymous on 
+		    16 Query	/*!40100 SET @@SQL_MODE='' */
+		    16 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		    16 Query	set optimizer_switch='semijoin=off'
+		    16 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('tugasasli'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE, TOTAL_EXTENTS, INITIAL_SIZE ORDER BY LOGFILE_GROUP_NAME
+		    16 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('tugasasli')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		    16 Query	set optimizer_switch=default
+		    16 Init DB	tugasasli
+		    16 Query	SHOW TABLES LIKE '%'
+		    16 Query	LOCK TABLES `table_mahasiswa` READ /*!32311 LOCAL */,`table_matakuliah` READ /*!32311 LOCAL */
+		    16 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'table_mahasiswa'
+		    16 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    16 Query	SET SESSION character_set_results = 'binary'
+		    16 Query	show create table `table_mahasiswa`
+		    16 Query	SET SESSION character_set_results = 'utf8mb4'
+		    16 Query	show fields from `table_mahasiswa`
+		    16 Query	SELECT /*!40001 SQL_NO_CACHE */ `id`, `nim`, `nama`, `status` FROM `table_mahasiswa`
+		    16 Query	SET SESSION character_set_results = 'binary'
+		    16 Init DB	tugasasli
+		    16 Query	select @@collation_database
+		    16 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'table_mahasiswa'
+		    16 Query	SET SESSION character_set_results = 'utf8mb4'
+		    16 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'table_matakuliah'
+		    16 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    16 Query	SET SESSION character_set_results = 'binary'
+		    16 Query	show create table `table_matakuliah`
+		    16 Query	SET SESSION character_set_results = 'utf8mb4'
+		    16 Query	show fields from `table_matakuliah`
+		    16 Query	SELECT /*!40001 SQL_NO_CACHE */ `id`, `kode`, `nama`, `sks` FROM `table_matakuliah`
+		    16 Query	SET SESSION character_set_results = 'binary'
+		    16 Init DB	tugasasli
+		    16 Query	select @@collation_database
+		    16 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'table_matakuliah'
+		    16 Query	SET SESSION character_set_results = 'utf8mb4'
+		    16 Query	UNLOCK TABLES
+		    16 Quit	
+191011 19:39:16	    17 Connect	root@localhost as anonymous on tugasasli2
+191011 20:02:08	    17 Query	mysql -u root -p tugasasli > H071181017_HeraAriska.sql
+
+
+
+x
+c
+		    17 Quit	
+191011 20:03:30	    18 Connect	root@localhost as anonymous on tugasasli
+191011 20:04:05	    18 Query	ssa
+		    18 Quit	
+191011 20:14:18	    19 Connect	root@localhost as anonymous on tugasasli
+191011 20:14:58	    19 Quit	
+191011 20:17:25	    20 Connect	root@localhost as anonymous on tugasasli
+191011 20:19:01	    20 Quit	
+191011 20:19:10	    21 Connect	root@localhost as anonymous on tugasasli
