@@ -1,0 +1,44 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191104 15:14:59	     9 Query	show databases
+191104 15:15:17	     9 Query	SELECT DATABASE()
+		     9 Init DB	classicmodels
+191104 15:15:26	     9 Query	show tables
+191104 15:16:41	     9 Query	select * from customers
+191104 15:16:47	     9 Query	show tables
+191104 15:17:01	     9 Query	select * from employees
+191104 15:17:16	     9 Query	select * from offices
+191104 15:18:03	     9 Query	select * from orderdetails
+191104 15:25:56	     9 Query	SELECT orders.customerNumber AS ID,
+customers.customerName AS CUSTOMER,
+COUNT(*) AS QTY,
+GROUP_CONCAT('[',products,productName,']' SEPARATOR ' ') AS PRODUCTS
+FROM customers JOIN orders ON customers.customerNumber = onders.customerNumber
+JOIN onderdetails ON onders.onderNumber = onderdetails.onderNumber
+JOIN products ON onderdetails.productCode = products.productCode
+GROUP BY customers.customersName
+191104 15:27:59	     9 Query	SELECT orders.customerNumber AS ID,
+customers.customerName AS CUSTOMER,
+COUNT(*) AS QTY,
+GROUP_CONCAT('[',products,productName,']' SEPARATOR ' ') AS PRODUCTS
+FROM customers JOIN orders ON customers.customerNumber = onders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode = products.productCode
+GROUP BY customers.customersName
+191104 15:31:43	     9 Query	SELECT orders.customerNumber AS ID,
+customers.customerName AS CUSTOMER,
+COUNT(*) AS QTY,
+GROUP_CONCAT('[',products,productName,']' SEPARATOR ' ') AS PRODUCTS
+FROM customers JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode = products.productCode
+GROUP BY customers.customersName
+191104 15:36:09	     9 Query	SELECT orders.customerNumber AS ID,
+customers.customerName AS CUSTOMER,
+COUNT(*) AS QTY,
+GROUP_CONCAT('[',products.productName,']' SEPARATOR ' ') AS PRODUCTS
+FROM customers JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode = products.productCode
+GROUP BY customers.customerName
