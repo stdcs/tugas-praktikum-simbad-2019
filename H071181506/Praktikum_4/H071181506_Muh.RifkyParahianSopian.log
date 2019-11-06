@@ -1,0 +1,9 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191106 11:52:26	     8 Query	SELECT orders.customerNumber AS id, customers.customerName AS customer, COUNT(products.productName) AS qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS products 
+                                FROM customers JOIN orders ON customers.customerNumber = orders.customerNumber
+                                JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+                                JOIN products ON orderdetails.productCode = products.productCode
+                                GROUP BY customers.customerName
+191106 11:53:25	     8 Query	set global general_log=0
