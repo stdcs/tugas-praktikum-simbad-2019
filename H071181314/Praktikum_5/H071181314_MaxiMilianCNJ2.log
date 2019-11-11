@@ -1,0 +1,31 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191110 23:37:29	     8 Query	SET GLOBAL general_log = 0
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191111  7:10:14	   708 Query	CREATE VIEW view_products AS
+SELECT customers.customerNumber AS id,
+customerName AS customer,
+COUNT(*) AS qty,
+GROUP_CONCAT('[',productName,']' SEPARATOR ' ') AS products
+FROM products JOIN orderdetails ON products.productCode=orderdetails.productCode
+JOIN orders ON orderdetails.orderNumber=orders.orderNumber
+JOIN customers ON orders.customerNumber=customers.customerNumber
+GROUP BY customerName
+ORDER BY qty
+191111  7:10:29	   708 Query	SELECT * FROM view_products
+191111  7:13:11	   708 Query	CREATE PROCEDURE getEmployees(id INT) SELECT * FROM employees WHERE employeeNumber=id
+191111  7:15:48	   709 Query	CALL getEmployees(1002)
+191111  7:15:59	   709 Query	CREATE PROCEDURE getProducts(code VARCHAR(15)) SELECT * FROM products WHERE productCode=code	
+191111  7:16:43	   709 Query	CALL getProducts('S10_1678')
+191111  7:17:54	   709 Query	CREATE PROCEDURE getOrders(ids INT) SELECT customers.customerNumber AS id,
+customerName AS customers,
+COUNT(*) AS qty,
+GROUP_CONCAT('[',productName,']' SEPARATOR ' ') AS products
+FROM products JOIN orderdetails ON products.productCode=orderdetails.productCode
+JOIN orders ON orderdetails.orderNumber=orders.orderNumber
+JOIN customers ON orders.customerNumber=customers.customerNumber
+WHERE customers.customerNumber=ids
+191111  7:18:07	   709 Query	CALL getOrders(103)
