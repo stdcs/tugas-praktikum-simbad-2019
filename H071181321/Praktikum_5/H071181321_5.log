@@ -1,0 +1,42 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.1.39-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time                 Id Command    Argument
+191112 23:20:44	    2 Query	SELECT DATABASE()
+		    2 Init DB	classicmodels
+
+191112 23:38:41	    2 Query	CREATE VIEW  order_view AS SELECT customers.customerName AS customer, COUNT(products.productName) AS qty, (SELECT GROUP_CONCAT(productName) FROM products LIMIT 10) AS product FROM orders JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) JOIN customers USING (customerNumber) GROUP BY customerName ORDER BY qty ASC
+191112 23:38:59	    2 Query	SELECT * FROM order_view
+191112 23:39:36	    2 Query	CREATE PROCEDURE get_employee(id_employee INT)
+BEGIN
+SELECT * FROM employees WHERE employeeNumber = id_employee
+191112 23:39:41	    2 Query	CREATE PROCEDURE get_employee(id_employee INT)
+BEGIN
+SELECT * FROM employees WHERE employeeNumber = id_employee
+191112 23:39:56	    2 Query	CREATE PROCEDURE get_employee(id_employee INT)
+BEGIN
+SELECT * FROM employees WHERE employeeNumber = id_employee END
+191112 23:40:28	    2 Query	REATE PROCEDURE get_employee(id_employee INT)
+BEGIN
+SELECT * FROM employees WHERE employeeNumber = id_employee END
+191112 23:41:06	    2 Query	REATE PROCEDURE get_employee(id_employee INT)
+BEGIN
+SELECT * FROM employees WHERE employeeNumber = id_employee
+191112 23:41:22	    2 Query	CREATE PROCEDURE get_employee(id_employee INT)
+BEGIN
+SELECT * FROM employees WHERE employeeNumber = id_employee END
+191112 23:41:32	    2 Query	CREATE PROCEDURE get_employee(id_employee INT)
+BEGIN
+SELECT * FROM employees WHERE employeeNumber = id_employee
+191112 23:42:29	    2 Query	END
+191112 23:42:57	    2 Query	CREATE PROCEDURE get_employee(id_employee INT)
+BEGIN
+SELECT * FROM employees WHERE employeeNumber = id_employee END
+191112 23:43:08	    2 Query	SELECT * FROM employees WHERE employeeNumber = id_employee END
+191112 23:43:51	    2 Query	CREATE PROCEDURE get_employee(id_employee INT) SELECT * FROM employees WHERE employeeNumber = id_employee
+191112 23:44:02	    2 Query	CALL get_employee(1056)
+191112 23:44:19	    2 Query	CALL get_employee(1066)
+191112 23:44:59	    2 Query	CREATE PROCEDURE get_products(IN id_product VARCHAR(10)) SELECT * FROM products WHERE productCode = id_product
+191112 23:45:17	    2 Query	CALL get_products("S10_1678")
+191112 23:45:51	    2 Query	CREATE PROCEDURE get_order(id_customer INT) SELECT customerNumber, customers.customerName AS customer, COUNT(products.productName) AS qty, productName AS product FROM orders JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) JOIN customers USING (customerNumber) WHERE customerNumber = id_customer GROUP BY customerName
+191112 23:46:00	    2 Query	CALL get_order(181)
+191112 23:46:30	    2 Quit	
