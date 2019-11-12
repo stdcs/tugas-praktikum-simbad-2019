@@ -1,0 +1,65 @@
+c:\newx\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/newx/mysql/mysql.sock
+Time		    Id Command	Argument
+191112 12:03:45	     8 Quit	
+191112 12:04:22	     9 Connect	root@localhost as anonymous on 
+		     9 Query	select @@version_comment limit 1
+191112 12:04:41	     9 Query	set global log_output ='file'
+191112 12:05:10	     9 Query	set global general_log_file=1
+191112 12:05:24	     9 Query	set global general_log_file =1
+191112 12:05:34	     9 Query	set global general_log =1
+191112 12:06:19	     9 Query	set global general_log_file ='H071181513_Avv.log'
+c:\newx\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/newx/mysql/mysql.sock
+Time		    Id Command	Argument
+191112 12:06:26	     9 Query	show databases
+191112 12:06:37	     9 Query	SELECT DATABASE()
+		     9 Init DB	classicmodels
+191112 12:16:26	     9 Query	CREATE VIEW view_products AS SELECT customers.customerName AS Customer, COUNT (products.productName) AS Qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Product FROM customers
+JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode = products.productCode
+GROUP BY customers.customerName
+GROUP BY COUNT(products.productName) ASC
+191112 12:18:44	     9 Query	CREATE VIEW view_products AS SELECT customers.customerName AS Customer, COUNT (products.productName) AS Qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Product FROM customers
+JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode = products.productCode
+GROUP BY customers.customerName
+GROUP BY COUNT(products.productName) ASC $$
+$
+191112 12:19:32	     9 Query	CREATE VIEW view_products AS SELECT customers.customerName AS Customer, COUNT (products.productName) AS Qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Product FROM customers
+JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode = products.productCode
+GROUP BY customers.customerName
+GROUP BY COUNT(products.productName)ASC
+191112 12:20:38	     9 Query	CREATE VIEW view_products AS SELECT customers.customerName AS Customer, COUNT (products.productName) AS Qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Product FROM customers
+JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode = products.productCode
+GROUP BY customers.customerName
+ORDER BY COUNT(products.productName) ASC
+191112 12:21:43	     9 Query	CREATE VIEW view_products AS SELECT customers.customerName AS Customer, COUNT(products.productName) AS Qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Product FROM customers
+JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode = products.productCode
+GROUP BY customers.customerName
+ORDER BY COUNT(products.productName) ASC
+191112 12:22:30	     9 Query	SELECT* FROM view_products
+191112 12:24:01	     9 Query	CREATE PROCEDURE get_Employees(id INT) SELECT * FROM employees WHERE employeeNumber = id
+191112 12:25:11	     9 Query	CREATE PROCEDURE get_employee(id INT) SELECT * FROM employees WHERE employeeNumber = id
+191112 12:26:12	     9 Query	CALL get_employee(1003)
+191112 12:26:19	     9 Query	CALL get_employee(1002)
+191112 12:27:43	     9 Query	CREATE PROCEDURE get_product(code VARCHAR(20)) SELECT * FROM products WHERE productCode = code
+191112 12:27:56	     9 Query	CALL get_product
+191112 12:28:38	     9 Query	CALL get_product('S10_1678')
+191112 12:32:27	     9 Query	CREATE PROCEDURE get_order(id INT) SELECT orders.customerNumber AS Id, customers.customerName AS Customer,COUNT(products.productName) AS Qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Products FROM customers
+JOINorders ON customers.customerNumber = orders.customerNumber
+191112 12:34:41	     9 Query	CREATE PROCEDURE get_order(id INT) SELECT orders.customerNumber AS Id, customers.customerName AS Customer,COUNT(products.productName) AS Qty, GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Products FROM customers
+JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode  = products.productCode
+WHERE orders.customerNumber=id
+191112 12:34:59	     9 Query	CALL get_order(103)
+191112 12:35:07	     9 Quit	
