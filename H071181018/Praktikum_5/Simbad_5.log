@@ -1,0 +1,129 @@
+c:\xamppp\mysql\bin\mysqld.exe, Version: 10.1.34-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xamppp/mysql/mysql.sock
+Time                 Id Command    Argument
+191112 20:59:23	    5 Query	SET GLOBAL general_log = 1
+191112 20:59:34	    5 Query	SELECT DATABASE()
+		    5 Init DB	classicmodels
+191112 20:59:45	    5 Query	select * from view_product
+191112 21:01:09	    5 Query	CREATE PROCEDURE getEmployees(id INT) SELECT * FROM employees WHERE employeeNumber=id
+191112 21:01:34	    5 Query	CALL getEmployees(1002)
+191112 21:02:15	    5 Query	CALL getEmployees()
+191112 21:03:39	    5 Query	CREATE PROCEDURE getProducts(code VARCHAR(15)) SELECT * FROM products WHERE productCode=code
+191112 21:04:25	    5 Query	CALL getProducts('S10_1678')
+191112 21:07:14	    5 Query	CREATE PROCEDURE getOrders(ids INT) SELECT customers.customerNumber AS id,customerName AS customers,COUNT(*) AS qty,GROUP_CONCAT('[',productName,']' SEPARATOR ' ') AS products FROM products JOIN orderdetails ON products.productCode=orderdetails.productCode JOIN orders ON orderdetails.orderNumber=orders.orderNumber JOIN customers ON orders.customerNumber=customers.customerNumber WHERE customers.customerNumber=ids
+191112 21:07:35	    5 Query	CALL getOrders(103)
+191112 21:08:52	    5 Quit	
+191112 21:11:30	    6 Connect	root@localhost as anonymous on 
+		    6 Query	/*!40100 SET @@SQL_MODE='' */
+		    6 Query	/*!40103 SET TIME_ZONE='+00:00' */
+		    6 Query	set optimizer_switch='semijoin=off'
+		    6 Query	SELECT LOGFILE_GROUP_NAME, FILE_NAME, TOTAL_EXTENTS, INITIAL_SIZE, ENGINE, EXTRA FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'UNDO LOG' AND FILE_NAME IS NOT NULL AND LOGFILE_GROUP_NAME IN (SELECT DISTINCT LOGFILE_GROUP_NAME FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('classicmodels'))) GROUP BY LOGFILE_GROUP_NAME, FILE_NAME, ENGINE ORDER BY LOGFILE_GROUP_NAME
+191112 21:11:31	    6 Query	SELECT DISTINCT TABLESPACE_NAME, FILE_NAME, LOGFILE_GROUP_NAME, EXTENT_SIZE, INITIAL_SIZE, ENGINE FROM INFORMATION_SCHEMA.FILES WHERE FILE_TYPE = 'DATAFILE' AND TABLESPACE_NAME IN (SELECT DISTINCT TABLESPACE_NAME FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_SCHEMA IN ('classicmodels')) ORDER BY TABLESPACE_NAME, LOGFILE_GROUP_NAME
+		    6 Query	set optimizer_switch=default
+		    6 Init DB	classicmodels
+		    6 Query	show tables
+		    6 Query	LOCK TABLES `customers` READ /*!32311 LOCAL */,`employees` READ /*!32311 LOCAL */,`offices` READ /*!32311 LOCAL */,`orderdetails` READ /*!32311 LOCAL */,`orders` READ /*!32311 LOCAL */,`payments` READ /*!32311 LOCAL */,`productlines` READ /*!32311 LOCAL */,`products` READ /*!32311 LOCAL */,`view_product` READ /*!32311 LOCAL */
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'customers'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `customers`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	show fields from `customers`
+		    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `customers`
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Init DB	classicmodels
+		    6 Query	select @@collation_database
+		    6 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'customers'
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'employees'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `employees`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	show fields from `employees`
+		    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `employees`
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Init DB	classicmodels
+		    6 Query	select @@collation_database
+		    6 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'employees'
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'offices'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `offices`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	show fields from `offices`
+		    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `offices`
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Init DB	classicmodels
+		    6 Query	select @@collation_database
+		    6 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'offices'
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'orderdetails'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `orderdetails`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	show fields from `orderdetails`
+		    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `orderdetails`
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Init DB	classicmodels
+		    6 Query	select @@collation_database
+		    6 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'orderdetails'
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'orders'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `orders`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	show fields from `orders`
+		    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `orders`
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Init DB	classicmodels
+		    6 Query	select @@collation_database
+		    6 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'orders'
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'payments'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `payments`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	show fields from `payments`
+		    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `payments`
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Init DB	classicmodels
+		    6 Query	select @@collation_database
+		    6 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'payments'
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'productlines'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `productlines`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	show fields from `productlines`
+		    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `productlines`
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Init DB	classicmodels
+		    6 Query	select @@collation_database
+		    6 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'productlines'
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'products'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `products`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	show fields from `products`
+		    6 Query	SELECT /*!40001 SQL_NO_CACHE */ * FROM `products`
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Init DB	classicmodels
+		    6 Query	select @@collation_database
+		    6 Query	SELECT TRIGGER_NAME FROM INFORMATION_SCHEMA.TRIGGERS WHERE EVENT_OBJECT_SCHEMA = DATABASE() AND EVENT_OBJECT_TABLE = 'products'
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SELECT engine FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = DATABASE() AND table_name = 'view_product'
+		    6 Query	SET SQL_QUOTE_SHOW_CREATE=1
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	show create table `view_product`
+		    6 Query	SET SESSION character_set_results = 'utf8'
+		    6 Query	SET SESSION character_set_results = 'binary'
+		    6 Query	SHOW FIELDS FROM `view_product`
+		    6 Quit	
