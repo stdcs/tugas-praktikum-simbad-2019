@@ -1,0 +1,12 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191113 19:03:25	   542 Query	SET GLOBAL general_log = 1
+191113 19:03:31	   542 Query	SELECT DATABASE()
+		   542 Init DB	classicmodels
+
+191113 19:06:06	   542 Query	CREATE VIEW vorder AS SELECT customers.customerName AS 'CUSTOMER', COUNT(products.productName) AS 'QTY', GROUP_CONCAT('[', products.productName, ']' SEPARATOR ' ') AS 'PRODUCTS' FROM customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) GROUP BY customers.customerName ORDER BY QTY ASC
+191113 19:08:07	   542 Query	SELECT * FROM vorder
+
+191113 19:24:20	   542 Query	CREATE PROCEDURE get_employee(id INT) SELECT * FROM employees WHERE productCode = id
+191113 19:30:45	   542 Query	CREATE PROCEDURE get_employees() SELECT * FROM employees
