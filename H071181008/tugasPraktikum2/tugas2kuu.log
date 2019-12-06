@@ -1,0 +1,21 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191024 15:08:16	    12 Query	show tables
+191024 15:08:30	    12 Query	desc table_list_country
+191024 15:10:21	    12 Query	select name from table_list_country
+191024 15:11:09	    12 Query	show tables
+191024 15:14:38	    12 Query	select name,gdp from table_list_country order by gdp desc limit 10
+191024 15:16:18	    12 Query	select name,area from table_list_country order by area desc limit 10
+191024 15:16:46	    12 Query	select population,area from table_list_country order by population desc limit 10
+191024 15:17:01	    12 Query	select name,population from table_list_country order by population desc limit 10
+191024 15:17:52	    12 Query	select name,pop_density from table_list_country order by pop_density limit 10
+191024 15:20:01	    12 Query	select name,capital,iso_code,continent,area from table_list_country where name like '%a%,%i%,%u%,%e%,%o%'
+191024 15:22:10	    12 Query	select name,area,population where area > 3000000 or population > 250000000
+191024 15:22:29	    12 Query	select name,area,population from table_list_country where area > 3000000 or population > 250000000
+191024 15:23:48	    12 Query	select name,population,pop_density,continent from table_list_country where continent = asia
+191024 15:23:52	    12 Query	select name,population,pop_density,continent from table_list_country where continent = 'asia'
+
+select name,population,pop_density,continent,region from table_list_country where continent = 'asia' and region = 'south east'
+191024 21:59:11	     8 Query	select name,population,pop_density from table_list_country where name like '%I'
+191024 21:59:18	     8 Query	select name,population,pop_density from table_list_country where name like 'I%'
