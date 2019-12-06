@@ -1,0 +1,42 @@
+C:\xampp\mysql\bin\mysqld, Version: 10.1.39-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time                 Id Command    Argument
+191104 20:53:06	    4 Query	select * from customers
+191104 20:53:56	    4 Query	select * from customers
+191104 20:56:17	    4 Query	select * from products
+191104 21:15:20	    4 Query	select * from productline
+191104 21:15:22	    4 Query	select * from productlines
+191104 21:15:38	    4 Query	show tables
+191104 21:15:59	    4 Query	select * from employees
+191104 21:16:15	    4 Query	select * from orders
+191104 21:16:26	    4 Query	select * from orderdetails
+191104 21:18:36	    4 Query	show tables
+191104 21:19:28	    4 Query	select * from customers limit = 10
+191104 21:19:30	    4 Query	select * from customers limit  10
+191104 21:20:18	    4 Query	select * from orders limit  10
+191104 21:20:35	    4 Query	select * from products limit  10
+191105  1:34:50	    4 Query	select customers.customerName, products.productName from customers JOIN customers orders IN customers.customerNumber = orders.customerNumber JOIN orders orderdetails IN orders.orderNumber = orderdetails.orderNumber JOIN orderdetails products IN orderdetails.productCode = products.productCode
+191105  1:36:49	    4 Query	select customers.customerName, products.productName from customers JOIN customers orders ON customers.customerNumber = orders.customerNumber JOIN orders orderdetails ON orders.orderNumber = orderdetails.orderNumber JOIN orderdetails products ON orderdetails.productCode = products.productCode
+191105  1:38:03	    4 Query	select customers.customerName, products.productName from customers JOIN customers orders ON customers.customerNumber = orders.customerNumber JOIN orders orderdetails ON orders.orderNumber = orderdetails.orderNumber JOIN orderdetails products ON orderdetails.productCode = products.productCode
+191105  1:40:49	    4 Query	select customers.customerName, products.productName from customers JOIN customers orders ON customers.customerNumber = orders.customerNumber JOIN orders orderdetails ON orders.orderNumber = orderdetails.orderNumber JOIN orderdetails products ON orderdetails.productCode = products.productCode
+191105  1:46:21	    4 Query	select customers.customerName, products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode)
+191105  1:46:36	    4 Query	select customers.customerName, products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode)
+191105  1:49:43	    4 Query	select customers.customerName,COUNT(products.productName) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode)
+191105  1:50:57	    4 Query	select customers.customerName,COUNT(customers.customerName) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode)
+191105  1:54:03	    4 Query	select customers.customerName,COUNT(IF(products.productName)) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode)
+191105  1:58:34	    4 Query	select customers.customerName,COUNT(products.productName) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode)
+191105  1:59:24	    4 Query	select customers.customerName,COUNT(*) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode)
+191105  2:03:21	    4 Query	select customers.customerName,COUNT(DISTINCT products.productName) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode)
+191105  2:04:29	    4 Query	select customers.customerName,COUNT(products.productName) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) GROUP BY customers.customerName
+191105  2:05:44	    4 Query	select * from customers limit  10
+191105  2:07:01	    4 Query	select CONCAT_WS('customers.contactFirstName','customers.contactLastName'),COUNT(products.productName) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) GROUP BY customers.customerName
+191105  2:07:37	    4 Query	select CONCAT('customers.contactFirstName','customers.contactLastName'),COUNT(products.productName) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) GROUP BY customers.customerName
+191105  2:09:25	    4 Query	select CONCAT(customers.contactFirstName,' ',customers.contactLastName),COUNT(products.productName) AS 'Jumlah Product', products.productName from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) GROUP BY customers.customerName
+191105  2:10:32	    4 Query	select CONCAT(customers.contactFirstName,' ',customers.contactLastName) AS 'Nama Pembeli',COUNT(products.productName) AS 'Jumlah Product',GROUP_CONCAT('[', products.productName,']' SEPARATOR ' ') AS 'Nama Product' from customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) GROUP BY customers.customerName
+191105  2:12:29	    4 Quit	
+191105  2:13:05	    5 Connect	root@localhost as anonymous on 
+		    5 Query	select @@version_comment limit 1
+191105  2:13:14	    5 Query	SELECT DATABASE()
+		    5 Init DB	classicmodels
+191105  2:14:26	    5 Query	SELECT * FROM customers
+191105  2:15:41	    5 Query	SELECT * FROM customers where customerName like '%ibe%'
