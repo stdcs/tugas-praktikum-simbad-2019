@@ -1,0 +1,24 @@
+d:\php\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: D:/PHP/mysql/mysql.sock
+Time		    Id Command	Argument
+191105  8:12:34	    16 Query	show databases
+191105  8:12:46	    16 Query	SELECT DATABASE()
+		    16 Init DB	classicmodels
+191105  8:12:50	    16 Query	show tables
+191105  8:19:17	    16 Query	SELECT orders.customerNumber AS ID,
+customers.customerName AS CUSTOMER,
+COUNT(*) AS QTY,
+GROUP_CONCAT('[',products.productName,']'SEPARATOR '') AS PRODUCTS
+FROM customers JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode =products.productCode 
+GROUP BY customers.customersName
+191105  8:20:36	    16 Query	SELECT orders.customerNumber AS ID,
+customers.customerName AS CUSTOMER,
+COUNT(*) AS QTY,
+GROUP_CONCAT('[',products.productName,']'SEPARATOR '') AS PRODUCTS
+FROM customers JOIN orders ON customers.customerNumber = orders.customerNumber
+JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber
+JOIN products ON orderdetails.productCode =products.productCode 
+GROUP BY customers.customerName
+191105  8:25:33	    16 Quit	

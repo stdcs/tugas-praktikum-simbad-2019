@@ -1,0 +1,86 @@
+`d:\php\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: D:/PHP/mysql/mysql.sock
+Time		    Id Command	Argument
+191011 10:46:33	    10 Quit	
+191011 10:46:49	    11 Connect	root@localhost as anonymous on 
+		    11 Query	select @@version_comment limit 1
+191011 10:48:04	    11 Query	SET global log_output ='FILE'
+191011 10:49:06	    11 Query	SET global general_log_file =1
+191011 10:49:40	    11 Query	SET global general_log =1
+191011 10:50:02	    11 Query	SET global general_log_file ='H071181017_HeraAriska.log'
+d:\php\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: D:/PHP/mysql/mysql.sock
+Time		    Id Command	Argument
+191011 10:50:14	    11 Query	SHOW DATABASES
+191011 10:51:55	    11 Query	CREATE TABLE tugasAsli
+191011 10:52:31	    11 Query	CREATE DATABASE tugasAsli
+191011 10:52:50	    11 Query	SELECT DATABASE()
+		    11 Init DB	tugasasli
+191011 11:00:43	    11 Query	CREATE TABLE tb_mahasiswa 
+(id INT AUTO_INCREMENT PRIMARY KEY
+,nim_mhs VARCHAR(10) NOT NULL UNIQUE,
+nama_mhs VARCHAR(50) NOT NULL)
+191011 11:03:58	    11 Query	ALTER TABLE tb_mahasiswa ADD COLUMN 
+(status_mhs ENUM("Aktif" , "Lulus") NOT NULL)
+191011 11:04:27	    11 Query	SHOW TABLES
+191011 11:06:40	    11 Query	CREATE TABLE tb_matakuliah
+(id_mk INT(15) AUTO_INCREMENT PRIMARY KEY NOT NULL
+191011 11:08:05	    11 Query	CREATE TABLE tb_matakuliah
+(id_mhs INT AUTO_INCREMENT PRIMARY KEY)
+191011 11:14:15	    11 Query	ALTER TABLE tb_matakuliah
+ADD COLUMN
+kode_mk VARCHAR(11) NOT NULL UNIQUE
+191011 11:17:16	    11 Query	ALTER TABLE tb_matakuliah
+ADD COLUMN
+nama_mk VARCHAR(11) NOT NULL UNIQUE ,
+sks_mk ENUM("2","3","4") NOT NULL
+191011 11:17:34	    11 Query	ALTER TABLE tb_matakuliah
+ADD COLUMN
+nama_mk VARCHAR(11) NOT NULL UNIQUE
+191011 11:17:53	    11 Query	ALTER TABLE tb_matakuliah
+ADD COLUMN
+sks_mk ENUM("2","3","4") NOT NULL
+191011 11:21:27	    11 Query	RENAME TABLE table_mahasiswa TO tb_mahasiswa
+191011 11:21:38	    11 Query	RENAME TABLE tb_mahasiswa TO table_mahasiswa
+191011 11:22:02	    11 Query	RENAME TABLE tb_matakuliah TO table_matakuliah
+191011 11:25:12	    11 Query	DESCRIBE table_matakuliah
+191011 11:26:51	    11 Query	ALTER TABLE table_matakuliah CHANGE COLUMN id_mhs id INT(11)
+191011 11:27:10	    11 Query	DESRIBE table_matakuliah
+191011 11:27:37	    11 Query	DESRIBE table_matakuliah
+191011 11:27:47	    11 Query	DESCRIBE table_matakuliah
+191011 11:29:01	    11 Query	ALTER TABLE table_matakuliah CHANGE COLUMN kode_mhs kode VARCHAR (11)
+191011 11:30:27	    11 Query	ALTER TABLE table_matakuliah CHANGE COLUMN kode_mk kode varchar(11)
+191011 11:32:18	    11 Query	ALTER TABLE table_matakuliah CHANGE COLUMN 
+nama_mk nama VARCHAR(20) ,
+sks_mk sks ENUM("2","3","4")
+191011 11:33:29	    11 Query	ALTER TABLE table_matakuliah CHANGE COLUMN nama_mk nama kode varchar(20)
+191011 11:34:02	    11 Query	ALTER TABLE table_matakuliah CHANGE COLUMN nama_mk nama varchar(11)
+191011 11:35:35	    11 Query	ALTER TABLE table_matakuliah CHANGE COLUMN sks_mk sks ENUM("2","3","4")
+191011 11:38:49	    11 Query	SHOW TABLE table_mahasiswa
+191011 11:38:56	    11 Query	SHOW TABLE tb_mahasiswa
+191011 11:40:19	    11 Query	SHOW TABLE
+191011 11:40:26	    11 Query	SHOW TABLES
+191011 11:41:41	    11 Query	SELECT * TABLE table_mahasiswa
+191011 11:44:24	    11 Query	SELECT * FROM table_mahasiswa
+191011 11:44:38	    11 Query	desc table_mahasiswa
+191011 11:46:17	    11 Query	desc table_matakuliah
+191011 11:47:57	    11 Query	ALTER TABLE table_mahasiswa CHANGE COLUMN nim_mhs nim INT(10)
+191011 11:49:00	    11 Query	ALTER TABLE table_mahasiswa CHANGE COLUMN nama_mhs nama VARCHAR(50)
+191011 11:51:02	    11 Query	ALTER TABLE table_mahasiswa CHANGE COLUMN status_mhs status ENUM("Aktif","Lulus")
+191011 11:51:43	    11 Query	desc table_mahasiswa
+mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: D:/PHP/mysql/mysql.sock
+Time		    Id Command	Argument
+191015 23:42:56	     8 Query	create database world
+191015 23:43:04	     8 Query	show databases
+191015 23:43:31	     8 Query	SELECT DATABASE()
+		     8 Init DB	world
+191015 23:43:40	     8 Query	show tables
+191015 23:44:18	     8 Quit	
+191015 23:44:42	     9 Connect	root@localhost as anonymous on 
+		     9 Query	select @@version_comment limit 1
+191015 23:45:44	    10 Connect	root@localhost as anonymous on 
+		    10 Query	select @@version_comment limit 1
+191015 23:46:16	    10 Query	set global log_output ='file'
+191015 23:46:41	    10 Query	set global general_log =1
+191015 23:47:37	    10 Query	set global general_log_file ='H071181017_Hera.log'

@@ -1,0 +1,30 @@
+mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: D:/PHP/mysql/mysql.sock
+Time		    Id Command	Argument
+191018 23:59:13	    22 Query	show databases
+191018 23:59:21	    22 Query	SELECT DATABASE()
+		    22 Init DB	world
+191018 23:59:30	    22 Query	show talbles
+191018 23:59:36	    22 Query	show tables
+191018 23:59:55	    22 Query	select * from table_list_country
+191019  0:03:47	    22 Query	select table_list_country gdp asc limit 10
+191019  0:04:05	    22 Query	select * from table_list_country gdp asc limit 10
+191019  0:04:55	    22 Query	select * from table_list_country order by gdp asc limit 10
+191019  0:09:57	    22 Query	select * from table_list_country order by gdp desc limit 10
+191019  0:11:54	    22 Query	select * from table_list_country order by area  desc limit 10
+191019  0:12:12	    22 Query	select * from table_list_country order by population  desc limit 10
+191019  0:14:34	    22 Query	select * from table_list_country order by pop_density  asc limit 10
+191019  0:22:49	    22 Query	select name,capital,iso_code,continent,region from table_list_country where name like "%a%" and name like "%i%" and name like "%u%" and name like "%e%'and name like "%0%";
+"
+191019  0:23:54	    22 Query	select name,capital,iso_code,continent,region from table_list_country where name like"%a%" and name like"%i%" and name like"%u%" and name like "%e%" and name like "%0%"
+191019  0:24:12	    22 Query	select name,capital,iso_code,continent,region from table_list_country where name like"%a%" and name like"%i%" and name like"%u%" and name like "%e%" and name like "%o%"
+191019  0:26:13	    22 Query	select name,area,population from table_list_country where area > 3000000 or population > 250000000
+191019  0:27:48	    22 Query	select name,population,pop_density from table_list_country where continent ='asia'
+191019  0:29:21	    22 Query	select name,population,pop_density from table_list_country where region ='southeast asia'
+191019  0:43:27	    22 Query	select name,population,pop_density from table_list_country where region ='south east'
+191019  0:44:40	    22 Query	select name,population,pop_density from continent where region ='south east'
+191019  0:47:14	    22 Query	select name,population,pop_density from table_list_country where continent = region = 'south east'
+191019  0:49:52	    22 Query	select name,population,pop_density from table_list_country where region = 'south east' in continent ='asia'
+191019  0:50:06	    22 Query	select name,population,pop_density from table_list_country where region = 'south east'
+191019  0:53:22	    22 Query	select name,population,pop_density from table_list_country where continent = 'asia' and region = 'south east'
+191019  0:54:05	    22 Query	select name,population,pop_density from table_list_country where name like "i%"
