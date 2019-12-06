@@ -1,0 +1,41 @@
+c:\xampp\mysql\bin\mysqld.exe, Version: 10.4.6-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: C:/xampp/mysql/mysql.sock
+Time		    Id Command	Argument
+191111 21:45:49	    13 Query	show databases
+191111 21:46:09	    13 Query	SELECT DATABASE()
+		    13 Init DB	classicmodels
+191111 21:46:23	    13 Query	show tables
+191111 21:47:09	    13 Query	CREATE VIEW view_products AS
+SELECT customers.customerNumber AS id,
+customerName AS customer,
+COUNT(*) AS qty,
+GROUP_CONCAT('[',productName,']' SEPARATOR ' ') AS products
+FROM products JOIN orderdetails ON products.productCode=orderdetails.productCode
+JOIN orders ON orderdetails.orderNumber=orders.orderNumber
+JOIN customers ON orders.customerNumber=customers.customerNumber
+GROUP BY customerName
+ORDER BY qty
+191111 21:47:24	    13 Query	SELECT * FROM view_products
+191111 21:47:44	    13 Query	CREATE PROCEDURE getEmployees(id INT) SELECT * FROM employees WHERE employeeNumber=id
+191111 21:47:59	    13 Query	CALL getEmployees(1002)
+191111 21:48:14	    13 Query	CREATE PROCEDURE getProducts(code VARCHAR(15)) SELECT * FROM products WHERE productCode=code
+191111 21:48:29	    13 Query	CALL getProducts('S10_1678')
+191111 21:48:57	    13 Query	CREATE PROCEDURE getOrders(ids INT) SELECT customers.customerNumber AS id,
+customerName AS customers,
+COUNT(*) AS qty,
+GROUP_CONCAT('[',productName,']' SEPARATOR ' ') AS products
+FROM products JOIN orderdetails ON products.productCode=orderdetails.productCode
+JOIN orders ON orderdetails.orderNumber=orders.orderNumber
+JOIN customers ON orders.customerNumber=customers.customerNumber
+WHERE customers.customerNumber=ids
+191111 21:49:25	    13 Query	drop PROCEDURE getOrders
+191111 21:49:48	    13 Query	CREATE PROCEDURE getOrders(ids INT) SELECT customers.customerNumber AS id,
+customerName AS customers,
+COUNT(*) AS qty,
+GROUP_CONCAT('[',productName,']' SEPARATOR ' ') AS products
+FROM products JOIN orderdetails ON products.productCode=orderdetails.productCode
+JOIN orders ON orderdetails.orderNumber=orders.orderNumber
+JOIN customers ON orders.customerNumber=customers.customerNumber
+WHERE customers.customerNumber=ids
+191111 21:50:01	    13 Query	CALL getOrders(103)
+191111 21:50:10	    13 Quit	
