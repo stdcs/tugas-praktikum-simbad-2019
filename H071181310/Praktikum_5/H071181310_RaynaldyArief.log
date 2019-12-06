@@ -1,0 +1,22 @@
+C:\laragon\bin\mysql\mariadb-10.4.8-winx64\bin\mysqld, Version: 10.4.8-MariaDB-log (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: /tmp/mysql.sock
+Time		    Id Command	Argument
+191109 13:54:46	     9 Query	CREATE VIEW view_barang AS SELECT customers.customerName AS Customer,COUNT(products.productName) AS Qty,GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Products 
+				FROM customers 
+				JOIN orders ON customers.customerNumber = orders.customerNumber 
+				JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber 
+				JOIN products ON orderdetails.productCode = products.productCode 
+				GROUP BY customers.customerName 
+				ORDER BY COUNT(products.productName) ASC
+191106 14:03:27	    11 Query	SELECT * FROM view_barang LIMIT 1
+191106 14:25:56	    27 Query	CREATE PROCEDURE _employee(id INT) SELECT * FROM employees WHERE employeeNumber = id
+191106 14:26:38	    27 Query	CALL _employee(1002)
+191109 21:20:36	   254 Query	CREATE PROCEDURE _product(code VARCHAR(20)) SELECT * FROM products WHERE productCode = code
+191109 21:21:50	   254 Query	CALL _product('S10_1678')
+191109 21:29:04	   254 Query	CREATE PROCEDURE get_cust_product(id INT) SELECT orders.customerNumber AS Id,customers.customerName AS Customer,COUNT(products.productName) AS Qty,GROUP_CONCAT('[',products.productName,']' SEPARATOR " ") AS Products 
+				FROM customers 
+				JOIN orders ON customers.customerNumber = orders.customerNumber 
+				JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber 
+				JOIN products ON orderdetails.productCode = products.productCode 
+				WHERE orders.customerNumber = id
+191109 21:30:57	   254 Query	CALL get_cust_product(219)
