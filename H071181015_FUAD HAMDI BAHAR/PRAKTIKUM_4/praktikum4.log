@@ -1,0 +1,7 @@
+C:\Dev\MariaDB\bin\mysqld.exe, Version: 10.4.8-MariaDB (mariadb.org binary distribution). started with:
+TCP Port: 3306, Named Pipe: MySQL
+Time		    Id Command	Argument
+191105 10:53:49	   735 Query	SELECT DATABASE()
+		   735 Init DB	classicmodels
+191105 10:56:22	   735 Query	SELECT CONCAT(customers.contactFirstName, " ", customers.contactLastName) AS "NAMA PEMBELI", COUNT(products.productName) AS "Product Jumlah", GROUP_CONCAT('', products.productName, '' SEPARATOR ', ') AS "Produk yang dibeli" FROM customers JOIN orders USING(customerNumber) JOIN orderdetails USING(orderNumber) JOIN products USING(productCode) GROUP BY customers.customerNumber
+191105 10:56:45	   735 Quit	
